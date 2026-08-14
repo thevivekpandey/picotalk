@@ -1,0 +1,287 @@
+# Dataset: arxiv
+# Split: train
+# Source file: arxiv_train.bin
+# Start token index: 479,341,423
+# End token index: 479,351,423
+# Number of tokens: 10,000
+# Number of characters: 32,470
+============================================================
+
+obtain a lower estimate of the number of block designs as a
+corollary of  Propositions \ref{progs3}(2), \ref{progs4}, Theorem
+\ref{thgs3}(2) and  the asymptotic estimate from Theorem
+\ref{thgs2}.
+
+\begin{theorem}\label{thgs4}
+The logarithm of the  cardinality of $S(3,\{4,6\},2n)$  is greater
+than $c(n^3\ln n)$, where $c>0$ is a constant.
+\end{theorem}
+Proof.    If $n$ is  even  then  the statement follows from
+Propositions \ref{progs3}(2) and Theorem \ref{thgs2}.
+
+If $n$  is  odd  then we will consider some cases.
+ Let $2n=16k+6$. Since $16k+6=2(8k+4)-2$  the
+statement follows from Proposition \ref{progs4} and the case of even
+$n$. The cases $2n=16k+10=2(2(4k+4)-2)-2$ and $2n=16k+14=2(8k+8)-2$
+are simular. If $2n=16k+2$ then we  use Theorems  \ref{thgs2}  and
+\ref{thgs3}(2). \proofend
+
+We need some constructions of SQS.
+
+\begin{proposition}\label{progs5}(\cite{Hartman} Th. 4.2)
+ There is an injection from $S(3,\{4,6\},n)$ to  $S(3,4,3n-2)$.
+
+\end{proposition}
+
+\begin{proposition}\label{progs6}
+
+1. There is an injection from $S(3,4,n)$ to  $S(3,4,6n-10)$.
+(\cite{Hartman} Th. 4.11)
+
+2. If $n\equiv 10\mod{ 12}$ then there exists an injection from
+$S(3,4,n)$ to $S(3,4,3n-4)$. (\cite{Hanani} 3.4)
+\end{proposition}
+
+The  asymptotic estimate of the number of SQSs is a corollary of
+constructions of SQS provided by Propositions \ref{progs3}(1),
+\ref{progs5}, \ref{progs6}, Theorem \ref{thgs3}(1) and the
+asymptotic estimates from Theorems \ref{thgs2}, \ref{thgs4}.
+
+\begin{theorem}\label{thgs5}
+The logarithm of the  cardinality of $S(3,4,n)$  is $\Theta(n^3\ln
+n)$ as $n\rightarrow\infty$ and $n\equiv 2\mod{6}$ or $n\equiv
+4\mod{6}$.
+\end{theorem}
+
+Proof. The upper bound is oblivious (see \cite{Lenz}). To prove
+lower bound we will consider apart some subsequences of integers.
+
+(a) Consider a subsequence $n=4k$. For this subsequence the required
+asymptotic estimate is a corollary of Theorem \ref{thgs2} and
+Proposition \ref{progs3}(1).
+
+(b) Consider the subsequence $n\equiv4(\mod{ 6})$. Then
+$n=3(2t+2)-2$ and the required asymptotic estimate is a corollary of
+Theorem \ref{thgs4} and Proposition \ref{progs5}.
+
+It retains to  consider three subsequences $n \mod{ 36} = 2, 14\
+{\rm or}\ 26$.
+
+(c) If $n=3(12t+10)-4$ then for establishing the required asymptotic
+estimate we  use Proposition \ref{progs6}(1) and the proved case
+(b).
+
+(d) If $n=6(6t+4)-10$ then  we  use Proposition \ref{progs6}(2) and
+the proved case (b).
+
+(e) Consider the case $n\mod{36} = 2$. If $n=6^4t+2= 8(3^42t)+2$
+then the required  asymptotic estimate is a corollary of Theorems
+\ref{thgs2} and \ref{thgs3}(1). The other cases are reduced to the
+subsequence $n=6^4t+2$ by applying Proposition \ref{progs6}(2).
+\proofend
+
+</s> \section{Introduction}
+	
+Borders and boundaries can have much more drastic effects than just separating different regions in space: their presence can give rise to fundamentally new types of excitations. In condensed matter physics, this phenomenon has been firmly established since the discovery of the quantum Hall effect in two-dimensional electron gases.~\cite{Klitzing1980} The boundary separating systems with different topological properties (quantified by differing bulk topological invariants~\cite{Thouless1982}) harbors special ``protected" edge states, whose presence is guaranteed by properties of the bulk. This celebrated {\it bulk-boundary correspondence} underlies the robustness of such edge states to local perturbations.
+
+In addition to quantum Hall systems, a variety of other symmetry protected topological phases (SPTs) can arise in weakly-interacting electronic systems. The resulting new materials, such as topological insulators (TIs)~\cite{Hasan2010,Qi2011} and Dirac and Weyl semimetals,~\cite{wan11,Vafek2014} have drawn considerable attention from the condensed matter community. This excitement has been driven by both the identification and the synthesis of such materials,\cite{BernevigHughesZhang,Teo08,DaiBernevig15} and the direct experimental observation of their protected surface states.~\cite{Hsieh08,Xu15,Lv} For example, the helical edge states of 2D topological insulators lead to a quantized spin Hall transport\cite{koenig07}, while Weyl semimetals harbor exotic Fermi arc surface states which can be probed by high-resolution angle-resolved photoemission spectroscopy (ARPES).~\cite{Xu15,Lv}
+
+Considerable progress has also been made in understanding the possibilities for protected boundary modes in strongly-interacting systems where a band-theory type description of electron-like quasiparticles is not appropriate. Of particular interest in this regard are strongly-interacting systems whose bulk exhibits topological order (TO),~\cite{Wen1990} leading to a particularly rich set of possible boundary states.\cite{Levin2012,Swingle11,Levin11,Maciejko12,LuVishwanath,MesarosRan,LongQPaper}
+Relative to their weakly interacting counterparts, however, these phases pose significant experimental challenges: besides the difficulty in identifying materials that might host such phases, the low-energy quasiparticles in TO systems are generically {\it fractionalized}, meaning that they contain only fractional parts of the quantum numbers of the constituent electrons. Consequently, these quasiparticles do not couple directly to standard experimental probes, making a definitive identification of the surface states challenging. 
+
+Quantum spin liquids (QSLs)~\cite{Anderson1973} are TO phases that have drawn particular interest in recent years as evidence that several highly frustrated magnetic materials may harbor these topological phases has accumulated.~\cite{Lacroix2011,Balents,savary16}
+In these phases fractionalization is exhibited by spin-charge separation, with the charge degree of freedom being pinned, while emergent dispersing quasiparticles known as {\it spinons} carry the electron's spin. These spinons can in principle participate in protected surface or edge states, similar to those realized in topological superconductors.~\cite{Pesin} However, the chargeless spinons would not show up in charge transport experiments or ARPES. This raises an interesting question of how best to detect the resulting TO, and in particular of how to probe any protected boundary modes that such a system may exhibit.
+
+In this paper we investigate resonant inelastic light scattering as a tool to probe bulk fractionalized excitations\cite{Knolle14-2,Perreault15, Perreault16,Halasz16} and, in particular, surface states, characteristic of the topological orders realized in quantum spin liquids. Because the literature on inelastic scattering of near-visible light has been primarily focused on Raman scattering, we use `Raman' to refer to the intensity and operators in general, but the experimental reader should keep in mind that Brillouin scattering is expected to be better suited to the energy scales of the proposed low-energy signatures.\cite{Perreault16} 
+
+We focus on the QSLs realized by a particular class of spin-exchange Hamiltonians inspired by the Kitaev honeycomb model,\cite{Kitaev} which we refer to as Kitaev QSLs. The Kitaev QSL models can be formulated on any 2D or 3D tri-coordinated lattice,~\cite{Mandal,Obrien} and have the advantage that they are exactly solvable, with excitations naturally described by an exact fractionalization of the spin degrees of freedom (d.o.f.) into dispersing Majorana fermions and static Z$_2$ gauge fluxes. By studying a range of different trivalent lattices, the Kitaev QSL models enable us to consider a rich variety of QSL phases with distinct topological boundary modes. For example, the 2D decorated honeycomb lattice realizes a QSL with non-Abelian excitations and chiral edge modes\cite{YaoKivelson}, while trivalent 3D lattices can for example exhibit Majorana band structures mimicking Weyl semi-metals with protected surface Fermi arcs.~\cite{Hermanns}
+
+Kitaev QSLs have the further advantage that certain class of materials, which we refer to here as Jackeli-Khaliullin Kitaev (JKK) systems, are believed to be proximate to the Kitaev QSL phases. In these materials, first described in the seminal work of Jackeli and Khaliullin,\cite{Jackeli} edge-sharing oxygen octahedra enclosing transition-metal ions with partially filled t$_{2g}$ levels and strong spin-orbit coupling exhibit dominant Kitaev interactions between $j_{eff} = 1/2$ magnetic moments. Besides the layered iridates\cite{Chaloupka10} of the A$_2$IrO$_3$ (A=Na,Li) family, this general scenario also applies to $\alpha$-RuCl$_3$ \cite{Plumb14,Kim15-1} and the three-dimensional harmonic-honeycomb iridates\cite{Modic,Kimchi14,Takayama} $\beta$-Li$_2$IrO$_3$ and $\gamma$-Li$_2$IrO$_3$. Though current JKK materials at ambient pressure show residual long-ranged magnetism at low temperatures, growing evidence suggests that Kitaev interactions are dominant,~\cite{Chun2015,Banerjee16} and Kitaev QSL phases may be achievable in closely related materials systems.
+
+In Kitaev QSL systems, Raman response is a particularly useful probe since, in contrast to the dynamical spin structure factor,\cite{Knolle14-1} it does not couple to the flux d.o.f. and, consequently, gives a more direct probe of the Majorana fermion density of states (DOS).\cite{Knolle14-2} In addition, information can be deduced from the polarization dependence, for which scattering matrix elements determine which aspects of the DOS are observable in practice. In particular, the symmetry properties of the Kitaev QSL systems are responsible for the fact that resonant Raman vertices can couple to the protected surface modes, while non-resonant Raman channels cannot.\cite{Perreault16} Finally, as shown in Refs. \cite{Knolle14-2,Perreault15,Perreault16}, the energy and polarization dependence of the Raman response in these systems contains signatures characteristic of the QSL states both in the 2D honeycomb 3D hyperhoneycomb lattices. Here, we extend these results by presenting a unified description of the Raman response of Majorana modes in a variety Kitaev QSLs,~\cite{Obrien} whose low energy bulk excitations consist of Dirac points, nodal lines or Weyl nodes. We also investigate the potential of Raman scattering (or Brillouin scattering) on thin films to provide evidence for the various types of protected boundary modes, such as surface flat bands or Fermi arcs, that arise in these systems. 
+
+Overall, we establish inelastic light scattering as a powerful experimental tool for measuring the bulk-boundary correspondence in QSLs, which we corroborate by concrete calculations for a variety of Kitaev QSL phases in different dimensions, each representing different phenomenologies of its fractionalized bulk and boundary modes. Our derivation of the resonant Raman/Brillouin scattering vertex is presented in a way such that it is easily generalized to other systems beyond the integrable Kitaev limits studied here, including the more experimentally realistic situations where sub-dominant exchange interactions are present.\cite{Sizyuk}
+ 
+The paper is organized as follows. In section~\ref{ModelSec}, we first introduce the Kitaev model and its exact solution on the honeycomb, hyperhoneycomb and (8,3)b lattices, and then 
+review the relation between bulk topological invariants of their Majorana band structures and properties of the associated edge states in slab geometries. In section~\ref{RamanSec}, we discuss the derivation of the Raman vertex in Mott insulators in the Loudon-Fleury approach and generalize it to effective $j_{eff}=1/2$ systems in spin-orbit coupled magnets with dominant Kitaev interactions. In particular, we develop a formalism to calculate the chiral three-spin terms that appear in the next-to leading order in a perturbative expansion which becomes relevant in the resonant Raman scattering regime. In section~\ref{ResultsSec}, we present a microscopic calculation of the resonant and off-resonant Raman response in the different QSL phases. There we argue that the observability of different types of surface modes in Raman scattering of thin films is controlled by simple selection rules connecting symmetry properties of the Raman vertex to those of the surface states. Since Raman scattering is directly related to the Majorana DOS, we confirm that the bulk response can be used to detect different QSLs -- for example, nodal line and Weyl QSL show different asymptotic low energy behaviors in the Raman response. Using group theory, we show that detailed examination of the Raman polarization dependence presents another handle with which to diagnose QSLs. Finally, in section~\ref{DiscussionSec}, we summarize our main results and asses their applicability to future experiments. We close with a discussion. 
+		
+
+\section{Kitaev QSLs and topological band structures} \label{ModelSec}
+
+\subsection{The model}
+The Kitaev model, originally conceived on the honeycomb lattice,\cite{Kitaev} is an exactly solvable spin-exchange Hamiltonian with a spin-liquid ground state that can be formulated on any 
+tri-coordinated lattice.\cite{Mandal,YaoKivelson,Modic}
+The Hamiltonian has the general form:
+\begin{align}\label{H}
+{H}_K &= \sum_{\left<ij\right>^\alpha} J^\alpha \sigma^\alpha_i \sigma^\alpha_j \ \ ,
+\end{align}
+where one bond of each type $\alpha = x,y$ and $z$ emanates from every vertex, as shown in Figs. \ref{fig:HC_primitive}, \ref{fig:3DKitaev-basicunitcell-Hermanns} and \ref{fig:ETB_primitive}, and $\left<ij\right>$ are nearest-neighbor (NN) pairs. 
+
+The model is solved exactly by replacing the spin variable at each site $j$ with four Majorana fermions (denoted $c_j$ and $b_j^\alpha$), via
+\begin{align} \label{Spin2Mar}
+\sigma^\alpha_j =i b_j^\alpha c_j  \ \ .
+\end{align}
+The four Majorana fermions are mutually anticommuting and self-conjugate, obeying $c_j^2 = 1 = (b_j^\alpha)^2$ so that $c^\dagger = c$. In terms of the Majoranas the Hamiltonian can be expressed
+\begin{align}\label{H2}
+{H}_K &= \sum_{\left<ij\right>^\alpha} J^\alpha b^\alpha_i b^\alpha_j c_i c_j \ \ .
+\end{align}
+Since the bond operators $u_{\left<ij\right>^\alpha} = i b_i^\alpha b_j^\alpha$ are conserved on each link, the Hamiltonian (\ref{H2}) decouples into orthogonal flux sectors described by sets of $\{u_{\left<ij\right>^\alpha}\}$ variables.~\cite{Kitaev} Each flux sector now can be considered individually and in each of them the Hamiltonian can be solved exactly, as it reduces to a bilinear form in $c$, describing Majorana fermions with hopping matrix elements determined by the underlying flux configuration. 
+
+The ground state of the Hamiltonian (\ref{H}) is the Kitaev QSL. The elementary excitations in this state are of two kinds: first, there are dispersing fermionic excitations associated with exciting the $c$-type Majorana fermions. Second, there are flux defects, associated with exciting the $b$-type Majorana fermions. The representation (\ref{Spin2Mar}) is redundant, such that the number of independent physical $b$-type excitations is equal to the number of plaquettes $P$, rather than to the number of edges or the number of $b$ Majorana fermions, with $W_P = \prod_{\left<ij\right> \in P} u_{\left<ij\right>^\alpha}$ representing the only conserved quantities in the {\it physical} Hilbert space.
+
+\subsection{The tri-coordinated lattices}
+
+We will study the Kitaev QSL model on three tri-coordinated lattices with 120 degree bond angles: the 2D honeycomb lattice, the 3D hyperhoneycomb\cite{Mandal} and the 
+so-called\cite{Obrien} (8,3)b lattices.\cite{lattice_foot} Primitive unit cells for these lattices are portrayed in Figs. \ref{fig:HC_primitive}, \ref{fig:3DKitaev-basicunitcell-Hermanns}, and \ref{fig:ETB_primitive}, respectively. 
+
+The Kitaev model on the honeycomb lattice and hyperhoneycomb lattices has zero-flux as its ground state, \cite{Kitaev,Mandal} though while for the former it follows directly from the application of the Lieb's theorem,\cite{Lieb} for the latter it has only been demonstrated numerically.\cite{Mandal,Kimchi,Kim}
+For the honeycomb lattice all elementary plaquettes have six sites, and for the hyperhoneycomb lattice they are ten-sided. In both cases, the zero-flux ground state can be achieved by choosing a gauge with $u_{\left<ij\right>^\alpha} = 1$ for $i$ belonging to an odd-numbered sublattice so that $j$ is even.
+
+The case of the (8,3)b lattice (Fig. \ref{fig:ETB_primitive}) is special. It has the required mirror planes to constrain its flux completely using Lieb's theorem, marking the first completely solved 3D Kitaev spin liquid.\cite{Obrien} The (8,3)b lattice has elementary plaquettes with eight and twelve bonds. According to Lieb's theorem, in the ground state all these plaquettes must carry $\pi$ flux, which can be achieved in the gauge with $u_{\left<ij\right>^\alpha} = 1$ for any $i < j$ except on the circled bonds in Fig. \ref{fig:ETB_primitive}. In this gauge choice, $u_{r,r'} = -1$ for $r = r_5$ and $r' = r_6 - a_3$. 	 
+
+By fixing a gauge, performing a Fourier transformation into momentum space and using matrix notation, we get the following quadratic Majorana fermion Hamiltonian:
+\begin{align}\label{Hc}
+H &= \sum_{\textrm{all } {\mathbf k}} \mathbf{c}_{-{\mathbf k}}^T \mathrm{H}_k \mathbf{c}_{\mathbf k} .
+\end{align} 
+Due to different number of sublattices in the unit cell, the resulting band structure for the Majorana spinons consists of one, two, and three bands of fermionic quasiparticles for the honeycomb, hyperhoneycomb, and (8,3)b lattice, respectively.
+For the honeycomb lattice, the band structure is essentially that of graphene, with a pair of Dirac nodes at the corners of the Brillouin zone. On the hyperhoneycomb the Majorana spinon band structure exhibits a 1D Fermi ring, while the (8,3)b lattice has bulk Weyl nodes. We will explore the topological nature of these band structures further in Sec. \ref{BandStructSec}. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.4\linewidth]{HC_primitive2.pdf}
+	\caption{(Color Online) The primitive unit cell of the honeycomb lattice. A and B denote the two sublattices of the honeycomb lattice. The bond vectors are given by $d^z = (0,1)$ and $d^{x/y}=(\pm \sqrt{3},-1)/2$ with the unit vectors $a_{1/2} = (\pm \sqrt{3},3)/2$.}
+	\label{fig:HC_primitive}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.87\linewidth]{3DKitaev-basicunitcell-H-2.pdf}
+	\caption{(Color Online) The primitive unit cell of the hyperhoneycomb lattice. There are bonds along five different directions given by $d^z = (0,0,1)$, 
+		$d^{x/y}_{32} = \frac{1}{2}(\pm 1,\sqrt{2},-1)$, and $ 
+		d^{x/y}_{14} = \frac{1}{2}(\pm 1,-\sqrt{2},-1)$. The unit vectors are $a_3 = (-1,0,3)$ and $a_{1/2} = (-1,\mp \sqrt{2}, 0)$.}
+	\label{fig:3DKitaev-basicunitcell-Hermanns}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.82\linewidth]{ETB_primitive5.pdf}
+	\caption{(Color Online) The primitive unit cell of the (8,3)b lattice. For $i<j$ the bonds without circles carry the gauge $u_{ij} = 1$ and those with circles have $u_{ij} = -1$. There are six distinct bonds: $d^{x}_{16} = (-1,0,0)$, $d^{x}_{24} = d^x_{35} = \frac{1}{\sqrt{3}}(0,-1,-\sqrt{2})$, $d^y_{14/12} = d^y_{36/56} = \frac{1}{2\sqrt{3}}( \sqrt{3},\mp 1,\pm 2\sqrt{2})$, and $d^z_{25/34} = \frac{1}{2}(\pm 1,\sqrt{3},0)$. The unit vectors are $a_1 = (\frac{1}{2},\frac{1}{2\sqrt{3}},\frac{2}{5\sqrt{6}})$, $a_2 = (0,\frac{2}{2\sqrt{3}},\frac{4}{5\sqrt{6}})$, and $a_3 = (0,0,\frac{6}{5\sqrt{6}})$.}
+	\label{fig:ETB_primitive}
+\end{figure}
+
+
+\subsection{Magnetic field perturbations and Majorana fermion band structures}\label{magnetic}
+
+Next we introduce a parameter which, for the honeycomb and hyperhoneycomb Kitaev QSLs, breaks the symmetry protecting the gapless boundary modes. In both cases, this can be achieved by adding a weak magnetic field, which alters both the structure of the bulk Fermi surface, and the nature of the edge states. Specifically, Kitaev\cite{Kitaev} showed that the Majorana fermion band structure of the honeycomb lattice model, which has gapless Dirac points, can be gapped by the presence of a magnetic field perturbation ${\bf h}$ whose components $h^x, h^y$, and $h^z$ are all nonzero. On the hyperhoneycomb lattice Hermanns {\it et al}\cite{Hermanns,Obrien} showed that such a magnetic field gaps out most of the Fermi ring, leaving a pair of Weyl points.
+Here we review the arguments of Kitaev's original paper, whose basis will be important when we consider the effects of the magnetic field in the Raman response. We discuss the ramifications of this symmetry-breaking for the protected surface states in Sec. \ref{BandStructSec}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth,valign=t]{3spinterms.pdf} 
+	\caption{The perturbation that leads to second-neighbor Majorana spinon  hopping $c_i c_j$ for a pair of $x$ and $y$ bonds is the product of the three spin components $\sigma_i^x \sigma_l^z \sigma_j^y$ in the two configurations shown here.}
+	\label{fig:3-spin_term}
+\end{figure}
+
+The magnetic field perturbation is given by
+\begin{align}\label{pert}
+V = \sum_j\sum_{\alpha=x,y,x} h^\alpha \sigma^\alpha_j.
+\end{align}
+Provided that the energy scale of the perturbation is below the local flux gap, one can deduce the approximate impact of $V$ on the Majorana spinons perturbatively within the zero-flux sector.\cite{Kitaev} In this approximation, the first non-vanishing time-reversal symmetry breaking terms appear at third order in $h$. One such term involves four sites pictured in Fig.~\ref{fig:3-spin_term}(b). This term leads to a four-spinon interaction that is irrelevant at low energies,\cite{Kitaev,Hermanns} and is ignored here. The other term, illustrated in Fig.~\ref{fig:3-spin_term}(a), leads to the effective interaction of the form $\sigma^x_i \sigma^z_l \sigma^y_j$ between three adjacent sites $i,l,$ and $j$, where $x,y,z$ labels are fixed by the character of the two bonds connecting these sites. 
+
+More specifically, the interaction on the adjacent bond pairs $\ll ij \gg^\gamma \equiv \left<il\right>^\beta \left<ll\right>^\alpha$, where $\gamma$ is complementary to $\alpha$ and $\beta$ ($\epsilon^{\alpha \beta \gamma} \ne 0$), is $\sigma^\alpha_i \sigma_l^\gamma \sigma_j^\beta$. Within the Kitaev Majorana fermion description, this term is a next-nearest neighbor (NNN) hopping term for the Majorana spinons
+\begin{align} \label{2Hops}
+H_h &= \sum_{\ll ij \gg^\gamma} \kappa_{ij} 
+\sigma^{\alpha}_i \sigma^\gamma_{l} \sigma^{\beta}_j\nonumber\\
+&= i \sum_{\ll ij \gg ^\gamma} \kappa^\gamma_{ij} c_i c_j, 
+\end{align} 
+where the NNN hopping amplitude is determined by $\kappa^\gamma_{ij}=\kappa_{ij}\tilde{u}_{\ll jl \gg ^\gamma}$ with
+$\tilde{u}_{\ll jl \gg ^\gamma} = {u}_{\left<il \right>^\alpha} {u}_{\left<lj \right>^\beta}$. Therefore, once we have fixed the gauges $u_{\left<ij\right>^\alpha}$ in the parent spin liquid, the magnitudes and phases of these second-neighbor hopping terms are completely fixed by the magnetic field, whose role role is described by an effective interaction
+$\kappa_{ij} \sim h^x h^y h^z / (\Delta^{il} \Delta^{lj})$, where $\Delta^{il}$ denotes the gap to the flux excitation created by changing the sign of the bond variable $u_{\langle il\rangle}$. 
+
+Including the effective interaction (\ref{2Hops}) due to a magnetic field, the quadratic Hamiltonians describing the Majorana fermion band structure are as follows: (We use superscripts $\infty, \, 0 ,\, 8b$ to denote the honeycomb, the hyperhoneycomb and (8,3)b lattices, respectively)
+\\
+ ({\it i}) The Hamiltonian matrix of the honeycomb lattice reads
+\begin{align}
+\mathrm{H}^{\infty}_{\mathbf k} &= \frac{i}{2} \left( \begin{array}{cc}\label{HCH}
+F_{\mathbf k} & \Gamma_{\mathbf k} \\
+-\Gamma_{\mathbf k}^* & -F_{\mathbf k} \\
+\end{array} \right) \hspace{1.0cm}
+\Gamma_{\mathbf k} = J^z + J^x e^{ik_1} + J^y e^{ik_2} \nonumber \\
+F_{\mathbf k} &= \kappa^z e^{i (k_2-k_1)} - \kappa^x e^{i k_2} + \kappa^y e^{i k_1} - \text{c.c.} 
+\end{align} 
+where $\mathbf{c}_{\mathbf k}^T = (c_{A,{\mathbf k}},c_{B,{\mathbf k} })$, $k_i = {\mathbf k}\cdot{\mathbf a}_i$.\\
+ ({\it ii}) The Hamiltonian matrix of the hyperhoneycomb lattice reads
+\begin{align}
+H^{0}_{\mathbf k} &= \frac{i}{2} \left( \begin{array}{cc}
+F_{\mathbf k} & \Gamma_{\mathbf k} \\
+-\Gamma_{\mathbf k} ^\dagger & G_{\mathbf k} \\
+\end{array} \right) \hspace{1.3cm} 
+\Gamma_{\mathbf k} = \left( \begin{array}{cc}
+J^z & A_{\mathbf k} e^{-ik_3} \\
+B_{\mathbf k} & J^z \\
+\end{array} \right) \nonumber \\
+{F}_{\mathbf k} &= \left( \begin{array}{cc}
+-\kappa^z_{14}(e^{ik_1}-e^{-ik_1}) & \delta_k \\
+-\delta_k^* & -\kappa^z_{32}(e^{ik_2}-e^{-ik_2}) \\
+\end{array} \right) \nonumber\\
+{G}_{\mathbf k} &= \left( \begin{array}{cc}
+\kappa^z_{32}(e^{ik_2}-e^{-ik_2}) & -\delta_{\mathbf k} \\
+\delta_{\mathbf k} ^* & \kappa^z_{14}(e^{ik_1}-e^{-ik_1})\\
+\end{array} \right) \nonumber \\
+A_\mathbf{k} &= J^{x}_{14} + J^{14}_{14} e^{ik_1} \hspace{1 cm} B_\mathbf{k} = J^{x}_{32} + J^{y}_{32} e^{ik_2} \nonumber \\
+\delta_k &= \kappa^y_{32} - \kappa^y_{14} e^{-ik_3} - \kappa^x_{32} e^{-ik_2} + \kappa^x_{14} e^{-i(k_3-k_1)}, 
+\label{Hcs}
+\end{align}
+where $\mathbf{c}_{\mathbf k} ^T = (c_{1,{\mathbf k} },c_{3,{\mathbf k} },c_{2,{\mathbf k} },c_{4,{\mathbf k} })$.
+Note that for both honeycomb and hyperhoneycomb lattices the diagonal blocks $F_{\mathbf k} , G_{\mathbf k} $ vanish for $\kappa =0$, leaving only the off-diagonal terms which couple sites on different sublattices. The lower indices of $\kappa$ -interaction specify a bond that is involved in the process leading to that term. This notation will be later useful for us for defining corresponding Raman operators. \\ 
+({\it iii}) The zero-field Hamiltonian matrix of the (8,3)b lattice reads
+\begin{align}\label{Hss}
+\mathrm{H}^{8b}_k &= \frac{i}{2} \left( \begin{array}{cccccc}
+0 & J^x_{12} e^{-ik_3} & 0 & J^z_{14} & 0 & J^y_{16} e^{-i(k_1+k_3)} \\
+& 0 & 0 & J^y_{24} & J^z_{25} & 0 \\
+& & 0& J^x_{34} e^{ik_2} & J^y_{35} & J^z_{36} \\
+& & & 0 & 0 & 0 \\
+& & & & 0 & -J^x_{56} e^{-ik_3} \\
+& & & & & 0
+\end{array} \right), 
+\end{align}
+where $\mathbf{c}_{\mathbf k}^T = (c_{1,{\mathbf k}},c_{2,{\mathbf k}k},c_{3,{\mathbf k}},c_{4,{\mathbf k}},c_{5,{\mathbf k}},c_{6,{\mathbf k}})$ and the lower triangle of the previous matrix has not been filled in for compactness, but is related to the upper triangle by the Hermiticity of $H^{8b}_k$. For the (8,3)b lattice we did not include the effects of the three-spin perturbation, because it does not constitute an important change in the symmetries within the effective Majorana description, in which time-reversal symmetry is already broken. 
+
+\subsection{Fermi-surface topologies}\label{semimetal}\label{BandStructSec}
+
+All three quadratic Hamiltonians in Eqs.~(\ref{HCH}-\ref{Hss}) describe band structures with protected gapless surface states. Among the three lattices we study, the honeycomb and hyperhoneycomb have {\it symmetry-protected} boundary flat bands, which become partially gapped upon introducing the symmetry-breaking magnetic field. The (8,3)b lattice is a Weyl semimetal, which has {\it topologically protected} Fermi arc surface states.\cite{Obrien,Hermanns}
+ 
+Next we review the nature of the symmetry protecting the boundary flat bands, as its understanding is crucial to determining which Raman polarizations can couple to the gapless surface modes. 
+ 
+To discuss the implications of time-reversal (TR) symmetry within the quadratic band structure we must first find a representation of the TR operator $\mathcal{T}$ in the Majorana spinon basis that recovers the known action of $\mathcal{T}$ on the original spin Hamiltonian. Since the action of $\mathcal{T}$ on the composite Majorana fermions is not directly observable there is indeed some choice for this representation. 
+First, for the symmetry action to be entirely treated in the quadratic band structure $\mathcal{T}$ must act trivially on the $u_{ij}$. Second, due to the factor of $i$ in the quadratic Hamiltonian, $\mathcal{T}$ must act non-trivially on the Majorana spinons.
+Then, since all of the lattices considered here are bipartite, TR symmetry can be represented by 
+\begin{align} \label{TR}
+c_{A,j} & \to c_{A,j}, c_{B,j} \to -c_{B,j} \nonumber \\
+b^{\alpha}_{A,j} & \to - b^\alpha_{A,j}, b^\alpha_{B,j} \to b^\alpha_{B,j} 
+\end{align} 
+Provided the Hamiltonian is comprised only of NN Kitaev exchange (i.e. in the absence of a magnetic field) this gives $u_{ij} \to u_{ij}$ and $i c^A_j c^B_j \to i c^A_j c^B_j $ and recovers the correct action on the spins: $\sigma^j \rightarrow - \sigma^j$ at each site. 
+However, the transformation (\ref{TR}) does not respect the translation invariance of every lattice. Indeed since the $a_1$ unit vector of the (8,3)b lattice relates sites on opposite sublattices translation invariance and $\mathcal{T}$ cannot be represented by commuting operators entirely within the Majorana spinons. Therefore, within this description the TR transformation breaks lattice translations and effectively doubles the unit cell in the $a_1$ direction. 
+
+To pursue the consequences of this we consider the representation of $\mathcal{T}$ in the unit cell for the cases in which it is compatible with lattice translations. Time reversal takes $H_{\mathbf k} \to \mathcal{S} H_{-{\mathbf k}}^* \mathcal{S}$, where $\mathcal{S}$ is the sublattice-resolved gauge transformation 
+\begin{align}\label{SS}
+\mathcal{S} = \left(\begin{array}{cc}
+\mathds{1} & 0 \\
+0 & -\mathds{1}
+\end{array}\right),
+\end{align}
+where $\mathds{1}$ is a $1 \times 1$ ($2 \times 2$) identity matrix on the honeycomb (hyperhoneycomb) lattice. For the (8,3)b lattice with a doubled unit cell the identity matrix $\mathds{1}$ would have dimension $6 \times 6$. This symmetry becomes more useful if we multiply it by another symmetry that takes ${\mathbf k}\to -{\mathbf k}$, so that we can obtain a true symmetry of the matrix $H_{\mathbf k}$. Since our quadratic Hamiltonian of Majoranas essentially describes a spinless superconductor, one option is to use a particle-hole symmetry $f_{k} \leftrightarrow f^\dagger_{-k}$ for a given representation of Dirac fermions $f$ in terms of the Majoranas $c$. One such representation is 
+\begin{align}
+\begin{pmatrix} f_k \\ f^\dag_{-k} \end{pmatrix}= \mathcal{P}^\dagger \begin{pmatrix} c^{A}_k \\ c^{B}_{k} \end{pmatrix} \ , \ \ \ 
+\mathcal{P}^\dagger = \left(\begin{array}{cc}
+\mathds{1} & \mathds{1} i \\
+\mathds{1} & -\mathds{1} i
+\end{array}\right).
+\end{align}
+This gives the most trivial particle hole symmetry $\mathcal{P}$ acting as $H_{\mathbf k} \to \mathcal{P}^\dagger H_{-{\mathbf k} } \mathcal{P} = -H^*_{-{\mathbf k}}$.
+The product of $\mathcal{P}$ and $\mathcal{T}$ gives the sublattice-resolved gauge transformation Eq.~(\ref{SS}), $\mathcal{T} \mathcal{P} = \mathcal{S}$, given in Eq.~(\ref{SS}). Then $H_{\mathbf k} \to -H_{\mathbf k}$ under $\mathcal{S}$, making $\mathcal{S}$ a chiral symmetry.\cite{chiral_foot} We will refer to $\mathcal{S}$ as sublattice symmetry since it can be thought of as a gauge transformation that acts non-trivially on one of the two sublattices.
+
+For both the honeycomb and hyperhoneycomb models, this sublattice symmetry guarantees the block-off-diagonal form of the matrices $\mathrm{H}_{\mathbf k}$. In the low-energy subspace, where we keep only the two bands that intersect at the Fermi surface, this also guarantees that the Hamiltonian takes the form $\mathrm{H}_{\mathbf k} = \vec{\sigma} \cdot \vec{d}_{\mathbf k}$ for some vectors $\vec{d}_{\mathbf k}$ such that $d_{\mathbf k}^z = 0$. The zero energy eigenvalues (which comprise the Fermi surface in our systems)
+occur at the intersection of the surfaces defined by $d^x_{\mathbf k} = 0 $ and $d^y_{\mathbf k} = 0$. Hence, generically, the Fermi surfaces are lines in 3D and points in 2D. In this sense, the chiral sublattice symmetry $\mathcal{S}$ is responsible for the Fermi-ring that appears in the hyperhoneycomb lattice\cite{Schaffer} and the Dirac points in the honeycomb lattice, both of which are in the symmetry class BDI.\cite{Ryu10}
+
+For the (8,3)b lattice\cite{Obrien} the action of $\mathcal{T}$ can be represented as $\mathcal{S} H_{\mathbf k} \mathcal{S} = - H_{{\mathbf k}+k_1/2+k_3/2}$, where the Hamiltonian $ H_{\mathbf k}$ is given by Eq.~(\ref{Hss}). This model therefore lacks sublattice symmetry, putting it in the symmetry class $

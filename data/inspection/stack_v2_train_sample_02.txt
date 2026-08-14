@@ -1,0 +1,861 @@
+# Dataset: stack_v2
+# Split: train
+# Source file: stack_v2_train.bin
+# Start token index: 1,566,942,273
+# End token index: 1,566,952,273
+# Number of tokens: 10,000
+# Number of characters: 19,856
+============================================================
+
+4651005',
+        '1515008',
+        '18040001',
+        '203429007',
+        '203433000',
+        '203434006',
+        '203435007',
+        '203436008',
+        '203437004',
+        '203438009',
+        '203444008',
+        '203446005',
+        '203657009',
+        '240155001',
+        '240157009',
+        '240158004',
+        '240159007',
+        '240161003',
+        '240162005',
+        '240164006',
+        '240198002',
+        '268028001',
+        '276661002',
+        '281387004',
+        '309745002',
+        '311806008',
+        '32369003',
+        '3345002',
+        '390833005',
+        '53174001',
+        '64859006',
+        '699528002',
+        '703264005',
+        '735617003',
+        '735618008',
+        '739301006'
+    }
+
+class OsteoporoticFractures(ValueSet):
+    """
+    **Clinical Focus:** This value set contains concepts that represent codes that are used to identify patients with a diagnosis of osteoporotic fracture.
+
+    **Data Element Scope:** This value set may use the Quality Data Model (QDM) category related to Diagnosis.
+
+    **Inclusion Criteria:** Includes only relevant concepts associated with diagnosis codes associated with osteoporotic fracture. This is a grouping of ICD-10-CM and SNOMED CT codes.
+
+    **Exclusion Criteria:** No exclusions.
+    """
+
+    OID = '2.16.840.1.113883.3.464.1003.113.12.1050'
+    VALUE_SET_NAME = 'Osteoporotic Fractures'
+    EXPANSION_VERSION = 'eCQM Update 2020-05-07'
+
+    ICD10CM = {
+        'M8000XA',
+        'M8000XD',
+        'M8000XG',
+        'M8000XK',
+        'M8000XP',
+        'M8000XS',
+        'M80011A',
+        'M80011D',
+        'M80011G',
+        'M80011K',
+        'M80011P',
+        'M80011S',
+        'M80012A',
+        'M80012D',
+        'M80012G',
+        'M80012K',
+        'M80012P',
+        'M80012S',
+        'M80019A',
+        'M80019D',
+        'M80019G',
+        'M80019K',
+        'M80019P',
+        'M80019S',
+        'M80021A',
+        'M80021D',
+        'M80021G',
+        'M80021K',
+        'M80021P',
+        'M80021S',
+        'M80022A',
+        'M80022D',
+        'M80022G',
+        'M80022K',
+        'M80022P',
+        'M80022S',
+        'M80029A',
+        'M80029D',
+        'M80029G',
+        'M80029K',
+        'M80029P',
+        'M80029S',
+        'M80031A',
+        'M80031D',
+        'M80031G',
+        'M80031K',
+        'M80031P',
+        'M80031S',
+        'M80032A',
+        'M80032D',
+        'M80032G',
+        'M80032K',
+        'M80032P',
+        'M80032S',
+        'M80039A',
+        'M80039D',
+        'M80039G',
+        'M80039K',
+        'M80039P',
+        'M80039S',
+        'M80041A',
+        'M80041D',
+        'M80041G',
+        'M80041K',
+        'M80041P',
+        'M80041S',
+        'M80042A',
+        'M80042D',
+        'M80042G',
+        'M80042K',
+        'M80042P',
+        'M80042S',
+        'M80049A',
+        'M80049D',
+        'M80049G',
+        'M80049K',
+        'M80049P',
+        'M80049S',
+        'M80051A',
+        'M80051D',
+        'M80051G',
+        'M80051K',
+        'M80051P',
+        'M80051S',
+        'M80052A',
+        'M80052D',
+        'M80052G',
+        'M80052K',
+        'M80052P',
+        'M80052S',
+        'M80059A',
+        'M80059D',
+        'M80059G',
+        'M80059K',
+        'M80059P',
+        'M80059S',
+        'M80061A',
+        'M80061D',
+        'M80061G',
+        'M80061K',
+        'M80061P',
+        'M80061S',
+        'M80062A',
+        'M80062D',
+        'M80062G',
+        'M80062K',
+        'M80062P',
+        'M80062S',
+        'M80069A',
+        'M80069D',
+        'M80069G',
+        'M80069K',
+        'M80069P',
+        'M80069S',
+        'M80071A',
+        'M80071D',
+        'M80071G',
+        'M80071K',
+        'M80071P',
+        'M80071S',
+        'M80072A',
+        'M80072D',
+        'M80072G',
+        'M80072K',
+        'M80072P',
+        'M80072S',
+        'M80079A',
+        'M80079D',
+        'M80079G',
+        'M80079K',
+        'M80079P',
+        'M80079S',
+        'M8008XA',
+        'M8008XD',
+        'M8008XG',
+        'M8008XK',
+        'M8008XP',
+        'M8008XS',
+        'M8080XA',
+        'M8080XD',
+        'M8080XG',
+        'M8080XK',
+        'M8080XP',
+        'M8080XS',
+        'M80811A',
+        'M80811D',
+        'M80811G',
+        'M80811K',
+        'M80811P',
+        'M80811S',
+        'M80812A',
+        'M80812D',
+        'M80812G',
+        'M80812K',
+        'M80812P',
+        'M80812S',
+        'M80819A',
+        'M80819D',
+        'M80819G',
+        'M80819K',
+        'M80819P',
+        'M80819S',
+        'M80821A',
+        'M80821D',
+        'M80821G',
+        'M80821K',
+        'M80821P',
+        'M80821S',
+        'M80822A',
+        'M80822D',
+        'M80822G',
+        'M80822K',
+        'M80822P',
+        'M80822S',
+        'M80829A',
+        'M80829D',
+        'M80829G',
+        'M80829K',
+        'M80829P',
+        'M80829S',
+        'M80831A',
+        'M80831D',
+        'M80831G',
+        'M80831K',
+        'M80831P',
+        'M80831S',
+        'M80832A',
+        'M80832D',
+        'M80832G',
+        'M80832K',
+        'M80832P',
+        'M80832S',
+        'M80839A',
+        'M80839D',
+        'M80839G',
+        'M80839K',
+        'M80839P',
+        'M80839S',
+        'M80841A',
+        'M80841D',
+        'M80841G',
+        'M80841K',
+        'M80841P',
+        'M80841S',
+        'M80842A',
+        'M80842D',
+        'M80842G',
+        'M80842K',
+        'M80842P',
+        'M80842S',
+        'M80849A',
+        'M80849D',
+        'M80849G',
+        'M80849K',
+        'M80849P',
+        'M80849S',
+        'M80851A',
+        'M80851D',
+        'M80851G',
+        'M80851K',
+        'M80851P',
+        'M80851S',
+        'M80852A',
+        'M80852D',
+        'M80852G',
+        'M80852K',
+        'M80852P',
+        'M80852S',
+        'M80859A',
+        'M80859D',
+        'M80859G',
+        'M80859K',
+        'M80859P',
+        'M80859S',
+        'M80861A',
+        'M80861D',
+        'M80861G',
+        'M80861K',
+        'M80861P',
+        'M80861S',
+        'M80862A',
+        'M80862D',
+        'M80862G',
+        'M80862K',
+        'M80862P',
+        'M80862S',
+        'M80869A',
+        'M80869D',
+        'M80869G',
+        'M80869K',
+        'M80869P',
+        'M80869S',
+        'M80871A',
+        'M80871D',
+        'M80871G',
+        'M80871K',
+        'M80871P',
+        'M80871S',
+        'M80872A',
+        'M80872D',
+        'M80872G',
+        'M80872K',
+        'M80872P',
+        'M80872S',
+        'M80879A',
+        'M80879D',
+        'M80879G',
+        'M80879K',
+        'M80879P',
+        'M80879S',
+        'M8088XA',
+        'M8088XD',
+        'M8088XG',
+        'M8088XK',
+        'M8088XP',
+        'M8088XS'
+    }
+
+    SNOMEDCT = {
+        '203444008',
+        '203445009',
+        '203446005',
+        '203447001',
+        '203448006',
+        '203449003',
+        '203450003',
+        '203451004',
+        '203452006',
+        '203453001',
+        '240198002',
+        '311806008',
+        '311890007',
+        '311891006',
+        '431030000',
+        '431031001',
+        '443165006'
+    }
+
+class OtherAndUnspecifiedFormsOfChorioretinitisAndRetinochoroiditis(ValueSet):
+    """
+    **Clinical Focus:** This value set contains concepts that represent a diagnosis of other and unspecified forms of chorioretinitis and retinochoroiditis.
+
+    **Data Element Scope:** This value set may use the Quality Data Model (QDM) category related to Diagnosis.
+
+    **Inclusion Criteria:** Includes only relevant concepts associated with a diagnosis of posterior cyclitis, chorioretinal inflammation, other chorioretinitis or retinitis or retinochoroiditis.
+
+    **Exclusion Criteria:** Excludes concepts that pertain to 'unspecified eye.'
+    """
+
+    OID = '2.16.840.1.113883.3.526.3.1468'
+    VALUE_SET_NAME = 'Other and Unspecified Forms of Chorioretinitis and Retinochoroiditis'
+    EXPANSION_VERSION = 'eCQM Update 2020-05-07'
+
+    ICD10CM = {
+        'H3021',
+        'H3022',
+        'H3023',
+        'H30811',
+        'H30812',
+        'H30813',
+        'H30891',
+        'H30892',
+        'H30893',
+        'H3091',
+        'H3092',
+        'H3093'
+    }
+
+    SNOMEDCT = {
+        '14894002',
+        '15847003',
+        '186263000',
+        '187039009',
+        '187194004',
+        '193434008',
+        '193436005',
+        '193438006',
+        '193442009',
+        '193443004',
+        '193444005',
+        '193497004',
+        '22455005',
+        '231981005',
+        '231984002',
+        '231988004',
+        '231990003',
+        '231992006',
+        '231994007',
+        '312491004',
+        '312930008',
+        '312934004',
+        '312955002',
+        '314031009',
+        '314032002',
+        '314428001',
+        '359668007',
+        '359698000',
+        '359707007',
+        '36535003',
+        '371099005',
+        '373667006',
+        '399463004',
+        '410470003',
+        '414783007',
+        '415218004',
+        '416589006',
+        '416877003',
+        '417405005',
+        '417547006',
+        '42031001',
+        '421029004',
+        '441854007',
+        '44674000',
+        '46497009',
+        '46627006',
+        '48225000',
+        '51579006',
+        '51930008',
+        '56787009',
+        '61517002',
+        '61922005',
+        '6313001',
+        '66281009',
+        '69811008',
+        '77628002',
+        '77939001',
+        '78769001',
+        '88290000',
+        '95682009',
+        '95685006',
+        '9941009'
+    }
+
+class OtherBackgroundRetinopathyAndRetinalVascularChanges(ValueSet):
+    """
+    **Clinical Focus:** This value set contains concepts that represent a diagnosis of other background retinopathy and retinal vascular changes.
+
+    **Data Element Scope:** This value set may use the Quality Data Model (QDM) category related to Diagnosis.
+
+    **Inclusion Criteria:** Includes only relevant concepts associated with a diagnosis of various retinal changes and retinopathies, including exudative retinopathy, retinal neovascularization, arteriolitis, arteritis, endarteritis, phlebitis, and vasculitis.
+
+    **Exclusion Criteria:** Excludes concepts that pertain to 'unspecified eye.'
+    """
+
+    OID = '2.16.840.1.113883.3.526.3.1469'
+    VALUE_SET_NAME = 'Other Background Retinopathy and Retinal Vascular Changes'
+    EXPANSION_VERSION = 'eCQM Update 2020-05-07'
+
+    ICD10CM = {
+        'H35021',
+        'H35022',
+        'H35023',
+        'H35051',
+        'H35052',
+        'H35053',
+        'H35061',
+        'H35062',
+        'H35063'
+    }
+
+    SNOMEDCT = {
+        '11255009',
+        '247099009',
+        '247100001',
+        '25506007',
+        '314265001',
+        '414297000',
+        '416703007',
+        '417019000',
+        '417303004',
+        '417544004',
+        '54122009',
+        '61267008',
+        '677651000119102',
+        '677681000119109',
+        '7089008',
+        '71719003',
+        '75971007',
+        '77628002',
+        '86191000'
+    }
+
+class OtherDisordersOfOpticNerve(ValueSet):
+    """
+    **Clinical Focus:** This value set contains concepts that represent a diagnosis of other disorders of optic nerve.
+
+    **Data Element Scope:** This value set may use the Quality Data Model (QDM) category related to Diagnosis.
+
+    **Inclusion Criteria:** Includes only relevant concepts associated with a diagnosis of ischemic optic neuropathy.
+
+    **Exclusion Criteria:** Excludes concepts that pertain to 'unspecified eye.'
+    """
+
+    OID = '2.16.840.1.113883.3.526.3.1471'
+    VALUE_SET_NAME = 'Other Disorders of Optic Nerve'
+    EXPANSION_VERSION = 'eCQM Update 2020-05-07'
+
+    ICD10CM = {
+        'H47011',
+        'H47012',
+        'H47013'
+    }
+
+    SNOMEDCT = {
+        '14357004',
+        '15731601000119100',
+        '15731641000119103',
+        '230508004',
+        '230509007',
+        '334651000119101',
+        '340251000119108',
+        '345611000119102',
+        '404659001',
+        '415147002',
+        '733506009'
+    }
+
+class OtherEndophthalmitis(ValueSet):
+    """
+    **Clinical Focus:** This value set contains concepts that represent a diagnosis of other endophthalmitis.
+
+    **Data Element Scope:** This value set may use the Quality Data Model (QDM) category related to Diagnosis.
+
+    **Inclusion Criteria:** Includes only relevant concepts associated with a diagnosis of ophthalmia nodosa, parasitic cyst or endophthalmitis, panuveitis, sympathetic uveitis, or other endophthalmitis diagnoses.
+
+    **Exclusion Criteria:** Excludes concepts that pertain to 'unspecified eye.'
+    """
+
+    OID = '2.16.840.1.113883.3.526.3.1473'
+    VALUE_SET_NAME = 'Other Endophthalmitis'
+    EXPANSION_VERSION = 'eCQM Update 2020-05-07'
+
+    ICD10CM = {
+        'H16241',
+        'H16242',
+        'H16243',
+        'H21331',
+        'H21332',
+        'H21333',
+        'H33121',
+        'H33122',
+        'H33123',
+        'H44111',
+        'H44112',
+        'H44113',
+        'H44121',
+        'H44122',
+        'H44123',
+        'H44131',
+        'H44132',
+        'H44133',
+        'H4419'
+    }
+
+    SNOMEDCT = {
+        '12371008',
+        '231992006',
+        '240842000',
+        '333391000119101',
+        '339001000119107',
+        '344751000119109',
+        '415737009',
+        '57100005',
+        '75315001',
+        '75614007',
+        '766933000'
+    }
+
+class OtherFemaleReproductiveConditions(ValueSet):
+    """
+    **Clinical Focus:** This value set contains concepts that represent female reproductive conditions that may be related to sexual activity.
+
+    **Data Element Scope:** This value set may use the Quality Data Model (QDM) category related to Diagnosis.
+
+    **Inclusion Criteria:** Includes only relevant concepts associated with a variety of reproductive conditions that may indicate sexual activity. This is a grouping of ICD-10-CM and SNOMED CT codes.
+
+    **Exclusion Criteria:** Excludes codes for other reproductive conditions that could indicate sexual activity but that are already described in other value sets.
+    """
+
+    OID = '2.16.840.1.113883.3.464.1003.111.12.1006'
+    VALUE_SET_NAME = 'Other Female Reproductive Conditions'
+    EXPANSION_VERSION = 'eCQM Update 2020-05-07'
+
+    ICD10CM = {
+        'A630',
+        'B977',
+        'G4482',
+        'N881',
+        'N883',
+        'N898',
+        'N930',
+        'N970',
+        'N971',
+        'N972',
+        'N978',
+        'N979',
+        'T8331XA',
+        'T8331XD',
+        'T8331XS',
+        'T8332XA',
+        'T8332XD',
+        'T8332XS',
+        'T8339XA',
+        'T8339XD',
+        'T8339XS'
+    }
+
+    SNOMEDCT = {
+        '103010005',
+        '125157000',
+        '168407000',
+        '168472007',
+        '198445009',
+        '198446005',
+        '198448006',
+        '198449003',
+        '198450003',
+        '198452006',
+        '198453001',
+        '198456009',
+        '198457000',
+        '198459002',
+        '198460007',
+        '198464003',
+        '198465002',
+        '227561004',
+        '237110007',
+        '237139007',
+        '237141008',
+        '237142001',
+        '237800001',
+        '240542006',
+        '266609001',
+        '26899006',
+        '286995008',
+        '30238006',
+        '30826006',
+        '3160009',
+        '35308000',
+        '373877006',
+        '39446004',
+        '395688005',
+        '39591000119109',
+        '399599006',
+        '414238007',
+        '414239004',
+        '415149004',
+        '416030007',
+        '416031006',
+        '416033009',
+        '419266001',
+        '426488001',
+        '427547007',
+        '428008002',
+        '428017002',
+        '439776006',
+        '439855007',
+        '439856008',
+        '439888000',
+        '439890004',
+        '439891000',
+        '441072002',
+        '441086003',
+        '441087007',
+        '441088002',
+        '441094005',
+        '441098008',
+        '441099000',
+        '441114008',
+        '441115009',
+        '441219009',
+        '441667007',
+        '4667004',
+        '48880000',
+        '5084002',
+        '52937008',
+        '53821008',
+        '58423003',
+        '6303009',
+        '65370002',
+        '65454003',
+        '6738008',
+        '707577004',
+        '712584009',
+        '712585005',
+        '74294009',
+        '80330000',
+        '82593008',
+        '84785006',
+        '85078005'
+    }
+
+class OtherProliferativeRetinopathy(ValueSet):
+    """
+    **Clinical Focus:** This value set contains concepts that represent a diagnosis of other proliferative retinopathy.
+
+    **Data Element Scope:** This value set may use the Quality Data Model (QDM) category related to Diagnosis.
+
+    **Inclusion Criteria:** Includes only relevant concepts associated with a diagnosis of premature retinopathy.
+
+    **Exclusion Criteria:** Excludes concepts that pertain to 'unspecified eye.'
+    """
+
+    OID = '2.16.840.1.113883.3.526.3.1480'
+    VALUE_SET_NAME = 'Other Proliferative Retinopathy'
+    EXPANSION_VERSION = 'eCQM Update 2020-05-07'
+
+    ICD10CM = {
+        'H35101',
+        'H35102',
+        'H35103',
+        'H35111',
+        'H35112',
+        'H35113',
+        'H35121',
+        'H35122',
+        'H35123',
+        'H35131',
+        'H35132',
+        'H35133',
+        'H35141',
+        'H35142',
+        'H35143',
+        'H35151',
+        'H35152',
+        'H35153',
+        'H35161',
+        'H35162',
+        'H35163',
+        'H35171',
+        'H35172',
+        'H35173'
+    }
+
+    SNOMEDCT = {
+        '332371000119107',
+        '332381000119105',
+        '332391000119108',
+        '332411000119108',
+        '337981000119108',
+        '337991000119106',
+        '338001000119102',
+        '338021000119106',
+        '343751000119106',
+        '343761000119108',
+        '343771000119102',
+        '343791000119101',
+        '408847006',
+        '408848001',
+        '408849009',
+        '408850009',
+        '408851008',
+        '415297005'
+    }
+
+class OverweightOrObese(ValueSet):
+    """
+    **Clinical Focus:** This value set contains concepts that represent overweight or obese patients.
+
+    **Data Element Scope:** This value set may use the Quality Data Model (QDM) category or attribute related to Diagnosis or Finding.
+
+    **Inclusion Criteria:** Includes only relevant concepts associated with identifying patients who are currently overweight or obese.
+
+    **Exclusion Criteria:** No exclusions.
+    """
+
+    OID = '2.16.840.1.113762.1.4.1047.502'
+    VALUE_SET_NAME = 'Overweight or Obese'
+    EXPANSION_VERSION = 'eCQM Update 2020-05-07'
+
+    ICD10CM = {
+        'E6601',
+        'E6609',
+        'E661',
+        'E662',
+        'E663',
+        'E668',
+        'E669'
+    }
+
+    SNOMEDCT = {
+        '162863004',
+        '162864005',
+        '238131007',
+        '238136002',
+        '408512008',
+        '414915002',
+        '414916001',
+        '415530009',
+        '83911000119104'
+    }
+
+class PainRelatedToProstateCancer(ValueSet):
+    """
+    **Clinical Focus:** This value set contains concepts that represent pain associated with prostate cancer.
+
+    **Data Element Scope:** This value set may use Quality Data Model (QDM) category related to Diagnosis.
+
+    **Inclusion Criteria:** Includes only relevant concepts associated with pain related to prostate cancer.
+
+    **Exclusion Criteria:** No exclusions.
+    """
+
+    OID = '2.16.840.1.113883.3.526.3.451'
+    VALUE_SET_NAME = 'Pain Related to Prostate Cancer'
+    EXPANSION_VERSION = 'eCQM Update 2020-05-07'
+
+    ICD10CM = {
+        'G893',
+        'M4327',
+        'M4328',
+        'M532X7',
+        'M532X8',
+        'M533',
+        'M5386',
+        'M5387',
+        'M5388',
+        'M546',
+        'M5489',
+        'M549',
+        'M859',
+        'M899',
+        'M949',
+        'R0782',
+        'R0789',
+        'R079',
+        'R100',
+        'R109'
+    }
+
+    SNOMEDCT = {
+        '12584003',
+        '161977000',
+        '203508001',
+        '203509009',
+        '20793008',
+        '267981009',
+        '282743009',

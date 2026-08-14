@@ -1,0 +1,819 @@
+# Dataset: arxiv
+# Split: train
+# Source file: arxiv_train.bin
+# Start token index: 525,901,256
+# End token index: 525,911,256
+# Number of tokens: 10,000
+# Number of characters: 16,212
+============================================================
+
+9,7.65)(9,4.35)
+
+\psline(11,7.65)(12,.35)
+\psline(11,7.65)(10,2.35)
+
+\psline(13,7.65)(13,4.35)
+
+\psline(11,9.15)(11,8.35)
+
+\psline(9,10.65)(9,8.35)
+
+\psline(13,10.65)(11,9.85)
+\psline(13,10.65)(13,8.35)
+
+\psline(8.5,12.15)(9,11.35)
+\psline(8.5,12.15)(5,4.35)
+
+\rput(8,-1){\textsc{Figure \arabic{b}\addtocounter{b}{1}} Order $\preceq$ on $U$}
+\end{pspicture}
+\end{center}
+
+\newpage 
+
+Let $w=s_{1}s_{3}s_{2}s_{1}s_{3}s_{2}$ and $w_{1}=s_{1}s_{2}s_{3}s_{2}$. In the following table 
+$$y\in \{zw^{n}|z\in Y(w), n\in \mathbb{N}\} \text{ and } y_{1}\in \{zw_{1}^{n}|z\in Y(w_{1}), n\in \mathbb{N}\}$$
+
+
+
+{\small
+\begin{table}[htbp] \caption{Condition {\bf I5}} 
+\label{PcG}
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+$\begin{array}{|c|c|c|} \hline
+u\in U & x\in X_{u} & T_{x}C_{u} \mod \mathcal{H}_{<0}\\ \hline
+u_{2}^{1} & s_{1}s_{2} & T_{xu} +v^{a-c}\hspace{2pt} C_{u_{0}^{1}}\\\hline
+u_{2}^{1} & ys_{1}s_{3}s_{2} & T_{xu} +v^{a-c}\hspace{2pt} T_{ys_{3}}C_{u_{0}^{1}}\\\hline
+u_{4}^{3} & s_{2}s_{3}s_{2} & T_{xu}+v^{-a+2b}\hspace{2pt} C_{u_{1}^{3}}\\\hline
+u_{4}^{3} & y_{1}w_{1} & T_{xu} +v^{-a+2b}\hspace{2pt} T_{y_{1}s_{1}}C_{u_{1}^{3}}\\\hline
+
+ \end{array}$
+\end{center}
+\end{table}}
+
+
+\newpage
+
+\item{\bf Case $r_{1}-r_{2}-1=0, r_{1}+r_{2}>2$,  $r_{2}<1$}
+$\ $\\
+
+\begin{center}
+\begin{pspicture}(-4,-4)(4,4)
+
+
+
+
+
+
+\psline[linewidth=.7mm](0,0)(0,1)
+\psline[linewidth=.7mm](0,1)(.5,.5)
+\psline[linewidth=.7mm](0.5,0.5)(0,0)
+
+\psline[linewidth=.7mm](0,0)(0,-4)
+\psline[linewidth=.7mm](0,0)(-4,-4)
+
+\psline[linewidth=.7mm](0,2)(0,4)
+\psline[linewidth=.7mm](0,2)(-2,4)
+
+\psline[linewidth=.7mm](1,3)(1,4)
+\psline[linewidth=.7mm](1,3)(2,4)
+
+\psline[linewidth=.7mm](1,1)(4,1)
+\psline[linewidth=.7mm](1,1)(4,4)
+
+\psline[linewidth=.7mm](-1,1)(-4,1)
+\psline[linewidth=.7mm](-1,1)(-4,4)
+
+\psline[linewidth=.7mm](-2,0)(-4,0)
+\psline[linewidth=.7mm](-2,0)(-4,-2)
+
+\psline[linewidth=.7mm](1,-1)(1,-4)
+\psline[linewidth=.7mm](1,-1)(4,-4)
+
+\psline[linewidth=.7mm](2,0)(4,0)
+\psline[linewidth=.7mm](2,0)(4,-2)
+
+\psline[linewidth=.7mm](0,0)(.5,-.5)
+\psline[linewidth=.7mm](.5,-.5)(1,-1)
+\psline[linewidth=.7mm](.5,.5)(4,-3)
+\psline[linewidth=.7mm](1,0)(2,0)
+
+\psline[linewidth=.7mm](.5,.5)(1,1)
+\psline[linewidth=.7mm](0,1)(1,1)
+\psline[linewidth=.7mm](.5,1.5)(3,4)
+\psline[linewidth=.7mm](.5,1.5)(0,2)
+\psline[linewidth=.7mm](1,2)(1,3)
+\psline[linewidth=.7mm](.5,1.5)(1,1)
+
+\psline[linewidth=.7mm](0,1)(0,2)
+\psline[linewidth=.7mm](0,1)(-3,4)
+\psline[linewidth=.7mm](-.5,1.5)(-1,1)
+\psline[linewidth=.7mm](-1,1)(0,1)
+
+\psline[linewidth=.7mm](-.5,.5)(-1,1)
+\psline[linewidth=.7mm](-.5,.5)(-4,-3)
+\psline[linewidth=.7mm](-1,0)(-4,0)
+\psline[linewidth=.7mm](-.5,.5)(0,0)
+
+
+\rput(-.8,-2.5){{\small $ {\bf \tilde{c}^1_{0}}$}}
+\rput(1.8,-2.5){{\small $ {\bf \tilde{c}^2_{0}}$}}
+\rput(3.2,-.5){{\small $ {\bf \tilde{c}^3_{0}}$}}
+\rput(3.2,2.5){{\small $ {\bf \tilde{c}^4_{0}}$}}
+\rput(1.2,3.5){{\small $ {\bf \tilde{c}^5_{0}}$}}
+\rput(-.8,3.5){{\small $ {\bf \tilde{c}^6_{0}}$}}
+\rput(-2.8,1.5){{\small $ {\bf \tilde{c}^7_{0}}$}}
+\rput(-3.2,-.5){{\small $ {\bf \tilde{c}^8_{0}}$}}
+
+\rput(3.2,-1.5){{\small $ {\bf \tilde{c}^1_{1}}$}}
+\rput(2.2,3.5){{\small $ {\bf \tilde{c}^2_{1}}$}}
+\rput(-1.8,3.5){{\small $ {\bf \tilde{c}^3_{1}}$}}
+\rput(-2.8,-1.5){{\small $ {\bf \tilde{c}^4_{1}}$}}
+
+\rput(.2,-2.5){{\small $ {\bf \tilde{c}^1_{2}}$}}
+\rput(2.2,.5){{\small $ {\bf \tilde{c}^2_{2}}$}}
+\rput(.2,2.5){{\small $ {\bf \tilde{c}^3_{2}}$}}
+\rput(-1.8,.5){{\small $ {\bf \tilde{c}^4_{2}}$}}
+
+
+\rput(1.2,-.5){{\small $ {\bf \tilde{c}^1_{3}}$}}
+\rput(1.2,1.5){{\small $ {\bf \tilde{c}^2_{3}}$}}
+\rput(-1.2,1.5){{\small $ {\bf \tilde{c}^3_{3}}$}}
+\rput(-1.2,-.5){{\small $ {\bf \tilde{c}^4_{3}}$}}
+
+\rput(-.5,1.2){{\small $ {\bf \tilde{c}^1_{4}}$}}
+
+
+\rput(.2,1.5){{\small $ {\bf \tilde{c}^1_{5}}$}}
+\rput(-.2,.5){{\small $ {\bf \tilde{c}^2_{5}}$}}
+
+\rput(.5,.8){{\small $ {\bf \tilde{c}^1_{6}}$}}
+
+
+\rput(.2,.5){{\small $ {\bf \tilde{c}^1_{7}}$}}
+
+
+
+
+
+
+
+
+\multido{\nx=-4+1}{9}{
+\psline(\nx,-4)(\nx,4)}
+
+\multido{\ny=-4+1}{9}{
+\psline(-4,\ny)(4,\ny)}
+
+
+\psline(-4,-3)(-3,-4)
+\psline(-3,-3)(-2,-4)
+\psline(-2,-3)(-1,-4)
+\psline(-1,-3)(-0,-4)
+\psline(0,-3)(1,-4)
+\psline(1,-3)(2,-4)
+\psline(2,-3)(3,-4)
+\psline(3,-3)(4,-4)
+
+\psline(-4,-2)(-3,-3)
+\psline(-3,-2)(-2,-3)
+\psline(-2,-2)(-1,-3)
+\psline(-1,-2)(-0,-3)
+\psline(0,-2)(1,-3)
+\psline(1,-2)(2,-3)
+\psline(2,-2)(3,-3)
+\psline(3,-2)(4,-3)
+
+\psline(-4,-1)(-3,-2)
+\psline(-3,-1)(-2,-2)
+\psline(-2,-1)(-1,-2)
+\psline(-1,-1)(-0,-2)
+\psline(0,-1)(1,-2)
+\psline(1,-1)(2,-2)
+\psline(2,-1)(3,-2)
+\psline(3,-1)(4,-2)
+
+\psline(-4,0)(-3,-1)
+\psline(-3,0)(-2,-1)
+\psline(-2,0)(-1,-1)
+\psline(-1,0)(-0,-1)
+\psline(0,0)(1,-1)
+\psline(1,0)(2,-1)
+\psline(2,0)(3,-1)
+\psline(3,0)(4,-1)
+
+
+
+\psline(-4,4)(-3,3)
+\psline(-3,4)(-2,3)
+\psline(-2,4)(-1,3)
+\psline(-1,4)(-0,3)
+\psline(0,4)(1,3)
+\psline(1,4)(2,3)
+\psline(2,4)(3,3)
+\psline(3,4)(4,3)
+
+\psline(-4,3)(-3,2)
+\psline(-3,3)(-2,2)
+\psline(-2,3)(-1,2)
+\psline(-1,3)(-0,2)
+\psline(0,3)(1,2)
+\psline(1,3)(2,2)
+\psline(2,3)(3,2)
+\psline(3,3)(4,2)
+
+\psline(-4,2)(-3,1)
+\psline(-3,2)(-2,1)
+\psline(-2,2)(-1,1)
+\psline(-1,2)(-0,1)
+\psline(0,2)(1,1)
+\psline(1,2)(2,1)
+\psline(2,2)(3,1)
+\psline(3,2)(4,1)
+
+\psline(-4,1)(-3,0)
+\psline(-3,1)(-2,0)
+\psline(-2,1)(-1,0)
+\psline(-1,1)(-0,0)
+\psline(0,1)(1,0)
+\psline(1,1)(2,0)
+\psline(2,1)(3,0)
+\psline(3,1)(4,0)
+
+
+
+
+
+
+
+
+\psline(-4,3)(-3,4)
+\psline(-3,3)(-2,4)
+\psline(-2,3)(-1,4)
+\psline(-1,3)(-0,4)
+\psline(0,3)(1,4)
+\psline(1,3)(2,4)
+\psline(2,3)(3,4)
+\psline(3,3)(4,4)
+
+\psline(-4,2)(-3,3)
+\psline(-3,2)(-2,3)
+\psline(-2,2)(-1,3)
+\psline(-1,2)(-0,3)
+\psline(0,2)(1,3)
+\psline(1,2)(2,3)
+\psline(2,2)(3,3)
+\psline(3,2)(4,3)
+
+\psline(-4,1)(-3,2)
+\psline(-3,1)(-2,2)
+\psline(-2,1)(-1,2)
+\psline(-1,1)(-0,2)
+\psline(0,1)(1,2)
+\psline(1,1)(2,2)
+\psline(2,1)(3,2)
+\psline(3,1)(4,2)
+
+\psline(-4,0)(-3,1)
+\psline(-3,0)(-2,1)
+\psline(-2,0)(-1,1)
+\psline(-1,0)(-0,1)
+\psline(0,0)(1,1)
+\psline(1,0)(2,1)
+\psline(2,0)(3,1)
+\psline(3,0)(4,1)
+
+\psline(-4,-1)(-3,0)
+\psline(-3,-1)(-2,0)
+\psline(-2,-1)(-1,0)
+\psline(-1,-1)(-0,0)
+\psline(0,-1)(1,0)
+\psline(1,-1)(2,0)
+\psline(2,-1)(3,0)
+\psline(3,-1)(4,0)
+
+\psline(-4,-2)(-3,-1)
+\psline(-3,-2)(-2,-1)
+\psline(-2,-2)(-1,-1)
+\psline(-1,-2)(-0,-1)
+\psline(0,-2)(1,-1)
+\psline(1,-2)(2,-1)
+\psline(2,-2)(3,-1)
+\psline(3,-2)(4,-1)
+
+\psline(-4,-3)(-3,-2)
+\psline(-3,-3)(-2,-2)
+\psline(-2,-3)(-1,-2)
+\psline(-1,-3)(-0,-2)
+\psline(0,-3)(1,-2)
+\psline(1,-3)(2,-2)
+\psline(2,-3)(3,-2)
+\psline(3,-3)(4,-2)
+
+\psline(-4,-4)(-3,-3)
+\psline(-3,-4)(-2,-3)
+\psline(-2,-4)(-1,-3)
+\psline(-1,-4)(-0,-3)
+\psline(0,-4)(1,-3)
+\psline(1,-4)(2,-3)
+\psline(2,-4)(3,-3)
+\psline(3,-4)(4,-3)
+
+\rput(0,-4.5){{\small  {\sc Figure \arabic{b}\addtocounter{b}{1}} Partition of $W$}}
+
+
+
+
+\end{pspicture}
+
+\end{center}
+
+\begin{center}
+\psset{unit=.65cm}
+\begin{pspicture}(0,0)(16,16)
+
+\pscircle(0,0){.35}
+\rput(0,0){{\footnotesize $u^1_{0}$}}
+
+\pscircle(2,0){.35}
+\rput(2,0){{\footnotesize $u^2_{0}$}}
+
+\pscircle(4,0){.35}
+\rput(4,0){{\footnotesize $u^3_{0}$}}
+
+\pscircle(6,0){.35}
+\rput(6,0){{\footnotesize $u^4_{0}$}}
+
+\pscircle(8,0){.35}
+\rput(8,0){{\footnotesize $u^5_{0}$}}
+
+\pscircle(10,0){.35}
+\rput(10,0){{\footnotesize $u^6_{0}$}}
+
+\pscircle(12,0){.35}
+\rput(12,0){{\footnotesize $u^7_{0}$}}
+
+\pscircle(14,0){.35}
+\rput(14,0){{\footnotesize $u^8_{0}$}}
+
+\pscircle(16,0){.35}
+\rput(16,0){{\footnotesize $u^1_{0}$}}
+
+
+\pscircle(4,2){.35}
+\rput(4,2){{\footnotesize $u^1_{1}$}}
+
+\pscircle(8,2){.35}
+\rput(8,2){{\footnotesize $u^2_{1}$}}
+
+\pscircle(10,2){.35}
+\rput(10,2){{\footnotesize $u^3_{1}$}}
+
+\pscircle(14,2){.35}
+\rput(14,2){{\footnotesize $u^4_{1}$}}
+
+\pscircle(1,4){.35}
+\rput(1,4){{\footnotesize $u^1_{2}$}}
+
+\pscircle(5,4){.35}
+\rput(5,4){{\footnotesize $u^2_{2}$}}
+
+\pscircle(9,4){.35}
+\rput(9,4){{\footnotesize $u^3_{2}$}}
+
+\pscircle(13,4){.35}
+\rput(13,4){{\footnotesize $u^4_{2}$}}
+
+
+\pscircle(3,8){.35}
+\rput(3,8){{\footnotesize $u^1_{3}$}}
+
+\pscircle(9,8){.35}
+\rput(9,8){{\footnotesize $u^2_{3}$}}
+
+\pscircle(11,8){.35}
+\rput(11,8){{\footnotesize $u^3_{3}$}}
+
+\pscircle(13,8){.35}
+\rput(13,8){{\footnotesize $u^4_{3}$}}
+
+\pscircle(11,9.5){.35}
+\rput(11,9.5){{\footnotesize $u^{1}_{4}$}}
+
+\pscircle(9,11){.35}
+\rput(9,11){{\footnotesize $u^1_{5}$}}
+
+\pscircle(13,11){.35}
+\rput(13,11){{\footnotesize $u^2_{5}$}}
+
+
+\pscircle(8.5,12.5){.35}
+\rput(8.5,12.5){{\footnotesize $u^{1}_{6}$}}
+
+\pscircle(10,14){.35}
+\rput(10,14){{\footnotesize $u_{7}^{1}$}}
+
+\psline(10,13.65)(8.85,12.5)
+\psline(10,13.65)(13,11.35)
+\psline(10,13.65)(6,12.5)
+\psline(6,12.5)(3,8.35)
+
+\psline(4,.35)(4,1.65)
+\psline(6,.35)(4,1.65)
+
+\psline(8,.35)(8,1.65)
+\psline(6,.35)(8,1.65)
+\psline(10,.35)(8,1.65)
+
+\psline(10,.35)(10,1.65)
+
+
+\psline(14,.35)(14,1.65)
+\psline(16,.35)(14,1.65)
+\psline(12,.35)(14,1.65)
+
+
+\psline(1,3.65)(0,.35)
+\psline(1,3.65)(2,.35)
+
+\psline(5,3.65)(4,2.35)
+
+\psline(9,3.65)(8,2.35)
+\psline(9,3.65)(10,2.35)
+
+\psline(13,3.65)(14,2.35)
+
+
+\psline(3,7.65)(1,4.35)
+\psline(3,7.65)(5,4.35)
+
+\psline(9,7.65)(9,4.35)
+
+\psline(11,7.65)(12,.35)
+\psline(11,7.65)(10,2.35)
+
+\psline(13,7.65)(13,4.35)
+
+\psline(11,9.15)(11,8.35)
+
+\psline(9,10.65)(9,8.35)
+
+\psline(13,10.65)(11,9.85)
+\psline(13,10.65)(13,8.35)
+
+\psline(8.5,12.15)(9,11.35)
+\psline(8.5,12.15)(5,4.35)
+
+\rput(8,-1){\textsc{Figure \arabic{b}\addtocounter{b}{1}} Order $\preceq$ on $U$}
+\end{pspicture}
+\end{center}
+
+
+
+
+\newpage 
+
+Let $w_{1}=s_{1}s_{2}s_{3}s_{2}$. In the following table 
+$$ y_{1}\in \{zw_{1}^{n}|z\in Y(w_{1}), n\in \mathbb{N}\}$$
+
+
+
+{\small
+\begin{table}[htbp] \caption{Condition {\bf I5}} 
+\label{PcG}
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+$\begin{array}{|c|c|c|} \hline
+u\in U & x\in X_{u} & T_{x}C_{u} \mod \mathcal{H}_{<0}\\ \hline
+u_{3}^{3} & s_{2}s_{3}s_{2} & T_{xu} +v^{b-c}\hspace{2pt} C_{u_{1}^{3}}\\\hline
+u_{3}^{3} & y_{1}s_{1}s_{2}s_{3}s_{2} & T_{xu} +v^{b-c}\hspace{2pt} T_{y_{1}s_{1}}C_{u_{1}^{3}}\\\hline
+
+
+ \end{array}$
+\end{center}
+\end{table}}
+
+
+\newpage
+
+\item{\bf Case $(r_{1},r_{2})=(3/2,1/2)$}
+$\ $\\
+
+\begin{center}
+\begin{pspicture}(-4,-4)(4,4)
+
+
+
+
+
+
+\psline[linewidth=.7mm](0,0)(0,1)
+\psline[linewidth=.7mm](0,1)(.5,.5)
+\psline[linewidth=.7mm](0.5,0.5)(0,0)
+
+\psline[linewidth=.7mm](0,0)(0,-4)
+\psline[linewidth=.7mm](0,0)(-4,-4)
+
+\psline[linewidth=.7mm](0,2)(0,4)
+\psline[linewidth=.7mm](0,2)(-2,4)
+
+\psline[linewidth=.7mm](1,3)(1,4)
+\psline[linewidth=.7mm](1,3)(2,4)
+
+\psline[linewidth=.7mm](1,1)(4,1)
+\psline[linewidth=.7mm](1,1)(4,4)
+
+\psline[linewidth=.7mm](-1,1)(-4,1)
+\psline[linewidth=.7mm](-1,1)(-4,4)
+
+\psline[linewidth=.7mm](-2,0)(-4,0)
+\psline[linewidth=.7mm](-2,0)(-4,-2)
+
+\psline[linewidth=.7mm](1,-1)(1,-4)
+\psline[linewidth=.7mm](1,-1)(4,-4)
+
+\psline[linewidth=.7mm](2,0)(4,0)
+\psline[linewidth=.7mm](2,0)(4,-2)
+
+\psline[linewidth=.7mm](0,0)(.5,-.5)
+\psline[linewidth=.7mm](.5,-.5)(1,-1)
+\psline[linewidth=.7mm](.5,.5)(4,-3)
+\psline[linewidth=.7mm](1,0)(2,0)
+
+\psline[linewidth=.7mm](.5,.5)(1,1)
+\psline[linewidth=.7mm](0,1)(1,1)
+\psline[linewidth=.7mm](.5,1.5)(3,4)
+\psline[linewidth=.7mm](.5,1.5)(0,2)
+\psline[linewidth=.7mm](1,2)(1,3)
+\psline[linewidth=.7mm](.5,1.5)(1,1)
+
+\psline[linewidth=.7mm](0,1)(0,2)
+\psline[linewidth=.7mm](0,1)(-3,4)
+\psline[linewidth=.7mm](-1,1)(0,1)
+
+\psline[linewidth=.7mm](-.5,.5)(-1,1)
+\psline[linewidth=.7mm](-.5,.5)(-4,-3)
+\psline[linewidth=.7mm](-1,0)(-4,0)
+\psline[linewidth=.7mm](-.5,.5)(0,0)
+
+
+\rput(-.8,-2.5){{\small $ {\bf \tilde{c}^1_{0}}$}}
+\rput(1.8,-2.5){{\small $ {\bf \tilde{c}^2_{0}}$}}
+\rput(3.2,-.5){{\small $ {\bf \tilde{c}^3_{0}}$}}
+\rput(3.2,2.5){{\small $ {\bf \tilde{c}^4_{0}}$}}
+\rput(1.2,3.5){{\small $ {\bf \tilde{c}^5_{0}}$}}
+\rput(-.8,3.5){{\small $ {\bf \tilde{c}^6_{0}}$}}
+\rput(-2.8,1.5){{\small $ {\bf \tilde{c}^7_{0}}$}}
+\rput(-3.2,-.5){{\small $ {\bf \tilde{c}^8_{0}}$}}
+
+\rput(3.2,-1.5){{\small $ {\bf \tilde{c}^1_{1}}$}}
+\rput(2.2,3.5){{\small $ {\bf \tilde{c}^2_{1}}$}}
+\rput(-1.8,3.5){{\small $ {\bf \tilde{c}^3_{1}}$}}
+\rput(-2.8,-1.5){{\small $ {\bf \tilde{c}^4_{1}}$}}
+
+\rput(.2,-2.5){{\small $ {\bf \tilde{c}^1_{2}}$}}
+\rput(2.2,.5){{\small $ {\bf \tilde{c}^2_{2}}$}}
+\rput(.2,2.5){{\small $ {\bf \tilde{c}^3_{2}}$}}
+\rput(-1.8,.5){{\small $ {\bf \tilde{c}^4_{2}}$}}
+
+
+\rput(1.2,-.5){{\small $ {\bf \tilde{c}^1_{3}}$}}
+\rput(1.2,1.5){{\small $ {\bf \tilde{c}^2_{3}}$}}
+\rput(-1.2,1.5){{\small $ {\bf \tilde{c}^3_{3}}$}}
+\rput(-1.2,-.5){{\small $ {\bf \tilde{c}^4_{3}}$}}
+
+
+
+\rput(.2,1.5){{\small $ {\bf \tilde{c}^1_{5}}$}}
+\rput(-.2,.5){{\small $ {\bf \tilde{c}^2_{5}}$}}
+
+\rput(.5,.8){{\small $ {\bf \tilde{c}^1_{6}}$}}
+
+
+\rput(.2,.5){{\small $ {\bf \tilde{c}^1_{7}}$}}
+
+
+
+
+
+
+
+
+\multido{\nx=-4+1}{9}{
+\psline(\nx,-4)(\nx,4)}
+
+\multido{\ny=-4+1}{9}{
+\psline(-4,\ny)(4,\ny)}
+
+
+\psline(-4,-3)(-3,-4)
+\psline(-3,-3)(-2,-4)
+\psline(-2,-3)(-1,-4)
+\psline(-1,-3)(-0,-4)
+\psline(0,-3)(1,-4)
+\psline(1,-3)(2,-4)
+\psline(2,-3)(3,-4)
+\psline(3,-3)(4,-4)
+
+\psline(-4,-2)(-3,-3)
+\psline(-3,-2)(-2,-3)
+\psline(-2,-2)(-1,-3)
+\psline(-1,-2)(-0,-3)
+\psline(0,-2)(1,-3)
+\psline(1,-2)(2,-3)
+\psline(2,-2)(3,-3)
+\psline(3,-2)(4,-3)
+
+\psline(-4,-1)(-3,-2)
+\psline(-3,-1)(-2,-2)
+\psline(-2,-1)(-1,-2)
+\psline(-1,-1)(-0,-2)
+\psline(0,-1)(1,-2)
+\psline(1,-1)(2,-2)
+\psline(2,-1)(3,-2)
+\psline(3,-1)(4,-2)
+
+\psline(-4,0)(-3,-1)
+\psline(-3,0)(-2,-1)
+\psline(-2,0)(-1,-1)
+\psline(-1,0)(-0,-1)
+\psline(0,0)(1,-1)
+\psline(1,0)(2,-1)
+\psline(2,0)(3,-1)
+\psline(3,0)(4,-1)
+
+
+
+\psline(-4,4)(-3,3)
+\psline(-3,4)(-2,3)
+\psline(-2,4)(-1,3)
+\psline(-1,4)(-0,3)
+\psline(0,4)(1,3)
+\psline(1,4)(2,3)
+\psline(2,4)(3,3)
+\psline(3,4)(4,3)
+
+\psline(-4,3)(-3,2)
+\psline(-3,3)(-2,2)
+\psline(-2,3)(-1,2)
+\psline(-1,3)(-0,2)
+\psline(0,3)(1,2)
+\psline(1,3)(2,2)
+\psline(2,3)(3,2)
+\psline(3,3)(4,2)
+
+\psline(-4,2)(-3,1)
+\psline(-3,2)(-2,1)
+\psline(-2,2)(-1,1)
+\psline(-1,2)(-0,1)
+\psline(0,2)(1,1)
+\psline(1,2)(2,1)
+\psline(2,2)(3,1)
+\psline(3,2)(4,1)
+
+\psline(-4,1)(-3,0)
+\psline(-3,1)(-2,0)
+\psline(-2,1)(-1,0)
+\psline(-1,1)(-0,0)
+\psline(0,1)(1,0)
+\psline(1,1)(2,0)
+\psline(2,1)(3,0)
+\psline(3,1)(4,0)
+
+
+
+
+
+
+
+
+\psline(-4,3)(-3,4)
+\psline(-3,3)(-2,4)
+\psline(-2,3)(-1,4)
+\psline(-1,3)(-0,4)
+\psline(0,3)(1,4)
+\psline(1,3)(2,4)
+\psline(2,3)(3,4)
+\psline(3,3)(4,4)
+
+\psline(-4,2)(-3,3)
+\psline(-3,2)(-2,3)
+\psline(-2,2)(-1,3)
+\psline(-1,2)(-0,3)
+\psline(0,2)(1,3)
+\psline(1,2)(2,3)
+\psline(2,2)(3,3)
+\psline(3,2)(4,3)
+
+\psline(-4,1)(-3,2)
+\psline(-3,1)(-2,2)
+\psline(-2,1)(-1,2)
+\psline(-1,1)(-0,2)
+\psline(0,1)(1,2)
+\psline(1,1)(2,2)
+\psline(2,1)(3,2)
+\psline(3,1)(4,2)
+
+\psline(-4,0)(-3,1)
+\psline(-3,0)(-2,1)
+\psline(-2,0)(-1,1)
+\psline(-1,0)(-0,1)
+\psline(0,0)(1,1)
+\psline(1,0)(2,1)
+\psline(2,0)(3,1)
+\psline(3,0)(4,1)
+
+\psline(-4,-1)(-3,0)
+\psline(-3,-1)(-2,0)
+\psline(-2,-1)(-1,0)
+\psline(-1,-1)(-0,0)
+\psline(0,-1)(1,0)
+\psline(1,-1)(2,0)
+\psline(2,-1)(3,0)
+\psline(3,-1)(4,0)
+
+\psline(-4,-2)(-3,-1)
+\psline(-3,-2)(-2,-1)
+\psline(-2,-2)(-1,-1)
+\psline(-1,-2)(-0,-1)
+\psline(0,-2)(1,-1)
+\psline(1,-2)(2,-1)
+\psline(2,-2)(3,-1)
+\psline(3,-2)(4,-1)
+
+\psline(-4,-3)(-3,-2)
+\psline(-3,-3)(-2,-2)
+\psline(-2,-3)(-1,-2)
+\psline(-1,-3)(-0,-2)
+\psline(0,-3)(1,-2)
+\psline(1,-3)(2,-2)
+\psline(2,-3)(3,-2)
+\psline(3,-3)(4,-2)
+
+\psline(-4,-4)(-3,-3)
+\psline(-3,-4)(-2,-3)
+\psline(-2,-4)(-1,-3)
+\psline(-1,-4)(-0,-3)
+\psline(0,-4)(1,-3)
+\psline(1,-4)(2,-3)
+\psline(2,-4)(3,-3)
+\psline(3,-4)(4,-3)
+
+\rput(0,-4.5){{\small  {\sc Figure \arabic{b}\addtocounter{b}{1}} Partition of $W$}}
+
+
+
+
+\end{pspicture}
+
+\end{center}
+
+\begin{center}
+\psset{unit=.65cm}
+\begin{pspicture}(0,0)(16,16)
+
+\pscircle(0,0){.35}
+\rput(0,0){{\footnotesize $u^1_{0}$}}
+
+\pscircle(2,0){.35}
+\rput(2,0){{\footnotesize $u^2_{0}$}}
+
+\pscircle(4,0){.35}
+\rput(4,0){{\footnotesize $u^3_{0}$}}
+
+\pscircle(6,0){.35}
+\rput(6,0){{\footnotesize $u^4_{0}$}}
+
+\pscircle(8,0){.35}
+\rput(8,0){{\footnotesize $u^5_{0}$}}
+
+\pscircle(10,0){.35}
+\rput(10,0){{\footnotesize $u^6_{0}$}}
+
+\pscircle(12,0){.35}
+\rput(12,0){{\footnotesize $u^7_{0}$}}
+
+\pscircle(14,0){.35}
+\rput(14,0){{\footnotesize $u^8_{0}$}}
+
+\pscircle(16,0){.35}
+\rput(16,0){{\footnotesize $u^1_{0}$}}
+
+
+\pscircle(4,2){.35}
+\rput(4,2){{\footnotesize $u^1_{1}$}}
+
+\pscircle(8,2){.35}
+\rput(8,2){{\footnotesize $u^2_{1}$}}
+
+\pscircle(10,2){.35}
+\rput(10,2){{\footnotesize $u^3_{1}$}}
+
+\pscircle(14,2){.35}
+\rput(14,2){{\footnotesize $u^4_{1}$}}
+
+\pscircle(1,4){.35}
+\rput(1,4){{\footnotesize $u^1_{2}$}}
+
+\pscircle(5,4){.35}
+\rput(5,4){{\foot

@@ -1,0 +1,234 @@
+# Dataset: openwebmath
+# Split: train
+# Source file: openwebmath_train.bin
+# Start token index: 978,815,630
+# End token index: 978,825,630
+# Number of tokens: 10,000
+# Number of characters: 35,966
+============================================================
+
+also in the classical case a sin(x-y) coupling would be linear in the difference, but then the FM state would not be the ground state! Feb 19 '21 at 20:00
+• Is there a typo in the line where you say $\Vert U_{g^{-1}h} \Vert < \epsilon$? If $U$ is unitary, then $\Vert U\Vert = 1$. Presumably you mean $\Vert U - \mathbb I\Vert$? Feb 19 '21 at 20:26
+• An interesting follow-up question is how (whether?) this is related to the usual spin wave ansatz which is obtained by applying an operator $\sum e^{ikx} S^+_x$ -- this does not seem obvious. Feb 19 '21 at 21:00
+• Glad that your answer worked out, the result is very pretty. The missing piece about the necessity of being in the ground state is a good catch. It's also nice to know that the commonly held classical intuition applies to the quantum case as well (although I would have been very surprised if it didn't).
+– Zack
+Feb 20 '21 at 21:29
+• Thanks. And conversely, the classical case requires (unsurprisingly) the same extra condition of being a ground state to actually work. I'd still be very curious to understand how this links to a spin-wave ansatz, which seems rather different. -- In any case, I had the whole answer written more than a week ago and then I got stuck on the last part - why the 1/N part shoud vanish. In retrospect, it is obvious one has to use this condition. It was really the classical case which made me realize it! Feb 20 '21 at 22:56
+
+But this argument (based only on the freedom of movement of spins) is half-baked! Continuous movement in 3D doesn't seem to ensure emergence of gapless excitations.
+
+No, certainly not, but it's close. You're skipping over the part about the energy cost. In your proposed generalized Heisenberg model, $$J\neq J'\neq J''$$ would generically imply the existence of one or more discrete ground states, separated from one another by higher energy configurations. Starting from the ground state, it would require a finite amount of energy to excite the system, which means that it's gapped.
+
+If all of the $$J$$'s are very close to one another, then you have an approximate (not exact) symmetry, which would correspond to low-energy (but not exactly massless) excitations. This is the case e.g. for pions, which can be thought of as the pseudo-Goldstone modes corresponding to the approximate chiral-flavor symmetries which are broken by the different masses of the quarks, and which therefore have far smaller masses than most hadronic particles.
+
+So, it's not continuous movement but rather continuous movement at no energy cost which implies the existence of massless Goldstone modes. If the energy cost is small, then the corresponding pseudo-Goldstone modes will be light, and we would say that we have an approximate (or weakly-broken) symmetry.</s> New Titles  |  FAQ  |  Keep Informed  |  Review Cart  |  Contact Us Quick Search (Advanced Search ) Browse by Subject General Interest Logic & Foundations Number Theory Algebra & Algebraic Geometry Discrete Math & Combinatorics Analysis Differential Equations Geometry & Topology Probability & Statistics Applications Mathematical Physics Math Education
+
+Lie Algebras and Related Topics
+Edited by: Georgia Benkart and J. Marshall Osborn
+ SEARCH THIS BOOK:
+Contemporary Mathematics
+1990; 313 pp; softcover
+Volume: 110
+ISBN-10: 0-8218-5119-5
+ISBN-13: 978-0-8218-5119-7
+List Price: US$59 Member Price: US$47.20
+Order Code: CONM/110
+
+The 1984 classification of the finite-dimensional restricted simple Lie algebras over an algebraically closed field of characteristic $$p>7$$ provided the impetus for a Special Year of Lie Algebras, held at the University of Wisconsin, Madison, during 1987-88. Work done during the Special Year and afterward put researchers much closer toward a solution of the long-standing problem of determining the finite-dimensional simple Lie algebras over an algebraically closed field of characteristic $$p>7$$.
+
+This volume contains the proceedings of a conference on Lie algebras and related topics, held in May 1988 to mark the end of the Special Year. The conference featured lectures on Lie algebras of prime characteristic, algebraic groups, combinatorics and representation theory, and Kac-Moody and Virasoro algebras. Many facets of recent research on Lie theory are reflected in the papers presented here, testifying to the richness and diversity of this topic.
+
+• B. N. Allison -- Isotropic simple Lie algebras of type $$D_4$$
+• S. Berman -- On involutory subalgebras of Kac-Moody Lie algebras
+• G. Brown -- Structure of certain simple Lie algebras of characteristic three
+• R. W. Deckhart -- Calculus of some functions on the root lattice
+• J. Dorfmeister, E. Neher, and J. Szmigielski -- Banach manifolds and their automorphisms associated with groups of type $$C_\infty$$ and $$D_\infty$$
+• A. J. Feingold, I. B. Frenkel, and J. F. X. Ries -- The exceptional affine algebra $$E_8^(1)$$, triality and Chiral algebras
+• T. B. Gregory -- A characterization of the general Lie algebras of Cartan type $$W(n:\underline\underline m)$$
+• W. G. McKay, R. V. Moody, J. Patera, and A. Pianzola -- The 785 conjugacy classes of rational elements of finite order in $$E_8$$
+• E. Michaelis -- The primitives of the continuous linear dual of a Hopf algebra as the dual Lie algebra of a Lie coalgebra
+• K. C. Misra -- On irreducible highest weight representations of some affine Lie algebras
+• B. J. Parshall -- Hyperalgebras, highest weight categories and finite dimensional algebras
+• J. G. Ryan -- Extensions of representations of semisimple Lie algebras
+• J. Schue -- Enveloping algebras and division rings for Lie $$p$$-algebras
+• P. E. Singer -- Serre relations
+• L. Solomon -- The number of irreducible representations of a finite coxeter group
+• H. Strade -- The role of $$p$$-envelopes in the theory of modular Lie algebras
+• V. R. Varea -- On modular subalgebras in Lie algebras of prime characteristic
+• D. Witte -- Cocompact subgroups of semisimple Lie groups</s> ## Indicators
+
+• Similars in SciELO
+
+## Print version ISSN 2007-0934
+
+### Rev. Mex. Cienc. Agríc vol.5 n.spe9 Texcoco Sep./Nov. 2014
+
+#### http://dx.doi.org/10.29312/remexca.v0i9.1048
+
+Articles
+
+Prospects of social tourism in rural areas: study in the northeastern mountains of Puebla, Mexico
+
+1 Colegio de Postgraduados-Campus Puebla. Carretera Federal México-Puebla km 125.5. C. P 7276. Puebla, Puebla, México. (bramirez@colpos.mx).
+
+Abstract
+
+In Mexico, one of the main troubles is the existence of poverty within the population, especially in rural dwelling. There are indeed economic developments, particularly in the tourism sector. However, such activity is generally practiced by people with substantial income, marginalized for the population devoid of social capabilities. Overall, tourism is practiced by a segment of the population with higher incomes and marginalizes the poor population, lacking social benefits. The objective of this research was to understand the practices and leisure opportunities for low-income coffee producers. 212 questionnaires were applied to producers in five municipalities in the northeastern mountains of the State of Puebla. Respondents were within the "senior" tourism. It was found that a significant percentage of producers have a desire to see other places, particularly the religious spaces. However, given their meager income, the possibility of performing this activity is rather difficult. Farmers consider important to know other places and mentioned that require financing. The promotion of social tourism can be a strategy to promote local development, but a social policy to support recreational activities to people with fewer resources required.
+
+Keywords: coffee; peasant; poverty; rural areas
+
+Introduction
+
+In recent decades is being given more importance to the tourism sector's contribution to economic development. Brida et al. (2011) mentions that its positive impacts are those related to foreign exchange income, its contribution to public and private income, job creation, incentives for the creation of technologies and the formation of human capital and business opportunities. In this context, the World Tourism Organization (WTO, 2012) estimates that holds a nearly 5% of gross domestic product (GDP); and generates between 6% and 7% of all jobs in the world. In addition, 4% of international tourist arrivals increased, reaching 1 035 million in 2012 (WTO, 2013).
+
+This development of the tourism sector shows the tourism as an elitist activity, to propel social groups with high and middle-income countries; mainly from developed countries, such as Germany, USA, UK, China and the Russian Federation. It can be said that the higher the level of development of a country, the greater the demand for tourism. In Latin America, especially Mexico, an important segment of the population has no access to leisure, since by their socioeconomic status, their priority is to obtain enough food to support the family. In Latin America, more than 35% of the population lives in poverty or indigence; more accentuated in the rural population. Mexico is no stranger to this situation, 36.3% and 13.3% of the population is poor and homeless, respectively; and in rural areas, the poverty rate to 42.9% and indigence was present in 21.3% of the population (CEPAL, 2012).
+
+Tourism policy in Mexico has had some success in fostering economic concentration of the hotels in certain regions, and has been able to attract foreign tourists and generate a significant number of foreign exchange annually; but marginalizing the social rights of Mexicans, reflected in national legislation. Boltvinik and Damián (2003) mentioned that these rights are a dead letter and that the only social law which has nearly full force, is the right to basic education. Tourism should not be considered only as an economic activity, should bear in mind the social aspect as well; as it is considered as a dimension of social development, and an expression of the quality of life of people (Barbini, 2002); because it contributes to improving the quality of life of the population, once it has managed to meet their needs for food, housing and education (Acerenza, 2006).
+
+It can be said that the organizational forms of Fordist and post-Fordist production have affected the tourism policy implemented in selected countries; and determined the inclusion or exclusion of economic and social actors involved in tourism supply and demand. With the triumph of capitalism, Amin (2011) mentioned that social pro-working class relations were modified; encouraged the mass production of standardized destinations focused on tourism of sun and beach, at low cost and with a remarkable rigidity of supply (Donaire 1998; Enríquez et al., 2012). It is considered that the Fordist tourism was the production, but especially the consumption of tourist services, where their products were facing larger markets and little segmentation to maximize the number of visitors (De la Torre, 1997; Muñiz, 2001b; Fayos-Solá, 2004).
+
+This allowed a portion of the working population enjoy leisure activities, and marked the emergence of mass tourism, understood as a system of mass production and consumption, which allowed the population of Western societies access to consumption levels and wellness hitherto unthinkable (Santana, 2003). The entertainment was linked to reduced schedules, and social demands of the workers. It went from being a necessity to labor law. The amount of paid leave increased from the end of World War II, in the case of the workers, on average the holiday period spent 2 weeks in 1951 to 4-5 weeks in 1999 and working hours per week in the European Union (EU) in 1992 was on average 37.2 h decreased to 32.8 h in 1996 (Tribe, 1999). Social tourism is defined as tourism movement of people with limited financial means to pay for travel and accommodation; and seeks to facilitate access for disadvantaged people for reasons, economic and social (Cooper et al., 1997; López, 1999; Fayo-Solá, 2004; Molina and Cánoves, 2010). Under this model, people who do not have a wage contract with a company, such as peasants were excluded.
+
+In the neoliberal political, rights for leisure are threatened, and only part of the population retains these rights. The latest generations are characterized by difficulties in finding a job, and when they do, this is unstable and mostly lack of social benefits. Cooper et al. (2007) and Muñiz (2001a) mentioned that due to the economic crisis, union activity disclaims social leisure and tourism and job security means that maximum reduction of leisure time and that workers do not take advantage of their social rights. Today tourism has a fully economic view, privileging the artificial social relationships, to transform leisure into merchandise.
+
+There are several factors involved in the decision to pursue leisure activities, such as educational level; Ramírez (2006) considers other factors such as the possibility of time, mental and economic capacity availability. Regarding the economic performance, it is important that the existence of savings income are derived, which directly affects the demand, which translates into tourism consumption. Time constraints and income, and we see that the latter is increased at the expense of time, affecting leisure activities.
+
+This means that time is an essential component of well-being and that can often be overlooked, then the quality of life not only depends on the economic resources and access to public services, but the quality of time available to cover needs of reproduction in the domestic, working, recreation and leisure field (Damián, 2003). It can be said that the alternative of social tourism has been limited in developing countries, as people with lower incomes have other needs to be addressed, including health, housing, food, clothing and education (Boullón, 2005).
+
+Materials and methods
+
+The aim was to study the practices and leisure opportunities for coffee producers economically disadvantaged living in rural municipalities with very high marginality in the northeastern mountains of the State of Puebla. The region watched five municipalities, selected for having coffee surface planted, possess indigenous population and were highly marginalized: 1) Huehuetla; 2) Hueytlalpan; 3) Hermenegildo Galeana; 4) Olintla; and 5) Zapotitlán de Méndez. These towns are nestled in the northeastern mountains of Puebla, located between 20 degrees north latitude and 97th longitude west, with an elevationg from 180 to 1 500 m (INEGI, 2009) (Figure 1).
+
+The municipalities are characterized by having small populations. The main housing estates are concentrated in the municipalities, other population centers are small and scattered. The municipality has 15 689 inhabitants Huehuetla, Hueytlalpan 5 734, Hermenegildo Galeana 7 718, 11 641Olintla and, in Zapotitlán de Méndez 5 608 inhabitants (CEIGEP, 2010). Its main population centers have access to basic public services and have an intercultural university Huehuetla. The main economic activity in the municipalities is the production of coffee. The economically active population is mainly used as a self-employed worker, laborer and unpaid family workers.
+
+In this research, a review of secondary sources on social, rural tourism and poverty was performed. The research technique that was used to collect information from producers was the use of questionnaires, here social variables were analysed to determine whether indigenous farmers have done or are willing to make tourism practices and under what conditions. This study allows us to know what kind of tourism demand exists in indigenous areas and if it can help to change this activity stations.
+
+In order to calculate the sample size of this study, a stratified random sampling with proportional to municipality size distribution was used. The sampling universe consisted of coffee producers in the five municipalities in the study, based on the census of farmers conducted in 2001 equation to estimate the sample size is presented by Gómez (1979) and is specified as follows form:
+
+Equation 1. Mathematical expression to calculate the sample size in a random stratified proportional distribution.
+
+n=Ni=1kNisi2N2V+i=1kNisi2
+
+Where: d= Accuracy; Zα/2= reliability; N= population size; Ni = population size; stratum i; Si2 = variance of stratum i.
+
+With:
+
+V=d2Zα/22
+
+With the information obtained on the population is engaged in the production of coffee each municipality, with an accuracy of 15 percent and the average reliability of 95 percent, the sample size for each of the municipalities covered in the study remain as follows: 1) Huehuetla (n1= 51); 2) Hueytlalpan (n2= 36); 3) Hermenegildo Galeana (n3= 49); 4) Olintla (n4= 40); and 5) Zapotitlán Mendez (n5= 36). The sample size was laid out in 212 producers that were selected using a random process.
+
+Data analysis used descriptive statistics, t and χ2 tests were performed, and correspondence analysis. The results comparisons between indigenous coffee growers interested (167) and not interested (45) in tourist activities were made.
+
+Results and discussion
+
+Before analysing the research data on respondents' desire to visit places other than residence was considered important to talk about the characteristics of the respondents, for the type of people to whom we are talking and allow shaping the profile of the tourist potential. In this regard, it must be 61.3% of respondents speak the Spanish language and Totonaco; 26.9% speak only Totonaco; and the remainder said to speak Spanish and Náhuatl. With regard to language, no difference between the group with interest and interest-free tourist activities was found.
+
+Families on average are composed of 4.3 members, and they have three children. The fertility rate in the municipalities of study is high compared to the worldwide, which was 2.5 in 2006 (Bloom and Canning, 2006) and according to the National Population Council (CONAPO, 2011) in Mexico intercensal growth rate in 2000-2010 stood at 1.4 per hundred persons. With respect to age, we found that older people are similar to farmers in other regions; and fall within the type of "senior" tourist consists of people over 60 years.
+
+Statistically (t= 1.356, p= 0.18) producers in the municipalities of study are the same age (60 years) than the ejidatarios (SEDATU, 2012). The age of people who want (55.3 years) and not (57.6 years) did not influence practice tourism statistically (t= -1.114, p= 0.266) for this decision. In developed countries Molina and Cánoves (2010) argue that adults have begun to travel; and in underdeveloped countries this sector is widening, but with little income, so it would be important that the State participates promoting social tourism.
+
+Schooling in Mexico, although it has had significant accomplishments, the average is low, the National Institute for Educational Evaluation (INEE, 2012) reports that reached 8.3 years in 2008. The rural sector has the lowest schooling levels and especially family subsistence agriculture, with average 4.9 years (FAO-SAGARPA, 2012). Schooling of interviewees was no exception, on average had 2.8 years and found that influenced the decision of the people mentioned having a desire to know (3.1 years) or not (1.4 years) other different places. With regard to education, 64.4% of the people who do not want tourist activities are illiterate. In a study conducted in several municipalities of this region, Ramírez and Juárez (2008) mention that the producers are on average 4.6 years of schooling and 15.7% never attended school.
+
+Respondents are people dedicated to coffee cultivation (98.6%) in an average area of 1.8 ha; statistical difference (t= 2.744, p= 0.007) was found between the number of acres for people who want to know (1.9 ha) and not knowing (1.3 ha) elsewhere. This variable interferes with the decision to leave to visit other places. This type of agriculture is smallholder and is similar to coffee growers in the country, 64% have smaller areas than one hectare and 2.6% have areas larger than 5 ha (AMECAFE, 2012). The type of ownership is private producers (98.1%) mostly. The average yields obtained are low (1 037.5 kg ha-1). There is no statistical difference (t= 1.412, p= 0.159) in yields between wanting (1 093.8 kg ha-1) and not wanting (828.4 kg ha-1) out to see other places. It is considered that, the yields obtained are low and due to the global coffee crisis and austerity policies that are affecting the lives of their producers (Juárez and Ramírez, 2007).
+
+Importantly, among those who are considered poor, all of them do not want to see other places and those who are not considered poor 86.8% want to visit other places. When performing a correspondence analysis by comparing the perception township farmers about their living conditions at the time, the results show that there is statistically significant relationship between the two variables (χ2= 76.004, p< 0.001) (Figure 2).
+
+Three groups of perception of poverty were formed: a) municipalities with the lowest perception of living conditions, corresponding to Huehuetla and Olintla, grouped around the lower value of the indicator; b) municipalities with low-average perception in this case are the Hueytlalpan, Zapotitlán de Mendez and municipalities; c) Municipalities with average perception Hermenegildo Galeana. These results speak of extreme poverty where people live in these municipalities. Pérez and González (2003) argue that given the population growth without jobs and poverty in the population that many countries face, become relevant the concept of social tourism.
+
+The results show that a high percentage (78.8%) of respondents interested in visiting other places outside their community. Of this, only 10.8% of those who want to visit other places have enjoyed a vacation, visited Mexico City and Puebla and less mentioned Tlaxcala, Veracruz and Zacatlán. This means that coffee farmers are marginalized for leisure activities in this context becomes relevant the social tourism involved, including the market for the less fortunate, promoting their development and that of the communities visited (Pérez and González, 2003). The group that would like to leave and not of their community, 91% and 8.9% respectively considered important leisure activities. In general, they mentioned that it is important for escape (56%) and visit other places (33.1%), no statistical difference (χ2= 4.985; p < 0.546) was found between the two groups with respect to why it is important a vacation. The places they would like to know is the city of Puebla and Mexico (81.4%).
+
+This response means that even though the population is in poverty, it has desires of leisure activities to help improve their quality of life. Armadans (2002) mentions that the term "quality of life", not only must consider subjective aspects and should take account of objective type with their respective relationships. An objective factor is the available social support that may be associated with enjoyment in leisure activities. It also mentions that leisure activities and social participation of older persons have been positively related to quality of life. This people seniors enrich living space through leisure (Martínez, 2008).
+
+When asked if they would like to know the colonial cities, beach sites and religious shrines, it was found that they would like to know more than 2 points (average 2.6); first highlighted religious spaces, second site mentioned in colonial cities and third spaces sunshine (Juárez et al., 2012) mentioned that religious spaces in Latin America, especially in Mexico are characterized by a large influx of pilgrims, but with a lower level low cost. Religious tourism in Mexico in 2004 mobilized about 24 million people and left an economic impact of 40 billion pesos (Cruz and Monroy, 2005).
+
+96.4% of people wanting to meet other sites mentioned that he would like to visit religious places and they said they would not like to visit other places, 9% would like to visit these sites. The main sacred place to visit is the Sanctuary of the Virgin of Guadalupe (52.2%), and Juquila (31.7%) in Oaxaca and percentages below 6% mentioned the Sanctuary of the Lord of Chalma in the State of Mexico, the of the Virgin of San Juan de los Lagos in the State of Jalisco, el niño Doctor in Tepeaca and the Lord of Wonderland both in Puebla, and San Miguel del Milagro in the State of Tlaxcala. Importantly, the places mentioned by respondents are among the largest in the country and coincide with the place of origin of the pilgrims (Juárez et al., 2012) religious shrines.
+
+87.4% of respondents would like to know the colonial cities, this percentage, they mentioned that they would like to know the city of Puebla (48.6%), Mexico City (21.2%), Guanajuato (14.4%), Oaxaca (6.2%) and the remainder would like to visit Michoacan, Queretaro and Chiapas. These results show that respondents are interested in knowing the World Heritage Cities in Mexico. They were also asked if they wanted to see the beaches and answered yes, 82% of people who want to visit other places, this percentage, 67.2% want to know Veracruz, Acapulco 17.5% and 11.7% primarily Cancun. In Mexico the master-planned resorts (CIP), are the most important destinations for sun and sand; and Cancun, is one of them; the beaches of Veracruz and Acapulco are traditional sun and beach destinations of domestic tourists.
+
+Main dates mentioned for exploring other locations are in March (34.7%), May (21%) and April (20.4%) lower percentage mentioned in December, May, June and August. The reason why they decided to visit these places at that time, 66.5% said it when they have time, and relate primarily to the month of March and April; and 18.6% said that is when the weather is nice in the place they want to visit. This percentage speaks of knowledge among respondents from the place where they want to move, and specifically the seasonality of tourism, according to López and López (2006) related to weather and cultural values, but also mentions labour availability and personal decisions in the social sphere.
+
+The group of people who would like to know other places, 95.2% said they would visit the places mentioned, subject to the support that the government can provide for this activity. The type of support they need, 83.1% said they needed to pay for credit transfer and expenditure, 8.4% required credit to pay their fun, 6% to pay hosting and 2.4% for maintenance payments. Muñiz (2001c) mentions that in the change of seasons in tourism, social tourism becomes relevant, where support for marginalized people allowed to be displayed as a strategy used by hotel companies for the seasons change and tourism demand, provided they have the free time in seasons usually are not usually vacation and has a minimum income to meet expenses.
+
+The promotion of social tourism can become relevant in times and places where tourist destinations look not only benefit for the big chains. This requires to promote fair tourism intended to be a tool to promote sustainable development of the community, where local actors dictate its own model of development and ensure equitable and transparent distribution of value, respect basic human and labour rights and incorporates sustainable practices with the cultural, social and environmental medium (Palomo, 2006).
+
+Funding acquires a cardinal importance because the salaries paid to the respondents is low, on average earn $390 weekly. Statistically there is no difference (t= 1.468, p= 0.144) in the perception of salaries among those who would like to participate in tourism ($407.60) and those who have brought out elsewhere (\$323.40). Here, the government through soft financing schemes may boost the demand for social tourism becoming relevant, to revive tourism demand and to contribute to the welfare of the population through the promotion of leisure activities among the population in poverty. Where it is considered leisure as a human experience, and capable of providing necessary self, right and quality of life (Cuenca, 2009).
+
+Conclusions
+
+The investigation found that coffee producers in the assessed municipalities have a family smallholder production unit, which are seniors, with little education and live under poor circumstances. It is believed that low income and coffee yields are effect of agricultural policy and low international coffee prices. Despite the economic situation of respondents, and they have priority needs, such as feeding, education and housing; a high percentage of people who want to visit other places, with the goal of self needs are met. The variables that influence the decision to visit other places was the school and to a lesser extent the agricultural area of the household production unit.
+
+The areas to be visited include the major religious sanctuaries in the country, specially the Virgin of Guadalupe in the capital of the Mexican Republic. This demand responds to satisfy their spiritual needs, characteristic of every human being and specific needs of the Catholic people. The date in which they wish to leave to know other sites can contribute to changing seasons of tourism and social and economic development of host spaces. It is considered that it is necessary to promote social tourism that benefits the majority of the local population and tourism models that benefit not only the transnational tourism companies taken. They have to implement policies to support economic social tourism to this segment of the population, to enjoy leisure activities as a universal right of every human being.
+
+Social tourism should be seen as a right of every human being, and must stop identifying with tourism to poor, lower quality and lower price. Social tourism, properly organized both the demand and supply can be an important source of income and employment to promote regional development. It should encourage on the demand side a touristic policy that encourages programs that provide quality services at low prices in traditional tourist areas. However, is also needed a credit policy aimed at low-income tourism demand, where reduced interest payments and payment terms previously agreed. We conclude that the state should promote social tourism areas that are attractive to the demand, for the benefit of recipients and applicants.
+
+Acerenza, M. Á. 2006. Conceptualización, origen y evolución del turismo. Edit. Trillas. 116 p. [ Links ]
+
+Asociación Mexicana de la Cadena Productiva del Café (AMECAFÉ). 2012. Plan integral de promoción del café de México. AMECAFÉ. 63 p. [ Links ]
+
+Amín, S. 2011. Capitalismo, imperialismo, mundialización. Matxingune Taldea. 1-9 pp. [ Links ]
+
+Armadans, I. 2002. Actividad de ocio-turístico y personas mayores: análisis de diferencias psicosociales entre “viajeros” y “no viajeros”. Tesis doctoral. Facultad de Psicología, Departamento de Psicología Social. Universidad de Barcelona. 321 p. [ Links ]
+
+Barbini, B. M. 2002. El aporte del turismo al desarrollo local: condiciones y posibilidades. Fases. 14:71-86. [ Links ]
+
+Bloom, D. y Canning, D. 2006. Subidas, caídas y ecos. La explosión demográfica más grande de la historia afecta al desarrollo mundial. Finanzas y Desarrollo. 3(43):8-13. [ Links ]
+
+Boltvinik, J. y Damián, A. 2003. Derechos humanos y medición oficial de la pobreza en México. Papeles de Población. 35:101-137. [ Links ]
+
+Boullón, R. 2005: Las actividades turísticas y recreacionales: el hombre como protagonista. Editorial trillas. 199 p. [ Links ]
+
+Brida, J. G.; Monterubbianesi, P. D. y Zapata-Aguirre, S. 2011. Impactos del turismo sobre el crecimiento económico y el desarrollo. El caso de los principales destinos turísticos de Colombia. Pasos. 2(9):291-159. [ Links ]
+
+Comisión Económica para América Latina y el Caribe (CEPAL). 2012. Anuario Estadístico de América Latina y el Caribe. 220 p. [ Links ]
+
+Consejo Nacional de Población (CONAPO). 2011. La situación demográfica de México 2011. CONAPO. 273 p. [ Links ]
+
+Cooper, C.; Fletcher, J.; Fyall, A. Gilbert, D. y Wanhill, S. 2007. El turismo. Teoría y práctica. Editorial Síntesis. 358 p. [ Links ]
+
+Cooper, C.; Fletcher, J.; Gilbert, D. y Wanhill, S. 1997. Turismo. Principios y práctica. Editorial Diana. 942 p. [ Links ]
+
+Cruz, C. y Monroy, P. 2005. México santuario turístico. Fortuna. México http://revistafortuna.com.mx/opciones/archivo/2005/abril/html/turismo/santuario.htm. [ Links ]
+
+Cuenca, M. 2009. Más allá del trabajo: el ocio de los jubilados. Mal-estar e subjetividade. 1(9):13-42. [ Links ]
+
+Damián, A. 2003. La pobreza de tiempo. Una revisión metodológica (parte A y B). Estudios Demográficos y Urbanos. 52:127-162. [ Links ]
+
+De la Torre, Ó. 1997. El turismo. Fenómeno social. Fondo de Cultura Económica (FCE). 162 p. [ Links ]
+
+Donaire, J. A. 1998. La reconstrucción de los espacios turísticos. La geografía del turismo después del fordismo. Sociedade e Territorio. 28:2-32. [ Links ]
+
+Enríquez, M. A.; Osorio, M.; Castillo, M. y Arellano, A. 2012. Hacia una caracterización de la política turística. Pasos. 3(10):417-428. [ Links ]
+
+Fayos-Solá, E. 2004. Política turística en la era de la globalización. Colección Mediterráneo Económico: las nuevas formas del turismo. Instituto de estudios socioeconómicos de Cajamar. 5:215-232. [ Links ]
+
+Instituto Nacional para la Evaluación de la Educación (INEE). 2012. Panorama educativo de México 2010. Indicadores del sistema educativo nacional educación básica y media superior. 410 p. [ Links ]
+
+Instituto Nacional de Estadística y Geografía (INEGI). 2009. Prontuario de información geográfica municipal de los Estados Unidos Mexicanos. http://mapserver.inegi.org.mx/dsist/prontuario/index2.cfm. [ Links ]
+
+Juárez, J. P.; Ramírez, B. y Mota, J. A. 2012. Peregrinación y turismo religioso en los Santuarios de México. Geográfica de Valparaíso. 46:41-53. [ Links ]
+
+Juárez, J. P. y Ramírez, B. 2007. El turismo rural como complemento al desarrollo territorial rural en zonas indígenas de México. Scripta Nova. 11:236. [ Links ]
+
+López, F. 1999. Política turística y territorio en el escenario del cambio turístico. Boletín de la Asociación de Geógrafos Españoles. 28:23-38. [ Links ]
+
+López, J. M. y López, L. M. 2006. La concentración estacional en las regiones españolas desde una perspectiva de la oferta turística. Estudios Regionales. 77:77-104. [ Links ]
+
+Martínez, O. 2008. El programa de termalismo social del IMSERSO: la promoción del turismo activo en la tercera edad a través del agua. El caso de Galicia. Medicina naturista. 2(2):143-147. [ Links ]
+
+Molina, M. y Cánoves, G. 2010. Turismo accesible, turismo para todos: la situación en Cataluña y España. Cuadernos de Turismo. 25:25-44. [ Links ]
+
+Muñiz, D. 2001a. Análisis económico de la política de turismo social en España. Papeles de Trabajo. Cuadernos de Ciencias Económicas y Empresariales. Departamento de Economía Aplicada, Universidad de Málaga. 26:96 p. [ Links ]
+
+Muñiz, D. 2001b. La política social del turismo. Junta de Andalucía, Dirección General de Planificación Turística. 47 p. [ Links ]
+
+Muñiz, D. 2001c. El turismo social como tipología turística desestacionalizadora de la empresa hotelera. Cuadernos de CC.EE, y EE. 41:93-109. [ Links ]
+
+Organización Mundial del Turismo (OMT). 2013. Barómetro OMT del turismo mundial y anexo estadístico. OMT. 1-49 pp. [ Links ]
+
+Organización Mundial del Turismo (OMT). 2012. Panorama OMT del turismo internacional. OMT. 15 p. [ Links ]
+
+Palomo, S. 2006. El turismo justo y la creación de sistemas de producción de servicios turísticos responsables. Estudios Turísticos. 168:7-46. [ Links ]
+
+Pérez, D. M. y González, D. J. 2003. Turismo accesible. Hacia un turismo para todos. Colección Comité Español de Representantes de Personas con Discapacidad -ceremi.es-. 111 p. [ Links ]
+
+Ramírez, B. y Juárez, J. P. 2008. Opciones económicas y productivas de reestructuración de las unidades indígenas de produ

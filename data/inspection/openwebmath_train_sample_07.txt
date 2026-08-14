@@ -1,0 +1,369 @@
+# Dataset: openwebmath
+# Split: train
+# Source file: openwebmath_train.bin
+# Start token index: 433,797,840
+# End token index: 433,807,840
+# Number of tokens: 10,000
+# Number of characters: 25,757
+============================================================
+
+3TB drive, with probably around 5.5TB used, and I'm thinking that I will buy two more 4TB drives and set up a 4TB x 4TB x 3TB RAIDZ array.
+
+My questions are:
+
+1. My understanding is that for heterogeneous disk arrays like this, the pool size will be limited to the size of the smallest disk, which would mean I'd be looking at a 3 x 3 x 3 TB RAIDZ with 6TB usable space and 2TB of non-fault-tolerant space - is this true?*
+2. Assuming #1 is true, when I eventually need more space, if I add a single 4TB or 6TB drive to the array, will it be a simple matter to extend the pool to become a 4 x 4 x 4 TB array, or will I need to find somewhere to stash the 6TB of data while upgrading the array?
+
+*The 2TB of non-fault-tolerant space is not that big a deal, because I was planning on setting aside around 2TB for "stuff that needs proper backup" (personal photos, computer snapshots, etc), which I would mirror to the remaining 2TB disk and a 2nd 2TB external drive that I will keep somewhere else.
+
+Currently, I have a 1TB, 2TB and 3TB drive, with probably around 5.5TB used, and I'm thinking that I will buy two more 4TB drives and set up a 4TB x 4TB x 3TB RAIDZ array.
+
+With 4 TB drives, you shouldn't be looking at single redundancy RAIDZ. I would recommend RAIDZ2 because of the additional protection it affords in case one drive somehow breaks or otherwise develops problems.
+
+Remember that consumer drives are usually spec'd to a URE rate of one failed sector per 10^14 bits read. 1 TB (hard disk drive manufacturer terabyte, that is) is 10^12 bytes or close to 10^13 bits, give or take a small amount of change. A full read pass of the array you have in mind is statistically likely to encounter a problem, and in practice, read problems tend to develop in batches.
+
+I'm not sure why you are suggesting RAIDZ2. Is it more likely that I will develop two simultaneous drive failures if I use RAIDZ1 than if I use no RAID? I want some improvement to the fault tolerance of my system. Nothing unrecoverable will exist in only one place, so the RAID, array is just a matter of convenience.
+
+RAIDZ1 uses a single disk to provide redundancy in a vdev, whereas RAIDZ2 uses two (and some more complex calculations, but you are unlikely to be throughput limited by RAIDZ calculations anyway). The benefit of a second redundant disk is in case the first fails or otherwise becomes unavailable. With only one disk's worth of redundancy, any additional errors are now critical. With 4+4+3 TB, you have 11 TB of raw storage, initially 6 TB of which may need to be read to reconstruct a lost disk (8 TB once you upgrade that 3 TB drive to a 4 TB one and expand the pool to match). For order-of-magnitude estimates, that rounds nicely to somewhere between 10^13 and 10^14 bits. Statistically, you have something like a 50% to 100% probability of hitting an unrecoverable read error during resilvering when using single redundancy with an array of that order of magnitude size. Sure, you may very well luck out, but it suddenly means that you have next to no protection in case of a drive failure.
+
+My understanding is that for heterogeneous disk arrays like this, the pool size will be limited to the size of the smallest disk, which would mean I'd be looking at a 3 x 3 x 3 TB RAIDZ with 6TB usable space and 2TB of non-fault-tolerant space - is this true?
+
+Almost. ZFS will restrict the vdev to the size of the smallest constituent device, so you get the effective capacity of a three-device RAIDZ vdev made up of 3 TB devices, so 6 TB of user-accessible storage (give or take metadata). The remaining 2 TB of raw storage space are wasted; it is not available for use even without redundancy. (They will show up in the EXPANDSZ column in zpool list, but they aren't being used.)
+
+Once you replace the 3 TB drive with a 4 TB drive and expand the vdev (both of which are online operations in ZFS), the pool can use the additional storage space.
+
+There are ways around this -- for example, you could partition the drives to present three 3 TB devices and two 1 TB (remainder of the two 4 TB drives) devices to ZFS -- but it's going to seriously complicate your setup and it's unlikely to work the way you plan. I strongly recommend against that.
+
+The 2 TB of non-fault tolerant space would not be backed up by ZFS to the offline disks, sorry if that was not clear. I was suggesting that I would back it up by normal disk syncing operations like rsync.
+
+That implies that ZFS has no knowledge of those 2 x 1TB, and that you are creating some other file system in the space. Yes, you can do that, but again, it's going to seriously complicate your setup for, quite frankly, what appears to be very little gain.
+
+Assuming #1 is true, when I eventually need more space, if I add a single 4TB or 6TB drive to the array, will it be a simple matter to extend the pool to become a 4 x 4 x 4 TB array, or will I need to find somewhere to stash the 6TB of data while upgrading the array?
+
+As I said above, ZFS vdevs and pools can be grown as an online operation, if you do it by gradually replacing devices. (It is not, however, possible to shrink a ZFS pool or vdev.) What you cannot however do is add additional devices to an existing vdev (such as the three-device RAIDZ vdev that you are envisioning creating); an entirely new vdev must be added to the pool, and the data that is later written is then striped between the two vdevs in the pool. Each vdev has its own redundancy requirements, but they can share hot spares. You also cannot remove devices from a vdev, except in the case of mirrors (where removing a device only reduces the redundancy level of that particular mirror vdev, and does not affect the amount of user-accessible storage space), and you cannot remove vdevs from a pool. The only way to do the latter (and by consequence, the only way to fix some pool configuration mishaps) is to recreate the pool and transfer the data from the old pool, possibly by way of backups, to the new pool.
+
+The 2TB of non-fault-tolerant space is not that big a deal, because I was planning on setting aside around 2TB for "stuff that needs proper backup" (personal photos, computer snapshots, etc), which I would mirror to the remaining 2TB disk and a 2nd 2TB external drive that I will keep somewhere else.
+
+ZFS redundancy isn't really designed for the mostly-offline offsite-backup-drive use case. I discuss this in some depth in Would a ZFS mirror with one drive mostly offline work?, but the bread and butter of it is that it's better to use zfs send/zfs receive to copy the contents of a ZFS file system (including snapshots and other periphernalia), or plain rsync if you don't care about snapshots, than to use mirrors in a mostly-offline setup.
+
+If I'm using half my disks for fault tolerance, I might as well just use traditional offline backups.
+
+This admittedly depends a lot on your situation. What are your time to recovery requirements in different situations? RAID is about uptime and time to recovery, not about safeguarding data; you need backups anyway.
+
+• The 2 TB of non-fault tolerant space would not be backed up by ZFS to the offline disks, sorry if that was not clear. I was suggesting that I would back it up by normal disk syncing operations like rsync. – Paul Nov 29 '16 at 11:40
+• I'm not sure why you are suggesting RAIDZ2. Is it more likely that I will develop two simultaneous drive failures if I use RAIDZ1 than if I use no RAID? I want some improvement to the fault tolerance of my system. Nothing unrecoverable will exist in only one place, so the RAID, array is just a matter of convenience. If I'm using half my disks for fault tolerance, I might as well just use traditional offline backups. – Paul Nov 29 '16 at 11:51
+• @Paul: While rebuilding a failed drive, all data from all drives must be read. This increases the stress on the disks (especially if they are mostly idle normally) and therefore the chance of another drive failing. Additionally, while reading all data you may get an URE from one of the disks with no second disk to compensate, which means files can be damaged/lost. Third, the bigger your disks are, the longer your window of vulnerability becomes, not just for those problems, but any problems that may occur on the disks or system (power outage etc.). – user121391 Nov 29 '16 at 12:29
+• @Paul Sorry, I've misread your question (my first answer was about reliability of RAIDZ1 in case of one dead drive). To answer it: in this case, you get more reliability with Z1 over basic vdevs while everything works normally, but after one disk has died, your chance for further corruption actually increases. – user121391 Nov 29 '16 at 12:37
+• Here is the new question about RAIDZ1 vs. nothing. – Paul Nov 29 '16 at 15:14
+
+My understanding is that for heterogeneous disk arrays like this, the pool size will be limited to the size of the smallest disk, which would mean I'd be looking at a 3 x 3 x 3 TB RAIDZ with 6TB usable space and 2TB of non-fault-tolerant space - is this true?*
+
+Yes.
+
+Assuming #1 is true, when I eventually need more space, if I add a single 4TB or 6TB drive to the array, will it be a simple matter to extend the pool to become a 4 x 4 x 4 TB array, or will I need to find somewhere to stash the 6TB of data while upgrading the array?
+
+Yes, this is possible.
+
+You can replace all your disks inside a Z1/Z2/Z3 vdev one by one, where your capacity will be equal to the smallest disk currently in use in the vdev (you can also set the property autoexpand to on to do this automatically instead of manually).
+
+On the other hand, you cannot add (instead of replace) any drive to an existing Z1/Z2/Z3 vdev without completely destroying and recreating the pool (losing all your data in the process). On mirrors and basic vdevs, you can add more drives to create a 2-mirror, 3-mirror, 4-mirror etc, but this only increases reliability, not usable size.</s> Speed of sound
+
+1. Sep 13, 2005
+
+benitta
+
+how does the speed of sound vary with temperature in an ideal gas? how do we derive this relation?
+
+2. Sep 13, 2005
+
+Severian596
+
+Isn't the speed of sound directly proportionate to the medium's density?
+
+3. Sep 13, 2005
+
+Severian596
+
+4. Sep 13, 2005
+
+FredGarvin
+
+The speed of sound is proportional to the square root of the absolute temperature:
+
+$$c = \sqrt{k R T}$$
+
+where:
+c = speed of sound
+k = ratio of specific heats (1.4 for air)
+R = Ideal gas constant
+T = Temperature
+
+5. Sep 14, 2005
+
+benitta
+
+thanks guys...</s> # zbMATH — the first resource for mathematics
+
+## Tokyo Journal of Mathematics
+
+### Published for the Departments of Mathematics of Gakushuin University, Keio University, Sophia University, Tokyo Metropolitain University, Tsuda College, Waseda University
+
+ Short Title: Tokyo J. Math. Publisher: Kinokuniya Company Ltd., Tokyo ISSN: 0387-3870 Online: https://projecteuclid.org/all/euclid.tjm Comments: Indexed cover-to-cover
+ Documents Indexed: 1,450 Publications (since 1978) References Indexed: 520 Publications with 7,145 References.
+all top 5
+
+#### Latest Issues
+
+ 44, No. 1 (2021) 43, No. 2 (2020) 43, No. 1 (2020) 42, No. 2 (2019) 42, No. 1 (2019) 41, No. 2 (2018) 41, No. 1 (2018) 40, No. 2 (2017) 40, No. 1 (2017) 39, No. 3 (2017) 39, No. 2 (2016) 39, No. 1 (2016) 38, No. 2 (2015) 38, No. 1 (2015) 37, No. 2 (2014) 37, No. 1 (2014) 36, No. 2 (2013) 36, No. 1 (2013) 35, No. 2 (2012) 35, No. 1 (2012) 34, No. 2 (2011) 34, No. 1 (2011) 33, No. 2 (2010) 33, No. 1 (2010) 32, No. 2 (2009) 32, No. 1 (2009) 31, No. 2 (2008) 31, No. 1 (2008) 30, No. 2 (2007) 30, No. 1 (2007) 29, No. 2 (2006) 29, No. 1 (2006) 28, No. 2 (2005) 28, No. 1 (2005) 27, No. 2 (2004) 27, No. 1 (2004) 26, No. 2 (2003) 26, No. 1 (2003) 25, No. 2 (2002) 25, No. 1 (2002) 24, No. 2 (2001) 24, No. 1 (2001) 23, No. 2 (2000) 23, No. 1 (2000) 22, No. 2 (1999) 22, No. 1 (1999) 21, No. 2 (1998) 21, No. 1 (1998) 20, No. 2 (1997) 20, No. 1 (1997) Index (1997) 19, No. 2 (1996) 19, No. 1 (1996) 18, No. 2 (1995) 18, No. 1 (1995) 17, No. 2 (1994) 17, No. 1 (1994) 16, No. 2 (1993) 16, No. 1 (1993) 15, No. 2 (1992) 15, No. 1 (1992) 14, No. 2 (1991) 14, No. 1 (1991) 13, No. 2 (1990) 13, No. 1 (1990) 12, No. 2 (1989) 12, No. 1 (1989) 11, No. 2 (1988) 11, No. 1 (1988) 10, No. 1-2 (1987) 9 (1986) 8 (1985) 7 (1984) 6 (1983) 5 (1982) 4 (1981) 3 (1980) 2 (1979) 1 (1978)
+all top 5
+
+#### Authors
+
+ 18 Ito, Shunji 15 Kawazoe, Takeshi 12 Morimoto, Mitsuo 11 Mori, Makoto 11 Sekiguchi, Koji 11 Yoshioka, Akira 10 Kato, Masahide 10 Maeda, Yoshiaki 10 Omori, Hideki 9 Kaneyuki, Soji 9 Wada, Junzo 8 Kobayashi, Osamu 8 Komatsu, Takao 7 Hatori, Osamu 7 Katayama, Koji 7 Kodaka, Kazunori 7 Maejima, Makoto 7 Nagano, Tadashi 7 Ohtsuki, Makoto 7 Suzuki, Yuki 7 Tanaka, Hiroshi L. 6 Duong Quôc Việt 6 Fukuhara, Shinji 6 Hayashi, Kiyoshi 6 Ishii, Ippei 6 Koike, Naoyuki 6 Komatsu, Kenzo 6 Nakada, Hitoshi 6 Sato, Enji 6 Taniguchi, Masaru 6 Watanabe, Kazuo 6 Yoshino, Kunio 5 Adachi, Toshiaki 5 Ejiri, Norio 5 Goto, Shiro 5 Ha Huy Bang 5 Kawamoto, Fuminori 5 Matsuoka, Katsuo 5 Midorikawa, Hisaichi 5 Miura, Takeshi 5 Sawabe, Masato 5 Shinoda, Kenichi 5 Tanaka, Minoru 5 Tanaka, Shigeru 5 Terai, Nobuhiro 5 Wada, Ryoko 4 Aomoto, Kazuhiko 4 Chen, Bang-Yen 4 Furutani, Kenro 4 Hayakawa, Eijirou 4 Iitaka, Shigeru 4 Kawata, Tatsuo 4 Kurihara, Masato 4 Maeda, Sadahiro 4 Mitsui, Takayoshi 4 Miyata, Yoichiro 4 Nakano, Minoru 4 Nakano, Tetsuo 4 Nakashima, Toshiki 4 Naruse, Hiroshi 4 Okano, Takeshi 4 Saisho, Yasumasa 4 Sato, Ken-iti 4 Sawada, Hideki 4 Sekiguchi, Jiro 4 Shimomura, Shun 4 Sobukawa, Takuya 4 Sudo, Takahiro 4 Suwa, Noriyuki 4 Tachikawa, Atsushi 4 Tahara, Hidetoshi 4 Takagi, Hiroyuki 4 Tanaka, Hitoshi 4 Tanaka, Makiko Sumi 4 Taniyama, Kouki 4 Tsuji, Tadashi 4 Tsukamoto, Ichiro 4 Tsumura, Hirofumi 4 Tsutsumi, Yukihiro 4 Udagawa, Seiichi 4 Watanabe, Shigeru 4 Yokoyama, Kazuo 4 Yuri, Michiko 3 Abe, Ryuji 3 Ahara, Kazushi 3 Anzai, Kazuo 3 Arai, Hitoshi 3 Aramaki, Junichi 3 Chinen, Koji 3 Chō, Muneo 3 Dateyama, Masahito 3 Egami, Shigeki 3 Eigen, Stanley J. 3 Eto, Kazufumi 3 Fujita, Keiko 3 Fukuda, Takuo 3 Goda, Hiroshi 3 Hara, Tamio 3 Hashimoto, Hideya 3 Ichihara, Kazuhiro ...and 1,187 more Authors
+all top 5
+
+#### Fields
+
+ 289 Number theory (11-XX) 225 Differential geometry (53-XX) 162 Algebraic geometry (14-XX) 141 Manifolds and cell complexes (57-XX) 128 Functional analysis (46-XX) 120 Partial differential equations (35-XX) 92 Dynamical systems and ergodic theory (37-XX) 89 Global analysis, analysis on manifolds (58-XX) 87 Several complex variables and analytic spaces (32-XX) 73 Group theory and generalizations (20-XX) 65 Commutative algebra (13-XX) 65 Probability theory and stochastic processes (60-XX) 57 Operator theory (47-XX) 53 Topological groups, Lie groups (22-XX) 51 Combinatorics (05-XX) 40 Ordinary differential equations (34-XX) 39 Harmonic analysis on Euclidean spaces (42-XX) 36 Functions of a complex variable (30-XX) 33 Abstract harmonic analysis (43-XX) 32 Nonassociative rings and algebras (17-XX) 30 Measure and integration (28-XX) 25 Special functions (33-XX) 23 General topology (54-XX) 21 Associative rings and algebras (16-XX) 18 Field theory and polynomials (12-XX) 17 Algebraic topology (55-XX) 13 Convex and discrete geometry (52-XX) 13 Fluid mechanics (76-XX) 13 Quantum theory (81-XX) 11 Statistics (62-XX) 10 Real functions (26-XX) 10 Difference and functional equations (39-XX) 7 Approximations and expansions (41-XX) 7 Integral transforms, operational calculus (44-XX) 6 $$K$$-theory (19-XX) 5 Mathematical logic and foundations (03-XX) 5 Potential theory (31-XX) 5 Geometry (51-XX) 5 Statistical mechanics, structure of matter (82-XX) 5 Information and communication theory, circuits (94-XX) 4 Order, lattices, ordered algebraic structures (06-XX) 4 Category theory; homological algebra (18-XX) 4 Integral equations (45-XX) 4 Numerical analysis (65-XX) 4 Mechanics of particles and systems (70-XX) 4 Mechanics of deformable solids (74-XX) 3 Linear and multilinear algebra; matrix theory (15-XX) 3 Sequences, series, summability (40-XX) 3 Calculus of variations and optimal control; optimization (49-XX) 3 Computer science (68-XX) 3 Classical thermodynamics, heat transfer (80-XX) 3 Biology and other natural sciences (92-XX) 2 General and overarching topics; collections (00-XX) 2 Relativity and gravitational theory (83-XX) 2 Geophysics (86-XX) 2 Game theory, economics, finance, and other social and behavioral sciences (91-XX) 2 Systems theory; control (93-XX)
+
+#### Citations contained in zbMATH Open
+
+909 Publications have been cited 4,180 times in 3,660 Documents Cited by Year
+Maximal surfaces in the 3-dimensional Minkowski space $$L^ 3$$. Zbl 0535.53052
+Kobayashi, Osamu
+1983
+Metrical theory for a class of continued fraction transformations and their natural extensions. Zbl 0479.10029
+1981
+On graded rings. II: $$\mathbb{Z}$$-graded rings. Zbl 0406.13007
+Goto, Shiro; Watanabe, Keiichi
+1978
+On a global solution of some quasilinear hyperbolic equation. Zbl 0586.35059
+Nishihara, Kenji
+1984
+Normal Gorenstein surfaces with ample anti-canonical divisor. Zbl 0496.14023
+Hidaka, Fumio; Watanabe, Kei-ichi
+1981
+Paracomplex structures and affine symmetric spaces. Zbl 0585.53029
+Kaneyuki, Soji; Kozai, Masato
+1985
+Kähler magnetic flows for a manifold of constant holomorphic sectional curvature. Zbl 0861.53070
+1995
+The conjugate classes of unipotent elements of the Chevalley groups $$E_ 7$$ and $$E_ 8$$. Zbl 0454.20046
+Mizuno, Kenzo
+1980
+The Maslov index: A functional analytical definition and the spectral flow formula. Zbl 0932.37063
+Booss-Bavnbek, Bernhelm; Furutani, Kenro
+1998
+Exponentially bounded C-semigroups and integrated semigroups. Zbl 0702.47028
+1989
+The centralizers of semisimple elements of the Chevalley groups $$E_ 7$$ and $$E_ 8$$. Zbl 0534.20031
+Deriziotis, D. I.
+1983
+The classification of Fano 3-folds with torus embeddings. Zbl 0581.14028
+Watanabe, Keiichi; Watanabe, Masayuki
+1982
+Invariant Einstein metrics on certain homogeneous spaces. Zbl 0884.53039
+Park, Joon-Sik; Sakane, Yusuke
+1997
+On the exponentially bounded C-semigroups. Zbl 0631.47029
+Tanaka, Naoki
+1987
+Asymptotic behavior of solutions to the semilinear wave equation with time-dependent damping. Zbl 1242.35174
+Nishihara, Kenji
+2011
+On the Hyers-Ulam stability of real continuous function valued differentiable map. Zbl 1002.39039
+Miura, Takeshi; Takahasi, Sin-ei; Choda, Hisashi
+2001
+Totally real parallel submanifolds in $$P^ n($$c). Zbl 0485.53044
+Naitoh, Hiroo
+1981
+Modified Jacobi-Perron algorithm and generating Markov partitions for special hyperbolic toral automorphisms. Zbl 0805.11056
+Itô, Shunji; Ohtsuki, Makoto
+1993
+A partial order of knots. Zbl 0688.57006
+Taniyama, Kouki
+1989
+A proof of the classical Kronecker limit formula. Zbl 0462.10014
+Shintani, Takuro
+1980
+Timelike surfaces of constant mean curvature in Minkowski 3-space. Zbl 0930.53042
+Inoguchi, Jun-ichi
+1998
+Curvatures of tangent bundles with Cheeger-Gromoll metric. Zbl 0768.53020
+Sekizawa, Masami
+1991
+On a differential equation characterizing a Riemannian structure of a manifold. Zbl 0534.53037
+Kanai, Masahiko
+1983
+On unimodal linear transformations and chaos. II. Zbl 0461.28017
+Ito, Shunji; Tanaka, Shigeru; Nakada, Hitoshi
+1979
+Some new surfaces of general type. Zbl 0836.14020
+Inoue, Masahisa
+1994
+Real hypersurfaces of complex space forms in terms of Ricci *-tensor. Zbl 1046.53037
+2002
+Hölder continuity of sample paths of some self-similar stable processes. Zbl 0728.60042
+Kôno, Norio; Maejima, Makoto
+1991
+Defining equations of modular curves $$X_ 0(N)$$. Zbl 0865.11052
+Shimura, Mahoro
+1995
+Spherical monogenic functions and analytic functionals on the unit sphere. Zbl 0481.30040
+Sommen, Fransiscus
+1981
+On normal projective surfaces with trivial dualizing sheaf. Zbl 0496.14025
+Umezu, Yumiko
+1981
+Eisenstein ideals and the rational torsion subgroups of modular Jacobian varieties. II. Zbl 1332.11061
+Ohta, Masami
+2014
+On the geometry of the tangent bundle with the Cheeger-Gromoll metric. Zbl 1019.53017
+Gudmundsson, Sigmundur; Kappos, Elias
+2002
+3-dimensional Fano varieties with canonical singularities. Zbl 0708.14025
+Shin, Kil-Ho
+1989
+Ruled surfaces and tubes with finite type Gauss map. Zbl 0798.53055
+Baikoussis, Christos; Chen, Bang-yen; Verstraelen, Leopold
+1993
+Time reversal of random walks in one dimension. Zbl 0692.60052
+Tanaka, Hiroshi
+1989
+$$L^p$$ estimates for some Schrödinger type operators and a Calderón-Zygmund operator of Schrödinger type. Zbl 1207.35112
+Sugano, Satoko
+2007
+Compact space-like $$m$$-submanifolds in a pseudo-Riemannian sphere $$S_ p^{m+p} (c)$$. Zbl 0842.53038
+Aiyama, Reiko
+1995
+Homogeneous symplectic manifolds and dipolarizations in Lie algebras. Zbl 0781.53027
+Kaneyuki, Soji
+1992
+On the first eigenvalue of the $$p$$-Laplacian in a Riemannian manifold. Zbl 0911.53023
+Takeuchi, Hiroshi
+1998
+Complex multiplication formulae for hyperelliptic curves of genus three. Zbl 1016.11019
+Ônishi, Yoshihiro
+1998
+Estimates for the operators $$V^{\alpha}(-\Delta +V)^{-\beta}$$ and $$V^{\alpha} \nabla(-\Delta +V)^{-\beta}$$ with certain non-negative potentials $$V$$. Zbl 0922.35043
+Sugano, Satoko
+1998
+A partial order of links. Zbl 0698.57001
+Taniyama, Kouki
+1989
+Smooth perturbations of the self-adjoint operator $$|\Delta|^{\alpha{}/2}$$. Zbl 0757.47015
+Watanabe, Kazuo
+1991
+Periodic solution of classical Hamiltonian systems. Zbl 0498.58010
+Hayashi, Kiyoshi
+1983
+Isometries and maps compatible with inverted Jordan triple products on groups. Zbl 1271.46010
+Hatori, Osamu; Hirasawa, Go; Miura, Takeshi; Molnár, Lajos
+2012
+Solvability of nonstationary problems for nonhomogeneous incompressible fluids and the convergence with vanishing viscosity. Zbl 0943.35075
+Itoh, Shigeharu; Tani, Atusi
+1999
+On homeomorphisms with pseudo-orbit tracing property. Zbl 0537.58034
+Aoki, Nobuo
+1983
+Properties of topological dynamical systems and corresponding $$C^*$$- algebras. Zbl 0724.54037
+Kawamura, Shinzô; Tomiyama, Jun
+1990
+Parallelogram tilings and Jacobi-Perron algorithm. Zbl 0805.52011
+Ito, Shunji; Ohtsuki, Makoto
+1994
+Motion of charged particles and homogeneous geodesics in Kähler $$C$$-spaces with two isotropy summands. Zbl 1203.83005
+Arvanitoyeorgos, Andreas; Chrysikos, Ioannis
+2009
+Connecting lemmas and representing homology classes of simply connected 4-manifolds. Zbl 0865.57034
+Yasuhara, Akira
+1996
+On regular Frechet-Lie groups. IV: Definition and fundamental theorems. Zbl 0515.58004
+Omori, Hideki; Maeda, Yoshiaki; Yoshioka, Akira; Kobayashi, Osamu
+1982
+On a $$p$$-adic interpolation of the generalized Euler numbers and its applications. Zbl 0641.12007
+Tsumura, Hirofumi
+1987
+The microlocal structure of weighted homogeneous polynomials associated with Coxeter systems. I. Zbl 0449.58025
+Yano, Tamaki; Sekiguchi, Jiro
+1979
+Flows and spines. Zbl 0697.57004
+Ishii, Ippei
+1986
+Contact Riemannian manifolds with constant $$\varphi$$-sectional curvature. Zbl 0882.53032
+Koufogiorgos, Themis
+1997
+Predual spaces of Morrey spaces with non-doubling measures. Zbl 1193.42094
+Sawano, Yoshihiro; Tanaka, Hitoshi
+2009
+The rate of convergence for approximate solutions of stochastic differential equations. Zbl 0701.60056
+Kanagawa, Shûya
+1989
+Multiplicity and Hilbert-Kunz multiplicity of monoid rings. Zbl 1096.13519
+Eto, Kazufumi
+2002
+Classification of sextics of torus type. Zbl 1062.14036
+Oka, Mutsuo; Pho, Duc Tai
+2002
+Slant submanifolds in complex Euclidean spaces. Zbl 0735.53040
+Chen, Bang-Yen; Tazawa, Yoshihiko
+1991
+On the existence and uniqueness of the stationary solution to the equations of natural convection. Zbl 0739.35074
+Morimoto, Hiroko
+1991
+Hamiltonian minimal Lagrangian cones in $$\mathbb C^m$$. Zbl 1087.53057
+Iriyeh, Hiroshi
+2005
+$$B_w^u$$-function spaces and their interpolation. Zbl 1365.42016
+Nakai, Eiichi; Sobukawa, Takuya
+2016
+Remarks on a subspace of Morrey spaces. Zbl 1304.42059
+Izumi, Takashi; Sato, Enji; Yabuta, Kôzô
+2014
+Operator semi-selfdecomposability, $$(C,Q)$$-decomposability and related nested classes. Zbl 0947.60010
+Maejima, Makoto; Sato, Ken-iti; Watanabe, Toshiro
+1999
+On space-like hypersurfaces with constant mean curvature of a Lorentz space form. Zbl 0739.53047
+Ki, U-Hang; Kim, He-Jin; Nakagawa, Hisao
+1991
+Unknotting operations of polygonal type. Zbl 0773.57003
+Aida, Haruko
+1992
+On Iwasawa $$\lambda_p$$-invariants of relative real cyclic extensions of degree $$p$$. Zbl 0919.11068
+Fukuda, Takashi; Komatsu, Keiichi; Ozaki, Manabu; Taya, Hisao
+1997
+Classification of $$T^ 2-bundles$$ over $$T^ 2$$. Zbl 0543.55011
+Sakamoto, Koichi; Fukuhara, Shinji
+1983
+On normal integral bases. Zbl 0553.12001
+Kawamoto, Fuminori
+1984
+The involutions of the compact symmetric spaces. Zbl 0655.53041
+1988
+On the power series coefficients of the Riemann zeta function. Zbl 0683.10032
+Matsuoka, Yasushi
+1989
+On the symmetry of a reflecting Brownian motion defined by Skorohod’s equation for a multi-dimensional domain. Zbl 0636.60083
+Saisho, Yasumasa; Tanaka, Hiroshi
+1987
+Construction of number fields with prescribed $$\ell$$-class groups. Zbl 0403.12011
+Yahagi, Osamu
+1978
+Analytic functionals on the Lie sphere. Zbl 0454.46032
+Morimoto, Mitsuo
+1980
+A proof of Thurston’s uniformization theorem of geometric orbifolds. Zbl 0732.57015
+Matsumoto, Yukio; Montesinos-Amilibia, José María
+1991
+On the exponents of 2-multiarrangements. Zbl 1130.52010
+Wakamiko, Atsushi
+2007
+On a Bernoulli property for multidimensional mappings with finite range structure. Zbl 0625.58001
+Yuri, Michiko
+1986
+Generalized Besov spaces and their applications. Zbl 1331.35296
+Kawazoe, Takeshi; Mejjaoli, Hatem
+2012
+On the joint distribution of the first hitting time and the first hitting place to the space-time wedge domain of a biharmonic pseudo process. Zbl 0952.35061
+1999
+Ring derivations on semi-simple commutative Banach alge

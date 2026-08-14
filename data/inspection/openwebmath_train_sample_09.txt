@@ -1,0 +1,609 @@
+# Dataset: openwebmath
+# Split: train
+# Source file: openwebmath_train.bin
+# Start token index: 1,193,887,545
+# End token index: 1,193,897,545
+# Number of tokens: 10,000
+# Number of characters: 38,665
+============================================================
+
+d) None of the above
+(a) Where labour’s marginal productivity is equal to the wage rate
+
+Question 21.
+In which market product differentiation is found ?
+(a) Pure competition
+(b) Perfect competition
+(c) Monopoly
+(d) Monopolistic competition
+(c) Monopoly
+
+Question 22.
+Government decides “price ceiling”
+(a) On necessary goods
+(b) Which is less than the price decided by market ?
+(c) To make it affordable to the common man
+(d) All of the above
+(d) All of the above
+
+Question 23.
+Price is determined at the point, where :
+(a) Demand of the commodity is high
+(b) Supply of the commodity is high
+(c) Demand of the commodity and supply of the commodity is equal
+(d) None of the above
+(c) Demand of the commodity and supply of the commodity is equal
+
+Question 24.
+Market price is found in :
+(a) Short period market
+(b) Long period market
+(c) Very long period market
+(d) None of the above
+(a) Short period market
+
+Question 25.
+British economist John Maynard Keynes famous book “The General Theory” was published in which year :
+(a) 1926
+(b) 1936
+(c) 1946
+(d)1956
+(c) 1946
+
+Question 26.
+The great Depression came in which year :
+(a) 1949
+(b)1939
+(c) 1929
+(d) 19194
+(a) 1949
+
+Question 27.
+Macro economics sees an economy as a combination of which sectors :
+(a) Family
+(a) Firm
+(c) Government and external sector
+(d) All of above
+(d) All of above
+
+Question 28.
+GNPMP = ?
+(a) GDPMP – Depreciation
+(b) GDPMP + net factor income from abroad
+(c) Both the above
+(d) None of the above
+(d) None of the above
+
+Question 29.
+Which is the correct sequence of money’s development ?
+(a) Commodity money, Paper money, Metal money
+(b) Commodity money, Metal money, Paper money
+(c) Credit money, Metal money, Paper money
+(d) None of the above
+(a) Commodity money, Paper money, Metal money
+
+Question 30.
+Reserve Bank of India has presented four measures of money supply, namely M1, M2, M3 and M4, M1 includes :
+(a) C = currency held by public
+(b) DD = net demand deposit of the bank
+(c) OD = other deposits held with the RBI
+(d) All of the above
+(a) C = currency held by public
+
+Question 31.
+Which is common man’s bank ?
+(a) Commercial Bank
+(b) Central Bank
+(c) (a) and (b) both
+(d) None of the above
+(c) (a) and (b) both
+
+Question 32.
+(a) $$\frac { 1 }{ CRR }$$
+(b) Cash × $$\frac { 1 }{ CRR }$$
+(c) Cash × CRR
+(d) None of these above
+(c) Cash × CRR
+
+Question 33.
+Which of the following is Central Bank’s function ?
+(a) Right of issuing notes
+(b) Government’s banker
+(c) Custodian of Foreign Exchange Reserves
+(d) All of the above
+(d) All of the above
+
+Question 34.
+Which currency is issued by Central Bank of the country ?
+(a) Money in circulation
+(b) Credit money
+(c) Coins
+(d) All of the above
+(a) Money in circulation
+
+Question 35.
+In an open economy which are the components of Aggregate Demand :
+(a) Consumption
+(b) Investment
+(c) Consumption + government expenditure
+(d) Consumption + Investment + Govt, expenditure + net export
+(d) Consumption + Investment + Govt, expenditure + net export
+
+Question 36.
+APC + APS = ?
+(a) 0
+(b) 1
+(c) Infinity
+(d) None of the above
+(c) Infinity
+
+Question 37.
+What are the reasons of excess demand ?
+(a) Increase in public expenditure
+(b) Increase in money supply
+(c) Decrease in taxes
+(d) All the above
+(d) All the above
+
+Question 38.
+Indian’s financial year is :
+(a) 1st April to 31st March
+(b) 1st January to 31st March
+(c) 1st July to 30th June
+(d) None of the above
+(a) 1st April to 31st March
+
+Question 39.
+In direct taxes which one of the following is included ?
+(a) Income Tax
+(c) (a) and (b) both
+(d) None of the above
+(c) (a) and (b) both
+
+Question 40.
+In India who issues one rupee note;
+(a) Reserve Bank of India
+(b) Finance Ministry of govt, of India
+(c) State Bank of India
+(d) None of the above
+(b) Finance Ministry of govt, of India
+
+Question 41.
+Capital Budget includes:
+(a) Revenue receipts and revenue expenditure
+(b) Capital receipts and capital expenditure
+(c) Direct and Indirect taxes
+(d) None of the above
+(b) Capital receipts and capital expenditure
+
+Question 42.
+Primary deficit is :
+(a) Fiscal Deficit – Interest Payment
+(b) Fiscal Deficit + Interest Payment
+(c) (a) and (b) both
+(d) None of the above
+(a) Fiscal Deficit – Interest Payment
+
+Question 43.
+Budgets are of the following types :
+(a) Balanced Budget
+(b) Surplus Budget
+(c) Deficit Budget
+(d) All the above
+(d) All the above
+
+Question 44.
+Exchange rate is of the following types :
+(a) Fixed exchange rate
+(b) Flexible echange rate
+(c) (a) and (b) both
+(d) None of the above
+(c) (a) and (b) both
+
+Question 45.
+During Bretton Woods System most countries had:
+(a) Fixed Exchange Rate
+(b) Pegged Exchange rate
+(c) (a) and (b) both
+(d) None of the above
+(c) (a) and (b) both
+
+Question 46.
+Fixed exchange rate has following merits :
+(a) Promotes Capital movtinem
+(b) Prevents capital outflow
+(c) Prevents speculation
+(d) All the above
+(d) All the above
+
+Question 47.
+Bretton Woods Conference of 1944 established :
+(a) International Monetary Fund
+(b) World Bank
+(c) (a) and (b) both
+(d) None of the above
+(a) International Monetary Fund
+
+Question 48.
+Demerits of flexible exchange rate are :.
+(a) Instability and uncertainty
+(b) Encourages speculation
+(c) Discourage international trade and investment
+(d) All of the above
+(d) All of the above
+
+Question 49.
+Balance of Trade = ?
+(a) Export of visible items – Import of visible item
+(b) Export if visible and invisible items – Import of visible and invisible items
+(c) Import of visible items – Export of visible items
+(d) None of these
+(b) Export if visible and invisible items – Import of visible and invisible items
+
+Question 50.
+Components of Balance of Payments is :
+(a) Current Account
+(b) Capital Account
+(c) (a) and (b) both
+(d) None of the above
+(c) (a) and (b) both
+
+Non-Objective Type Questions
+
+Short Answer Type Questions
+
+Question no. 1 to 25 are Short answer type questions. Answer any 15 out of them. Each question carries 2 marks. (15 x 3 = 30)
+
+Question 1.
+What do you mean by consumer’s equilibrium ? State its assumptions.
+The state of balance achieved by an end user of products that refers to the amount of goods and services they can purchase given their present level of income and the current level of prices. Consumer equilibrium allows a consumer to obtain the most satisfaction possible from their income.
+Assumptions of consumer’s equilibrium :
+
+1. His money income is given and constant
+2. There is no change in the habits and tastes of the consumer throughout the analysis.
+
+Question 2.
+Write the meaning of perfectly elastic demand and perfectly inelastic demand.
+Perfectly elastic demand : It means at a higher price, quantity demanded decrease to zero, and perfectly inelastic demand. It means a change in price has no effect on quantity demanded.
+
+Question 3.
+State the relation between Marginal Production and Average Production.
+Marginal production and average production curves initialy increase then decrease due to the law of diminishing marginal returns.
+
+• Marginal productions : It is the change in total production divided by the change in quantity of resources or inputs.
+• Average production : It is the total production divided by the quantity of economic resources.
+
+Question 4.
+Clarify the concept of opportunity cost.
+Opportunity cost in the value of the next best alternative in choosing an alternative.
+For example suppose to produce one unit of goods x, the producer has to sacrifice production of 2 units of x, the 2x is the opportunity cost producing one unit of x.
+
+Question 5.
+Why short run average cost curve is of “U” shaped ? Write briefly.
+Long run average cost curve is also known as ‘Envelope curve’. Where as LAC is a continuous curve. .The reason behind the ‘U’. Shape the curve is the Law of Returns to scale. According to this law, as plant size increases, the average cost of production decrease due to economies of scale.”
+
+Question 6.
+What do you mean by Total Revenue, Average Revenue and Marginal Revenue ?
+
+• Total Revenue : The income earned by a seller or producer after selling the output is called the total revenue.
+• Average Revenue : Average Revenue refers to the revenue obtained by the seller by selling the per unit commodity. It is obtained by divideding the total revenue by total output.
+
+Marginal Revenue : Marginal revenue is the change in total revenue which results from the sale of one more or one less unit of output.
+
+Question 7.
+Write the three characteristics of perfect competitive market.
+Characteristics of the Market : Main characteristics (or features) of the market are as follows:
+
+1. One Area : The term market in Economics does not refers to any fixed place but indicates that area where buyers and sellers are present and compete with each other.
+2. Presence of both Buyers and Sellers : An area is called the market where both buyers and sellers are present. Absence of any one creates hindrance in converting the area into market.
+3. One Commodity : In Economics, every commodity has different market, e.g., market of wheat, market of sugar etc.
+4. One Price of the Commodity : Market contains one single price of the commodity due to competition between buyers and sellers.
+
+Hence, on the basis of above feature the market can be defined as :
+“In economics market signifies the presence of such groups of buyers and sellers of a commodity who freely competer with each other and as a result one price prevails in the market.”
+
+Question 8.
+What is the difference between monopoly and monopolistic competition ?
+Monopoly differs from perfect competition in the following ways :
+
+1. In monopoly, there is a single seller (or firms) of a product whereas under perfect competition there are large number of sellers (or firms).
+2. A monopolist produces or sells a product which has no close substitute on the other hand, under perfect competition, the products sold by the various firms are homogeneous or identical. They are perfect substitutes of each other.
+3. In case of monopoly, there is no freedom of entry in the industry whereas under perfect competition, there is free entry and exit of firms in the industry.
+4. For a monopolist firm, the demand curve of its product slopes downward to the right. On the other hand, a perfect competitive firm faces a perfectly elastic downward curve (i.e., a horizontal straight line).
+
+Question 9.
+What is meant by equilibrium price and equilibrium quanity ?
+“When the supply and demand curves intersect, the market is in equilibrium. This is where the quantity demanded and quality supplied are equal. The corresponding price is the equilibrium price or market clearing price, the quantity is the equilibrium quantity.”
+
+Question 10.
+Differentiate between national income and domestic income.
+Difference between National Income and domestic Income :
+
+• National Income : “It is the sum total of factor incomes earned or generated by normal residents of a country during on accounting year.”
+• Domestic Income : “It is the sum total of factor incomes generated by all the production units located with in domestic territory of a country during an accounting year.”.
+
+Difference : The difference between the two is net factor income from abroad which is added to domestic income to get national income.
+
+symbolical : National income = Domestic income + Net factor income from abroad.
+
+Question 11.
+What is meant by private income ? What is the difference between private income and personal income ?
+Private income refers to.that income which accrues to private sector from all sources, both within domestic territory as well as from rest of the world.
+Difference between private income and personal income :
+Private Income :
+
+1. It includes income of only private sector.
+2. It includes both factor income and transfer earnings.
+3. Interest on national debt is a part of national income.
+
+Personal Income :
+
+1. It is a receipt concept. It does not include the income of public sector.
+2. It includes transfer income of households and individuals.
+3. It includes interest on national debts.
+
+Question 12.
+Factor income is divided into how many classes ?
+Factor income is devided into three classes :
+
+1. Rent income
+2. Wages income
+3. Profit.
+
+Question 13.
+What are the precautions related to the calculation of income method ?
+Following are the precautions related to income method :
+
+1. Income from the sale of second hand goods
+2. Transfer payments
+3. Sales of shares and bonds
+4. Income from Illegal activities
+5. Wind full gains
+6. Imputed Rent
+7. Indirect Takes
+8. Corporation Tax and income tax.
+9. Deata Duties, Gift tax
+10. Travelling Allowances.
+
+Question 14.
+What is meant by under employment
+equilibrium and over full employment equilibrium ?
+Underemployment equilibrium : refers to a situation with a persistent shortfall relative to full „ employment and potential output so that unemployment is higher than at the natural rate of unemployment.”
+
+Over full employment equilibrium occurs when a country’s gross domestic product (GDP) is higher than normal.
+
+Question 15.
+Write the names of main measures of monetary policy.
+Following are the measures of monetary i policy of India :
+
+1. Measures of Expansion of currency.
+2. Measures of credit control
+3. Quantitative credit control
+4. Quantitative credit control
+5. Statutory liquidity ratio
+6. Cash reserve ratio
+7. Multiple rate of interest
+8. Repo Rate and Reverse repo rate.
+
+Question 16.
+Describe the various types of production cost.
+Following are the types of production cost.
+Money cost :
+(a) Explicit cost
+(b) Implicit cost
+(c) Normal profit.
+
+Question 17.
+What is an economic activity ?
+Economic activity is an important component , of subject matter of economics. All economic activities arising out of unlimited wants and scarce means are included in the subject matter of economics.
+
+According to the modern economists, “that activity is called economic activity which is related to the use of limited resources for satisfying human wants.”
+
+Question 18.
+What do you understand by Micro economics ?
+Small units of an economy are included in micro 1 economics e.g. one consumer, one producer, one firm, one industry etc. In other words, individual units are studied in micro economics. According to K.E. Boulding, “Micro economics may be defind as that branch of analysis, which studies the economics behaviour of the individual unit, may be a person, a particular house-hold or a particular firm. It is a study of one particular unit rather than all the units combined together.”
+
+Question 19.
+Define capitalist economy.
+Capitalist economy is a system of economic organisation featured by the private ownership and the use of private profit of man-made and the nature-made capital or in other words, capitalist economy is that economy in which means of production are controlled and regulated by private organisation. Market economy contains the following important features
+
+1. Private property
+2. Economic freedom
+3. Laissez faire & free trade
+4. Competition
+5. Price mechanism
+
+Question 20.
+Explain the Law of Diminishing Marginal Utility.
+Law of diminishing marginal utility is a fundamental and universal law. According to this law, as we go on utilizing standard additional units of commodity continuously, marginal utility obtained from use of every additional unit decreases. It occurs or happens in all goods and services. Therefore, this law is called fundamental and universal law of satisfaction.
+
+According to this law, as the stock of goods increases with people, marginal utility obtained from additional units of that commodity decreases after a limit.
+
+Question 21.
+Explain the circular flow income.
+Production gives birth to income, income to consumption, consumption to expenditure and again expenditure to income and production. Thus, circular flow of income earning economic activities takes place in the economy.
+
+According to hipsey, “The circular flow of income is the flow of payment and receipt between domestic firms and domestic households.”
+
+Hence, the circular flow of income refers to flow of money income or the flow of goods and services across different sectors of the economy in a circular form.
+
+Question 22.
+Distinguish between national income and domestic income.
+National income :
+
+1. It is related to the generation of income by public and private sector.
+2. It goes not include transfer income.
+3. It does not include interest on national debts.
+4. It include corporate tax and corporate savings.
+
+Domestic Income :
+
+1. It is a receipt concept. It does not include the income of public sector.
+2. It includes transfer income of households and individuals.
+3. It includes interest on national debts.
+4. It neither includes corporate tax nor corporate savings.
+
+Question 23.
+Define commercial bank.
+Commercial banks perform general banking functions. A commercial bank is an institution which deal with money and credit. It accepts deposits from the public, makes the fund available to those who need them and helps in remittance of money from one place to another.
+
+1. According to Banking Regulation Act, “Banking means the accepting for the purpose of tending and investment of deposits of money from the public, repayable on demand or otherwise, and with draw able by cheque, draft, order or otherwise.”
+2. According to Horace white, “Bank is a manufacturer of credit and a machine for facilitating exchanges.”
+
+Question 24.
+Explain the subject matter of economics.
+Subject Matter of Economics : Various economists have presented the subject matter of economics in different ways. On the basis of various economists’ view points, the subject matter of economics can broadly be divided into four categories :
+
+1. Wealth-related Viewpoint: Classical economists Adam Smith, J.B. Say, Walker, Senior etc. have included wealth, its earning, distribution and use in the subject matter of economics. These economists have included economic man and his activities into the subject matter of economics.
+2. Welfare-related Viewpoint: Marshall, Pious, Canon established the concept of human-welfare (instead of wealth) in the subject matter of economics. According to welfare-related viewpoint, those economic activities should be included in the subject matter of economics which are associated with physical welfare.
+3. Scarcity-related Viewpoint: Robbins has included ‘problem of choice’ related to limited resources and unlimited ends in the subject matter of economics. According to Robbins those human activities are included in subject matter of economics with which human being tries to fulfill his unlimited ends with limited resources.
+4. Growth-related Viewpoint : Modern economists like Samuelson has included growth-based activities in the subject matter of economics. According to Samuelson both the aspects i.e. distribution of limited resources’ and ‘economic growth’ are the part of subject matter of economics.
+
+Question 25.
+Explain marginal utility.
+Marginal Utility is the addition to the total utility by consuming an extra unit of a commodity by the consumer. Symbolically:
+MU = ATU/An or, MU = TU – TU„
+Law of diminishing marginal utility states that consumer consumes more and more of commodity, the marginal utility obtained from an additional unit of it goes on diminishing, other things remaining the same.
+
+Long Answer Type Questions
+
+Question no. 26 to 33 are Long answer type questions. Answer any 4 of them. Each question carries 5 marks. (4×5 = 20)
+
+Question 26.
+Explain the law of demand with the help of a diagram. Explain any five factors affecting the demand of a commodity.
+Law of demand states that there is an inverse relation between the price of a commodity and its quantity demanded assuming all other factors effecting demand remain constants. It means that when the price of a goods falls, the demand for the goods rises and when price the demand falls.
+
+There is same price in the market. All consumers purchase commodity according to their needs. The marker demand curve is the total amount demanded by all consumers at different prices. The market demand curve slopes from left down to the right.
+Factors affecting the demand of commodity are as below :
+
+1. Price of the commodity itself: When a commodity is selling at very high price, only rich people are able to buy it. So the demand of commodity will be less. But when the price is low more and more people will be able to buy it and the demand of the commodity would be more. Thus, the demand of the commodity is greatly influenced by its price.
+2. Price of other related goods : The demand for a commodity is also influenced by prices of other related goods as substitutes.
+3. Leves of income of the consumer : consumers demand is also influenced by the size of this income.This is but natural that with increase in the level of income, there is increase in the demand of goods and services.
+(iv) Tastes and preference of consumers : Tastes and preference of the consumers also influence his demand. A taste, fashions, preferences of the consumer keep on changing and is his demand.
+4. Population : The change in the population in a country changes the demand.
+5. Income distribution: It is only the size or level of income which affects the demand but also the nature of income distributions in the country
+6. State of Trade : During a period of boom a period in which there is higher circulation of money and the production level is at a peak, the employment of resources reaches the optimum level. Consequently there is more purchasing power in the hands of the people.
+
+Question 27.
+What is meant by returns to scale ? Using a suitable diagram, explain the concepts of increasing constant and diminishing returns to scale.
+Return to scale : Return to scale refers to long run production when none of the factors of production remains fixed. All factors of production became variable and they can be changed also.
+According to watson, “Returns to scale refers to the behaviour of total output as all inputs are varied in the same proportion and is a long-run concept.”
+Return of scale is of three types as discussed below :
+(i) Increasing Returns to scale : Increasing returns to scale occur when a given percentage increase in all factor inputs causes proportionately greater increase in output. In this way, it factors of production are increased 10%, then production increased more than 10%. Increasing return to scale occur due to division of labour and specilization.
+
+(ii) Constant Returns to scale : Constant return to scale occurs when a given percentage increase in all factors inputs causes equal proportionate increase in output. If factors of production are increased 10% then production also increased by 10% and vice versa.
+
+(iii) Diminishing Return to scale : Diminishing returns to scale occurs when a given percentage increase in factors of productions causes proportionately lesser increase in output.
+In diminishing Retur to scale =
+Proportionate increase inproduction <
+Proportionate increase in factors of production.
+
+Question 28.
+What do you mean by double counting problem ? How can it be avoided Explain with an illustration. .
+Meaning : Double counting means counting of the value of the same product (or expenditure) more than once. How ? According to output method, of calculating national income value of only final goods and services produced by all the production units of a country during a year should be counted. In other words, value of intermediate goods which enter into final goods Ce.g. paper used in printing of books, raw cotton used in garments, wheat used in making breads, should not be taken into account.
+
+But in actual practice, while taking value of final goods, value of intermediate goods also gets included because every producer treats the commodity he sells as final product irrespective of weather it is used as intermediate or final good. For instance, while taking value of final goods like cycles the value of tyres, tubes, frames, bells etc. (intermediate goods) used in manufacturing these cycles also gets included inadvertently.
+
+In this way certain items are counted more than once resulting in over-estimation of national product to the extent of the value of intermediate goods included. This is called the problem of double counting which means counting value of the same commodity more than once.
+
+How to avoid Double Counting : Theoritically we may say that there may be two alternative ways of avoiding double counting namely
+
+1. final product approach
+2. value added approach.
+
+But in actual practice, double counting still occurs unintentionally in final product approach because every producer treats the product he sells as final product though the same night have been used by the buyer as an intermediate product.
+
+Therefore, this problem is perfectly solved by value added method according to this method ‘instead of taking value of final products, value added by each firm at each stage of production is included.
+
+Clearly value added by all the four firms is Rs. 3500 comprising Rs. 1000 by A+ Rs 500 by B + Rs. 700 by C + Rs. 1300 by D. There is no scope of double counting in this method. Thus to avoid double counting, the value added method also known as industry of origin method is used in computation of national income. It is worth mentioning that total value added is equal to value of final product.
+
+Question 29.
+Define investment multiplier. What is the relationship between investment and marginal propensity to consume.”
+Difinition of Investment multiplier :
+According to Dillard, “Investment multiplier is the ratio of an increase of income to given increase in investment.” Relation between Multiplier and marginal propensity to consume (MPC) : Keynesian investment multiplier depends on marginal propensity to consume (MPC). Higher the marginal propensity to consume, greater will-be the size of multiplier, on the contrary lower the MPC, smaller will be the size of multiplier.
+So, there is direct relation between multiplier and MPC
+multiplier (k) = $$\frac { 1 }{ 1-MPC }$$
+We know that k = $$\frac { ΔY }{ Δ1 }$$
+Y=C +I; ΔY = ΔC +ΔI
+ΔI = ΔY -ΔC
+Here ΔI = change in Investment ΔY = change in Income and ΔC = change in consumptions.
+putting the value of AI in equation (i) we have
+k = $$\frac { ∆Y }{ ∆I }$$
+Dividing right hand side of the equation by ΔY
+
+It is clear that by knowing the value of either MPC or MPS, the value of multiplier can be calculated. Higher the MPC ‘greater will be the value of multiplier. Thus, MPC and multiplier are directly related while MPS and Multiplier are inversely related.
+
+Question 30.
+What is excess demand How can it be controlled.
+(i) Excess Demand : Meaning : If aggregate demand and aggregate supply attain equilibrium at the point beyond full employment, the situation of excess demand appears. In other words, when aggregate demand exceeds aggregate supply at full employment level, excess demand arises.
+
+Thus, “Excess demand refers to a situation in which aggregate demand becomes excess of aggregate supply corresponding to full employment in the economy.” Excess Demand Aggregate Supply corresponding to Full Employment Level
+
+(ii) In situation of excess demand, the aggregate demand exceeds the required demand, hence, increased demand will not put any reaction on employment and production levels because factors are already at full employment level. In this situation of excess demand (in which aggregate demand exceeds aggregate supply) the prices of goods and services rise and situation of inflation arises in the economy.
+Characteristics of Excess Demand :
+
+1. When existing aggregate demand exceeds aggregate supply of full employment level, it becomes the situation of excess demand.
+2. When aggregate demand exceeds required demand, there is not effect on employment and production level and they remain constant.
+3. The difference between aggregate demand and aggregation supply is tremed as ‘Inflationary Gap’ Thus, inflationary gap is measured as the difference, between ‘aggregate demand beyond full employment’ and aggregation demand at full employment’.
+i. e., Inflationary Gap = Aggregate Demand beyond Full Employment – Aggregate Demand at Full Employment.
+4. Higher the inflationary gap, more will be the excess demand, i.e., inflationary gap is the measurement of excess demand. Excess Demand : Diagrammatic Representation
+
+(iii) In adjoining fig the situation of excess demand has been shown. Aggregate demand curve AD refers to the situation of full employment. At full employment level Y, required aggregate demand is EY. Aggregate demand beyond full employment is shown by AD] line where aggregate demand becomes FY. Existing aggregate demand FY exceeds required aggregate demand EY and the difference EF becomes excess demand.
+Diagrammatically,
+
+Excess Demand = FY – EY – EF
+Effects on Excess Demand
+
+(a) Effects on Production : In situation of excess demand, production remains constant, excess demand only puts excess pressure on existing supply.
+
+(b) Effects on Employment: In situation of excess demand, employment remains unaffected because the economy is already at full employment level and hence, there is no possibility of employment increase due to increased demand.
+
+(c) Effects on Prices : The economy being already working at full employment level, no possibility of production increase appears in case of excess demand. Hence, supply falls short of excess demand and as a result, prices of goods and services start rising. In adjoining fig., OL is the production level at full employment level which remains constant even if aggregate demand increases to AD (7 from ∆DF. In this situation of excess demand, only price level rises from OP1 to OP2?
+
+Question 31.
+Explain the law of demand and what are its assumptions ?
+Law of demand-Low of demand explains quantitative relation beholden price of goods and quantity demanded. Every consumer has a psychology to buy less amount or quantity of anything of high price and more quantity of low price, ceteris Paribus (other things being equal), there is inverse relationship between price of a goods and when price is low, demand is high.
+Thus, p ∞ $$\frac { 1 }{ Q }$$ – where,
+P = Price of commodity
+Q =Quantity demanded
+
+Assumptions of the law of demand-Law of demand is based on few assumptions. These assumptions are-
+
+1. Consumer’s income should remain contant.
+2. Consumer’s taste, nature, etc. should remain constant.
+3. Consumer remains unknown with new substitutes.
+4. There is no possibility of price change in future.
+
+Question 32.
+What do you understand by National Income ? Explain any two methods of calculating National Income.
+Net National product at factor cost (NNPFC) is known as ‘National Income’ NNPFC is the sum total of net domestic product at factor cost and net factor income from abroad.
+
+Net National product at factor cost (NNPFC) or national income is the sum total of factor incomes (rent + interest + profit + wages) generated within the domestic territary of a country, alongwith net factor income from abroad during a year.
+NNPFC is the sum total of factor incomes earned by normal residents of a country during year.
+
+(a) First step-identification and classification of productive enterprise.
+At the very first step, we are to identify and classify various productive enterprises of an economy. Broadly speaking, we can classify the economy into the following three sectors-
+
+• Primary sector
+• Secondary sector
+• Tertiary sector
+
+(b) Second step-Calculation of net value of output to estimate the net value added in each identified enterprise in first step the following estimated are calculated
+
+• Value of output
+• value of intermediate consumption
+• consumption of fixed capital,
+
+i.e., Depreciation.
+Value of output is worked out by multiplying the amount of goods and services by each enterprises with their market price. Value of intermediate consumption is calculated by using the prices paid by the enterprise. Consumption of fixed capital is also estimated as per rules and regulations.
+[Net value added = Value of output – Intermediate consumption – Net indirect taxes]
+
+(c) Third step-Calculation of net factor income from abroad.
+The third and final step in the estimation of national incomes is to estimate the net factor income earned from abroad and add it to the net domestic product at factor cost. This gives us the national income.
+
+Question 33.
+What is Barter system ? Mention its difficulties.</s> Auckland To Vancouver, Black Lips Transparent Background, Kérastase Blond Absolu Cicaplasme, Autumn In Belgium, Graphic Design Courses Fees In Delhi, " /> Auckland To Vancouver, Black Lips Transparent Background, Kérastase Blond Absolu Cicaplasme, Autumn In Belgium, Graphic Design Courses Fees In Delhi, " />
+
+# coordination number of copper
+
+This coordination number is rare outside of d 10 complexes of the group 11 metals and mercury, specifically, Cu +, Ag +, Au +, and Hg 2 +. Books. Chemistry. The interaction between a metal atom and the ligands can be thought of as Lewis acid-base reaction. Although coordination complexes are particularly important in the chemistry of the transition metals, some main group elements also form complexes. Coordination Number 2. The coordination number of copper in cuprammonium sulphate is . Coordination number means no. The tridimensional shape of the Tetramino-Copper(II) Ion seems Planar Picture which displaces Ammonia Molecules at Vertex of a Square. The coordination number of copper in [Cu(NH3)4]2+ is 4, Your email address will not be published. C. 2 and 4. eg: [Co(NH3)6] here coordination no. These include four coordinate, square-planar complexes and five- and six-coordinate derivatives of the sp3d2 hybridized octahedral structure. 2. Biological copper is coordinated predominantly by just three ligand types: the side chains of histidine, cysteine, and methionine, with of course some exceptions. Asked by Saurav | 27th Feb, 2018, 09:57: AM. A [Co(NH3)4 Cl2]Cl. The answer is: The coordination number of copper in [Cu(NH3)4]2+ is 4. A 37.0 g mass of a metal was heated to 100°C and then plunged into 74 g of water at 24.0°C. Which of the following is non-ionizable. Which of the following set of molecules will have zero dipole moment ? The total number of points of attachment to the central element is termed the coordination number and this can vary from 2 to as many as 16, but is usually 6. B. View Lab Report - Copper Coordination Compound from CHEM 162 at Seattle Central College. The Coordination Number express how many NH3 molecules are bound to "Cu++" ion : C. N. is 4. Question 17. Co-ordination number is straightforward - it's the number of ligands attached to the central metal atom/ion. When excess of KCN is added, a new coordination entity, [Cu(CN)4]2– is formed due to following reaction: CuSO4 (aq) + 4KCN → K2[Cu(CN)4] + K2­SO4(aq) Cu(H2O)42+ + 4CN(from aq. Analysis of structural and solution data shows a specific stabilisation of copper (II) in ternary complexes containing one 2,2′:6′,2″-terpyridine and one 2,2′-bipyridine ligand. On electrolysis of dil.sulphuric acid using Platinum (Pt) electrode, the product obtained at anode will be: An element has a body centered cubic (bcc) structure with a cell edge of 288 pm. The coordination number of the central metal ion or atom is the number of donor atoms bonded to it. B [Co(NH3)3Cl3] C [Co(NH3)5 Cl]Cl2 . The charge on the complex ion is also the same as the charge on the copper ion, 2+ because the ligands have no charge. Which kind of isomerism is exhibited by octahedral $[Co(NH_3)_4Br_2]Cl$ ? Application to the type 3 site in Rhus vernicifera laccase and its reaction with oxygen. Coordination number = 4. 2+ What is a chelate? Biology. Aluminum, tin, and lead, for example, form complexes such as the AlF 6 3-, SnCl 4 2-and PbI 4 2-ions. Metal centers In coordination chemistry, the coordination number is the number of ligands attached to the central ion (more specifically, the number of donor atoms). What is the oxidation number of the copper in the copper-EDTA complex? 1987 109 21 6433-6442. Copper can lose 1 electron (4s1) leaving a full 3d shell or lose an extra electron from the d shell (3d9). A +3. Answered by Ramandeep | 27th Feb, 2018, 10:15: AM. (a) $CO_2(g)$ is used as refrigerant for ice-cream and frozen food. Coordination number s generally range between 2 and 12, with 4 (tetracoordinate) and 6 (hexacoordinate) being the most common. (a) How many joules did the water absorb? B –1. Class 12 Class 11 Class 10 Class 9 … The chlorine-containing complex is formed if copper(I) oxide is dissolved in concentrated hydrochloric acid. A chelate is a ligand that forms a complex with ions through multiple coordinate-covalent bonds. The coordination number for the silver ion in [Ag(NH 3 ) 2 ] + is two ( Figure 19.14 ). Publication Date (Print): October 1, 1987. NCERT P Bahadur IIT-JEE Previous Year Narendra Awasthi MS Chauhan. (b) In using . Which of the following complexes exists as pair of enantiomers? The number of ligands bound to the transition metal ion is called the coordination number. The atomic radiusis: Find out the solubility of $Ni(OH)_2$ in 0.1 M NaOH. Which of the following compounds show optical isomerism? The oxidation number and coordination number, of copper in [C u (N H 3 ) 4 ] 2 + are: A. For example, both [Cu(NH 3) 2] + and [CuCl 2]-are copper(I) complexes which don't disproportionate. Access detailed answers to various other Science and Maths questions at BYJU'S. Copper is a chemical element with the symbol Cu (from Latin: cuprum) and atomic number 29. I hope this helps you. The ion/molecule/atom surrounding the central ion/molecule/atom is called a ligand.This number is determined somewhat differently for molecules than for crystals. In [Fe(CN)6]3- the co-ordination number is 6 because there are six cyanide ions. The highest known coordination number of a coordination polymer is 14, though coordination numbers are most often between 2 and 10. The term was originally defined in 1893 by Swiss chemist Alfred Werner (1866–1919). The coordination number of copper in cupram- monium sulphate is. For the copper(II) ion in [CuCl 4 ] 2− , the coordination number is four, whereas for the cobalt(II) ion in [Co(H 2 O) 6 ] 2+ the coordination number is six. So in [CuCl4]2- the co-ordination number of the copper is 4 as there are four chloride ion ligands. Herein, we report efficient single copper atom catalysts that consist of dense atomic Cu sites dispersed on a three-dimensional carbon matrix with highly enhanced mesoporous structures and improved active site accessibility (Cu-SA/NC(meso)). The nickel complex exhibits the usual, very symmetrical, octahedral geometry.

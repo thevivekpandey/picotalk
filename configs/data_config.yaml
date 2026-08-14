@@ -1,0 +1,59 @@
+# Data configuration for Picotalk
+# 120B token training mix (2× consumption to minimize repetition)
+# Training will consume ~60B tokens, seeing each sequence max 1-2 times
+
+datasets:
+  dclm:
+    name: "mlfoundations/dclm-baseline-1.0-parquet"
+    target_tokens: 40_000_000_000  # 40B tokens (33%)
+    source: "huggingface"
+
+  cosmopedia:
+    name: "HuggingFaceTB/smollm-corpus"
+    subset: "cosmopedia-v2"  # Synthetic textbooks, great for small models
+    target_tokens: 20_000_000_000  # 20B tokens (17%)
+    source: "huggingface"
+
+  fineweb_edu:
+    name: "HuggingFaceFW/fineweb-edu"
+    subset: "sample-10BT"  # Use sample, then take subset
+    target_tokens: 24_000_000_000  # 24B tokens (20%)
+    source: "huggingface"
+
+  stack_v2:
+    name: "bigcode/starcoderdata"
+    subset: "python"  # StarCoderData Python subset
+    target_tokens: 24_000_000_000  # 24B tokens (20%)
+    source: "huggingface"
+
+  openwebmath:
+    name: "open-web-math/open-web-math"
+    target_tokens: 8_000_000_000  # 8B tokens (7%)
+    source: "huggingface"
+
+  arxiv:
+    name: "EleutherAI/proof-pile-2"
+    subset: "arxiv"  # RedPajama ArXiv subset, plain jsonl.zst files
+    target_tokens: 4_000_000_000  # 4B tokens (3%)
+    source: "huggingface"
+
+# Storage paths
+paths:
+  raw_data: "./data/raw"
+  processed_data: "./data/processed"
+  tokenized_data: "./data/tokenized"
+  cache_dir: "./data/cache"
+
+# Processing settings
+processing:
+  chunk_size: 10000  # Documents per chunk
+  num_workers: 4
+  shuffle_buffer: 10000
+  seed: 42
+
+# Tokenizer settings
+tokenizer:
+  vocab_size: 32000
+  model_type: "bpe"  # or "unigram"
+  character_coverage: 0.9995
+  sample_size: 10_000_000  # Documents to sample for training

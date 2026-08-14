@@ -1,0 +1,20 @@
+# Core dependencies
+torch>=2.0.0
+transformers>=4.35.0
+datasets>=2.14.0
+
+# Data processing
+numpy>=1.24.0
+tqdm>=4.65.0
+
+# Configuration
+pyyaml>=6.0
+
+# Monitoring
+wandb>=0.15.0
+
+# System utilities
+psutil>=5.9.0
+
+# Compression (for .jsonl.zst files)
+zstandard>=0.21.0

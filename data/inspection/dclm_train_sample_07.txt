@@ -1,0 +1,317 @@
+# Dataset: dclm
+# Split: train
+# Source file: dclm_train.bin
+# Start token index: 5,756,332,150
+# End token index: 5,756,342,150
+# Number of tokens: 10,000
+# Number of characters: 38,126
+============================================================
+
+4. ^ a b Vitalis. The Ecclesiastical history of England and Normandy. Volume i. Bk. III Ch. 11. pp. 461-64 65
+  155. ^ a b c d Barlow, The Godwins, pp. 134-35.
+  156. ^ Anglo Saxon Chronicle. MS D. 1066.
+  157. ^ Barlow, The Godwins, p. 138
+  158. ^ Barlow, The Godwins, pp. 136-137
+  159. ^ a b Barlow, The Godwins, pp. 137-38
+  160. ^ Woods, Dark Ages, pp. 238-40
+  161. ^ Barlow, The Godwins, "Chapter 7: The Collapse of the Dynasty".
+  162. ^ Woods, Dark Ages, p. 240.
+  163. ^ Barlow, The Godwins, p. 156.
+  164. ^ a b Woods, Dark Ages, pp. 248-49
+  165. ^ Starkey. Monarchy. pp. 138-39
+  167. ^ Bartlett. England under the Normans. pp. 290-92
+  168. ^ Wood. The Doomsday Quest. p. 141
+
+
+External links
+
+
+
+
+Music Scenes</s> Metatrader 4 portable 1220
+
+
+in the article:
+
+  1. Why you should use portable version of MT4 terminal
+  2. How to use MT4 portable app using usb flash drive, hdd, other pc, vps server
+  3. How to make MT4 portable app using any mt4 version
+  4. Download MT4 portable latest official build 1220
+
+1. What is a portable app?
+
+A portable app is a computer program that you can place in any folder, a portable device or cloud drive and use on any Windows computer. This app using only local path to storing the settings and your personal data and working without installation process on current PC.
+
+This feature will help you to trade in any PC without installing mt4 and always keep your private data with you on your portable device.
+
+2. Moving a portable app between PCs, local folders, portable devices, cloud drives
+
+Typical installation process for portable apps is simple coping and pasting process an app folder to a device’s destination directory. This app works from any device (USB flash drive, portable hard drive, cloud drive, iPod, etc), also works as you move computers and your drive letter changes.
+
+3. How to make MT4 portable app using any mt4 version
+
+If you have already installed mt4 terminal app on your PC you can make this app portable without loosing your settings and toolset by following this instruction:
+
+    1. Right mouse click on mt4 shortcut on your desktop and choose Properties menu)
+    2. Add “/portable” at the end of Target field of the Shortcut window
+    3. Click “OK” to close that properties window.
+
+  1. Since now all your data will be store in MT4 installation folder.You can freely moving this folder on your PC or copy to any portable devices.
+    To run this app you should use that shortcut with /portable parameter.
+
+4. Metatrader4 portable official metaquotes mt4 version build 1220
+
+Metaquotes company officially ended of support mt4 version of their trading terminal.
+
+If you will try to download mt4setup.exe from official site it will force to install mt5 version without any options. This is marketing tactics to gain mt5 users from young traders.
+
+I’ve built portable mt4 version using latest official 1220 build for myself and you can download it just click download button.
+
+
+
+  1. Download mt4 file
+  2. Unzip to any directory of your device or PC
+  3. Right mouse click on terminal.exe file and create shortcut to this file
+  4. Use this instruction to make portable mt4 shortcut
+
+If you need help
+
+Write down comment or use the feedback button
+
+Follow my instagram profile let's connect!
+
+
+  1. Dear Sir goodmoorning.
+    Today I started Mt4 platform as you desribed MT4 – PORTABLE instruction. But This is old version error occurs .
+    And MT4 live account was not work 1090.
+
+    would you mind to help for 1090 version MT4 . Now MT4 1170 version 4 is valid todays.
+
+    Thank you
+
+    • Hi! Like a piece of cake. I updated the portable set up to 1170 mt4 version. You can download it from this page.
+      Good trading, buddy!
+
+  2. Can somebody share a terminal.exe that still works on Windows XP please?
+
+    It must be newer than, but older than ( does give an error on XP “… is not a valid win32 application”.
+
+    Maybe someone can share terminal.exe ?
+    Can you look?
+
+
+    • Hi. Metaquotes ended up supporting Windows XP/2003/Vista it updates automatically at first launch on OS including Win7 and up to 10. If you want to prevent autoupdate use /skipupdate flag in terminal.exe shortcut.
+
+      Ask your broker about minimal terminal version to connect their servers. Or try it by yourself here the link to 1127 build
+
+  3. Very much appreciate your efforts & will donate, but please do something about all the crazy adds, popups & re-directs etc … Some and trying to trick me into downloading malware, some are even being blocked by my security software. Thank you!!
+
+
+Please enter your comment!
+Please enter your name here
+
+This blog is kept spam free by WP-SpamFree.</s> Another Night
+
+NOTE: If you are booking for this evening, your booking will not be honoured
+
+Due to the requirements of the current phase of restrictions (no this isn't a typo; there are still restrictions today), the largest group size you are able to book for is 8. We understand this in an inconvenience to many folks, however we just ask everyone to remain patient. Normality will return before we know it. We just ask of those seeking larger booking sizes or functions to kindly respect this and refrain from contacting us for any special arrangement for any day into the future.</s> About a year ago, FlySorter took on a consulting project for the Klein Lab at the University of Miami, in Florida. Mason Klein uses Drosophila larvae to study biophysics and neuroscience, often with the same simple setup: a sheet of agar gel and a camera.
+
+The Klein Lab records videos of freely wandering larvae on a bed of black agar and then analyzes their behavior. The duration of the videos is limited by the size of the agar gel — when the larvae reach the edge of the sheet, their behavior is impacted (or they either crawl off altogether) — and for 3rd instar larvae on a 10″ square sheet, it can be as quick as 10 or 15 minutes. We came up with the idea of using a robotic gantry and custom-designed nozzle to pick up larvae that had gotten close to the edge, replacing them near the center of the gel and thereby extending the experiments.
+
+To cut to the chase: FlySorter successfully built a robotic system to relocate larvae on the agar bed for a total budget under $15k (for both time and materials).
+
+I had experimented some already using a nozzle and vacuum to move adult flies around, but the first order of business for this project was to test something similar with larvae. Happily, it wasn’t too hard to pick them up off a bed of agar, but later, we’d discover the challenge of replacing them without having larvae stick to the nozzle or get blown away (by positive air pressure). Initially, I used a small, 3d-printed Venturi tube to generate the vacuum from positive pressure, but ultimately used a manifold that had separate air and vacuum inlets, and connected the robot to positive- and negative pressure valves in the lab.
+
+For the actual robot portion of the system, we needed three full axes of motion. X and Y to access the extents of the sheet, and then a Z axis that could account for small differences in larva size (the 1st instar larvae are less than a millimeter in diameter, while the 3rd instar larvae can be almost 2 mm around) as well as any thickness variation across the agar bed (more on that calibration later). I opted to source an off-the-shelf X/Y gantry that was designed to drive a laser cutting head at up to 450 mm/s with sub-millimeter precision, and in theory, would save the time of designing my own, and possibly save some money on parts as well. In practice, I’m not 100% sure I came out ahead given the time it took to mount the gantry, connect to the various components (motors and end stops), as well as debug a handful of issues. Ultimately, though, it did serve its intended purpose of moving an end effector accurately around the workspace, and fairly quickly at that.
+
+Our off-the-shelf options for a Z axis that fit the space, power, weight and cost constraints were essentially nil, so I designed a custom one instead. Space and weight were both a concern, and the forces on the axis aren’t high, so I chose a small, NEMA-8 stepper motor as the actuator. Since the total travel wasn’t very long (around an inch or so), I chose a small linear bearing from McMaster as a base for the motion, and a lead screw / nut combo that would give sufficient accuracy without limiting speed. A handful of 3d printed parts made the connection between the motor, lead nut, slide, air/vacuum manifold, and nozzle.
+
+I opted to use the venerable SmoothieBoard for motion control. It was originally designed as a control board for 3d printers, but its robust firmware can be easily configured and extended to serve other purposes. In short, it provides a USB control port that “speaks” G-code, and beyond stepper motor interface chips, also has a set of load switches (MOSFETs) that can turn on and off devices such as LEDs or solenoid valves, all controlled programmatically. It’s easy to communicate from a PC to the SmoothieBoard via a Python script, and there are plenty of programs available for testing and debugging the system, since it looks quite similar to a 3d printer from the computer’s point of view. To boot, the Smoothie team is very responsive when it comes to any sort of issues. I’m a big fan.
+
+Here’s what the robot looks like:
+
+
+The agar bed is the black square with white larvae crawling on it. The larvae are edge-lit by red LEDs (they don’t see the color red, so the lighting doesn’t affect their behavior), and the camera is mounted on a bracket above the robot. The X/Y gantry remains at the back of the robot when not actively repositioning larvae. Also visible at the back of the robot are some of the air and vacuum tubes, which run through the cable chain to the end effector. Just out of view on the left-hand side of the robot is the power supply, and the control board is mounted on the rear, right-hand side of the frame.
+
+By far, the most challenging part of this project was the nozzle. Even with our initial testing, the design and validation of the larva nozzle, along with the associated plumbing and control software, took quite a bit of time. As previously mentioned, picking them up was relatively easy, but it took many iterations to find a material that larvae wouldn’t stick to, and ultimately required some new programming tactics as well. I tried 15-20 different nozzle prototypes, and the final version is made from a short, stainless steel blunt needle partially plugged up with bent aluminum wire (top, center in the photograph below).
+
+Nozzle prototypes
+Nozzle prototypes
+
+To release the larvae, we knew we couldn’t rely on just turning off the vacuum; we had positive air pressure available as well to push the organisms off the nozzle. Too little air flow meant the larvae would remain stuck to the nozzle, and with too much air pressure, and the larvae became projectiles. The trick was not only finding the right air pressure but also positioning the nozzle so the larva was touching the agar (just barely) in its final location. Surface tension helped prevent flying larvae. Ultimately, I added adjustable flow valves for both the positive and negative pressure air lines for fine control, and the manifold on the end effector includes a pressure sensor (connected to an analog input on the SmoothieBoard) so settings are repeatable.
+
+There are quite a few components that comprise this system, and each needs to be precisely calibrated to the next to ensure accurate sensing and positioning. For reference, the smallest (1st instar) larvae are smaller than a grain of rice, the diameter of the nozzle is only 3 mm, and the larvae are awake and moving, so by the time the camera has captured an image, the computer has calculated the larva’s position, and the robot has moved there, the organism is actually a little bit displaced. The first source of inaccuracy I corrected was between the SmoothieBoard and robot. I commanded the robot to move 100mm, say, in X, and then measured the actual movement. Any difference was accounted for in the “steps-per-millimeter” setting in the configuration. Ditto for Y and Z. Next, I addressed any variation in thickness across the agar bed. There is a pressure sensor in the manifold, so I wrote a routine that turns on the vacuum and probes the bed in a few places, using the pressure to detect when the nozzle had touched the agar. Finally, I needed to connect coordinates in the images captured by the camera to the robotic coordinate system. I wrote another script to move to known X/Y locations and deposit 3d printed calibration discs. When the robot has placed the last disc, it moves out of the way and the camera captures an image:
+
+The script then detects the location of the discs and calculates the transformation (a homography) between the image coordinates and the robot coordinates. It’s important that the calibration points are located on the agar surface, otherwise parallax error creeps in and causes the robot to miss larvae.
+
+The final piece of software is a Python script that “watches” a designated image file. When that file is updated, the program looks in the image for larvae around the edge of the agar bed. If any are found, the program directs the robot (by way of the USB connection and G-code commands) to pick them up and replace them in open spaces near the center of the bed.
+
+Here’s a video of the robot in action, picking up and redepositing a larva, after it’s been calibrated:
+
+FlySorter is always happy to discuss custom projects, large or small. If you’d like to bring robotics or automation into your fly lab, drop us a line!
+
+[ The software for this larva robot is available on Github, and is distributed under the GPL v3 license (usable and shareable by all). Hardware files coming soon. ]
+
+Case Study: Creating a Fruit Fly Larva Repositioning Robot for the Klein Lab</s> Thursday, July 31, 2008
+
+All the Rage
+
+Photo/Benjamin Jaeger-Thomas
+
+All The Rage is really just a character vehicle: ten actors maneuvering a strip of stage that has essentially been stripped of comedy, tragedy, and a real sense of development. I felt it was an empty production, and yet was utterly engaged by the actors.
+
+[Reviewed for Time Out New York]
+
+Wednesday, July 30, 2008
+
+
+When the war comes home to America, it won't be with a whimper or a bang: it'll be with fries. That's the beauty of Eliza Clark's darkly comic Edgewise, in which three teens find their everyday Saturday morning shift at the local (Mc) Dougal's interrupted by an air strike and a bloodied stranger. The whiff of bombast is bombed away with surgical precision, forcing the characters to grow up rather quickly, their mundane ramblings quickly turned to panicky attempts to restore order to their safe little world. From the convincing mannerisms of the actors to the sharp set design, which contrasts torture in the storeroom with the service with a smile of the cheery dining room, and smart direction, which plays the moment-to-moment shifts in full so that the exaggerated comedy never compromises the integrity of the situation, it's a clever look at what a Civil War on Terror between an indistinguishable Us and Them might look like: an order of paranoia with a side of fear.
+
+[Read on]
+
+Sunday, July 27, 2008
+
+
+Mary Stewart-David and Clive Chang attempt to revive Phileas Fogg's journey as a musical comedy set in 2011: Eighty-1, or "Around Around the World in 80 Days in 80 Minutes." Phileas Fogg IV (Daniel Lincoln) is forced to validate his great-grandfather's record by recreating the journey (that's by rail and by boat, for you Verne purists). He's joined, of course, by the descendants of that trip, JP Passepartout (Brayden Hade) and journalist "Fixey" Fix (Nicole Weiss), and yes, an Indian princess (Jen Anaya) appears. The show is in extremely good fun, but it speeds through so much that it fails to develop much character, and the songs--all piano-based--suffer from not having the strength of personality behind the words. The haste also sacrifices adventure for a shallow love story: not always a bad thing, but without the exotic danger there's a lack of obstacles and an excess of exposition. Developmentally, though, Eighty-1 is in great shape: when's the last time you saw a show whose only problem was learning how to slow down?
+
+
+Elisa Abatsis's Daguerreotypes stretches a metaphor about the halation of this ancient photographic technique into a play about transitory relationships and the need to let go of the past.
+Instead, it ends up frozen in time: the bookending scenes between Gemma (Storm Garner) and her beloved art teacher, Norman (Doug Rossi), were taken without the flash on, and the lack of chemistry (or even reason for those scenes) muddies the rest of the picture. The play suffers from a lack of circumstances: Cece (Jessica Morris), pregnant with a brain-dead baby, is unable to explain why she's come to a studio that specializes in peaceful photographs of dead babies and Henry (Alfred Gingold), who runs the studio, isn't able to express his passion for this sort of photography or for the love of his life, the country gal Darcy (Lynn Spencer). Consequently, the drama often seems slower than the lengthy (but musical) scene changes. Chase (Jared Morgenstern) is the one character she nails, an angsty employee of Henry's: of all the characters, he speaks without thinking--and that leaves him free to simply be.
+
+The Apocalypse of John, the Rabbit Known as Chicken Little
+
+The modest Freddi Price's The Apocalypse of John, the Rabbit Known As Chicken Little does for shadow puppets what South Park did for cutouts: literally and figuratively crude, his show takes an absurd Terry Gilliam-like glee in blatantly satirizing the book of Revelation. That John has been replaced with a masturbating, alcoholic rabbit who believes the sky is falling is already plenty silly, but he soon encounters "Henny Penny" ("That's the lamb of god, bitch!") and "Goosey Loosey" (the whore of Babylon), and it's only a matter of time before the scrim is overrun with demons, from a dancing, googly-eyed 666 to a snooty Frenchman drunk on absinthe ("Wormwood"). More is more, but the exaggeration of such wild contradictions is hysterical: "How many thirds can you divide the world into?" As a means of moderation, Price also performed his two-person bunraku, Frank, which while just as heavy-handed in the murmuring voiceover, was a valuable reminder of the power of silence, and the transitory power of theater.
+
+Saturday, July 26, 2008
+
+Around the World in 80 Days
+
+Photo/Sandy Underwood
+
+Mark Brown's adaptation of Around the World in 80 Days is all about transportation, and not just the physical kind. Exaggerated accents, comic physical action and a briskly narrated pace (with two Foley artists for emphasis) transform Jules Verne's novel into an adventurous bit of theater. In the same vein as The 39 Steps, Brown's script calls for a small ensemble (five actors), with Daniel Stewart as the straight man, Phileas Fogg, and Evan Zes as his indomitable sidekick, the flexibly French Passepartout. They are joined by Lauren Elise McCord as Aouda, who comes across as the loveliest of plot contrivances, while the very talented Jay Russell and John Keating spin around them, filling out the other twenty odd characters. If gas prices are keeping you from traveling much this summer, why not take a trip Around the World? This slapstick adventure is far roomier than coach, not bogged down by any weather delays, and, thanks to the expert acting, there's no chance of you missing anything along the way. As Fogg would say, it's all accounted for: entertainment most certainly included.
+
+[Read on]
+
+[title of show]
+
+***** (...out of five stars)
+
+Manifest destiny: realized! From the New York Musical Theater Festival to off-Broadway at the Vineyard to a brilliant and sassy Youtube campaign, this musical about making a musical finally makes its triumphant debut on Broadway. Exclamation point! For those of us out there who fell in love with this show in its earlier incarnation, the [title of show] family remains happily intact as do all of the songs. Add to that some new, stronger choices in terms of plot development, new scenes marking their journey from off-Broadway to Broadway and a blissfully full house of [title of show] fans ("tossers") hooting and hollering every time the cast makes a reference about hoping they make it to Broadway, and we have ourselves one happy night at the theater. For those of you out there who have not seen [title of show] yet, GO, for this unique musical is one of a kind. The actual composer and the book writer are playing themselves 8 times a week in their own show. Would Frank Wildhorn and Leslie Bricusse ever do something like that? (The mind boggles). Also playing themselves are Susan Blackwell and Heidi Blickenstaff, friends of Hunter and Jeff's, who round out the show with hysterical observations, kick ass vocals and a warm feminine soul. It's damn near impossible to not fall in love with these kids who collectively throw it all out there in their bid to become "part of it all". This is the most charming Broadway production I have ever seen. And I say that having seen Mamma Mia twice.
+
+Friday, July 25, 2008
+
+Kicking A Dead Horse
+
+photo: Joan Marcus
+
+A dead horse, an open grave and a man struggling to put the former into the latter: this is Sam Shepard's Beckett-like eighty minute one-act in which the playwright seems to be moaning about his own work through the metaphor of a disillusioned New York art dealer in search of "authenticity". Essentially a monologue, the play is spiked with dark deadpan humor which only occasionally lands as intended: for too much of the play we're inpatient for the inevitable (and obvious) conclusion and wondering why Shepard wrote the piece for Irish actor Stephen Rea, whose effortful try at an American accent is unconvincing and distracting.
+
+What To Do When You Hate All Your Friends
+
+photo: Martin R. Miller
+
+Larry Kunofsky's snappy semi-absurd comedy seems at first to depict the paranoid fantasy of a wallflower who believes that the friends who barely tolerate her are part of a exclusionary cult. Turns out it isn't a fantasy: the friends have formed a secret and soulless society that gives them access to popularity. The play has a lot of satirical fun with this central idea - as cold and as selfish as the friend system seems, it's only an exaggeration of how most people use each other - and although the play goes slack in the second act as it transitions into a less antic tone, it's nonetheless always clever and wholly enjoyable. It's also ideally served by the five members of the ensemble (Todd D'Amour, Josh Lefkowitz, Susan Louise O'Connor, Amy Staats, and Carrie Keranen) who all seem to be on the playwright's wavelength.
+
+Thursday, July 24, 2008
+
+The Proposal
+
+Seth Powers's disturbing The Proposal begins with a simple revival of the short Chekhovian farce of the same name. But the actor/director (Daniel Irizarry) isn't quite sure the message is getting across, and doesn't know how to simultaneously reach the older theatergoers looking to relive the peaceful past of passive theater and the younger iPod generation. The question he poses is a bloody difficult one--"Why can't theater be art?"--and it's made all the bloodier by the violence of good doctor Chekhov (Laura Butler) and the well-intentioned puerility of a thick-bearded, cookie-laden Nietzsche (Vic Peterson). Actor's search for truth twists into a dark farce, from an animalistic portrayal of the creation myth to a Gallagher-like climax, with a few breaks to dance the mazurka. Under normal conditions, such dangerous leaps in illogic would simply be dismissed as pretension, but Irizarry wrestles Powers's script to the floor by grounding everything in the intensely physical, and it's near impossible to look away.
+
+[Note: To clarify a point, when a script tackles complex ideas in a nontraditional way, the casual theatergoer is quick to label it as "pretentious." If I were to have simply read Seth's script , I might have done the same. But this is why theater works best as a collaborative effort: I very much enjoyed The Proposal, and it illustrates the positive ways in which even pretension itself can be used to enrich the very valid critiques being made about art.]
+
+
+photo: Joan Marcus
+
+It's been over forty years since the birth of the cultural phenomenon of Hair but the wonderful outdoors production currently in Central Park doesn't smell like an antique: it very wisely emphasizes the show's immediate thematic current-day relevance. (Here we are again fighting an unpopular war, after all) Judiciously staged like a rag-tag happening rather than like a traditional musical, this production has been directed with a keen understanding of the show as a snapshot of a community: for the first time I understood the "tribal" aspect of this "American tribal Love-rock musical" and embraced rather than bemoaned the lack of a traditional narrative. I saw an early preview, so I won't comment on specific performances except to say that every one has been pointed in the same direction. Thanks to a sudden drenching downpour, the show had to be stopped with only ten minutes remaining. Before long the cast came back out on stage anyway and sang "Let The Sun Shine In" in the soaking rain, pulling people up from the audience to dance on stage with them. It was one of the most vivid and uplifting communal experiences I've ever had seeing theatre.
+
+Wednesday, July 23, 2008
+
+
+Not open to review, and I respect that, so all I'll say is that Bruce DuBose and Katherine Owens of Undermain Theatre are in the process of adapting Neil Young's concept album Greendale (which Young also directed as a film) for the stage. Will this lo-fi album and amateur film find a place on the independent stage? Check it out; it's part of Soho Think Tank's Ice Factory festival.
+
+Monday, July 21, 2008
+
+What To Do When You Hate All Your Friends
+
+I loved the cast, enjoyed the plot, and found the direction to be exactly what was called for, engaging with the pop-up book comedy of the plot and narrative. Weak spots? Sure. But what I won't forget for some time is the anonymous "Bert & Ernie" masturbation scene, in which I more or less shot a load of laughter.
+
+[Reviewed for Show Business Weekly]
+
+Damn Yankees
+
+This year's Summer Encores! show may transfer to Broadway thanks to its two tv-famous stars, but Sean Hayes and Jane Krakowski do a lot less for the show than they do for its box office. He gets barely by on charm and on the enormous good will that the audience has for him after years of Will & Grace, but he's lightweight; he's less the Devil brokering deliciously for the soul of an average Joe turned baseball hero than he's a jaded brat. (He gets some of his laughs from camping some of his lines as if he's still on his tv show, but that gives his character's repeated advice to stay away from women an unintended, unpleasant subtext). Krakowski, who is regularly a delightful and engaging performer, has been asked to do the near-impossible: namely, to step into the Bob Fosse dances that were tailored for Gwen Verdon. She's fine in the book scenes, but her dancing is all exertion and no charm: we're aware of all the impressive work she is doing with her body and waiting for it to express what it means to express. The other two leads - Randy Graff and Cheyenne Jackson - are quite wonderful, and the supporting cast are uniformly terrific (with Veanne Cox and Kathy Fitzgerald especially fun and funny).
+
+
+***** (...out of 5 stars)
+The Public at the Delacorte
+
+This production kicks ass! After only ever seeing a couple of well-intentioned/poorly-realized regional community concoctions of this late sixties rock musical, sitting outside in Central Park at the Delacorte and watching this faithful, energetic, thrilling revival, I finally GOT why Hair was such a ground-breaking musical. And that makes me very happy. The sexy cast, led by Jonathan Groff and Will Swenson gyrates and wails and makes the audience feel like they're guests at a real live be-in. Staging this musical in Central Park under the moon at the Delacorte, with intermittent gusts of wind blowing through the fringe and the miles of wavy curls, is a perfect choice. I felt genuinely transported and was literally overcome with emotion by the end of it all. This is one of the best theatrical productions I have seen this year.
+
+Sunday, July 20, 2008
+
+MITF/Writer's Block
+
+In Shaun Gunning's Writer's Block, a playwright trying to meet the expectations (and deadlines) of his latest work struggles to turn his love-hate relationship with his agent into a means of inspiration. Mr. Gunning plays what very well may be himself--Daniel--a playwright tragically blocked by his ex-fiancee's sudden abandonment of him . . . for his brother. It's enough to drive anyone to drink one's deadlines away, even as the repo men take everything but an empty bookcase, and as the bathrobe starts to musk up around you. As he's egged on by his agent, Paula (Kate Dulcich), he stumbles his way through a series of comic failures, from a Shepard-like adaptation of his own life--in which Jack (Jack Marshall) loses his fiancee to his meth-addict brother, Gary (Steve Orlikowski)--to a sequel to a sophomoric gangster comedy, "Chicago, 1923," which playfully packs more fish-related puns into a ten-minute gag than a whole can of sardines (sans the stink). The play also spoofs the "murder mystery" play, but thankfully, the jokes aren't at anyone's expense, for they tie together into a classic showdown between a writer and his own creations, with a little romance thrown in for resolution.
+
+Dance at Bataan
+
+So far as dances go, Blake Bradford's Dance at Bataan is more or less a cha-cha: two steps forward, two steps back. On the back step, there are unsteady actors who look like they're being put through the paces, and a plot that covers way too much ground (PTSD may be the subject of Hannah's dissertation, but it's got little to do with the play). This rush of development forces the actors to show actions rather than to act on them: Jim Heaphy twitches his left arm and quivers his voice to show Mr. Edward's reluctance to speak with Hannah, and Christine Vinh gets so bogged down in playing Hannah as "a cold-hearted bitch" that she never shows any emotion. Moving forward, Blake's parallel story, a glimpse at Mr. Edward's experiences at Bataan (where one out of seven US POWs died)--is surprisingly comic, and the acting is sharp, though still too dispassionate for a dance. Blake's direction is often more emotional than the actors: though he stretches the imagery with too much repetition (Claire haunted by her husband, Marvin, and Hannah inexplicably visited by Tokyo Rose), this otherworldly presence (especially the violent Japanese soldiers, who are shown by pantomimed reactions) pulls good performances out of the actors, particularly Sarah Hankins, who doubles as Chris and Claire. Pick up the tempo, watch that posture, and tighten up the routine (by which I mean the steps of the plot), and Dance at Bataan may merit an encore.
+
+Saturday, July 19, 2008
+
+Marie Antoinette: The Color of Flesh
+
+The clever script often manipulates passion to make a point, but on the whole, the able cast and precise direction make Marie Antoinette: The Color of Flesh an entertaining play.
+
+[Reviewed for Time Out New York]
+
+Friday, July 18, 2008
+
+Yellow Electras
+
+Chuck Mee would be proud of Peter A. Campbell's Yellow Electras, which patches together a series of existing adaptations, from the classic Greek dramas of Sophocles and Euripedes to the melodic Richard Strauss and Kandinsky operas. The buffet of styles buffets the viewer, with Peter Ksander's design stretching the three Electras (Genevieve De Galliande, Laura Heidinger, and Karen Rich) across three computer terminals, video conferenced up on one wall, while on the other, a chorus of sixteen girls look on, Brady Bunch style, through a series of digital boxes. This modernist approach is somewhat tacky, though aesthetically pleasing, but it's no surprise that the strongest segments--Rich's arias and Heidinger's violent breakdown--are grounded in physical presence rather than electronic transference. The collage, in itself, doesn't build up to anything--in fact, some of the snippets, which address acting itself, assert that "fragments, bits, and pieces do not give us a sense of the whole." What Yellow Electras does is illustrate a series of styles, a physical dramaturgy of Electra that will, unfortunately, largely be of service only to those who are readying themselves to adapt a Greek drama, and intermittently cool for the edgy theatergoer.
+
+Thursday, July 17, 2008
+
+The Be(a)st of Taylor Mac
+
+Photo/Lucien Samaha
+
+Taylor Mac comes to us in drag, green-faced and glittery, with a thickly clumped wig, but despite his eccentric act (high energy rants modulated by ukulele), don't mistake him for an alien. He's a wildman, a performance artist born in the crucible of gay nightclub basements. The Be(a)st of Taylor Mac is a messy sampler of his previous solo shows: by the end of the night (after opening "Pandora's suitcase"), he's standing in a sea of old costumes. The overall topic of this self-proclaimed "subversive jukebox musical" is to pierce what "the bubble of preparation," in which America (and, by inclusion, audiences) attempt to shelter themselves from harm by "preparing for the surprise." Two things are made clear by the bubble of light that surrounds him: first, that Taylor Mac cannot be contained by David Drake's direction, and second, that for all his mania--singing breasts and all--there's nothing particularly shocking about Taylor Mac.
+
+[Read on]
+
+Wednesday, July 16, 2008
+
+
+Photo/Gary Breckheimer
+
+The postcard for Lenora Champagne's TRACES/fades has the image of a young girl wheeling her grandmother along at a high speed: both are giddy. Unfortunately, the actual production rarely has such glimmers of life. There are hints of humor, crackles of poignancy, and some terrific images from Robert Lyons's co-direction, but Champagne's depiction of Alzheimer's comes across as patronizingly as Nurse Harper's attitude toward her addled patients. A mournful set of images are projected onto the background, starting with snow, which Claire (Champagne) then emphasizes "makes a clean white blanket of forgetting." Soon after, Claire specifies that her mother, Ann (Joanne Jacobson), with her mind bundled in the depths of that blanket, did not expect this. Honestly, who does? Even the second half of the play, which takes place in a senior care center, seems more demonstrative than dramatic, with the dialogue straining to show us the highs and lows. (It doesn't help that Amelie Champagne Lyons, who plays Anne's granddaughter, doesn't really provide much of an energetic contrast.) Still, it's sensitive topic material, and the closeness of it to Champagne's heart is reflected in the quirky songs that her other 'inmates' sing, from Hilda's choked ability to remember those who have died in her life, but not the wars in which they died, to Delores's no-nonsense appreciation of eating, which serves as a reminder that they're living. For me, the strongest image is of the nurse restraining Ann to her wheelchair with a device that she explains as being "just like a cummerbund." It's not, but these little injustices and deprivations are where Champagne most clearly succeeds.
+
+Tuesday, July 15, 2008
+
+Boeing Boeing
+
+Photo/Sara Krulwich
+
+Not that Broadway needs more mindless entertainment, but here comes a commercial comedy: yes, I'm talking about Boeing Boeing. I like my comedy to be as crisp as airline peanuts, so I was happily surprised to see understudy Roxanna Hope as the kinky American stewardess (one of the three that bachelor Bernard is juggling on separate timetables), and pleased to see that there was merit to Mark Rylance's Tony win. As Robert, Bernard's straight-laced (soon-to-be unlaced) friend, Rylance is unapologetically apoplectic as he frets his way through one hell of a coverup, and he shows a marvelous range as he goes from mild-mannered to tentitively suave and hesitatingly sexual. (Think Bill Irwin.) But the rest of the cast made me feel as if were riding in coach: Bradley Whitford takes far too long to warm up, and when he does, he never seems as invested as Rylance, and the other two stewardesses, Gina Gershon and Mary McCormack (a jealous, sharp Italian and a booming, obsessive German) are so exaggerated that it's sometimes hard to understand what they're saying. This sex comedy may be about broads, but I'd have liked Matthew Warchus to make all the racing around just a little less broad: as tight, specific, and polished as Christine Baranski's deadpan.
+
+Monday, July 14, 2008
+
+[title of show]
+
+Photo/Carol Rosegg
+
+Jeff and Hunter and Heidi and Susan may be playing exaggerated versions of themselves, but they can't hide that genuine cheer, even in a big Broadway theater. [title of show] isn't ambitious in presentation, but it is impressive all the same, filling the house with honesty, intimacy, and lots of laughs. It's an homage to musical theater, but at the same time, it's a Disney musical in its own right: "Dreams Do Come True," it sings, and that's perhaps the rarest, most worthwhile spectacle of all.
+
+[Read on]
+
+Sunday, July 13, 2008
+
+Perfect Harmony
+
+***1/2 (...out of 5 stars)
+The Essentials
+
+Two earnest, high strung High school acapella groups duke it out for the National championship in this darling quirkfest of a musical play currently running at The Clurman on Theater Row. Never mind that perhaps some of the cornball choices undercut the sincerity of the piece (a haz-mat suit as a performance costume?, estrogen injections?) or that a few of the sub-plots are extraneous and/or weakly resolved, there is a gallon of charm in this engaging look at angst-ridden teens throwing their hearts and souls into their extra

@@ -1,0 +1,472 @@
+# Dataset: arxiv
+# Split: train
+# Source file: arxiv_train.bin
+# Start token index: 299,655,412
+# End token index: 299,665,412
+# Number of tokens: 10,000
+# Number of characters: 28,336
+============================================================
+
+PRD84_054502}.
+
+In this study, we introduce chemical potential $\mu$ to the study of heavy quark QCD. 
+The critical line in $2+1$ flavor QCD becomes a critical surface in the parameter space including $\mu$.
+Although the critical surface in the heavy-quark region is different from that in the light-quark region\cite{crtpt,dFP03} and thus is not directly relevant to the transition in the real world, 
+the former provides us with a good testing ground of the method, since the computational burden is much lighter.
+We show that, to the leading order of the hopping parameter expansion, the complex phase of the quark determinant is introduced though the imaginary part of the Polyakov line.
+By studying an effective potential of the Polyakov line, we find that the $\mu$-dependence of the critical surface is simple in the phase-quenched theory. 
+We then take account of the effects of the complex phase by estimating the phase average using the cumulant expansion method \cite{Ejiri:2007ga,whot10} to determine the critical surface in $2+1$ flavor QCD at finite density.
+
+This paper is organized as follows. 
+We introduce the histogram method and its combination with a multi-point reweighing method in Sec.~\ref{sec:method}.
+QCD in the heavy-quark region is discussed to the leading order of the hopping parameter expansion in Sec.~\ref{sec:heavy}.
+In Sec.~\ref{sec:pldist0}, we study the histogram and its effective potential for the Polyakov line, as well as those for the plaquette, first at $\mu=0$. 
+We find that both give a consistent result for the critical point.
+In Sec.~\ref{sec:poldis}, we estimate the effect of the complex phase on the Polyakov line histogram at finite chemical potential.
+We show that the effect is small around the critical point and the location of the critical point is well approximated by that in the phase-quenched theory.
+We determine the critical surface in $2+1$ flavor QCD.
+In Sec.~\ref{sec:popot},  we calculate the double-histogram simultaneously for the Polyakov line and plaquette.
+By drawing the curves on which the first derivatives of the effective potential vanish and by tracing their intersection points, we study the fate of the first order transition.
+The phase diagram thus obtained agrees with those obtained by the Polyakov line histogram or the plaquette histogram alone. 
+We summarize our conclusions in Sec.~\ref{sec:conclusion}.
+Appendix~\ref{sec:range} is added to show that the effect of the next-to-leading terms of the hopping parameter expansion is small on the location of the critical point.
+
+
+\section{Histogram method}
+\label{sec:method}
+
+We study QCD with $N_{\rm f}$ flavors of Wilson-type quarks. 
+We write the gauge action as 
+\begin{eqnarray}
+S_g = -6 N_{\rm site} \,\beta \, \hat{P},
+\label{eq:Sg}
+\end{eqnarray} 
+where 
+$\beta = 6/g^2$ is the gauge coupling parameter, 
+$N_{\rm site} = N_s^3 \times N_t$ is the lattice volume,
+and $\hat{P}$ is the (generalized) plaquette. 
+For the case of the standard plaquette gauge action which we study in the next section, 
+\begin{eqnarray}
+\hat{P}= \frac{1}{18 N_{\rm site}} \displaystyle \sum_{x,\mu < \nu} 
+ {\rm Re \ Tr} \left[ U_{x,\mu} U_{x+\hat{\mu},\nu}
+U^{\dagger}_{x+\hat{\nu},\mu} U^{\dagger}_{x,\nu} \right] .
+\label{eq:SgP}
+\end{eqnarray} 
+We write the quark action as
+\begin{eqnarray}
+S_q = \sum_{f=1}^{N_{\rm f}} \sum_{x,y} \bar{\psi}_x^{(f)} \, M_{xy} (\kappa_f,\mu_f) \, \psi_y^{(f)} ,
+\label{eq:Sq}
+\end{eqnarray} 
+where $M_{xy}$ is the quark kernel
+and $\kappa_f$ and  $\mu_f$ are the hopping parameter and chemical potential for the $f$th flavor, respectively. 
+We denote $\vec\kappa = (\kappa_1,\cdots,\kappa_{N_{\rm f}})$ and  $\vec\mu = (\mu_1,\cdots,\mu_{N_{\rm f}})$ for the sets of hopping parameters and chemical potentials.
+In this study, we assume that $M_{xy}$ is independent of $\beta$.
+\footnote{For the cases of $\beta$-dependent $M$, see discussions in Sec.~6.5 of Ref.~\cite{WHOT_PTEP12}.}
+
+
+\subsection{Histogram and effective potential}
+\label{sec:histogram}
+
+We define the histogram for a set of physical quantities 
+$X = (X_1,X_2,\cdots)$ as 
+\begin{eqnarray}
+w(X; \beta, \vec\kappa, \vec\mu) 
+&=& \int {\cal D} U {\cal D} \psi {\cal D} \bar{\psi} \ \prod_i \delta(X_i - \hat{X}_i) \ e^{- S_q - S_g} \nonumber \\
+&=& \int {\cal D} U \ \prod_i \delta(X_i - \hat{X}_i) \ 
+e^{-S_g}\ \prod_{f=1}^{N_{\rm f}} \det M(\kappa_f, \mu_f) .
+\label{eq:dist}
+\end{eqnarray}
+where $\hat{X} = (\hat{X}_1,\hat{X}_2,\cdots)$ is the operators for $X$. 
+Then the partition function is given by
+\begin{equation}
+Z(\beta,\vec\kappa,\vec\mu)  = \int\! w(X;\beta,\vec\kappa,\vec\mu) \, dX
+\end{equation}
+with $dX = \prod_i dX_i$, 
+and the probability distribution function of $X$ is given by $Z^{-1} w(X;\beta,\vec\kappa,\vec\mu)$. 
+The expectation value of an operator ${\cal O} [\hat{X}]$ which is written in terms of $\hat{X}$ is calculated by 
+\begin{eqnarray}
+\langle {\cal O }[\hat{X}] \rangle_{(\beta, \vec\kappa,\vec\mu)} = \frac{1}{Z(\beta,\vec\kappa,\vec\mu) } 
+\int\! {\cal O} [X] \, w(X; \beta, \vec\kappa, \vec\mu) \, dX .
+\label{eq:expop}
+\end{eqnarray}
+
+The coupling parameters $(\beta, \vec\kappa, \vec\mu)$ in the histogram $w$ can be shifted by the reweighting technique as
+\begin{eqnarray}
+\frac{w(X; \beta, \vec\kappa, \vec\mu)}{w(X; \beta_0, \vec\kappa_0, \vec0) }
+&=& \left\langle e^{6 (\beta - \beta_0) N_{\rm site} \hat{P}} \,
+\prod_f \frac{ \det M(\kappa_f, \mu_f)}{\det M(\kappa_{0f}, 0)} 
+\right\rangle_{\! X;(\beta_0, \vec\kappa_0, \vec0)} 
+\equiv R(X; \beta, \vec\kappa, \vec\mu; \beta_0, \vec\kappa_0),
+\label{eq:R}
+\end{eqnarray}
+where $\langle \,\cdots\, \rangle_{X;(\beta_0, \vec\kappa_0, 0)}$ is the expectation value measured at $(\beta_0, \vec\kappa_0, \vec\mu_0=0)$ with fixed $X$, 
+\begin{eqnarray}
+\langle \,\cdots\, \rangle_{X;(\beta_0,\vec\kappa_0,\vec0)}
+\equiv \frac{ \langle \,\cdots\, \prod_i \delta(X_i - \hat{X}_i) \rangle_{(\beta_0, \vec\kappa_0, \vec0)} 
+}{ \langle \prod_i \delta(X_i - \hat{X}_i) \rangle_{(\beta_0, \vec\kappa_0, \vec0)} } .
+\end{eqnarray}
+The choice $\vec\mu_0=0$ enables us to carry out  a Monte Carlo simulation of the system.
+Note that, when we choose the plaquette $P$ as one of $X_i$'s, the $\beta$-dependence of the reweighing factor $R$ can be simply factored out as 
+$e^{6 (\beta - \beta_0) N_{\rm site} P}$. 
+
+For convenience, we define the effective potential as
+\begin{equation}
+V_{\rm eff}(X; \beta, \vec\kappa, \vec\mu) = -\ln w(X; \beta, \vec\kappa, \vec\mu) .
+\end{equation}
+The shift of $(\beta, \vec\kappa, \vec\mu)$ is given by
+\begin{eqnarray}
+V_{\rm eff}(X; \beta, \vec\kappa, \vec\mu) 
+= V_{\rm eff}(X; \beta_0, \vec\kappa_0, \vec0) 
+- \ln R(X; \beta, \vec\kappa, \vec\mu; \beta_0, \vec\kappa_0).
+\label{eq:logR}
+\end{eqnarray}
+Choosing $P$ as one of $X_i$'s, the $\beta$-dependence of the effective potential is explicitly given by 
+\begin{eqnarray}
+V_{\rm eff}(P,X; \beta, \vec\kappa, \vec\mu) 
+= V_{\rm eff}(P,X; \beta_0, \vec\kappa, \vec\mu) 
+-6 N_{\rm site} (\beta-\beta_0)\, P .
+\label{eq:chbeta}
+\end{eqnarray}
+Here, to make clear that $P$ is chosen as one of $X_i$'s, we explicitly write the argument $P$ and redefine $X$ as remaining $X_i$'s.
+As we will discuss later, the $\vec\kappa$ and $\vec\mu$ dependences can also be handled easily in the heavy quark region, by choosing the Polyakov line as one of $X_i$'s. 
+
+\begin{figure}[t] 
+\vspace{-4mm}
+\centerline{
+\includegraphics[width=75mm]{dv0dp130421s.eps} 
+\includegraphics[width=75mm]{dv0dp130421c.eps} 
+}
+\caption{Left: $d V_{\rm eff} / dP$ in finite-temperature SU(3) Yang-Mills theory on a $24^3\times4$ lattice \cite{PRD84_054502}. 
+Simulations are performed at five values of $\beta$ around the deconfining transition point $\beta_c \simeq 5.692$, and the results for $d V_{\rm eff} / dP$ are shifted to $\beta=5.69$ using the reweighing formula Eq.~(\ref{eq:chbeta}).
+The vertical dashed lines represent the expectation values of $P$ for each $\beta$. 
+Right: $d V_{\rm eff} / dP$ by the multi-point histogram method.}
+\label{fig:dvdp}
+\end{figure}
+
+In the left panel of Fig.~\ref{fig:dvdp}, 
+$dV_{\rm eff}(P;\beta)/dP$ in finite-temperature SU(3) Yang-Mills theory (heavy quark limit of QCD) is shown for several $\beta$ points around the deconfining transition point,
+i.e., $\beta=5.68$, 5.685, 5.69, 5.6925, and 5.70, on an $N_t=4$ lattice \cite{PRD84_054502} as a function of $P$. 
+At each $\beta$, we accumulate $100,000$ -- $670,000$ configurations, 
+and the total number of configurations is 1,800,000. 
+We evaluate $V_{\rm eff}(P)$ using a Gaussian approximation for the delta function in Eq.~(\ref{eq:dist}), 
+$\delta(P) \approx \exp [ -(P/\Delta)^2 ] / (\Delta \sqrt{\pi})$ with $\Delta =0.000283$, 
+and calculate the derivative numerically fitting the data of $V_{\rm eff}(P)$ in the range between $P-\epsilon/2$ and $P+\epsilon/2$ by a linear function with $\epsilon = 0.0004$.
+Since the plaquette is distributed in the range $0.543 \simle P \simle 0.556$ almost uniformly with these configurations, the number of configurations in a range from $P-\Delta/2$ to $P+\Delta/2$ is about 40,000.
+
+The errors are estimated by a jackknife method. 
+According to Eq.~(\ref{eq:chbeta}), $dV_{\rm eff}(P;\beta)/dP$ at different $\beta$ should coincide with each other by a constant shift $6 N_{\rm site} (\beta-\beta_0)$. 
+The left panel of Fig.~\ref{fig:dvdp} shows that the data at different $\beta$ actually agree well with each other by this shift.
+
+The overall figure S shape of $dV_{\rm eff}(P;\beta)/dP$ corresponds to the fact that the deconfining transition of SU(3) Yang-Mills theory is of first order.
+The vertical dashed lines represent the locations of $\langle P \rangle_{(\beta)}$ for each $\beta$.
+We note that the data at each $\beta$ can suffer from large errors when $P$ deviates largely from $\langle P \rangle_{(\beta)}$.
+In principle, the reweighting formulas in Eqs.~(\ref{eq:R}) and (\ref{eq:logR}) should enable us to predict the shape of $w$ and $V_{\rm eff}$ at different simulation points. 
+In practice, however, because a statistically reliable data of $w$ and $V_{\rm eff}$ are available only at $X \approx \langle X \rangle_{(\beta_0,\vec\kappa_0,\vec0)}$ of the simulation point, when $\langle X \rangle_{(\beta,\vec\kappa,\vec\mu)}$ at the target point $(\beta,\vec\kappa,\vec\mu)$ shifts a lot from $\langle X \rangle_{(\beta_0,\vec\kappa_0,\vec0)}$, it is not easy to obtain a reliable prediction about the nature of the vacuum at $(\beta,\vec\kappa,\vec\mu)$.
+This is the overlap problem.
+For example, in the left panel of Fig.~\ref{fig:dvdp}, it is difficult to conclude about the transition point from the data at $\beta=5.685$ (green) alone.
+The overlap problem becomes severe around a first order transition point on large lattices.
+
+
+\subsection{Multi-point histogram method}
+\label{sec:multipoint}
+
+To overcome the overlap problem and thus to obtain $w$ and $V_{\rm eff}$ that are reliable in a wide range of $X$, we make use of the reweighing formulas to combine data obtained at different simulation points \cite{FS89}. 
+In this subsection, we consider the case to combine data at different values of $\beta$ with fixed $\vec\kappa$ and $\vec\mu$ and suppress the arguments $\vec\kappa$ and $\vec\mu$ for simplicity of the notations. 
+Extension to the general case is straightforward.
+
+We combine a set of $N_{\rm sp}$ simulations performed at $\beta_i$ with the number of configurations $N_i$ where $i=1, \cdots , N_{\rm sp}$.
+Using Eq.~(\ref{eq:chbeta}), the probability distribution function at $\beta_i$ is related to that at $\beta$ as  
+\[
+Z^{-1}(\beta_i) \,w(P,X; \beta_i) = Z^{-1}(\beta_i) \, e^{6N_{\rm site} (\beta_i-\beta) P}  \,w(P, X; \beta) .
+\]
+Summing up these probability distribution functions with the weight $N_i$, 
+\begin{eqnarray}
+\sum_{i=1}^{N_{\rm sp}} N_i \, Z^{-1}(\beta_i) \, w(P,X; \beta_i) 
+= e^{-6N_{\rm site} \beta P} 
+\sum_{i=1}^{N_{\rm sp}} N_i \, Z^{-1}(\beta_i) \, e^{6N_{\rm site}  \beta_i P}  \, w(P, X; \beta), 
+\label{eq:sum1}
+\end{eqnarray}
+we obtain 
+\begin{eqnarray}
+w(P, X; \beta)= G(P;\beta,\vec\beta) \,
+\sum_{i=1}^{N_{\rm sp}} N_i \, Z^{-1}(\beta_i) \, w(P,X; \beta_i) 
+\end{eqnarray}
+with the simulation points $\vec\beta=(\beta_1,\cdots,\beta_{N_{\rm sp}})$ and 
+\begin{eqnarray}
+G(P;\beta,\vec\beta)=\frac{ e^{6N_{\rm site} \beta P}}{
+\sum_{i=1}^{N_{\rm sp}} N_i \, e^{6N_{\rm site} \beta_i P} Z^{-1}(\beta_i)} .
+\end{eqnarray}
+Note that the left-hand side of Eq.~(\ref{eq:sum1}) gives a naive histogram using all the configurations disregarding the difference in the simulation parameter.
+The histogram $w(P,X;\beta)$ at $\beta$ is given by multiplying $G(P;\beta,\vec\beta)$ to this naive histogram.
+
+The partition function is given by
+\begin{eqnarray}
+Z(\beta)= \sum_{i=1}^{N_{\rm sp}} N_i \int G(P;\beta,\vec\beta) \, Z^{-1}(\beta_i) \, w(P,X; \beta_i) \, dP \,dX 
+=\sum_{i=1}^{N_{\rm sp}} N_i \left\langle G(\hat{P};\beta,\vec\beta) \right\rangle_{\!(\beta_i)}.
+\end{eqnarray}
+The right-hand side is just the naive sum of $G(\hat{P};\beta,\vec\beta)$ observed on all the configurations.
+The partition function at $\beta_i$ can be determined, up to an overall factor, by the consistency relations, 
+\begin{eqnarray}
+Z(\beta_i) 
+=\sum_{k=1}^{N_{\rm sp}} N_k \left\langle G(\hat{P};\beta_i,\vec\beta) \right\rangle_{\! (\beta_k)}
+=\sum_{k=1}^{N_{\rm sp}} N_k \left\langle 
+\frac{e^{6N_{\rm site} \beta_i P}}{
+\sum_{j=1}^{N_{\rm sp}} N_j e^{6N_{\rm site} \beta_j P} Z^{-1}(\beta_j)} \right\rangle_{\! (\beta_k)}
+\end{eqnarray}
+for $i=1,\cdots,N_{\rm sp}$. 
+Denoting $f_i=-\ln Z(\beta_i)$, these equations can be rewritten by
+\begin{eqnarray}
+1 = \sum_{k=1}^{N_{\rm sp}} N_k \left\langle
+\frac{1}{ \sum_{j=1}^{N_{\rm sp}} N_j \exp[ 6N_{\rm site} (\beta_j-\beta_i) P 
+- f_i +f_j]} \right\rangle_{(\beta_k)},
+\hspace{5mm}
+i=1,\cdots,N_{\rm sp}.
+\label{eq:consis}
+\end{eqnarray}
+Starting from appropriate initial values of $f_i$, we solve these equations numerically by an iterative method. 
+Note that, in these calculations, one of the $f_i$'s must be fixed to remove the ambiguity corresponding to the undetermined overall factor.
+
+Now, the expectation value of an operator ${\cal O}[\hat{P},\hat{X}]$ at $\beta$ can be evaluated as
+\begin{eqnarray}
+\langle {\cal O} [\hat{P},\hat{X}] \rangle_{(\beta)} 
+= \frac{1}{Z(\beta)} \sum_{i=1}^{N_{\rm sp}} N_i \left\langle {\cal O} [\hat{P},\hat{X}] \, G(\hat{P};\beta,\vec\beta) \right\rangle_{\!(\beta_i)}.
+\label{eq:multibeta}
+\end{eqnarray}
+Again, 
+$\sum_{i=1}^{N_{\rm sp}} N_i \left\langle {\cal O} G \right\rangle_{(\beta_i)}$ 
+in the right-hand side is just the naive sum of ${\cal O} G$ over all the configurations disregarding the difference in the simulation point.
+
+Results of the multi-point histogram method for the plaquette distribution function $Z^{-1}(\beta)\, w(P;\beta)$ in SU(3) Yang-Mills theory is shown in Fig.~\ref{fig:pqdist} as a function of $P$ and $\beta$, using the configurations at five simulation points presented in the left panel of Fig.~\ref{fig:dvdp}.
+We see double-peak distribution at $\beta \sim 5.69$--5.6925.
+Corresponding $dV_{\rm eff}(P;\beta)/dP$ at $\beta=5.69$ is shown in the right panel of Fig.~\ref{fig:dvdp}.
+We obtain a smooth effective potential with small statistical errors in a wide range of $P$, automatically suppressing statistically poor data points by the multi-point histogram method. 
+
+
+\begin{figure}[t] 
+\vspace{-4mm}
+\centerline{
+\includegraphics[width=120mm]{pt5beta130422.eps} 
+}
+\vspace{-8mm}
+\caption{$\beta$ dependence of the plaquette distribution function at $\kappa=0$.}
+\label{fig:pqdist}
+\end{figure}
+
+
+\section{QCD in the heavy quark region}
+\label{sec:heavy}
+
+In this paper, we employ the standard plaquette gauge action, Eq.~(\ref{eq:Sg}) with Eq.~(\ref{eq:SgP}), and unimproved Wilson quark action, Eq.~(\ref{eq:Sq}), with
+\begin{eqnarray}
+M_{xy} (\kappa_f,\mu_f) &=& \delta_{xy} 
+-\kappa_f \left\{ \sum_{\mu=1}^3\left[ (1-\gamma_{\mu})\,U_{x,\mu}\,\delta_{y,x+\hat{\mu}} + (1+\gamma_{\mu})\,U_{y,\mu}^{\dagger}\,\delta_{y,x-\hat{\mu}} \right]  \right. 
+\nonumber  \\
+        & & \left. + e^{\mu_fa}(1-\gamma_{4})\,U_{x,4}\,\delta_{y,x+\hat{4}}+e^{-\mu_fa}(1+\gamma_{4})\,U_{y,4}^{\dagger}\,\delta_{y,x-\hat{4}} \right\} 
+.
+\end{eqnarray} 
+Note that this $M_{xy}$ does not depend on $\beta$.
+
+To investigate the quark mass dependence of the effective potential in the heavy quark region, we evaluate the quark determinant by a Taylor expansion with respect to the set of hopping parameters $\vec\kappa$ in the vicinity of the heavy quark limit $\vec\kappa=0$.
+For each flavor, we have 
+\begin{eqnarray}
+\ln \left[ \frac{\det M(\kappa,\mu)}{\det M(0,0)} \right]
+\;=\; \sum_{n=1}^{\infty} \frac{1}{n!} 
+\left[ \frac{\partial^{n} \ln \det M}{\partial \kappa^{n}} 
+\right]_{\kappa=0} \kappa^{n} 
+\;=\; \sum_{n=1}^{\infty} \frac{{\cal D}_{n}}{n!}  \, \kappa^{n} , 
+\label{eq:tayexp}
+\end{eqnarray}
+with
+\begin{eqnarray}
+{\cal D}_n &\equiv& \left[ \frac{\partial^n \ln \det M}{\partial \kappa^n} \right]_{\kappa=0}
+\nonumber\\
+&=& (-1)^{n+1} (n-1)! \ {\rm tr} 
+\left[ \left( M^{-1} \, \frac{\partial M}{\partial \kappa} \right)^n \right]_{\kappa=0}
+=(-1)^{n+1} (n-1)! \ {\rm tr} 
+\left[ \left( \frac{\partial M}{\partial \kappa} \right)^n \right], 
+\label{eq:derkappa}
+\end{eqnarray}
+where $(\partial M/\partial \kappa)_{xy}$ is the gauge connection between the sites $x$ and $y$.
+Therefore, the nonvanishing contributions to ${\cal D}_{n}$ are given by Wilson loops and Polyakov lines. 
+Because QCD at $\vec\kappa=0$ is just the SU(3) Yang-Mills theory, we can easily perform simulations at $\vec\kappa=0$.
+
+Because of the antiperiodic boundary condition and gamma matrices in the hopping terms, the leading order contributions to the Taylor expansion are given by 
+\begin{equation}
+\ln \left[ \frac{\det M(\kappa, \mu)}{\det M(0,0)} \right]
+  = 288N_{\rm site} \kappa^4 \hat{P} +3\times2^{N_t+2}N_s^3\kappa^{N_t} 
+\left\{ \cosh \left(\frac{\mu}{T}\right) \hat\Omega_{\rm R}
++i\sinh \left( \frac{\mu}{T} \right) \hat\Omega_{\rm I}\right\} + \cdots ,
+\label{eq:detM}
+\end{equation}
+where $\hat\Omega_{\rm R}$ and $\hat\Omega_{\rm I}$ are the real and imaginary parts of the Polyakov line,
+\begin{equation}
+\hat\Omega = \frac{1}{N_s^3}
+\displaystyle \sum_{\mathbf{n}} \frac{1}{3} {\rm tr} \left[ 
+U_{\mathbf{n},4} U_{\mathbf{n}+\hat{4},4} U_{\mathbf{n}+2\hat{4},4} 
+\cdots U_{\mathbf{n}+(N_t -1)\hat{4},4} \right] ,
+\label{eq:ploop}
+\end{equation}
+respectively.
+Collecting the contributions from all flavors, we have 
+\begin{eqnarray}
+\ln \left[ \prod_{f=1}^{N_{\rm f}} \frac{\det M(\kappa_f, \mu_f)}{\det M(0,0)} \right] 
+&=& 288N_{\rm site} \sum_{f=1}^{N_{\rm f}} \kappa_f^4 \hat{P} 
+\nonumber \\ 
+&& \hspace{-35mm} 
++ 3\times2^{N_t+2}N_s^3 \left\{ 
+\sum_{f=1}^{N_{\rm f}} \kappa_f^{N_t} \cosh \left(\frac{\mu_f}{T}\right) \hat\Omega_{\rm R}
++i \sum_{f=1}^{N_{\rm f}} \kappa_f^{N_t} \sinh \left( \frac{\mu_f}{T} \right) 
+\hat\Omega_{\rm I}\right\} + \cdots .
+\label{eq:proddetM}
+\end{eqnarray}
+The first term that is proportional to $\hat{P}$ can be absorbed into the gauge action by a shift $\beta \rightarrow \beta^*$ with 
+\begin{eqnarray}
+\beta^* = \beta + 48 \sum_{f=1}^{N_{\rm f}} \kappa_f^4 .
+\label{eq:betastar}
+\end{eqnarray}
+The third term that is proportional to $\hat\Omega_{\rm I}$ leads to the complex phase factor $e^{ i\hat\theta}$,
+where
+\begin{equation}
+\hat\theta=3\times 2^{N_t+2} N_s^3 
+\, q \, 
+\hat\Omega_{\rm I} 
+\label{eq:thetaOmegaI}
+\end{equation}
+with
+\begin{eqnarray}
+q = \sum_{f=1}^{N_{\rm f}} \kappa_f^{N_t} \sinh \left( \frac{\mu_f}{T} \right) .
+\label{eq:q}
+\end{eqnarray}
+From these expressions, it is natural to take the Polyakov line as an argument of effective potential.
+
+
+\section{Polyakov line effective potential at zero density}
+\label{sec:pldist0}
+
+\begin{figure}[t] 
+\vspace{-4mm}
+\centerline{
+\includegraphics[width=90mm]{plk4_20120607m.eps} 
+\hspace{-15mm}
+\includegraphics[width=90mm]{susk4_20120607m.eps} 
+}
+\vspace{-4mm}
+\caption{Polyakov line expectation value $\langle \hat\Omega \rangle$  (left) and its susceptibility $\chi_{\Omega}$ (right) as functions of $\kappa^4$ and $\beta^*$ at $\vec\mu=0$ obtained on an $N_t=4$ lattice in the case of $N_{\rm f}=2$ QCD.}
+\label{fig:plsus}
+\end{figure}
+
+\begin{figure}[t] 
+\centerline{
+\includegraphics[width=75mm]{orhistk4_20120612m0.eps}
+\includegraphics[width=75mm]{oabhistk4_20120612m0.eps}
+}
+\caption{Distribution function of the real part of the Polyakov line (left) and 
+the absolute value of the Polyakov line (right) at the transition point in $N_{\rm f}=2$ QCD at $\mu=0$.}
+\label{fig:oabhist}
+\end{figure}
+
+\begin{figure}[t] 
+\centerline{
+\includegraphics[width=75mm]{pqpotk4_20130419m0.eps}
+}
+\caption{Plaquette effective potential in $N_{\rm f}=2$ QCD at $\mu=0$. 
+The horizontal axis is for $\Delta P = P - \langle \hat P \rangle$.
+$\beta$ is adjusted to the peak position of the plaquette susceptibility at each $\kappa$.}
+\label{fig:phist}
+\end{figure}
+
+\begin{figure}[tb]
+\vspace{-9mm}
+\centerline{
+\includegraphics[width=59mm]{pl5h3d0e0_130427.eps}
+\hspace{-11mm}
+\includegraphics[width=59mm]{pl5h3d5e6_130427.eps}
+\hspace{-11mm}
+\includegraphics[width=59mm]{pl5h3d1e5_130427.eps}
+}
+\vspace{-12mm}
+\centerline{
+\includegraphics[width=59mm]{pl5h3d15e5_130427.eps}
+\hspace{-11mm}
+\includegraphics[width=59mm]{pl5h3d2e5_130427.eps}
+\hspace{-11mm}
+\includegraphics[width=59mm]{pl5h3d25e5_130427.eps}
+}
+\vspace{-2mm}
+\caption{Polyakov line histogram in heavy quark QCD at $\vec\mu=0$ in the case of $N_{\rm f}=2$ QCD.
+At each $\kappa$, $\beta$ is adjusted to the transition point determined by $\chi_\Omega$.
+The value of $\kappa^4$ is shown in the upper right corner of each plot.
+}
+\label{fig:compol}
+\end{figure}
+
+We expect that the Polyakov line $\hat\Omega$ is sensitive to the transition in the heavy quark region because it is an order parameter of the confinement-deconfinement transition in SU(3) Yang-Mills theory, the heavy quark limit of QCD.
+Combining the configurations at five simulation points \cite{PRD84_054502} used in the left panel of Fig.~\ref{fig:dvdp} by the multi-point reweighing formulas, 
+we compute the Polyakov line histogram in the heavy quark region. 
+To reduce statistical fluctuations, we average $\Omega$ over the Z(3) rotations in the original histogram at $\vec\kappa=0$ (SU(3) Yang-Mills theory).
+
+We first study the case $\vec\mu=0$ in this section.
+In Fig.~\ref{fig:plsus} we show the Polyakov line expectation value $\langle \hat\Omega \rangle$ and its susceptibility $\chi_{\Omega} =N_{s}^3 \langle (\hat\Omega - \langle \hat\Omega \rangle)^2 \rangle$ in the case of $N_{\rm f}=2$ QCD (degenerate two-flavor QCD).
+$\langle \hat\Omega \rangle$ is real, but $\chi_{\Omega}$ includes the fluctuations in the imaginary part too.
+We define the transition point as the peak position of $\chi_{\Omega}$.
+Owing to the multi-point reweighting method, these quantities can be calculated in a wide range of $\beta$ and $\kappa$. 
+
+To compute the histogram for the Polyakov line, we approximate $\delta(x) \approx \exp[-(x/\Delta)^2]/(\Delta \sqrt{\pi}) $ as in the case of the plaquette histogram, but now with $\Delta=0.005$ considering the resolution and the statistical error. 
+The effective potential for $\Omega_{\rm R}$ is shown in the left panel of Fig.~\ref{fig:oabhist}, where $\beta$ is adjusted to the transition point at each $\kappa$.  
+In this plot, we vertically shift $V_{\rm eff}(\Omega_{\rm R})$ by adding a constant at each $\kappa$ such that $V_{\rm eff}(\Omega_{\rm R}\!=\!0)=0$.
+We find the critical point where the first order transition turns into a crossover at $\kappa_{\rm cp}^4 \approx 0.00002$ ($\kappa_{\rm cp} \approx 0.0669$) in $N_{\rm f} = 2$ QCD.
+In a study of SU(3) Yang-Mills theory, the absolute value of the Polyakov line $|\Omega|$ is also used to detect the transition. 
+Using the same approximation for the delta function, we obtain $V_{\rm eff}(|\Omega|)$ shown in the right panel of Fig.~\ref{fig:oabhist}, where $V_{\rm eff}(|\Omega|)$ is vertically shifted such that $V_{\rm eff}(|\Omega|)=0$ at $|\Omega|=0.01$.
+We find that $\kappa_{\rm cp}^4 \approx 0.00002$ also in this determination. 
+
+In Ref.~\cite{PRD84_054502}, $\kappa_{\rm cp}=0.0658(3)(^{+4}_{-11})$ with $\beta^*_{\rm cp} = 5.6836(1)(5)$ ($\beta_{\rm cp}=5.6819(1)(5)$) was obtained for $N_{\rm f} = 2$ QCD, combining the results of three different analyses on the plaquette effective potential, where the first bracket is for the statistical error and the second bracket is for the systematic error estimated by the analysis method dependence. 
+Our results of $\kappa_{\rm cp}$ from the Polyakov line effective potential are consistent with this estimation. 
+Figure~\ref{fig:phist} is an update of Fig.~4 in Ref.~\cite{PRD84_054502} by using the multi-point histogram method.
+In this plot, $\beta$ is adjusted to the peak position of the plaquette susceptibility at each $\kappa$, and $V_{\rm eff}(P)$ is vertically shifted at each $\kappa$ such that $V_{\rm eff}(P\!=\!\langle \hat P \rangle )=0$.
+
+Finally, we show the histogram of the Polyakov line in the complex $\Omega=(\Omega_{\rm R}, \Omega_{\rm I})$ plane in Fig.~\ref{fig:compol}.
+At each $\kappa$, $\beta$ is adjusted to the first-order transition point determined by $\chi_\Omega$.
+At $\kappa=0$, we find a peak at $\Omega\approx0$ corresponding to the low-temperature confined phase and three peaks corresponding to the high-temperature deconfined phase in which the center Z(3) symmetry is spontaneously broken.
+At $\kappa \ne 0$, the Z(3) symmetry is explicitly violated so that the branch on the real axis of the complex $\Omega$ plane is selected.
+
+Before closing this section, let us discuss the effects of higher order terms of the hopping parameter expansion.
+At higher orders of the expansion, more complicated loops contribute to the reweighing factor besides the plaquette and Polyakov line.
+In Appendix~\ref{sec:range}, we examine the effects of next-to-leading order $\kappa^6$ terms on the evaluation of the critical point at $\mu=0$.
+We find that the effects of $\kappa^6$ loops are small around the critical point and the shift of $\kappa_{\rm cp}$ due to the next-to-leading order terms is just about 3\% at $N_t=4$.
+
+
+\section{Polyakov line effective potential at finite density}
+\label{sec:poldis}
+
+We now study the case of finite $\mu$.
+As discussed in Sec.~\ref{sec:heavy}, to the leading order of the hopping parameter expansion, finite $\mu$ has two effects: 
+(i) the shift of the effective coupling for $\hat\Omega_{\rm R}$ and (ii) the introduction of the complex phase factor.
+According to Eqs.~(\ref{eq:R}) and (\ref{eq:proddetM}), the histogram of $\Omega_{\rm R}$ is given by
+\begin{eqnarray}
+&& \hspace{-7mm} w(\Omega_{\rm R}; \beta, \vec\kappa, \vec\mu) 
+\nonumber \\
+&=& w(\Omega_{\rm R}; \beta, \vec0, \vec0) 
+\times \nonumber\\ &&
+\left\langle  e^{288N_{\rm site} \sum_{f=1}^{N_{\rm f}} \kappa_f^4 \hat{P}} 
+\exp \left[ 3 N_s^3 2^{N_t+2} \sum_{f=1}^{N_{\rm f}}
+\kappa_f^{N_t}  \left\{ \cosh \left( \frac{\mu_f}{T} \right) \hat{\Omega}_{\rm R}
++i\sinh \left( \frac{\mu_f}{T} \right) \hat{\Omega}_{\rm I} \right\} \right]
+\right\rangle_{\Omega_{\rm R}; (\beta, \vec0,\vec0)} 
+\nonumber \\
+&=& w(\Omega_{\rm R}; \beta^*, \vec0, \vec0) 
+e^{ 3 N_s^3 2^{N_t+2} \, h \, \Omega_{\rm R} } \times
+\left\langle e^{i \hat{\theta}} \right\rangle_{\Omega_{\rm R}; (\beta^*, \vec0,\vec0)} 
+\label{eq:plhvdist}
+\end{eqnarray}
+with 
+\begin{eqnarray}
+h = \sum_{f=1}^{N_{\rm f}} \kappa_f^{N_t} \cosh \left( \frac{\mu_f}{T} \right) .
+\label{eq:h}
+\end{eqnarray}
+$\beta^*$ and $\hat{\theta}$ are defined by Eqs.~(\ref{eq:betastar}), (\ref{eq:thetaOmegaI}) and (\ref{eq:q}).
+We note that the histogram depends on the coupling parameters only through $\beta^*$, $h$ and $q$.
+
+\subsection{Phase-quenched finite density QCD}
+\label{sec:isospin}
+
+\begin{

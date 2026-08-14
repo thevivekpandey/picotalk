@@ -1,0 +1,272 @@
+# Dataset: fineweb_edu
+# Split: train
+# Source file: fineweb_edu_train.bin
+# Start token index: 3,134,174,160
+# End token index: 3,134,184,160
+# Number of tokens: 10,000
+# Number of characters: 41,773
+============================================================
+
+parasite from eating sushi is unlikely, doctors assure. Anisakiasis, an illness caused by eating parasites-spoiled seafood, is on the rise in the U.S. and raw fish lovers were hit with a wave of worry recently.
+Why do Japanese eat raw fish?
+Eating meat in Japan has been taboo due to the country’s strong Buddhist roots. Since Japan is an island nation, fish provides a plentiful alternative supply. Serving it raw offers extra health benefits, preserving the natural nutrients present in the meat.
+In Japan, meat is often served as a side dish with rice or noodles, or as an accompaniment to a meal of rice and vegetables. It is also served with a variety of sauces, such as soy sauce, mirin, miso, and sesame oil, which can be added to the dish to enhance its flavor.
+In addition, many restaurants offer vegetarian options, as well as vegan and gluten-free options.
+Can I eat salmon raw?
+You can eat raw salmon, but it is not advisable to eat undercooked salmon. You can tell if a salmon has gone bad by its gray color, slimy texture, and ammonia-like smell. You can eat your salmon within 1 to 2 days if you store it in a sealed container.
+Are there worms in sushi?
+The number of parasites in fish has more than doubled compared to 40 years ago. Anisakis worms can infect a variety of marine fish and squid, as well as marine mammals such as whales and dolphins – and can be transmitted to humans.
+The study, published in the Journal of Parasitology, is the first to show a link between anisakiasis and an increase in marine mammal mortality. It also shows that the parasite is spreading to new areas of the world, and that it is likely to continue to do so.</s> Unlocking the Potential of Arduino for Audio and Video Processing
+Exploring Arduino’s Capabilities in Audio and Video Processing
+Arduino, a popular microcontroller, can indeed be harnessed for audio and video processing, albeit with certain limitations. Due to the inherent constraints of the microcontrollers used in Arduino, along with limited processing power and resources, its capabilities are somewhat restricted.
+Audio Processing with Arduino
+Arduino excels in processing audio signals sourced from microphones or other audio devices. A typical approach involves connecting a microphone to the Arduino’s input and utilizing the on-board ADC to convert analog signals into digital data. However, it’s essential to note that the Arduino’s ADC has limited resolution, potentially impacting the quality of the processed audio.
+Video Processing Challenges
+When it comes to video processing, Arduino can handle signals from cameras or other video sources. Nevertheless, the real-time processing of high-resolution video proves challenging due to the Arduino’s limited processing power and resources.
+Leveraging Serial Communication
+Arduino’s capability to send and receive serial data opens up avenues for controlling external devices or sensors. This can be integrated with other technologies like Processing to create engaging visualizations or interact with audio and video data.
+Enhancing Processing Capabilities with External Hardware
+To overcome the processing limitations in audio and video tasks, connecting Arduino to external hardware, such as audio codecs or video encoders, can offload some processing tasks.
+Limitations and Considerations
+It’s crucial to recognize that Arduino is not the ideal choice for high-fidelity or complex audio and video processing tasks, given its restricted processing power and resources. For tasks demanding higher processing capabilities, exploring alternative platforms or microcontrollers is advisable.
+The Video Experimenter Shield: Bridging the Gap
+The Video Experimenter shield emerges as a solution to Arduino’s constraints, enabling users to work with video signals and undertake various tasks.
+Versatility in Video Input and Output
+This shield can capture low-resolution video image frames, overlay text and graphics onto video signals from diverse sources, such as cameras, DVRs, DVD players, VCRs, and more.
+Object Detection in Computer Vision
+Employing the shield for object detection in computer vision projects allows users to analyze and process video input, identifying and tracking objects within the scene.
+Decoding Closed Captioning
+The shield extends its functionality to decoding NTSC closed captioning or XDS data embedded in television broadcasts. This enables the extraction and display of text information overlaid on the video signal.
+Enhanced TVout Library Integration
+Utilizing an enhanced version of the Arduino TVout library, the Video Experimenter shield facilitates the capture of video signal information in the TVout frame buffer. This aids in primitive frame capture and streamlining the retrieval of embedded data streams from broadcasts.
+Compatibility with Arduino TVout Library
+The shield seamlessly integrates with the Arduino TVout library, offering a straightforward way to control the video signal generated by the Arduino board.
+While the Video Experimenter shield enhances Arduino’s video processing capabilities, it’s essential to acknowledge the overarching limitations of Arduino in handling high-resolution audio and video tasks. For such demanding applications, exploring platforms or microcontrollers with greater processing power and resources becomes imperative. In the ever-evolving landscape of technology, understanding the strengths and limitations of each tool empowers creators to make informed decisions for their projects.
+You may also like:</s> As you say, there's verses of the Qur'an which say it's protected by Allah:
+Indeed, it is We who sent down the Qur'an and indeed, We will be its guardian.
+Qur'an 15:9 (see also Qur'an 41:42)
+Thus, Islamic belief is that the Qur'an is accurately preserved. However, the Qur'an is fundamentally a recitation (rather than a book):
+Rather, the Qur'an is distinct verses [preserved] within the breasts of those who have been given knowledge. And none reject Our verses except the wrongdoers.
+For more about this, see III-AK-III's answer to The Birmingham Quran versus the present-day Quran We also know there are different readings: for examples, see Examples of verses of the Qur'an with two different readings?
+IslamWeb quotes Ibn Hazm who said that Qur'an 15:9 above also applies to the sunnah (essentially, the true ahadith). He evidences that with:
+Nor does he speak from [his own] inclination. It is not but a revelation revealed,
+IslamWeb also mentions later scholars, Ibn Taymiyyah and Ibn Al-Qayyim, held the same opinion.
+- Ahadith were preserved using the same mechanism to preserve the Qur'an: oral tradition through memorization. The same narrators preserved both ahadith and the Qur'an.
+An Islam Q&A fatwa arguing against Qur'an-only Islam highlights the rigor involved in preserving ahadith:
+Their suggestion that the Sunnah is “contaminated” with fabricated ahaadeeth is not valid, because the scholars of this ummah took the utmost care to purify the Sunnah from all alien elements. If they had any doubts about the truthfulness of any narrator, or there was the slightest possibility that he could have forgotten something, this would be sufficient grounds for rejecting a hadeeth. Even the enemies of this ummah have stated that no other nation has paid so much attention to examining its reports and their narrators, especially in the case of reports narrated from the Messenger of Allaah (peace and blessings of Allaah be upon him).
+- We have the hadith sciences (ʻilm al-ḥadīth), which systematically studies and evaluates hadith. Narration chains are cross-checked with one another; and narrators are determined to be reliable or not.
+Also, I feel it's an exaggeration to say ahadith are "perfectly preserved" (at least, when compared to the Qur'an). To illustrate:
+Abu Hazim narrated it on the authority of Ibn Sa'd that the Messenger of Allah said: Seventy thousand persons or seven hundred thousand persons (Abu Hazim does not remember the exact number) would enter Paradise holding and supporting one another, and the first among them would not enter till the last among them would enter (therein); (they would enter simultaneously) and their faces would be bright like the full moon.
+Sahih Muslim 219</s> Atmospheric rivers play a critical role in transporting water throughout the atmosphere by advecting (moving) moisture from the tropics to higher latitudes. When fully developed, they can deliver widespread rain and snow to areas all along the west coast. If an atmospheric river originates in Hawaii, like shown below, it is called a 'Pineapple Express'.
+Atmospheric rivers form over the Pacific Ocean. As a low-pressure system develops and matures, it can form bands of extreme moisture. The speed, intensity, and strength of a given atmospheric river is dependent on the strength of the system itself.
+As the system impacts land, large amounts of water in the forms of rain and snow are intensified. All this moisture is dropped onto land. When mountains are present, the moisture is forced upward. This lift forces even more moisture out of the system.
+A typical atmospheric river transports an amount of water equivalent to that discharged at the mouth of the Mississippi River. However, the strongest atmospheric rivers can carry up to 15x that amount!</s> Alaska yellow cedar
+Habit: medium sized evergreen tree with a pyramidal crown, pendulous branches and a slightly twisted trunk. The foliage is in flat sprays, with dark green, scale-leaves and is prickly when touched against the grain. The bark appears grayish brown, and strips off the trunk. Pollen cones are oval and yellow while seed cones are spherical 4-6 mushroom shaped scales, blue and waxy when young. Seeds are winged.
+Ecology: found in moist, rocky areas, bog forests, mountains and near the coast in Alaska south into Northern California at mid to high elevations.
+Growing Conditions: full sun to partial shade, with deep well-drained moist to wet soil. Chamaecyparis nootkaenisis is often associated with wet boggy sites. Cold hardy.
+Alaska yellow cedar as a component of old-growth forests can provide critical thermal and hiding cover for large and small mammals. It is a long-lived tree up to 3500 years.
+Evergreen Coniferous Tree
+65-130 ft (20-40 m)
+25 ft (7.5m)</s> Exploring Irritable Bowel Syndrome for Digestive Wellness
+Irritable bowel syndrome (IBS) is a chronic, debilitating, and highly prevalent gastrointestinal disorder, characterized by recurring symptoms such as abdominal pain, bloating, and altered bowel habits such as diarrhea or constipation, or a combination of both.
+Although the exact cause of IBS is still not fully understood, various factors such as diet, stress, genetics, and infections are known to play a role.
+The symptoms of IBS can vary widely from person to person, but the most common symptoms include
+abdominal cramps or pain (typically located in the lower abdomen and worsened after meals)
+excessive gas and bloating,
+stools that are harder or looser than usual
+Additionally, people with IBS may experience changes in bowel habits, such as diarrhea, constipation, or both.
+Some individuals with IBS may also experience
+urgent bowel movements,
+a feeling of incomplete evacuation,
+mucus in the stool.
+Irritable bowel syndrome (IBS) is difficult to diagnose due to several factors.
+A few symptoms are the most common in IBS sufferers - bloating, pain relief with bowel movements, and loose and frequent bowel movements with the onset of pain.
+There are different criteria used for diagnosing IBS, including the Kruis score, Manning criteria, and Rome criteria (I, II, III, and IV).
+Clinical Examinations and Laboratory Tests
+In addition to the diagnostic criteria, doctors may perform clinical examinations and laboratory tests to rule out other possible causes of the symptoms.
+These examinations may include
+These tests help identify any red flags or underlying conditions that may mimic IBS symptoms, ensuring a more accurate diagnosis.
+The Importance of an Accurate Diagnosis
+Obtaining an accurate diagnosis of IBS is crucial for appropriate management and treatment. It helps to differentiate IBS from other gastrointestinal disorders and provides patients with a clearer understanding of their condition. An accurate diagnosis also guides healthcare professionals in developing personalized treatment plans, targeting symptom relief, and improving the patient's overall quality of life.
+The diagnosis of IBS is typically based on the presence of symptoms and the exclusion of other conditions that may present similarly. In some cases, additional tests such as blood tests, stool studies, or imaging studies may be ordered to rule out other conditions. A doctor may also perform a physical exam, including a digital rectal exam or a pelvic exam, to check for signs of inflammation, masses, or other abnormalities.
+The treatment of IBS is aimed at managing symptoms and improving quality of life. This can involve a combination of lifestyle changes, medications, and psychological therapies.
+Lifestyle changes may include
+modifying the diet to avoid trigger foods
+increasing physical activity
+Medications may be used to treat specific symptoms, such as antidiarrheals, laxatives, or antispasmodics.
+Additionally, psychological therapies such as cognitive-behavioral therapy or hypnotherapy may be helpful in managing symptoms.
+While there is no known cure for IBS, there are steps that can be taken to reduce the risk of developing the condition.
+- Maintaining a healthy diet, exercising regularly, and reducing stress can help to prevent symptoms from occurring.
+- Avoiding certain trigger foods or substances, such as alcohol or caffeine, may also be helpful.
+-Limiting high-fat foods as part of a healthy diet, as they can exacerbate IBS symptoms, especially diarrhea (fried foods, fast food, pastries, crisps, and cakes).
+- Avoiding Some sweeteners, particularly those ending in "ol," that can cause diarrhea. It is necessary to pay attention to the consumption of sugar-free drinks, sweets, chewing gum, as well as diabetic and slimming products.
+- Limiting processed or reheated foods that contain resistant starch, which can be challenging for the body to digest. These starches can contribute to symptoms like bloating, wind, and diarrhea.
+- Avoiding lactose if it is not tolerated.
+- Avoid skipping meals or eating late at night. If needed, include small snacks between meals.
+- Mindful Eating: Take your time to enjoy your meals. Sit down, chew your food well, and avoid rushing through your meals.
+- Fiber: Adjust the fiber intake based on the main symptoms. A lower fiber diet may be beneficial for diarrhea, while a higher fiber intake can help with constipation.
+- Fluids: Staying adequately hydrated is important for overall health and may help ease symptoms, particularly constipation. Individuals should aim to consume at least 1.5 liters of fluids per day, adjusting their intake if they are increasing their fiber intake or experiencing episodes of diarrhea. It is recommended to choose water, sugar-free drinks, and caffeine-free beverages.
+Irritable bowel syndrome is a common and chronic condition that can significantly impact the quality of life. While the exact cause of IBS is still unknown, various factors such as diet, stress, and genetics are known to play a role.
+The diagnostic criteria for Irritable Bowel Syndrome, including the Kruis score, Manning criteria, and Rome criteria, are essential tools used by healthcare professionals to diagnose IBS. These criteria, along with clinical examinations and laboratory tests, help ensure an accurate diagnosis and proper management of the condition.
+Treatment for IBS is focused on managing symptoms through lifestyle changes, medications, and psychological therapies. If you are experiencing symptoms of IBS, it is important to speak with a doctor to receive a proper diagnosis and treatment plan.
+If you are experiencing symptoms of IBS, it is important to seek medical evaluation to obtain a reliable diagnosis and receive appropriate care. Talk with your doctor before starting a medication regimen to help lessen the painful problems associated with IBS!
+Ghosh et al. Evaluation of the Symptom-Based Diagnostic Criteria for Irritable Bowel Syndrome in Conjunction With Clinical Examinations and Laboratory Investigations; Cureus 15(5): e38567. DOI 10.7759/cureus.38567; 2023
+Defrees DN, Bailey J: Irritable bowel syndrome: epidemiology, pathophysiology, diagnosis, and treatment. Prim Care. 2017, 44:655-71. 10.1016/j.pop.2017.07.009
+https://www.nhsinform.scot/illnesses-and-conditions/stomach-liver-and-gastrointestinal-tract/irritable-bowel-syndrome-ibs/managing-irritable-bowel-syndrome-ibs, accesed on June 5th 2023
+World Gastroenterology Organization. Irritable bowel syndrome: a global perspective. World Gastroenterology Organisation Global Guideline 2009.
+Please note that the information provided on this blog is for educational and informational purposes only. It is not intended to be used as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified healthcare provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on this blog.</s> From the very
+start of his pontificate, the pope wished to build a shrine against
+the inner facade of the ancient basilica, between the central door
+and the Ravenna Door. The intention was to create a noble chapel
+dedicated to St Boniface IV that was to become the burial place
+for the pope himself as well as for his relatives. The commission
+was entrusted to the most prestigious artist of the time, Arnolfo
+di Cambio. The altar was consecrated on May 6, 1296, but the work
+was completed only in 1301. In the wall above the altar was an ample
+niche where the sarcophagus with the body of Boniface VIII was to
+be placed after the pope's death. Above the sarcophagus was a mosaic
+attributed to Jacopo Torriti, representing the Madonna and Child
+in a clipeum in the sky, while to the right was St Peter presenting
+the genuflected Boniface VIII to the Virgin. To the left was the
+figure of St Paul.
+of St Boniface were sealed in under the table of the altar. The
+entire structure was dominated by an elegant ciborium where four
+classical fluted columns on high bases supported an octagonal dome
+decorated with light pointed needles. Next to the shrine was the
+bust of Boniface VIII imparting his blessing - another work by Arnolfo
+di Cambio, today in the Apostolic Palaces.
+When the facade
+of the old basilica was demolished, the ciborium and the altar of
+St Boniface had to be dismantled. On October 11, 1605, the sarcophagus
+was opened and after three hundred years the pope's robust body
+was found, still dressed in the papal vestments. It was sealed again
+and taken down to the grottoes, but the surveys of 1835 and 1950
+revealed major deterioration of the remains.
+of St Boniface, instead, were translated to the altar of St Thomas
+the Apostle in the new basilica, while the ancient inscription is
+still on display in the chapel of Partorienti.
+On front of
+the marble coffin is a fine embroidered drapery decorated with elements
+from the family crest of the Caetani. The same decorative pattern
+appears in the mosaic below. The lying figure of the pope is at
+the same time schematic in lines and volume and highly individual
+on the face. With his outstanding skill Arnolfo shows the physical
+appearance of the pope as well as his personality. The papal vestments
+are sculpted in great detail showing the style of the epoch with
+the tiara with two crowns, the custom introduced by this pope.
+On the wall
+above is a small plaque with the name of the pope: BONIFACTVS /
+PAPA VIII. To the right from the sarcophagus is a small pillar with
+the papal crest, originally from the ancient ciborium.
+On the floor
+in front of the sarcophagus is an inscription indicating the presence
+of the remains of one of the pope's nephews.</s> In a wise move, President Obama recently designated about 350,000 acres of the San Gabriel Mountains, east of Los Angeles, as our country’s newest national monument. It's a decision that came as the result of years of collaboration amongst a vibrant and diverse network of community leaders, a reflection of the many important roles the area's mountains and rivers play for local communities. One hundred and fifty years ago, Sierra Club founder John Muir explored the steep and picturesque peaks of the San Gabriel Mountains and marveled at their beauty.
+The new San Gabriel Mountains National Monument affirms that protecting wild lands is still a popular endeavor for many Americans today. The wild is where you find it, whether that be an urban park or the vast wild spaces that make up much of our country's public lands. And no matter where it's found, the wild is worth protecting.
+The San Gabriel mountains are a dramatic landmark in the Angeles and San Bernardino National Forests. These National Forests are within an hour's drive of more than 17 million people in Southern California, making them a popular and accessible outdoor recreation destination.The Angeles National Forest provides more than 70 percent of Los Angeles County's open space. Each year more than three million people visit the Angeles National Forest to be physically active and connect with nature. That's important for everyone, but especially for children in the San Gabriel Valley communities with few or no public parks. Park-poor communities in the San Gabriel Valley have child obesity rates of 30 to 40 percent, nearly twice the national average.
+Yet for years this beautiful area has been underfunded and underserviced. A new national monument designation will improve visitor services with new bathrooms and trash cans, trail signs, and culturally-appropriate visitor information and education programs.
+The San Gabriel Mountains also provide one-third of Los Angeles County's drinking water. Despite their proximity to Los Angeles, they provide homes for wildlife like Nelson's bighorn sheep, the California spotted owl and the San Gabriel mountain salamander. And they offer the chance for quiet recreation and communion with nature in its most pristine state.
+Fifty years after the creation of the Wilderness Act it’s clear that protecting big, wild places has provided essential clean air, clean water, and healthy economies for hundreds of communities across the country. Protecting nature close to where people live and work is becoming increasingly important. For most Americans, the bulk of our experience with nature is close to home. They're accessible places where we can unwind, connect with each other and with nature. It's here where many get a first taste of the need to protect our wild places and where others are reminded of the importance of our outdoors.
+The new San Gabriel Mountains National Monument demonstrates the value in protecting both our outdoor "backyard," and our wild places further afield. As we look ahead to an increasingly hectic and developed future it's important that we all come together to protect nature both near and far, big and small. Thank you, President Obama!
+-- Dan Chu, director of the Sierra Club Our Wild America campaign. Photos courtesy of Wikimedia creative commons.</s> Genealogy and Maps–Where They Intersect07 October 2023
+Participants will learn about various maps for use in researching their family history. Subjects covered will include maps in books, printed maps, and online maps; how to understand public land deeds and metes-and-bounds deeds; migration maps; and maps in the Calvin M. McClung Historical Collection. Participants should bring information about their families.
+This program is free; however, pre-registration is required. It will be held in the computer classroom of the Calvin M. McClung Historical Collection on the third floor of the East Tennessee History Center.
+Instructor: Ann Blomquist, editor, Tennessee Ancestors, East Tennessee Historical Society
+The East Tennessee History Center’s Genealogy Program is a partnership between Knox County Public Library and the East Tennessee Historical Society with support from Friends of the Knox County Public Library and East Tennessee PBS.</s> In this tutorial, kids of all ages will learn some quick drawing tips for cartoon trees. These simple techniques can be used over and over again in all kinds of cartoon drawings. This technique has a high success rate. It really builds confidence in beginning artists. It also allows kids to be creative and can lead to writing ideas for kids during writer's workshop. Drawing ideas are a great way to get students writing. Unlock their creativity with this fun and simple drawing activity.
+If you are looking for cool drawing ideas for beginners. This learn to sketch video will show you how to draw a cool face in less than a minute. Cool things to draw are everywhere. Get some paper and take my two minute online drawing class. You don't need any special skills, just some scrap paper and a marker. This is a part of my easy things to draw on one piece of paper series. I hope it helps everyone to learn to draw online. My students are always saying, "Teach me to DRAW!" These drawing lessons are quick and easy and perfect for beginning artists. This is a great art lesson for kids. It will show them step by step how to draw and quick and easy cartoon face. Click here if you are on an iPod or iPhone!</s> In the past three decades, many stars orbiting about the supermassive black hole (SMBH) at the Galactic Centre (Sgr A*) were identified. Their orbital nature can give stringent constraints for the mass of the SMBH. In particular, the star S2 has completed at least one period since our first detection of its position, which can provide rich information to examine the properties of the SMBH, and the astrophysical environment surrounding the SMBH. Here, we report an interesting phenomenon that if a significant amount of dark matter or stellar mass is distributed around the SMBH, the precession speed of the S2 stellar orbit could be ‘slow down’ by at most 27% compared with that without dark matter surrounding the SMBH, assuming the optimal dark matter scenario. We anticipate that future high quality observational data of the S2 stellar orbit or other stellar orbits can help reveal the actual mass distribution near the SMBH and the nature of dark matter. Copyright © 2022 The Author(s).</s> Pin@ys love food, but Filipino food has not left a mark on American dining like Japanese sushi or Korean barbecue. Sometimes, Filipino food even gets a bad rap among American diners: “Who would make soup that tastes sour?” (That’s a Filipino favorite, sinigang, flavored with tamarind.) Nevertheless, the food we eat—mostly at home and at small local restaurants—is a part of our identity. Nothing proves that more than the history behind the Filipino cuisine and the vast origins of our food.
+If you know me, you know that I never fail to order a pasta or noodle dish whenever I eat at a restaurant. While adobo and lechon are moderately well known Filipino go-to's, it takes a true foodie to know the noodles of the cuisine. There are a few Filipino staples when it comes to the noodle offerings—one of which might surprise you with its Western characteristics!
+Pancit is the word for noodles in Tagalog and typically means a thin, tubular rice noodle; its consistency is similar to the noodles used in Vietnamese pho or Thai pad thai. There are several types of pancit: pancit bihon and pancit luglog are eaten throughout the Philippines, but there are also regional dishes that feature pancit as well, such as pancit alanganin, a soupy noodle dish, found in Bulacan.
+The word “pancit” is borrowed from Hokkien, a popular Chinese dialect on the islands. In Hokkien, “pian i sit” means “something conveniently cooked fast.” Pancit then is a form of fast food that has risen to comfort food status.
+Just like Italian pasta was derived from the noodles traders brought from China, noodles were also introduced to the Philippines by Chinese traders and evolved into pancit, a rice-based variation created from local crops. If eggs are added to the rice noodle, then it becomes pancit canton. Because the noodles were quicker to cook than rice—in the days before Japanese rice cookers—the Filipinos quickly embraced and made the dish their own.
+Pancit bihon is made by cooking the noodles in soy sauce, another Chinese import, and adding your choice of meat, typically chicken, pork or shrimp. Pancit palabok is a shrimp variety of pancit where the noodles are sauced with a shrimp-infused gravy and then finished with toppings such as shrimp, boiled eggs, and sometimes even pork skin cracklings. The shrimp is really what makes this dish, giving it a deep seafood flavor beloved by those who live across the archipelago of islands. Pancit palabok has made it to American shores via the fast food chain Jollibee where it is served up as “fiesta noodles,” despite not being a dish reserved for celebrations.
+In addition to pancit, Filipinos inherited a widely known Chinese cultural belief—on someone’s birthday, it is good luck for them to eat noodles. The lengthy noodles represent the threads of life and must be eaten without being cut in order to preserve the fortune of a long life. Misua, though not considered a type of pancit because it is made from wheat flour rather than rice, is the standard noodle used for this occasion and is usually served in a clear soup with either ground pork or pork meatballs. You can think of misua as the Chinese-Filipino version of chicken noodle soup, as it is also served to those who are feeling sick.
+Sotanghon, “bean-thread” noodles, are another type of noodle, but not considered pancit because it is made from mung beans rather than rice. The noodles have a surprisingly clear appearance and are thin like Italian vermicelli. In the United States, you might know this variety of noodle as cellophane or “glass” noodles. Sotanghon is typically cooked two ways, either by frying it with vegetables or in a clear soup, both of which are ways to cook pancit as well.
+There is one constant item on every fast food restaurant’s menu in the Philippines: Spaghetti. Pinoy Spaghetti, or sweet spaghetti, is just regular Italian pasta spaghetti with a bolognese meat sauce with two main differences: (1) in addition to ground meat, hot dog or longganisa (the Filipino version of Spanish chorizo) chunks are added and (2) the sauce is sweetened with brown sugar. It is iconically topped with large shreds of American-style orange cheddar.
+Spaghetti was either introduced by the American occupation or by European traders sometime between the 1940s and 1960s. Understanding the Filipino palate for sugar requires a deeper investigation into the centuries of colonization the Philippines experienced. Although the islands are native to plants that create sweeteners, throughout the period of Spanish colonization, the sugars produced were either exported or reserved for those who could afford the meager supply not sold overseas.
+In the 19th century, sugar became mass produced and an exported supply from the Philippines was less in demand. In the following century, during World War II the spaghetti dish was transformed due to a tomato shortage, which prompted Filipino cooks to substitute another reddish sauce, banana ketchup. Banana ketchup is a popular Filipino condiment made of bananas (of course), sugar, vinegar, and spices. Because of their ingenuity, Filipino food, some argue, began the Asian fusion tradition long before American chains did it in the States.
+Sweet spaghetti is so popular over there that the Philippines is the only country that McDonald’s — yes, our Micky D’s — produces a spaghetti dish for. The Jollibee version is typically served alongside a fried chicken drumstick, the specialty of the Jollibee chain. The Jollibee Spaghetti and Chicken Joy combo is always my go-to both when I am in Manila visiting and when I am craving late night snacks here in the Bay Area.
+That’s a brief, brief rundown of the many varieties of Filipino noodles offered. While the Chinese influence still rings clear, the flavors of the island — particularly the use of pork and shrimp — bring these noodle dishes alive in Filipino homes and restaurants across the archipelago and abroad.
+If you like stories like this, subscribe to Chopsticks Alley.
+Giannina Ong - Bay Area, CA
+Co-Editor Chopsticks Alley Pinoy
+Giannina was born and raised in the Bay Area. A self-proclaimed social justice warrior, she is currently wrapping up her master's in women's and gender studies at University of Toronto, writing a thesis on Asian American mothers. As a Chinese Filipino American, she moves beyond the binaries that lock people into dichotomous thinking. She is a nerd: she loves reading, writing, and being in the classroom. She loves Filipino food, especially sinigang (sarap ng maasim!). She hopes to one day be a professor, sharing knowledge that empowers women and minority groups.</s> Last Updated on September 28, 2022 by Olivia Anderson
+Class 10th and 12th board exams are very important in a student’s life as they decide which stream they will be pursuing for their higher studies. A good result can help them get into a good college while a poor result might limit their options. In this article, we take a look at how board results can have an impact on student life.
+The impact of poor results
+It’s no secret that poor results can have a negative effect on students’ lives. But just how big of an impact can they really have? Let’s take a look at some of the ways poor results can affect students:
+1. Poor grades can lead to low self-esteem.
+When students get poor grades, it can lead to them feeling bad about themselves. They may feel like they’re not smart enough or that they’re not doing well compared to other students. This can lead to low self-esteem, which can impact every area of their life.
+2. Poor grades can lead to anxiety and depression.
+Getting poor grades can be very stressful for students. They may worry about what their parents will say or whether they’ll be able to get into college. This stress can sometimes lead to anxiety and depression.
+3. Poor grades can impact future opportunities.
+Poor grades can limit the options available to students after graduation. They may not be able to get into their first choice of college or they may not get scholarships they were counting on. This can impact their whole future and the choices they make after high school.
+4. Poor grades can cause financial problems.
+The impact of good results
+There’s no doubt that good results have a huge impact on students’ lives. Excellent grades can open doors to amazing opportunities and help students gain confidence and self-belief.
+On the flip side, poor results can have a devastating effect.Students may feel like they’ve failed and become despondent or lost motivation.
+It’s therefore crucial that students get the support they need to deal with both good and bad results. Here are some tips on how to deal with different outcomes:
+If you get great results:
+• First of all, take a deep breath and congratulate yourself! You’ve worked hard and deserve your success.
+• Don’t let your grades go to your head – remember that everyone has different strengths and weaknesses. Be humble and stay grounded.
+• Use your results as motivation to keep pushing yourself – aim even higher next time!
+If you get disappointing results:
+• It’s normal to feel upset if your results aren’t what you’d hoped for. Give yourself time to process your feelings before taking any further action.
+• Talk to someone you trust about how you’re feeling – this could be a parent, teacher, friend or counselor. It can be
+How to deal with results anxiety
+It’s that time of year again. The time when students across the country are waiting anxiously for their results. For some, it’s a time of excitement and anticipation. For others, it’s a time of dread and anxiety.
+If you’re one of the latter, don’t worry, you’re not alone. Results anxiety is a very real thing and it can be debilitating. But there are ways to deal with it. Here are a few tips:
+1. Talk to someone who understands
+It can be helpful to talk to someone who understands what you’re going through. Talk to a friend, family member, teacher, or counselor. They can offer support and understanding.
+2. Write down your worries
+Putting your worries down on paper can help you to see them in a different light. You may realize that they’re not as big or as bad as you thought they were.
+3. Make a plan
+If you’re worried about your results, make a plan for what you’ll do regardless of the outcome. That way, you’ll have something to focus on and work towards regardless of the result.
+4. Take a break from social media
+Social media can
+There’s no doubt that board results have a big impact on students’ lives. The pressure to perform well can be intense, and the consequences of not doing so can be significant. But it’s important to remember that board results are just one part of a student’s life, and they shouldn’t define who you are as a person. If you don’t do as well as you’d hoped, don’t give up – use it as motivation to work harder and do better next time. Whatever your result, make sure you use it as a starting point for further success.</s> Welcome to our round-up of 25 Christmas-themed science experiments, curated especially for winter wonder seekers. Catering to a spectrum of age groups, our list includes everything from crystalized candy canes to glowing ornament circuits.
+These hands-on, educational experiments not only promise festive fun but also light up the path of scientific curiosity amidst the holiday glow.
+Let’s get started.
+1. Christmas Light Science
+By exploring the principles of electricity and circuits, students can create their own miniature light displays and gain a deeper understanding of how electricity powers our holiday decorations.
+Learn more: Christmas Light Science
+By creating a circuit using conductive materials and LEDs, students can design their very own electronic Christmas tree.
+Learn more: Circuit Tree
+3. Spinning Christmas Tree
+By constructing a rotating Christmas tree using a motor and simple materials, students can witness the magic of science in action as their creation spins and captivate all who behold it.
+Learn more: Spinning Christmas Tree
+4. Homemade Bubble Christmas Lights
+The holiday season is a time for warmth, joy, and the magic of twinkling Christmas lights. But what if we could add a scientific twist to these luminous decorations? Introducing Homemade Bubble Christmas Lights, a captivating science experiment that will leave students in awe.
+Learn more: Steamsational
+5. Make a Christmas Snow Globe
+Embrace the enchantment of the holiday season with a delightful blend of science and art by creating your very own Christmas Snow Globe.
+This captivating science experiment allows students to explore the principles of density, buoyancy, and fluid dynamics while crafting a whimsical wonderland encased in a globe.
+Learn more: Make a Christmas Snow Globe
+6. Magnetic Ornaments
+This holiday season, students can embark on an extraordinary scientific adventure by exploring the fascinating world of Magnetic Ornaments.
+By incorporating magnets into their festive decorations, students can uncover the principles of magnetism while infusing their creations with a touch of magic.
+Learn more: Magnetic Ornaments
+7. Candy Cane Christmas Bath Bombs
+These delightful bath bombs not only create a soothing and fragrant experience but also offer an opportunity for students to explore the fascinating science behind effervescent reactions.
+Learn more: Bath Bombs
+8. Christmas Light Box
+This experiment allows students to understand concepts such as light transmission, absorption, and reflection, all while experiencing the enchanting beauty of colored lights.
+Learn more: Christmas Light Box
+9. Erupting Volcano Christmas Ornaments
+This experiment allows students to explore chemical reactions, gas production, and the transformative power of acids and bases.
+So, this Christmas, let’s ignite a spark of scientific curiosity with Erupting Volcano Christmas Ornaments, where the joy of discovery meets the festive spirit in a spectacular display of eruptive fun.
+Learn more: Erupting Volcano Christmas Ornaments
+10. Christmas Lava Lamp
+Illuminate your holiday season with a mesmerizing and scientific twist by creating your very own Christmas Lava Lamp.
+Learn more: Christmas Lava Lamp
+11. Scented Gingerbread Slime
+Indulge in the delightful scents of the holiday season while exploring the fascinating world of polymers with Scented Gingerbread Slime.
+Learn more: Scented Gingerbread Slime
+12. Christmas Catapult
+Bring the spirit of invention and physics to your holiday celebrations with a Christmas Catapult!
+Learn more: Christmas Catapult
+13. Disappearing Candy Cane Stripes
+Unleash the magic of optical illusions this holiday season with the Disappearing Candy Cane Stripes experiment.
+By using the power of our eyes and perception, students can create a mesmerizing effect where candy cane stripes appear to vanish before their very eyes.
+Learn more: Disappearing Candy Cane Stripes
+14. Dissolving Gingerbread
+Delve into the scientific world of dissolution and discover the fascinating process of dissolving gingerbread. In this unique experiment, students can explore the properties of matter and observe the transformation of a beloved holiday treat.
+Learn more: Dissolving Gingerbread
+15. Candy Cane Fluffy

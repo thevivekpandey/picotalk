@@ -1,0 +1,867 @@
+# Dataset: stack_v2
+# Split: train
+# Source file: stack_v2_train.bin
+# Start token index: 1,589,915,144
+# End token index: 1,589,925,144
+# Number of tokens: 10,000
+# Number of characters: 26,991
+============================================================
+
+self.run_program_check_output("3,9,8,9,10,9,4,9,99,-1,8", [9], [0])
+        self.run_program_check_output("3,9,7,9,10,9,4,9,99,-1,8", [7], [1])
+        self.run_program_check_output("3,3,1108,-1,8,3,4,3,99", [8], [1])
+        self.run_program_check_output("3,3,1107,-1,8,3,4,3,99", [10], [0])
+
+        self.run_program_check_output("3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9", [12], [1])
+        self.run_program_check_output("3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9", [0], [0])
+        self.run_program_check_output("3,3,1105,-1,9,1101,0,0,12,4,12,99,1", [12], [1])
+        self.run_program_check_output("3,3,1105,-1,9,1101,0,0,12,4,12,99,1", [0], [0])
+
+        self.run_program_check_output("3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31,1106,0,36,98,0,0,1002,21,"
+                                      "125,20,4,20,1105,1,46,104,999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99",
+                                      [7], [999])
+
+        self.run_program_check_output("3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31,1106,0,36,98,0,0,1002,21,"
+                                      "125,20,4,20,1105,1,46,104,999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99",
+                                      [8], [1000])
+
+        self.run_program_check_output("3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31,1106,0,36,98,0,0,1002,21,"
+                                      "125,20,4,20,1105,1,46,104,999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99",
+                                      [20], [1001])
+
+        self.run_program_check_output("109,1,204,-1,1001,100,1,100,1008,100,16,101,1006,101,0,99",
+                                      [],
+                                      [109, 1, 204, -1, 1001, 100, 1, 100, 1008, 100, 16, 101, 1006, 101, 0, 99])
+
+        self.run_program_check_output("1102,34915192,34915192,7,4,7,99,0",
+                                      [],
+                                      [1219070632396864])
+
+        self.run_program_check_output("104,1125899906842624,99",
+                                      [],
+                                      [1125899906842624])
+
+
+if __name__ == '__main__':
+    unittest.main()
+</s> <gh_stars>0
+def retorno():
+
+    res=input('Deseja executar o programa novamente?[s/n] ')
+
+    if(res=='s' or res=='S'):
+        
+        verificar()
+            
+    else:
+
+        print('Processo finalizado!')
+
+    pass
+
+def cabecalho(texto):
+
+    print('-'*30)
+
+    print(' '*10+texto+' '*15)
+
+    print('-'*30)
+
+    pass
+
+
+def verificar():
+
+    try:
+
+        cabecalho('Tabuada')
+
+        val=int(input('Digite um valor inteiro: '))
+
+    except:
+
+        print('Dados inseridos são invalidos!')
+
+        retorno()
+
+    else:
+
+        for i in range(0,11):
+
+            res=i*val
+
+            print('{} x {} = {}'.format(i,val,res))
+
+        retorno()
+
+    pass
+
+verificar()</s> <gh_stars>0
+from typing import List
+from .test_case import TestCase
+
+class TestSuite:
+    def __init__(self, name: str, test_cases: List[TestCase]) -> None:
+        self._name = name
+        self._test_cases = test_cases
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def test_cases(self) -> List[TestCase]:
+        return self._test_cases</s> from typing import Any, Dict, Optional, Sequence, Union
+
+import numpy as np
+from smqtk_classifier import ClassifyImage
+
+from xaitk_saliency.impls.perturb_image.rise import RISEGrid
+from xaitk_saliency.impls.gen_image_classifier_blackbox_sal.occlusion_based import PerturbationOcclusion
+from xaitk_saliency.impls.gen_classifier_conf_sal.rise_scoring import RISEScoring
+from xaitk_saliency.interfaces.gen_image_classifier_blackbox_sal import GenerateImageClassifierBlackboxSaliency
+
+
+class RISEStack (GenerateImageClassifierBlackboxSaliency):
+    """
+    Encapsulation of the perturbation-occlusion method using specifically the
+    RISE implementations of the component algorithms.
+
+    This more specifically encapsulates the original RISE method as presented
+    in their paper and code. See references in the :class:`RISEGrid`
+    and :class:`RISEScoring` documentation.
+
+    This implementation shares the `p1` probability with the internal
+    `RISEScoring` instance use, effectively causing this implementation to
+    utilize debiased RISE.
+
+    :param n:
+        Number of random masks used in the algorithm. E.g. 1000.
+    :param s:
+        Spatial resolution of the small masking grid. E.g. 8.
+        Assumes square grid.
+    :param p1:
+        Probability of the grid cell being set to 1 (otherwise 0).
+        This should be a float value in the [0, 1] range. E.g. 0.5.
+    :param seed:
+        A seed to pass into the constructed random number generator to allow
+        for reproducibility
+    :param threads: The number of threads to utilize when generating masks.
+        If this is <=0 or None, no threading is used and processing
+        is performed in-line serially.
+    :param debiased: If we should pass the provided debiasing parameter to the
+        RISE saliency map generation algorithm. See the :meth:`.RISEScoring`
+        documentation for more details on debiasing.
+    """
+
+    def __init__(
+        self,
+        n: int,
+        s: int,
+        p1: float,
+        seed: Optional[int] = None,
+        threads: int = 0,
+        debiased: bool = True,
+    ):
+        self._debiased = debiased  # retain for config output
+        self._po = PerturbationOcclusion(
+            RISEGrid(n=n, s=s, p1=p1, seed=seed, threads=threads),
+            RISEScoring(p1=p1 if debiased else 0.0),
+            threads=threads
+        )
+
+    @property
+    def fill(self) -> Optional[Union[int, Sequence[int]]]:
+        return self._po.fill
+
+    @fill.setter
+    def fill(self, v: Optional[Union[int, Sequence[int]]]) -> None:
+        self._po.fill = v
+
+    def _generate(self, ref_image: np.ndarray, blackbox: ClassifyImage) -> np.ndarray:
+        return self._po.generate(ref_image, blackbox)
+
+    def get_config(self) -> Dict[str, Any]:
+        # It turns out that our configuration here is equivalent to that given
+        # and retrieved from the RISEGrid implementation that is known set to
+        # the internal ``PerturbationOcclusion.perturber``.
+        # noinspection PyProtectedMember
+        c = self._po._perturber.get_config()
+        c['debiased'] = self._debiased
+        return c
+</s> #!/usr/bin/env python3.6
+# -*- coding: utf-8 -*-
+import os
+import re
+from parser.parse import parse
+from ahocorapy.keywordtree import KeywordTree
+from util.code import codes
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+keywords = {
+    'porno', 'asshole', 'fucked', 'pussy', 'cumshot',
+    'sis001', 'hjd2048', '18p2p', 'sod99', 't66y', 'mo6699', 'dioguitar23', 'kan224',
+    'sex8', 'sexinsex', 'fxxx', 'xxx', 'huge tits'
+}
+
+
+def load_dict():
+    headwords = set()
+    with open(os.path.join(basedir, '../data/dict/nsfw.en')) as input:
+        for line in input:
+            word, count = line.strip().split(',')
+            count = int(count)
+            if count < 10:
+               break
+            headwords.add(word)
+
+    with open(os.path.join(basedir, '../data/dict/nsfw.zh')) as input:
+        for line in input:
+            word = line.strip()
+            headwords.add(word)
+    return headwords
+
+
+def load_words():
+    words = set()
+    with open(os.path.join(basedir, '../data/dict/words.txt')) as input:
+        for line in input:
+            words.add(line.strip())
+    return words
+
+keywords.update(load_dict())
+keywords.update(load_words())
+
+keyword_pattern = re.compile('(' + '|'.join(keywords) + ')', re.IGNORECASE)
+
+keyword_tree = KeywordTree(case_insensitive=True)
+for word in keywords:
+    keyword_tree.add(word)
+keyword_tree.finalize()
+
+def nsfw_text(text: str):
+    if keyword_tree.search(text):
+        return True
+    return False
+
+anti_filter_pattern = r'(?<= )(\w)(?= )'
+
+def anti_fiter(text: str):
+    if len(re.findall(anti_filter_pattern, text)) > 6:
+        return True
+    return False
+
+jav_codes = r'\b(((%s)[\-_. ]?[0-9]{2,8}(\w|\b)?))' % ('|'.join(codes))
+
+def detect_nsfw(metainfo):
+    text = '\n'.join([metainfo['name']] + [file['path'] for file in metainfo.get('files', [])])
+    if nsfw_text(text) or anti_fiter(metainfo['name']):
+        return True
+
+    if re.findall(jav_codes, text):
+        return True
+
+    return False
+
+
+if __name__ == '__main__':
+    print(nsfw_text('FakeTaxi - Sexy redhead with huge tits'))
+    print(nsfw_text('苗 條 胸 小 美 女 和 男 友 高 層 公 寓 大 開 窗 邊'))
+    print(nsfw_text('注册梦缘看美丽主播—18岁妹妹偷偷自慰扣穴高潮'))
+    print(nsfw_text('ymdha@草榴社區@Tokyo Hot n0633 美乳新人女優再起不能姦 中島まゆみ加藤夏希系之新人美乳女優一次破壞怠盡作品'))
+    print(nsfw_text('ymdha@草榴社區@MOKO美空徐莹私拍套图'))
+    print(nsfw_text('狼群.特效中英字幕.The.Wolfpack.2015.HD1080P.X264.AAC.English.CHS-ENG.Mp4Ba'))
+    print(nsfw_text('上原深雪'))
+    print(nsfw_text('自慰扣穴高潮'))
+    print(anti_fiter('苗 條 胸 小 美 女 和 男 友 高 層 公 寓 大 開 窗 邊'))
+    print(anti_fiter('FakeTaxi - Sexy redhead with huge tits'))
+    print(detect_nsfw({'name': 'shkd-314'}))
+    print(detect_nsfw({"name": "寄生虫.Parasite.2019.HD1080P.X264.AAC.Korean.CHS.mp4", "length": 2809041007}))</s> <reponame>nirmeshk/mase<filename>python101/code/SimpleTurtleWorld.py
+"""This module contains code from
+Think Python by <NAME>
+http://thinkpython.com
+
+Copyright 2012 <NAME>
+License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
+
+"""
+
+from swampy.TurtleWorld import *
+from swampy.World import Interpreter
+
+class SimpleTurtleWorld(TurtleWorld):
+    """An environment for Turtles and TurtleControls.
+
+    This class is similar to TurtleWorld, but the code that
+    lays out the GUI is simplified for explanatory purposes.
+    """
+
+    def setup(self):
+        """create the GUI"""
+
+        self.row()
+
+        self.canvas = self.ca(width=400, height=400, bg='white')
+
+        # right frame
+        self.col()
+
+        # buttons
+        self.gr(cols=2)
+        self.bu(text='Print canvas', command=self.canvas.dump)
+        self.bu(text='Quit', command=self.quit)
+        self.bu(text='Make Turtle', command=self.make_turtle)
+        self.bu(text='Clear', command=self.clear)
+        self.endgr()
+
+
+        # run file
+        self.row([0,1], pady=30)
+        self.bu(text='Run file', command=self.run_file)
+        self.en_file = self.en(text='snowflake.py', width=5)
+        self.endrow()
+
+        # run this code
+        self.te_code = self.te(width=25, height=10)
+        self.te_code.insert(END, 'world.clear()\n')
+        self.te_code.insert(END, 'bob = Turtle(world)\n')
+
+        self.bu(text='Run code', command=self.run_text)
+
+        # leave the column open to accomodate Turtle control panels
+        #self.endcol()
+
+
+if __name__ == '__main__':
+    world = SimpleTurtleWorld()
+    world.inter = Interpreter(world, globals())
+    world.mainloop()
+</s> import cPickle
+
+common_dict = cPickle.load( open( "15IT201_15IT217_M1_common_dict_300.save", "rb" ) )
+
+for k in sorted(common_dict.keys()):
+	
+	print k
+
+print len(common_dict)
+print type(common_dict)
+</s> <reponame>rayyan17/Data_Science_Jobs_Udacity_Capstone_Project
+"""LinkedIn Data Transformer Module"""
+
+import os
+
+from pyspark.sql.functions import col
+from pyspark.sql.functions import lit
+from pyspark.sql.functions import lower
+from pyspark.sql.functions import udf
+
+from data_lake.data_util import DataUtil
+
+
+class LinkedInJobs(DataUtil):
+	"""LinkedIn Data Transformer"""
+
+	def __init__(self, spark_session, source_path):
+		super().__init__(spark_session)
+
+		self.source = "linkedin"
+		self.source_path = source_path
+
+
+	def generate_jobs_table(self, write_path):
+		"""Generate data for jobs table"""
+		job_cols = ["Job_Title as job_title", "Description as job_description", 
+					"Company as company", "Location as location", 
+					"date_data_created as source_fetch_date"]
+
+		df_jobs = self.main_df.selectExpr(*job_cols)
+		df_jobs = df_jobs.withColumn("job_title", lower(df_jobs.job_title))
+		df_jobs = df_jobs.withColumn("source", lit(self.source))
+
+		w_path = os.path.join(write_path, f"df_jobs_{self.source}.csv")
+		df_jobs.toPandas().to_csv(w_path, index=False)
+
+
+	def generate_date_description_table(self, write_path):
+		"""Generate data for time_details table"""
+		date_cols = ["date_data_created as source_fetch_date"]
+		df_jobs_source = self.main_df.selectExpr(*date_cols)
+		df_jobs_source = df_jobs_source.withColumn("source", lit(self.source))
+		df_jobs_source = df_jobs_source.withColumn("source_year", self._get_year("source_fetch_date"))
+		df_jobs_source = df_jobs_source.withColumn("source_month", self._get_month("source_fetch_date"))
+		df_jobs_source = df_jobs_source.withColumn("source_day", self._get_day("source_fetch_date"))
+		df_jobs_source = df_jobs_source.dropDuplicates()
+
+		w_path = os.path.join(write_path, f"df_job_date_fetch_{self.source}.csv")
+		df_jobs_source.toPandas().to_csv(w_path, index=False)
+
+	def generate_location_description(self, write_path):
+		"""Generate data for company_location table"""
+		location_cols = ["Company as company", "Location as location"]
+		df_job_location = self.main_df.selectExpr(*location_cols)
+		df_job_location = df_job_location.withColumn("city", self._get_city(df_job_location.location))
+		df_job_location = df_job_location.withColumn("state", self._get_state(df_job_location.location))
+		df_job_location = df_job_location.withColumn("country", self._get_country(df_job_location.location))
+		df_job_location = df_job_location.dropDuplicates()
+
+		w_path = os.path.join(write_path, f"df_job_location_{self.source}.csv")
+		df_job_location.toPandas().to_csv(w_path, index=False)
+</s> <reponame>yeyulinzhixia/cloudmusic-crawler
+import scrapy
+from ..settings import MYSQL_CONFIG
+import pymysql
+import time
+import json
+from ..items import CommentItem
+import logging
+class GetallSpider(scrapy.Spider):
+    name = 'getall'
+    allowed_domains = ['163.com']
+    start_urls = ['http://163.com/']
+
+    def start_requests(self):
+        connection = pymysql.connect(host=MYSQL_CONFIG['host'], port=MYSQL_CONFIG['port'], user=MYSQL_CONFIG['user'], password=MYSQL_CONFIG['password'],db=MYSQL_CONFIG['db'],charset=MYSQL_CONFIG['charset'])
+        cursor = connection.cursor()
+        cursor.execute('SELECT * FROM song2 ORDER BY RAND() LIMIT 200')
+        result = cursor.fetchall()
+        ids = [i[0] for i in list(result)]
+        for i in ids:
+            print('==================',i)
+            URL  = 'https://music.163.com/api/comment/resource/comments/get'
+            query ={"rid":"R_SO_4_"+str(i),"threadId":"R_SO_4_"+str(i),"pageNo":"1","pageSize":"1000","cursor":"-1","offset":"0","orderType":"1","csrf_token":""}
+            yield scrapy.FormRequest(URL,formdata = query,headers={'referer':'https://music.163.com/song?id='+str(i)},meta={'pageNo':1,'id':i})
+
+    def parse(self, response):
+        id = response.meta['id']
+        page = response.meta['pageNo']
+        data = json.loads(response.text)
+        
+        if 'data' in data.keys():
+
+            if len(data['data']['comments']):
+                print('=========page========',page)
+                page += 1
+                URL  = 'https://music.163.com/api/comment/resource/comments/get'
+                query ={"rid":"R_SO_4_"+str(id),"threadId":"R_SO_4_"+str(id),"pageNo":str(page),"pageSize":"1000","cursor":data['data']['cursor'],"offset":"0","orderType":"1","csrf_token":""}
+                yield scrapy.FormRequest(URL,formdata = query,headers={'referer':'https://music.163.com/song?id='+str(id)},meta={'pageNo':page,'id':id},callback=self.parse)
+
+            for i in data['data']['comments']:
+                item = CommentItem()
+                item['data'] = i
+                item['data']['userId'] = item['data']['user']['userId']
+                item['data']['musicId'] = id
+                del item['data']['user']
+                if item['data']['beReplied']!=None:
+                    item['data']['beReplied'] =item['data']['beReplied'][0]['beRepliedCommentId']
+                yield item
+        else:
+            print(response.text)
+
+
+</s> from .popularity import fans_minus_freaks
+from .centrality import pagerank, negativerank, exponentialrank
+</s> import datetime
+
+from django.conf import settings
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
+from rest_framework import exceptions
+from rest_framework.authentication import TokenAuthentication
+from .api_settings import TOKEN_EXPIRE
+
+
+class ExpireTokenAuthentication(TokenAuthentication):
+    def authenticate_credentials(self, key):
+        model = self.get_model()
+        try:
+            token = model.objects.select_related('user').get(key=key)
+        except model.DoesNotExist:
+            raise exceptions.AuthenticationFailed(_('Token not exists.'))
+
+        if not token.user.is_active:
+            raise exceptions.AuthenticationFailed(_('User not active or deleted.'))
+
+        if TOKEN_EXPIRE:
+            assert type(TOKEN_EXPIRE) == int, "TOKEN_EXPIRE type must be Int"
+            if timezone.now() > token.created + datetime.timedelta(days=int(TOKEN_EXPIRE)):
+                raise exceptions.AuthenticationFailed(_('Token has expired'))
+
+        return (token.user, token)
+</s> <gh_stars>1-10
+# -*- coding: utf-8 -*-
+# -*- python 3 -*-
+# -*- hongzhong Lu -*-
+
+
+# This script is updated on MAC.
+# It is used to parse the branch site result by fel-hyphy
+# This file will be transferred into "branch site hyphy"
+
+
+# The tutorial could be found in https://github.com/sjspielman/phyphy#parsing-hyphy-output-json
+import os
+import phyphy
+import pandas as pd
+
+
+def hyphy_parse(infile, outfile):
+    myext = phyphy.Extractor(infile)
+    e = myext
+    e.extract_csv(outfile)  ## save to fel.csv
+
+# FEL for 200 OGs which have positive selection in the branch site model analysis using aBSREL
+# batch process
+os.system("mkdir /Users/luho/Documents/site_model_heat/fel_csv")
+all_OG = os.listdir("/Users/luho/Documents/site_model_heat/fel_result")
+all_OG = [x for x in all_OG if ".DS_Store" not in x]
+input = "/Users/luho/Documents/site_model_heat/fel_result/"
+output = "/Users/luho/Documents/site_model_heat/fel_csv/"
+for x in all_OG:
+    print(x)
+    infile0 = input + x
+    outfile0 = output + x.replace(".FEL.json", ".csv")
+    hyphy_parse(infile0, outfile0)
+
+# calculate how many OG groups have the positive selected genes
+result_file = os.listdir(output)
+OG_with_positive_site = []
+for x in result_file:
+    print(x)
+    csv_file = pd.read_csv(output + x)
+    # first choose the row based on the pvalue
+    csv_file0 = csv_file[csv_file['p-value'] <= 0.1]
+    # next choose the positive, that is beta > alpha
+    csv_file1 = csv_file0[csv_file0["beta"] > csv_file0["alpha"]]
+    positive_site_num = csv_file1.shape[0]
+    OG_with_positive_site.append(positive_site_num)
+
+OG_with_positive_site_2 = []
+
+for x in result_file:
+    print(x)
+    x = "OG1171.csv"
+    csv_file = pd.read_csv(output + x)
+    # first choose the row based on the pvalue
+    csv_file0 = csv_file[csv_file['p-value'] <= 0.05]
+    # next choose the positive, that is beta > alpha
+    csv_file1 = csv_file0[csv_file0["beta"] > csv_file0["alpha"]]
+    positive_site_num = csv_file1.shape[0]
+    OG_with_positive_site_2.append(positive_site_num)
+
+fel_result_df = pd.DataFrame({"OG":result_file, "site_pvalue_0.1":OG_with_positive_site, "site_pvalue_0.05":OG_with_positive_site_2 })
+fel_result_df.to_csv("/Users/luho/Documents/site_model_heat/fel_result_summary.csv")
+
+os.system("mkdir /Users/luho/Documents/site_model_heat/fel_result_site/")
+os.system("python /Users/luho/Documents/evolution_analysis/code/site_dn_ds_hyphy/4_effects_of_gap_on_positive_sites_num.py -p0 /Users/luho/Documents/site_model_heat/protein_refine/  -s /Users/luho/Documents/site_model_heat/fel_csv/ -o /Users/luho/Documents/site_model_heat/fel_result_site/")</s> """
+Desc:
+
+Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
+
+An example is the root-to-leaf path 1->2->3 which represents the number 123.
+
+Find the total sum of all root-to-leaf numbers.
+
+Note: A leaf is a node with no children.
+
+Example:
+
+Input: [1,2,3]
+    1
+   / \
+  2   3
+Output: 25
+Explanation:
+The root-to-leaf path 1->2 represents the number 12.
+The root-to-leaf path 1->3 represents the number 13.
+Therefore, sum = 12 + 13 = 25.
+
+
+Solution:
+DFS
+可以直接在 DFS 的过程中将值累加，这样节省空间。
+join 只能 concat 字符串数组
+"""
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def sumNumbers(self, root: TreeNode) -> int:
+        if root == None:
+            return 0
+        res = []
+        path = []
+        self.dfs(root, path, res)
+        sum = 0
+        for path in res:
+            num = int(''.join(str(x) for x in path))
+            sum += num
+        return sum
+        
+    def dfs(self, root, path, res):
+        path.append(root.val)
+        if root.left == None and root.right == None:
+            res.append(copy.deepcopy(path))
+        if root.left:
+            self.dfs(root.left, path, res)
+            path.pop()
+        if root.right:
+            self.dfs(root.right, path, res)
+            path.pop()
+</s> <filename>challenges/4.3.Multiplication/lesson_tests.py
+import unittest
+from main import *
+
+class MultiplicationTests(unittest.TestCase):
+    def test_main(self):
+        self.assertIsInstance(product, int)
+        self.assertEqual(product, 80)
+</s> '''
+A module to manage software on Windows
+'''
+try:
+    import win32com.client
+    import pythoncom
+except:
+    pass
+
+def __virtual__():
+    '''
+    Set the virtual pkg module if the os is Windows
+    '''
+    return 'pkg' if __grains__['os'] == 'Windows' else False
+
+
+def _list_removed(old, new):
+    '''
+    List the packages which have been removed between the two package objects
+    '''
+    pkgs = []
+    for pkg in old:
+        if pkg not in new:
+            pkgs.append(pkg)
+    return pkgs
+
+
+def available_version(name):
+    '''
+    The available version of the package in the repository
+
+    CLI Example::
+
+        salt '*' pkg.available_version <package name>
+    '''
+    return 'Not implemented on Windows yet'
+
+
+def upgrade_available(name):
+    '''
+    Check whether or not an upgrade is available for a given package
+
+    CLI Example::
+
+        salt '*' pkg.upgrade_available <package name>
+    '''
+    return 'Not implemented on Windows yet'
+
+
+def list_upgrades():
+    '''
+    List all available package upgrades on this system
+
+    CLI Example::
+
+        salt '*' pkg.list_upgrades
+    '''
+    return 'Not implemented on Windows yet'
+
+
+def version(name):
+    '''
+    Returns a version if the package is installed, else returns an empty string
+
+    CLI Example::
+
+        salt '*' pkg.version <package name>
+    '''
+    pkgs = list_pkgs()
+    if name in pkgs:
+        return pkgs[name]
+    else:
+        return ''
+
+
+def list_pkgs():
+    '''
+    List the packages currently installed as a dict::
+
+        {'<package_name>': '<version>'}
+
+    CLI Example::
+
+        salt '*' pkg.list_pkgs
+    '''
+    pythoncom.CoInitialize()
+    ret = {}
+    strComputer = "." 
+    objWMIService = win32com.client.Dispatch("WbemScripting.SWbemLocator") 
+    objSWbemServices = objWMIService.ConnectServer(strComputer,"root\cimv2") 
+    colItems = objSWbemServices.ExecQuery("Select * from Win32_Product") 
+    for objItem in colItems: 
+        ret[objItem.Name] = objItem.Version
+    return ret
+
+
+def refresh_db():
+    '''
+    Just recheck the repository and return a dict::
+
+        {'<database name>': Bool}
+
+    CLI Example::
+
+        salt '*' pkg.refresh_db
+    '''
+    return 'Not implemented on Windows yet'
+
+
+def install(name, refresh=False, **kwargs):
+    '''
+    Install the passed package
+
+    Return a dict containing the new package names and versions::
+
+        {'<package>': {'old': '<old-version>',
+                   'new': '<new-version>']}
+
+    CLI Example::
+
+        salt '*' pkg.install <package name>
+    '''
+    return 'Not implemented on Windows yet'
+
+
+def upgrade():
+    '''
+    Run a full system upgrade
+
+    Return a dict containing the new package names and versions::
+
+        {'<package>': {'old': '<old-version>',
+                   'new': '<new-version>']}
+
+    CLI Example::
+
+        salt '*' pkg.upgrade
+    '''
+    return 'Not implemented on Windows yet'
+
+
+def remove(name):
+    '''
+    Remove a single package 
+
+    Return a list containing the removed packages.
+
+    CLI Example::
+
+        salt '*' pkg.remove <package name>
+    '''
+    return 'Not implemented on Windows yet'
+
+
+def purge(name):
+    '''
+    Recursively remove a package and all dependencies which were installed
+    with it
+
+    Return a list containing the removed packages.
+
+    CLI Example::
+
+        salt '*' pkg.purge <package name>
+    '''
+    return 'Not implemented on Windows yet'
+</s> <reponame>haisenzhao/CarpentryCompiler
+# -*- coding: utf-8 -*-
+#!/usr/bin/python
+
+import xml.etree.ElementTree as ET
+import sys
+import os
+import re
+import itertools
+import shutil
+
+# static variables
+uuid_rgxp = r"[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}"
+statENodes = 0
+
+
+def mk_sexp(assigns):
+    sequify = []
+    if len(assigns) >= 3:
+        # print "3 assigns"
+        # for a in assigns:
+          #  print a
+          #  print "\n"
+        for x in range(len(assigns) - 2):
+            sequify.append("(Seq " + assigns[x])
+        final_seq = "(Seq " + assigns[len(assigns) -
+                                      2] + assigns[len(assigns) - 1]
+        num_close_paren = len(assigns) - 1
+        close_parens = ')' * num_close_paren
+        return (''.join(sequify) + final_seq + close_parens)
+    elif len(assigns) == 2:
+        #print("2 assigns")
+        final_seq = "(Seq " + assigns[0] + assigns[1] + ")"
+        return final_seq
+    elif len(assigns) == 1:
+        #print("1 assign")
+        return assigns[0]
+    else:
+        return "(Empty)"
+
+
+def chopsaw(lhs, rhs):
+    ids = re.findall(uuid_rgxp, rhs)
+    # TODO: this sometimes is Lumber, sometimes is Var
+    lumber = "( Lumber " + ids[0] + ")"
+    face = "( Face " + ids[1] + ")"
+    edge = "( Edge " + ids[2] + ")"
+    rsplt = rhs.split(',')
+    ang1 = "(Angle (Float " + rsplt[3].split('(')[1] + " ))"
+    ang2 = "(Angle (Float " + rsplt[4] + " ))"
+    lnth = "(Length (Float " + rsplt[5].split(')')[0] + " ))"
+    ref = "(Refc " + ang1 + ang2 + lnth + ")"
+    # TODO: everything is stackable for now
+    stk = "(Bool true)"
+    height = "(Height (Float " + rsplt[6].split(')')[0] + " ))"
+    rhs = "(Chopsaw " + lumber + face + edge + ref + stk + height + ")"
+    assign = lhs + rhs + " )"
+    return assign
+
+
+def mk_xy(p):
+    px = "(Float " + p.split('/')[0] + " )"
+    py = "(Float " + p.split('/')[1] + " )"
+    pt = "(Tup " + px + py + " )"
+    return pt
+
+
+''' The version using paths as references
+def mk_path(ps, pathType):
+    path = []
+    p1 = ps[0].split('(')[1]
+    path.append(mk_xy(p1))
+    # first and last are taken care of above
+    for i in range(1, len(ps) - 2):
+        path.append(mk_xy(ps[i]))
+    pn =

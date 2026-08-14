@@ -1,0 +1,270 @@
+# Dataset: arxiv
+# Split: train
+# Source file: arxiv_train.bin
+# Start token index: 239,081,663
+# End token index: 239,091,663
+# Number of tokens: 10,000
+# Number of characters: 35,810
+============================================================
+
+the above result for $\frac{n}{2}$). 
+
+In this section, we want to present a detailed combinatorial analysis of this set of lines, which leads to  Jarn\'{\i}k\xspace's result as well as to the asymptotic of the \emph{typical} number of vertices of such lines. It is the analog
+of B\'ar\'any\xspace, Sina{\u{\i{}}}\xspace and Vershik's result when the constraint concerns the total length.
+
+Let us first describe Jarn\'{\i}k\xspace's argument, which is a good application of the correspondence described in section~\ref{sec:correspondence}. It says the following: the function $\omega$ realizing the maximum can be taken among the functions taking their values in $\{0,1\}$. Indeed, by changing the non-zero values of a function $\nu$ into $1$, one can obtain a polygonal line with the same number of vertices, but with a shorter length. Now, if the number of vertices $k$ is given, the convex line having minimal
+length, will be defined by the function $\omega$ which associates $1$ to the $k$ points  of $\mathbb{X}$ which are the closest to the origin.
+Since the set $X$ has an asymptotic density $\frac{6}{\pi^2}$, when  $N$ is big, this set  of points is asymptotically equivalent to the intersection of $X$ with the disc of center $O$ having radius $R$ satisfying $\frac{6}{\pi^2}\cdot  \frac{\pi R^2}{4}=N$ i.e. $R=(\frac{2\pi}{3} N)^{1/2}$. The total length of the line is equivalent to 
+$L= \int_0^R r\times \frac{6}{\pi^2}\frac{\pi}{2}r dr=\frac{R^3}{\pi}=\frac{(\frac{2\pi}{3} N)^{3/2}}{\pi}$. 
+This yields precisely $N=\frac{3}{2} \frac{L^{2/3}}{\pi^{1/3}}\simeq1.02\, L^{2/3}$. 
+
+In order to get finer results, we introduce the probability distribution on the space $\Omega$ proportional to
+\[
+    \exp\left(-\beta \sum_{x \in \mathbb{X}} \omega(x) \sqrt{|x_1|^2 + |x_2|^2}\right) \lambda^{\sum_{x\in \mathbb{X}} 1_{\{\omega(x) > 0\}}}
+\]
+which depends on two parameters $\beta,\lambda$. In this set-up, the partition function turns out to be
+\[
+    Z = \prod_{x\in \mathbb{X}} \frac{1-(1-\lambda)e^{-\beta \sqrt{|x_1|^2 + |x_2|^2}}}{1-e^{-\beta \sqrt{|x_1|^2+|x_2|^2}}}.
+\]
+The Mellin transform representation for $\log Z$ now involves
+\[
+    \frac{\Gamma(s)(\Li_{s+1}(1-\lambda)-\zeta(s+1))}{\zeta(s)}\sum_{x_1,x_2 \geq 1} {(|x_1|^2+|x_2|^2)}^{-s/2}, \qquad \Re(s) > 2.
+\]
+The factors $\zeta(s)^{-1}$ and $\Li_{s+1}(1-\lambda)-\zeta(s+1)$, which correspond respectively to the coprimality condition on the lattice and to the penalty of vertices, are still present. The main difference relies in the replacement of the Barnes zeta function by the Epstein zeta function which comes from the penalty by length in the model. With the help of the residue analysis of this Mellin transform and a local limit theorem, we obtain:
+
+\begin{theorem}
+    Let $p_J(n;k)$ denote the number of convex polygonal lines on $\emphset Z_+^2$ issuing from $(0,0)$ with $k$ vertices and length between $n$ and $n+1$. As $n$ tends to $+\infty$,
+    \[
+        \text{if}\qquad \frac{k}{n^{2/3}} \longrightarrow \frac{\pi^{1/3}}{2}{\bf c}(\lambda), \qquad\text{then}\qquad  \frac{1}{n^{2/3}} \log p_J(n;k) \longrightarrow \frac{\pi^{1/3}}{2}{\bf e}(\lambda),
+    \]
+    where ${\bf e}$ and ${\bf c}$ are the functions introduced in Theorem~\ref{thm:detailed_comb}. Moreover, the Hausdorff distance between a random element of this set normalized by $\frac{1}{n}$, and the arc of circle $\{(x,y) \in [0,1]^2 \mid x^2 + (y-1)^2 = 1\}$ converges to $0$ in probability.
+\end{theorem}
+
+From this result, we deduce that the typical number of vertices of such a line which is achieved for $\lambda=1$ is asymptotically equal to
+\[
+    \left(\frac{3}{4\pi\zeta(3)^2}\right)^{1/3} n^{2/3}.
+\]
+Similarly, the total number of convex lattice polygonal lines having length between $n$ and $n+1$ is asymptotically equal to
+\[
+    \exp\left(\frac{3^{4/3}\zeta(3)^{1/3}}{(4\pi)^{1/3}}\, n^{2/3} (1+o(1))\right).
+\]
+In addition, we can derive Jarn\'{\i}k\xspace's result in the lines of Remark~\ref{rem:longest}.
+
+\section{Mixing constraints and finding new limit shapes}
+\label{sec:onion}
+
+In this section we introduce a family of convex lattice polygonal line models which achieves a continuous interpolation of limit shapes between the diagonal of the square and the South-East corner sides of the square, passing through the arc of circle and the arc of parabola. Let $\|\cdot\|_1$ and $\|\cdot\|_2$ denote respectively the Taxicab norm and the Euclidean norm on $\emphset{R}^2$. Recall that for all $x \in \emphset{R}^2$,
+\[
+    \|x\|_1 = |x_1| + |x_2| \geq \|x\|_2 = \sqrt{|x_1|^2+|x_2|^2} \geq \frac{1}{\sqrt{2}}\|x\|_1.
+\]
+
+The Gibbs distribution we consider on the space $\Omega$ involves both these norms in order to take into account both the extreme point of the line and its length:
+\[
+    \frac{1}{Z}\exp\left(-\beta \sum_{x\in\mathbb{X}} \omega(x) (\|x\|_1 + \lambda\sqrt{2} \|x\|_2)\right), \quad
+    Z = \prod_{x \in \mathbb{X}} \left(1 - e^{-\beta(\|x\|_1 + \lambda\sqrt{2}\|x\|_2)}\right).
+\]
+This infinite product is convergent if $\beta >0$ and $\lambda > -\frac{1}{\sqrt{2}}$ or if $\beta < 0$ and $\lambda < -1$.
+In both cases, the Mellin transform representation of $\log Z$ involves
+\[
+    \frac{\Gamma(s)\zeta(s+1)}{\zeta(s)} \sum_{x_1,x_2 \geq 1} (\|x\|_1 + \lambda\sqrt{2} \|x\|_2)^{-s},\qquad \Re(s) > 2.
+\]
+As usual, the leading term of the expansion of $\log Z$ when $\beta \to 0$ is obtained by computing the residue of this function at $s = 2$. It turns out to be
+\[
+    \frac{\zeta(3)}{2\zeta(2)} \int_{-\pi/4}^{\pi/4} \frac{d\theta}{(\lambda + \cos (\theta))^2}.
+\]
+An application of the residue theorem shows that the expected length of the curve is asymptotically equivalent to
+\[
+    \frac{1}{\beta^3}\frac{\zeta(3)}{\sqrt{2}\zeta(2)} \int_{-\pi/4}^{\pi/4} \frac{d\theta}{(\lambda + \cos (\theta))^3}
+\]
+and that the coordinates of the ending point have asymptotic expected value
+\[
+    \frac{1}{\beta^3}\frac{\zeta(3)}{2\zeta(2)} \int_{-\pi/4}^{\pi/4} \frac{\cos(\theta) d\theta}{(\lambda + \cos (\theta))^3}.
+\]
+
+As in previous sections, a local limit theorem gives a correspondence between this Gibbs measure and the uniform distribution on a specific set of convex lines, namely the convex polygonal line with endpoint $(n,n)$ and total length belonging to $[L\cdot n, L\cdot n + 1]$ for some $L \in ]\sqrt2, 2[$ which is a function of $\lambda$,
+\[
+    L(\lambda) = \sqrt2 \dfrac{\int_0^{\frac \pi 4}{\frac{1}{(\lambda+\cos u)^3}}du}{\int_0^{\frac \pi 4}\frac{\cos u}{(\lambda+\cos u)^3}du}.
+\]
+By computations analogous to section~\ref{sec:limit_shape}, one can show that the uniform distribution on lines with length between $L(\lambda)\cdot n$ and
+$L(\lambda) \cdot n+1$ concentrates around the curve described by the parametrization
+$$x_\lambda(\phi)=\sqrt2\dfrac{\int_{0}^\phi{\frac{\cos u}{(\lambda+\cos (u-{\frac \pi 4}))^3}}du}{\int_{-\pi/4}^{\pi/4}{\frac{\cos u}{(\lambda+\cos u)^3}du}},\quad y_\lambda(\phi)=\sqrt2\dfrac{\int_{0}^\phi{\frac{\sin u}{(\lambda+\cos (u-{\frac \pi 4}))^3}}du}{\int_{-\pi/4}^{\pi/4}{\frac{\cos u}{(\lambda+\cos u)^3}}du} \quad (0\leq\phi\leq{\frac \pi 2}).$$
+The table provided in Figure~\ref{fig:table} summarizes the limit shapes that we obtain for some limit values of $\lambda$. See also Figure~\ref{fig:onion} for a plot showing the interpolation of those limit shapes.
+
+\begin{figure}[h]
+\begin{center}
+    \renewcommand{\arraystretch}{2}
+    \begin{tabular}{|c|cc||ccc|}
+        \hline
+        $\lambda$ & $-\infty$ & $-1$ & $-\dfrac{1}{\sqrt{2}}$ & $0$ & $+\infty$\\
+        \hline
+        Limit shape & circle & diagonal & square & parabola & circle\\
+        Length $L(\lambda)$ & $\dfrac{\pi}{2}$ & $\sqrt{2}$ & $2$ & $1+\dfrac{\ln(1+\sqrt{2})}{\sqrt{2}}$ & $\dfrac{\pi}{2}$\\
+        \hline
+    \end{tabular}
+\end{center}
+\caption[Special values of the new limit shapes]{Critical and special values in the spectrum of limit shapes for the model of convex lattice lines with mixed constraints.}
+\label{fig:table}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+    \includegraphics{onion.pdf}
+    \caption[New limit shapes of different Euclidean lengths]{Limit shapes of different Euclidean lengths.
+      Successively: \textcolor{black!50}{\mbox{$\sqrt{2}$ (diagonal)}}; \textcolor{red!80}{$1.48$}, \textcolor{blue!80}{$\frac{\pi}{2}$ (circle)}, \textcolor{green}{$1+\frac{\ln(1+\sqrt{2})}{\sqrt{2}}$ (parabola)}, \textcolor{cyan!80}{$1.72$}, \textcolor{magenta!80}{$1.89$} and \textcolor{orange!80}{$2$ (square)}.}
+    \label{fig:onion}
+\end{center}
+\end{figure}
+
+\pagebreak
+
+</s> \section{Introduction}
+\label{sec:intro}
+By the end of June 1902, just after being accepted as Technical Assistant level III at the Federal Patent Office in Bern, Albert Einstein, 23, sent to the renowned journal \textsl{Annalen der Physik} a manuscript with the bold title ``Kinetic Theory of Thermal Equilibrium and of the Second Law of Thermodynamics''~\cite{Einstein02}.  In the introduction, he explains that he wishes to fill a gap in the foundations of the general theory of heat, ``for one has not yet succeeded in deriving the laws of thermal equilibrium and the second law of thermodynamics using only the equations of mechanics and the probability calculus''. He also announces ``an extension of the second law that is of importance for the application of thermodynamics''. Finally, he will provide ``the mathematical expression of the entropy from the standpoint of mechanics''. Einstein's papers and their translations are available on the Princeton University Press site~\cite{Princeton}.
+
+In the following two years Einstein followed this line of research publishing a paper each year~\cite{Einstein03,Einstein04}. The third one, entitled ``On the general molecular theory of heat'', submitted on  March 27, 1904, opened a new path, by tacitly extending the results obtained for a general mechanical system (with a large, but finite, number of degrees of freedom) to the case of black-body radiation. In pursuing this line of research Einstein found an unexpected result, that pointed at an inconsistency between the current understanding of the processes of light emission and absorption and the statistical approach. To resolve this inconsistency, in the first paper~\cite{Einstein05a} of his ``Annus Mirabilis'' 1905, Einstein renounced the detailed picture of light emission and adsorption provided by Maxwell's equations, maintaining his statistical approach, in particular the statistical interpretation of entropy. He introduced therefore the concept of light quanta, presented as a ``heuristic point of view''.
+
+The importance of the 1902--04 papers on the molecular theory of heat in Einstein's intellectual development and in the advance of physics has been stressed by Kuhn~\cite[p.~171]{Kuhn}, when he states that
+\begin{quotation}
+What brought Einstein to the blackbody problem in 1904 and to Planck in 1906 was the coherent development of a research program begun in 1902, a program so nearly independent of Planck's that it would almost certainly have led to the blackbody law even if Planck had never lived.
+\end{quotation}
+
+In spite of their importance, the 1902--04 papers have received comparatively little attention. One of the reasons was the publication in 1902 of Gibbs' \textsl{Elementary Principles in Statistical Mechanics}.~\cite{Gibbs}  This book is considered, especially since the publication of the influential book by R.~C.~Tolman~\cite{Tolman}, as the founding text of the discipline. Einstein himself contributed to the neglect of the 1902-1904 papers. In his answer to Paul Hertz' criticism of his derivation of the second principle~\cite{Einstein11}, he says
+\begin{quotation}
+I only wish to add that the road taken by Gibbs in his book, which consists in one’s starting directly from the canonical ensemble, is in our opinion preferable to the road I took. If I had known Gibbs' book at that time, I would have not published these papers at all, but I would have limited myself to the treatment of a few points.
+\end{quotation}
+In his scientific autobiography~\cite[p.~47]{Einstein49} Einstein returned to this point, saying
+\begin{quotation}
+Not acquainted with the earlier investigations by Boltzmann and Gibbs, which had appeared earlier and actually exhausted the subject, I developed the statistical mechanics and molecular-kinetic theory of thermodynamics which was based on the former. My major aim in this was to find facts which would guarantee as much as possible the existence of atoms of definite size.
+\end{quotation}
+
+The last sentence of this quotation highlights the different attitude of Einstein with respect to Gibbs. Einstein aims at using the statistical approach to establish the reality of atoms, while Gibbs aims at a rational foundation of thermodynamics, and consequently focuses on the regularities which emerge in systems with many degrees of freedom. Einstein's papers contain a more direct and fundamental approach to the statistical mechanics of equilibrium, and could actually suggest a didactically effective path to the introduction of the fundamental ideas of the field. We shall therefore attempt to to ease their reading by summarizing them, pointing out in particular the differences between Einstein's and Gibbs' points of view. We shall not try to discuss all the detailed analyses of the papers which have appeared in the literature (beyond Kuhn's work~\cite{Kuhn}, one can also read \cite{Mehra75,BaraccaRechtman,Gearhart,Navarro,Uffink,Inaba}), but shall only refer to the more interesting observations. 
+\section{Kinetic theory of thermal equilibrium and of the second principle of thermodynamics}
+\label{sec:1902}
+The first two papers~\cite{Einstein02,Einstein03} have a very similar structure. The second paper aims to widen the scope of the first, by attempting to consider ``general'' dynamical systems and irreversible processes. We shall follow the first paper, and we shall then briefly review the points in which the second paper differs. We adapt Einsteins discussion to modern notation.
+
+Einstein begins by considering a general physical system as represented by a mechanical system with many coordinates $q=(q_{1},\ldots,q_{n})$ and the corresponding momenta $p=(p_{1},\ldots,p_{n})$, obeying the canonical equations of motion with a time-independent Hamiltonian that is the sum of a potential energy (function of the $q$'s alone) and of a kinetic energy that is a quadratic function of the $p$'s, whose coefficients are arbitrary functions of the $q$'s (and is implicitly supposed to be positive definite). Following Gibbs, we shall call the $p$'s and $q$'s collectively as the phase variables, and the space they span the phase space. Einstein then considers a very large number~$N$ of such systems, with the same Hamiltonian, whose energies $E$ lie between two very close values $\overline{E}$ and~$\overline{E}+\delta E$. He then looks for the stationary distribution of these systems in phase space.
+
+Here Einstein introduces a strong mechanical hypothesis by assuming that, apart from the energy, there is no other function defined on the phase space that is constant in time.\footnote{This is the fundamental hypothesis linking the mechanical and the statistical aspects of the problem. It is probably inspired by the consideration of monocyclic systems, introduced by Helmholtz~\cite{Helmholtz} and discussed by Boltzmann in~\cite{BoltzmannMonocyclic}. Cf.~\cite{KleinMonocyclic} and~\cite{GallavottiErgodic}.} He argues that this condition is equivalent to the requirement that the stationary distribution of the systems in phase space depends only on the value of the energy. He proves indeed that if there are other functions $\phi(q,p)$ that are constants of the motion, the stationary distribution is not uniquely identified by the value of the energy, but does not attempt to prove the converse. He then shows that Liouville's theorem implies that the local density of systems in phase space is constant in time and therefore, by the mentioned hypothesis, must be a function of the energy alone. Since the energies of all $N$ systems are infinitely close to one another, this density must be uniform on the region of phase space defined by the corresponding value of the Hamiltonian. In this way Einstein has defined what is now called the microcanonical ensemble, i.e., the distribution in phase space which is uniform when the energy of the system lies between two closely lying values, and vanishes otherwise.
+
+Einstein now turns to the consideration of thermal equilibrium between one system $\SS$ and one $\Sigma$ considerably larger.\footnote{Einstein actually considers two systems with the \textit{same} number of degrees of freedom, but where the energy contained in $\Sigma$ is considerably larger. Apparently the equipartition theorem, which he derives in \S~6 of the paper, led him to realize the awkwardness of this restriction, and he drops it in the second paper.} The second system acts as a thermal reservoir, and the first one as a thermometer. He assumes that the total energy $\mathcal{E}$ of the global system $\SS\cup\Sigma$ can be written as
+\begin{equation}
+\mathcal{E}=E+H,
+\end{equation}
+up to negligible terms, where $E$ pertains to $\SS$ and $H$ to~$\Sigma$. Let the phase variables of $\SS$ be denoted by $(p,q)$ and those of of $\Sigma$ by $(\pi,\chi)$. The question is now to find the distribution of the phase variables of $\SS$ when the energy of the global system lies between $\mathcal{E}_{0}$ and~$\mathcal{E}_{0}+\delta\mathcal{E}$, while the phase variables of~$\Sigma$ can take on any values. As pointed out by Uffink~\cite{Uffink}, this problem was considered several times by Boltzmann, who almost always solved it by taking an ideal gas for~$\Sigma$ and explicitly evaluating the resulting phase-space integral. Einstein instead introduces an elegant trick which leads directly to the desired result. Let us consider an infinitesimally small domain $g$ in the phase space of the global system $\SS\cup\Sigma$, with energy~$\mathcal{E}$ between $\mathcal{E}_{0}$ and~$\mathcal{E}_{0}+\delta\mathcal{E}$. Then the number $d N$ of systems of the ensemble which are found in $g$ is 
+\begin{equation}
+d N = A \int_{g}d p\,d q\; d\pi\, d\chi,
+\end{equation}
+where $A$ is a constant. Actually one can choose instead of $A$ any function of the total energy $\mathcal{E}$ which takes the value $A$ for $\mathcal{E}=\mathcal{E}_{0}$. Let us thus set\footnote{Einstein actually uses the notation $2h$ instead of $\beta$, which is now the traditional choice.}
+\begin{equation}
+A = A' \,e^{-\beta\, \mathcal{E}_{0}}=A'\,e^{-\beta\,E}e^{-\beta\,H },
+\end{equation}
+where $\beta$ is a constant. Thus the number $d N'$ of systems such that the phase variables of~$\SS$ lie in a region of volume $d p\;d q$ around the point $(p,q)$, while the variables of~$\Sigma$ can have any value, as long as $\mathcal{E}$ lies between $\mathcal{E}_{0}$ and $\mathcal{E}_{0}+\delta\mathcal{E}$, is given by
+\begin{equation}\label{eq:integral}
+d N' = A' e^{-\beta E}\,d p\, d q\int e^{-\beta H}\,d \pi\, d \chi,
+\end{equation}
+where the integral runs over all values of the phase variables of~$\Sigma$ such that the values of its Hamiltonian $H$ lie between $H_{0}$ and $H_{0}+\delta\mathcal{E}$, and
+\begin{equation}
+H_{0}=\mathcal{E}_{0}-E.
+\end{equation}
+The value of the constant $\beta$ can be fixed by requiring that the integral appearing on the right-hand side of~equation~(\ref{eq:integral}) be independent of~$E$. Indeed, once $\delta\mathcal{E}$ is fixed, the integral can be considered as a function $\Phi(H)$ of~$H$ alone. Thus, since $E\ll \mathcal{E}_{0}$, we have
+\begin{equation}
+\Phi(H_{0})=\Phi(\mathcal{E}_{0}-E)\simeq \Phi(\mathcal{E}_{0})-E\,\Phi'(\mathcal{E}_{0}),
+\end{equation}
+where $\Phi'$ is the derivative of~$\Phi$ with respect to its argument. Thus $\Phi'(\mathcal{E}_{0})=0$. We can write however
+\begin{equation}
+\Phi(H)=e^{-\beta H}\cdot \omega(H),
+\end{equation}
+where $\omega(H)=\int d\pi_{1}\cdots d\chi_{n}$, with the integral extended to the region in phase space such that the energy of $\Sigma$ lies between $H$ and $H+\delta\mathcal{E}$. The condition now reads
+\begin{equation}
+e^{-\beta \mathcal{E}_{0}}\omega(\mathcal{E}_{0})\left[-\beta +\frac{\omega'(\mathcal{E}_{0})}{\omega(\mathcal{E}_{0})}\right]=0,
+\end{equation}
+where $\omega'$ is the derivative of $\omega$ with respect to is argument. We therefore obtain the required condition for $\beta$ in the form
+\begin{equation}
+\beta = \frac{\omega'(\mathcal{E}_{0})}{\omega(\mathcal{E}_{0})}.
+\end{equation}
+
+
+Einstein now turns to show that the quantity $\beta$ is always positive. He first derives a lemma, by considering a general (positive definite) quadratic function $\varphi(x_{1},\ldots,x_{n})$ of $n$ variables (where $n$ is large enough), and defining the function $z(y)$ by the integral
+\begin{equation}
+z(y)=\int d x_{1}\cdots d x_{n},
+\end{equation}
+where the integral is extended to all points for which $\varphi$ lies between $y$ and $y+\Delta$, where $\Delta$ is fixed. He then easily shows that, for $n\ge 3$, $z(y)$ is an increasing function of $y$. Let us now denote by $\Gamma(H)$ the phase space available to the larger system~$\Sigma$ when the values of its Hamiltonian lie between $H$ and $H+\delta\mathcal{E}$. The Hamiltonian of $\Sigma$ is given by the sum of the potential energy, that depends only on the coordinates, and of the kinetic energy, which is a quadratic form in the momenta, whose coefficients depend only on the coordinates. Let $H_{0}$ and $H_{1}$ be two values of $H$, with $H_{1}>H_{0}$, and let $\Gamma(H_{0})$ and $\Gamma(H_{1})$ be the corresponding available space regions. Let $Q(H_{0})$ be the region of \textit{coordinate space} such that the potential energy of the system is smaller than $H_{0}$. Thus if the point $(\pi,\chi)$ belongs to $\Gamma(H_{0})$, the point $(\chi)$ belongs to $Q(H_{0})$. Within $\Gamma(H_{1})$ let us identify the region $\Gamma'(H_{1})$ where the coordinates $\chi$ belong to $Q(H_{0})$.  Thus, for each such values of the coordinates, since the total energy is larger than $H_{0}$, the kinetic energy must be larger. Therefore, by the lemma on the monotonic increase of~$z(y)$ with $y$, for each such point in coordinate space, the volume available to the momenta is larger for $\Gamma'(H_{1})$ than for $\Gamma(H_{0})$. Integrating over the coordinates we obtain that the volume of $\Gamma'(H_{1})$ must be larger than that of $\Gamma(H_{0})$. Since the volume of the region of $\Gamma(H_{1})$ that does not belong to $\Gamma'(H_{1})$ cannot be negative, the volume of $\Gamma(H_{1})$ must be larger than that of $\Gamma(H_{0})$, i.e., the function $\omega(H)$ increases with $H$, and $\beta$ given by the above expression must be positive.
+
+Now, Einstein derives what is now known as the zero-th law of thermodynamics. Since $\beta$ depends only on the state of~$\Sigma$, but determines the distribution of $\SS$ in state space, independently on how $\Sigma$ and $\SS$ interact, it follows that if a given system $\Sigma$ interacts with two small system $\SS$ and~$\SS'$ and is in equilibrium with them, $\SS$ and~$\SS'$ must have the same value of~$\beta$. In particular, if $\SS$ and $\SS'$ are mechanically identical, the average value of any arbitrary observable function $A(p,q)$ must be equal in $\SS$ and~$\SS'$. Einstein then calls $\SS$ and~$\SS'$ thermometers, $\beta$ the temperature function and the average of~$A$ the temperature measure. Then Einstein goes on to prove the converse result, namely that if two systems that have the same values of~$\beta$ are put in contact, they will be in thermal equilibrium. He considers two systems, $\Sigma_{1}$ and~$\Sigma_{2}$, weakly interacting. Let each of them be in contact with an (infinitesimally) small thermometer $\SS_{1}$ and~$\SS_{2}$. The temperature measures $A_{1}$ and $A_{2}$ in each thermometer will be the same, since we are in fact dealing with a single interacting system in thermal equilibrium, and therefore also the corresponding temperature functions $\beta_{1}$ and~$\beta_{2}$ will be equal. Let the interaction terms between $\Sigma_{1}$ and~$\Sigma_{2}$ be slowly brought to zero. Then the readings of the thermometers will remain equal, but now the reading of $\SS_{1}$ deals only with $\Sigma_{1}$ and that of~$\SS_{2}$ only with $\Sigma_{2}$. The process is reversible, since we are dealing with a sequence of thermal equilibrium states. Thus, by reversing it, we obtain the required result. As an immediate consequence, we obtain that if $\Sigma_{1}$ and $\Sigma_{2}$ are in thermal equilibrium, and so are $\Sigma_{2}$ and~$\Sigma_{3}$, then $\Sigma_{1}$ and~$\Sigma_{3}$ are in thermal equilibrium, since they share the same value of~$\beta$. Einstein concludes this section with the intriguing remark:
+\begin{quotation}
+I would like to note here that until now we have made use of the assumption that our systems are mechanical only inasmuch as we have applied Liouville's theorem and the energy principle. Probably the basic laws of the theory of heat can be developed for systems that are defined in a much more general way. We will not attempt to do this here, but will rely on the equations of mechanics. We will not deal here with the important question as to how far the train of thought can be separated from the model employed and generalized.
+\end{quotation}
+Uffink~\cite{Uffink} has remarked that ``this quote indicates (with hindsight) a remarkable underestimation of the logical dependence of [Einstein's] approach on the ergodic hypothesis.'' But the passage shows, as also stressed by Uffink, that already in 1902 Einstein was considering the need to extend the statistical approach beyond its application to mechanical systems, no matter how general they can be conceived. 
+
+A simple calculation allows Einstein to derive the equipartition theorem in the following form. Let the kinetic energy of a system be represented by a quadratic expression of the form
+\begin{equation}
+K=\frac{1}{2}\left(\alpha_{1}p_{1}^{2}+\cdots+\alpha_{n}p_{n}^{2}\right),
+\end{equation}
+where $\alpha_{i}$, $i=1,\ldots,n$, are positive constants or functions of the coordinates~$q$. This form can always be reached from a general quadratic expression by a suitable canonical transformation. The $p$ variables had been denoted as ``momentoids'' by Boltzmann. Then the average of~$K$ at equilibrium is given by
+\begin{equation}
+\average{K}=\frac{n}{2\beta}.
+\end{equation}
+In particular, this result implies that the kinetic energy of a single molecule in an ideal gas is equal to $3/(2\beta)$ on average. Kinetic theory teaches us that this quantity is proportional to the product of the pressure and the volume per particle in an ideal gas. Since this is proportional to the absolute temperature~$T$, we obtain
+\begin{equation}
+\frac{1}{\beta}=k_{\mathrm{B}} T=\frac{\omega(H)}{\omega'(H)},
+\end{equation}
+where $k_{\mathrm{B}}$ is Boltzmann's constant and~$\omega(H)$ is the volume of phase space contained by the equal-energy surfaces of~$\Sigma$ corresponding to the values $H$ and $H+\delta\mathcal{E}$.
+
+Having found the relation between~$\beta$ and the temperature, Einstein proceeds to the derivation of the second law of thermodynamics, which he here limits to the statement of the integrability of heat divided by the absolute temperature. He switches back to a Lagrangian setting, describing the system's state by the coordinates~$q$ and their time derivatives~$\dot{q}$, and introduces externally applied forces. These forces are split into ones derived from a potential depending on the $q$'s, and others that allow for heat transfer. The first ones are assumed to vary slowly with time, while the second ones change very rapidly. The infinitesimal heat $\delta Q$ is defined as the work of the second type of forces. Then a reversible transformation is one in which the system is led from an equilibrium state with given values of~$\beta$ and of the volume~$V$ to one with the values $\beta+\delta\beta$ and~$V+\delta V$. Here Einstein tacitly assumes that the time average of the relevant quantities in a slow transformation can be obtained by averaging the same quantity over the distribution of the $N$ systems in phase space. He thus finds that
+\begin{equation}
+\frac{\delta Q}{T}=d\left(\frac{\average{E}-F}{T}\right),
+\end{equation}
+where $\average{E}$ is the average total energy of the system, and $F$ is a constant introduced so that the distribution $P(p, q)= e^{\beta(E(p,q)-F)}$ is normalized. Einstein remarks that this expression contains the total energy, and is independent of its splitting into kinetic and potential terms.\footnote{This will be the starting point of his 1903~paper.} One can readily integrate this expression, obtaining an explicit form of the entropy~$S$:
+\begin{equation}
+S =\frac{\average{E}-F}{T}=\frac{\average{E}}{T}+k_{\mathrm{B}}\log\int  e^{-\beta E(p,q)}\,d p\,d q+\text{const.}
+\end{equation}
+
+Now Einstein states the announced generalization of the second principle. It is worth quoting this short paragraph in its entirety. Einstein denotes by $V_{a}$ the potential of the conservative forces performing the reversible transformation. He then states
+\begin{quotation}
+No assumptions had to be made about the nature of the forces that correspond to the potential $V_{a}$ [the conservative ones], not even that such forces occur in nature. Thus, the mechanical theory of heat requires that we arrive at correct results if we apply Carnot's principle to ideal processes, which can be produced from the observed processes by introducing arbitrarily chosen $V_{a}$'s. Of course, the results obtained from the theoretical consideration of those processes can have real meaning only when the ideal auxiliary forces $V_{a}$ no longer appear in them.
+\end{quotation}
+Thus the strategy which led to the establishment of the Einstein relation in Brownian motion, in the 1905 paper, is already sketched in this one.
+\section{A theory of the foundations of thermodynamics}
+\label{sec:1903}
+In his 1903 memoir, entitled ``A theory of the foundations of thermodynamics''~\cite{Einstein03}, Einstein asks whether kinetic theory is essential for the derivation of the postulates of thermal equilibrium and of the entropy concept, or whether ``assumptions of a more general nature'' could be sufficient. He goes on therefore to consider a general dynamical system whose state is identified by a collection $p$ of variables $p=(p_{1},\ldots,p_{n})$, which correspond to both coordinates and momenta for a mechanical system, and evolve by a general system of equations of motion of the kind
+\begin{equation}\label{eq:eqmoto}
+\frac{d p_{i}}{d t}=\varphi_{i}(p_{1},\ldots,p_{n});\qquad i=1,\ldots,n.
+\end{equation}
+Assuming that the system allows for a unique integral of motion, the energy $E(p)$, he then introduces the equilibrium postulate, according to which a ``physical system'' eventually reaches a time-independent macroscopic state, in which any ``perceptible quantity'' assumes a time-independent value. Einstein then looks for the stationary distribution of a collection of~$N$ systems, with $N$ large. Each system evolves according to equations~(\ref{eq:eqmoto}) and has an energy between $E$ and~$E+\delta E$. He claims that the equilibrium postulate, along with the absence of any integral of motion beyond the energy, implies the existence of a well-defined probability distribution in $p$-space. Einstein's argument reads
+\begin{quotation}
+Starting at an arbitrary point of time and throughout time~$\mathcal{T}$, we consider a physical system which is represented by the equations~(\ref{eq:eqmoto}) and has the energy~$E$. If we imagine having chosen some arbitrary region~$\Gamma$ of the state variables~$p_{1}\ldots p_{n}$, then at a given instant of time $\mathcal{T}$ the values of the variables $p_{1}\ldots p_{n}$ will lie within the chosen region~$\Gamma$ or outside it; hence, during a fraction of the time~$\mathcal{T}$, which we will call~$\tau$, they will lie in the chosen region~$\Gamma$. Our condition then reads as follows: If the $p_{1}\ldots p_{n}$ are state variables of a physical system, i.e.,  of a system that assumes a stationary state, then for each region~$\Gamma$ the quantity $\tau/\mathcal{T}$ has a definite limiting value for $\mathcal{T}=\infty$. For each infinitesimally small region this value is infinitesimally small.
+\end{quotation}
+Thus the stationary distribution is identified by a function $\epsilon(p_{1},\ldots, p_{n})$ such that the number $d N$ of systems which at any given instant in time are found in the infinitesimal region $g$ located around $(p_{1},\ldots,p_{n})$ is given by
+\begin{equation}
+d N = \epsilon(p_{1},\ldots,p_{n})\,d p_{1}\cdots d p_{n}.
+\end{equation}
+If this is true at a given instant $t$, then at a close instant $t+d t$ one has
+\begin{equation}
+d N_{t+d t}=d N_{t}-\left(\sum_{\nu=1}^{n}\frac{\partial(\epsilon \varphi_{\nu})}{\partial p_{\nu}}\right)d p_{1}\cdots d p_{n}.
+\end{equation}
+Since $d N_{t+d t}=d N_{t}$, by the stationarity of the distribution, one must have
+\begin{equation}
+\sum_{\nu=1}^{n}\frac{\partial(\epsilon \varphi_{\nu})}{\partial p_{\nu}}=0.
+\end{equation}
+Then
+\begin{equation}\label{eq:delogeps}
+-\sum_{\nu=1}^{n}\frac{\partial \varphi_{\nu}}{\partial p_{\nu}}=\sum_{\nu=1}^{n}\frac{\partial\log\epsilon}{\partial p_{\nu}}\varphi_{\nu}=\frac{d\log\epsilon}{d t}.
+\end{equation}
+The solution of equation~(\ref{eq:delogeps}) is
+\begin{equation}
+\epsilon=\exp\left[-\int d t\;\sum_{\nu=1}^{n}\frac{\partial \varphi_{\nu}}{\partial p_{\nu}}+\psi(E)\right],
+\end{equation}
+where $\psi(E)$ is a time-independent integration constant that, by the previous hypotheses, can only depend on the~$p$'s via the energy $E$. One thus obtains
+\begin{equation}
+\epsilon=\text{const.}\times \exp\left[-\int dt\;\sum_{\nu=1}^{n}\frac{\partial \varphi_{\nu}}{\partial p_{\nu}}\right]=\text{const.}\; e^{-m},
+\end{equation}
+where $m$ is given by
+\begin{equation}
+m = \int dt\;\sum_{\nu=1}^{n}\frac{\partial \varphi_{\nu}}{\partial p_{\nu}}.
+\end{equation}
+Einstein now assumes that it is possible to introduce new state variables, denoted by $\pi_{1},\ldots,\pi_{n}$, such that the factor $e^{-m}$ is cancelled by the Jacobian of the transformation. With this transformation, one obtains a uniform stationary distribution in phase space. However it is clear that this transformation cannot be performed unless $m$ is time-independent, which implies $d(\log\epsilon)/d t=0$ throughout, i.e., a form of Liouville's theorem. The oversight was realized by Einstein in March~1903, as witnessed by a letter to Michele Besso,~\cite[Vol.~5, Doc.~7]{CPAE} quoted by Uffink~\cite{Uffink}:
+\begin{quotation}
+If you look at my paper more closely, you will find that the assumption of the energy principle \&\ of the fundamental atomistic idea alone does not suffice for an explanation of the second law; instead, coordinates $p$ must exist for the representation of things, such that for every conceivable total system $\sum \partial\phi_{\nu}/\partial p_{\nu}=0$. [\dots] If that is true, then the entire generalization attained in my last paper consists in the elimination of the concept of force as well as in the fact that $E$ can possess an arbitrary form (not completely)?
+\end{quotation}
+
+The sections that immediately follow, on the distribution of a system in contact with a reservoir, on the absolute temperature and thermal equilibrium, and on the definition of ``infinitely slow'' (quasistationary) processes, are not fundamentally different from the corresponding sections of the 1902~memoir. The derivation of the mechanical expression of the entropy is however slightly different, in particular because the possibility of resorting

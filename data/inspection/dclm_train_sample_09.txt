@@ -1,0 +1,510 @@
+# Dataset: dclm
+# Split: train
+# Source file: dclm_train.bin
+# Start token index: 1,445,662,585
+# End token index: 1,445,672,585
+# Number of tokens: 10,000
+# Number of characters: 39,040
+============================================================
+
+
+  • If Lucy could be a guy for a day, why would she choose being Jay Z over Kanye West?
+  • Far Cry 3: Blood Dragon: It has cyborg sharks!
+  • Baker’s rekindled admiration for Def Jam: Fight for NY. Why play BioShock Infinite for a third time when you can throw Jamaican rap star Sean Paul in front of a train?
+  • Why Western developers should tell Capcom to stick it.
+  • Tristan’s addiction to the latest Tiger Woods game briefly mocked in his absence
+  • Castle of Illusion HD, and why mispronouncing it makes you sound like Sean Connery
+  • Plus, we save the BioShock Infinite ending chat until last
+
+Download it today! Episode 68!
+
+And don't forget you can check out (almost) all the previous episodes on iTunes. And hey, why not subscribe while you're there? Also! Come join the IGN Australia Facebook community.
+
+blog comments powered by Disqus
+Become a fan of IGN</s> Extreme Flextime
+
+For one company, 9 to 5 is no way to make a living.
+
+
+Extreme Flextime
+
+
+
+Ricardo Semler has an unorthodox approach to managing: Let the inmates run the asylum. Allow your employees to work whenever they want, wherever they want, and they'll reward you with increased productivity, greater profitability, and longer-term loyalty, argues the Brazilian businessman in his new book The Seven-Day Weekend (Portfolio). Semler, CEO of Sao Paulo-based holding company Semco, whose ventures include industrial equipment and environmental consulting, boasts his strategy is responsible for increasing annual revenue from $35 million to $212 million in the last six years with virtually no turnover among his 3,000 employees. Over the phone from Sffio Paulo, Semler explains why a seemingly impractical policy doesn't have to be.
+
+Okay, so how do you run a business if no one's around? We negotiate with our employees for a final result and let them figure out how they'll achieve the desired result. So let's say I need you to sell 512 widgets. We agree that that is a realistic expectation. Now it's up to you. Maybe you do paperwork on a rainy Sunday and golf or pick up your kids from school on Tuesday--as long as you sell the 512 widgets and our customers are happy, why do I care?
+
+How hard is it for managers and workers to adapt to this approach? There's a learning curve. For the workers, it takes a while to learn the operational self-discipline. For managers, there is anxiety at first, but slowly it gets better, especially when they see the productivity results. Employees who only survive in a beehive, hidden behind the fa?ade of activity around them, aren't helping your bottom line. This reveals who those employees are.
+
+Following your plan, do people work less or more? Our employees don't put in fewer hours, but there's also no indication they are overworked. It's important that I be clear that I'm not talking about abolishing work; I'm talking about making it more productive. It's a very entrepreneurial approach actually. It gives everyone a feeling of self-determination.
+
+Do you have greater balance in your life as a result? I've halved my work hours to about 30 a week. I spend 80% of my time doing what I want, rather than what people want me to do. I take piano lessons, play squash, do yoga every day. And I almost never feel guilty for lack of time for my little boy, wife, and friends.
+
+Last updated: Apr 1, 2004
+
+Sign In to Inc.</s> ICEdot Crash Sensor
+
+The ICEdot Crash Sensor pairs with your phone. If it detects a severe impact, your phone will notify your emergency contacts of your GPS coordinates.
+
+The Idea.
+
+We all have loved ones who are action sport junkies. They ride motorcycles, race bicycles, or rip down the slopes - heck, that's us! And, despite our mom's very specific instructions, we don't always go in pairs. Every so often, we take a spill that leaves us thinking "What if I was alone, and was injured more seriously?" Then we brush ourselves off and go right back at it.
+
+Luckily, Biju Thomas opted to write down his idea and engage his friend, Dr. Tim Bauer (always nice to have a PhD buddy when you have a big idea). The two developed what has become the first personal crash sensor. Not just any crash either. This isn't for dropping your helmet or brushing a limb on the mountain - this is for serious head impacts.
+
+The sensor mounts onto any helmet as an aftermarket device.The sensor mounts onto any helmet as an aftermarket device.
+
+
+
+How It Works.
+
+By pairing impact detection technology with the existing ICEdot service, we've been able to create a complete system that detects your most severe crashes, triggers your smart phone to notify your emergency contacts, and displays your emergency medical information. This helps first responders provide fast, accurate treatment. We also let you save and share the data of your crash – creating the world's first lie detector for your wipe outs.
+
+The Crash Sensor pairs with your phone and is managed by the ICEdot Crash Sensor app. If the sensors detect an impact severe enough to exceed safe levels, your phone sounds an alarm and begins an emergency countdown.
+
+If you don't disable the countdown, the app displays your emergency profile and notifies your emergency contacts.If you don't disable the countdown, the app displays your emergency profile and notifies your emergency contacts.
+
+You can disable the countdown (you can set the count down to a user defined length) if you don’t need assistance. However, if the countdown is not disabled (you may be injured or unconscious), then the app triggers an emergency notification, notifying your emergency contacts, (via text, email, or both) and providing them your GPS location.
+
+By providing your GPS location and emergency profile, first responders have immediate access to your important medical information when you need it most.
+
+
+
+What We Need.
+
+We’ve gone through several prototypes to reduce size and power limitations, and now have it near production form. A few months ago, we made the decision to switch to low-energy Bluetooth (BLE), and now have a working prototype using BLE.
+
+We need you to help us take the Crash Sensor from working prototype to final production unit, help us cover production tooling, and expand the app out across multiple mobile platforms.
+
+We need your help. Please review the funding levels, find one that suits you, and commit. You just might save a life.
+
+
+In The Press
+
+The ICEdot Crash Sensor prototype announcement has already generated significant media attention. Check it out:
+
+"...a life-defining difference the next time you hit your head in a crash."
+
+"ICEdot crash sensor saves lives."
+
+"ICEdot and SenseTech hope to take the traditional brain bucket to new heights."
+
+Bike Radar 
+"ICEdot has a solution... (that) can provide an actual level of protection."
+
+"This could be the perfect accessory if no one comes to your rescue after a crash."
+
+"The innovative wireless sensor... can detect motion, changes in forces and impacts that occur when the rider has fallen."
+
+Daily Mail 
+"'Life saver' bike helmet connects with your phone and alerts emergency services if you are in an accident."
+
+Gear Junkie 
+"Helmet Sensor 'Calls Your Loved Ones' in a Bike Crash"
+
+
+
+
+
+The Rewards.
+
+$5 or more
+Periodic project updates and a giant Thank You!
+
+$25 or more
+ICEdot Band (silicone wristband) and 1-Year ICEdot membership
+
+$50 or more
+THE ICE PACK: ICEdot Band + 1 year membership + T-Shirt + Snap + Sticker Pack
+
+$60 or more
+A MYSTERY ITEM + ICE PACK (ICEdot Band + 1 year membership + T-Shirt + Snap + Stickers)
+
+$75 or more
+THE FEED ZONE + ICE PACK (ICEdot Band + 1 year membership + T-Shirt + Snap + Stickers)
+
+$150 or more
+Crash Sensor earlybird special + your name in the Credits section of the mobile app
+
+$200 or more
+Crash Sensor + your name in the Credits section of the app
+
+$350 or more
+ICEdot Cycling Jersey + ICE PACK + Crash Sensor
+
+$1,600 or more
+
+Boulder, Colorado ride with pro cyclist Lucas Euser + Meal from world-class chef Biju Thomas + ICE PACK + Crash Sensor
+
+$10,000 or more (Call the office line, ask for Casey)
+
+You definitely have our attention. And probably a T-shirt or two.
+
+
+
+Frequently Asked Questions.
+
+What if I don't have cell service?
+
+The system is designed to use cell service when it calls for help. The sensor will still send the data about your impact to the phone and the phone will make repeated attempts to send out alerts but if no signal is available, no alerts will go out.
+
+
+What if I don't ride/ski alone?
+
+Do you know the medical conditions of the people you ride/ski with? How to contact their loved ones if they were in an accident? Would they know yours? The Crash Sensor will ensure that your loved ones are contacted immediately, and your emergency medical information is known by first responders when it counts.
+
+
+How sensitive is it? Is this thing going to be going off all the time when I drop my helmet in the garage?
+
+The sensor is not so sensitive a dropped helmet is going to cause it to go off. In fact, the only drops that are going to trigger it are ones you should consider replacing your helmet for.
+
+
+If I'm in an accident, won't my phone break too?
+
+We've been in accidents and had friends in accidents where the phone is how EMS notified family, calling the last dialed number. Phones are generally carried on the body and often in places that don't take a direct impact.
+
+
+How many crashes is it "good for"? Will I have to buy a new one after each crash?
+
+There is no limit to the number of times the sensor can be used. It detects forces your head experiences, it does not require a direct impact to the sensor itself.
+
+
+If my phone is in my backpack or elsewhere and the device accidentally goes off, how will I know? Does the phone or device make a sound?
+
+The phone sounds an alarm and vibrates.
+
+
+Will the device drain my battery?
+
+The app runs on your phone but is not in a constant broadcast or streaming mode, it's essentially waiting for a message from the sensor. We've had success running the app for more than 8 hours in our testing without noticeably effecting battery life beyond normal phone usage.
+
+
+How is the device powered?
+
+The final product will use a USB rechargeable, Lithium-Ion battery. Our current prototypes use a replaceable battery.
+
+
+How long does the battery last before it needs to be recharged? Does it 'warn' you when it is getting low on power?
+
+The app wil be able to let you know the power level of the sensor and can warn you when it is low. The device uses low energy bluetooth (BLE) which was designed for applications such as these, reducing battery drain by over 1/3. According to Texas Instruments, maker of BLE, a device can last over a year on a single coin sized battery.
+
+
+Does this work internationally?
+
+
+
+Can the sensor be moved between helmets? How does it attach?
+
+Yes. The final attaching mechanism is not finalized but will facilitate helmet transfer without being overly easy to remove.
+
+
+Will the sensor be limited to iPhone?
+
+No, our prototypes are working with iPhone but we will release an Android version when the product is shipped.
+
+Team on This Campaign:</s> 911:  The Road to Tyranny    
+
+Alex Jones Presents Police State 3:  Total Enslavement
+
+
+America Destroyed by Design
+
+Mass Murderers Agree:  Gun Control Works!  T-Shirt
+
+
+Bush's New Mental Screening Plans Evoke Memories of Clockwork Orange
+
+Jon Rappoport | September 13 2004
+
+I've written about Bush's draconian mental-health screening program for every kid in the US.
+
+Here is something else to think about. If this program really takes hold, psychiatrists will be able to extend their lists of trumped-up fake mental disorders.
+
+In the long run, if a kid gets into a fight on the playground, if a kid makes some kind of anti-gay, anti-white, anti-black, anti-government comment, he could be dragged in for "screening."
+
+Clockwork Orange.
+
+"The state is compassionate. We don't want to punish the offending child. That's the old way. We want to go after that part of his brain function that made him do the anti-social thing. With medication, we can silence or convert that mis-firing in the brain."
+
+Let's assume this Bush program goes nowhere.
+
+But...it's a start. It's part of softening up the populace. Bit by bit, drop by drop, compromise by compromise, the road is built into a future no sane person wants.
+
+That's the way they play the game.
+
+Look what's happening with vaccines. There the goal is forced vaccination of every person. Right now there are still loopholes in every state, so that parents can claim exemptions for their kids.
+
+But with all the propaganda about bio-threats and flu pandemics and SARS and anthrax attacks and smallpox attacks and so on, the population is being pushed in the direction of saying, "Oh, what the hell, they're right, let's give over our kids for the jabs, for their own good..."
+
+Whether you believe in the safety/efficacy of vaccines or not, the question is whether you believe the state has the right to enforce a medical decision on you. On your kids.
+
+The state positions itself as the sensible parent. "Do you want to endanger children?"
+
+Freedom of choice fades as a concern.
+
+I know there are some psychiatrists out there who have awakened to the massive abuses perpetrated by their profession (toxic drugs). Why not form a group and offer a case for the mental screening of George Bush and Dick Cheney?
+
+Why not write an open letter and send it to every large press outlet in the world? Do your best. Use the lingo you learned as a student. Make the diagnosis. Fake out the fakers with a fake assessment. It's a dream assignment.
+
+Suggest what drugs will quiet the brains of our leaders.
+
+Turn the tables.
+
+Enter recipient's e-mail:
+
+
+
+911:  The Road to Tyranny</s> Cell Phone Jammer
+
+I have alot of Cordless phones with the handsets and i have the bases, i have answering machines , regular phones.  Old cell phones....Is there components in there that i can make a cell phone jammer with?   Im teaching myself electronics by taking things apart,lol  but i still have trouble figuring out what parts are what.    Any help?   thanks.   Ps, i would love to make one with a altoid tin if possible.
+
+FLskater36968 months ago
+Why do these things always turn into a debate about "legality"? Nothing is illegal if there is no one around to enforce the rule. There is no rule if there is no one to enforce it. Go ahead and build the jammer, just be responsible with it -_-....
+markusw2 years ago
+If you reside in the USA, the FCC prohibits the prevention, jamming or interfering with communications. In fact, in the public notice (which I listed below) to explicitly include cell phones as a telecommunication not to be jammed. Also, if you do create a jammer. Be aware that it will block all telecommunications in and around the target frequencies, so if someone is trying to make a emergency 911 call (happens more then you think) you just blocked that person's only lifeline.
+valmont325 (author)  markusw2 years ago
+I understand completely. And would not use it illegally. It is more of a can i actually build one, basically for my educational purpose. And, btw i have heard that you may use them for private use such as in your own classroom and stuff but outside of there is illegal. But as i said, its just to see if it can be done.
+The act of turning such a device on to see if it works is using it illegally.
+there are no legal uses for cell phone jammers. you cannot jam a cellphone without removing it's ability to dial 911, anything that is done to make a communication device not be able to reach emergency serevices is a federal offense.
+sure there is legal uses for cellphone jammers the govenment of china does so all the time. the poster also didn't state that he is or isn't from the states "u.s. that is" they how ever can be bought on ebay but thats the easy way about it. the op wants to know how to block cell phone signals then he just has to broadcast on the same feq. with a more power to drown out the o.g. signal. at least thats how i believe it works as im no expert at telecomm. but yes in the usa cellpone jamming is illegal in all 50 states and in obamas case all 51 states or was that 52 states
+I work in a state correctional facility and it is illegal for even the State to "jam" cell phone traffic inside of a prison. That is one of many reasons why the inmates want them so badly, so they can do or say what they want with no restrictions with outside contact. There is legislation coming that will soon limited use of jamming in prisons. But till then Charles Manson and others will continue to get contraband phones for his use.
+Toga_Dan8 months ago
+If the building is your own, you can shield it from transmissions. This is essentially making it a faraday cage. Not an active jamming system. Passive absorption of signal.
+triumphman2 years ago
+They should put them in cars. People on phones texting and talking is killing too many teenagers and young adults!!! My best buddy was killed on his motorcyle while stopped at a red light. The woman plowed right into him while she was talking on the phone. They slapped her wrist and sent her on her way! When will the politicians wake up? When one of their loved ones gets killed!
+
+Get More Out of Instructables
+
+Already have an Account?
+
+
+PDF Downloads
+
+Upgrade to Pro today!</s> Picture of Chess Bars.
+     Hello! This Instructable is for Chess Bars, a sweet vanilla based dessert that my family has made for some time. My understanding is that it's an alteration on Chess Pie, and that it's 50/50 on if anyone has heard about them. I enjoy making them to take to social functions, or just making some for work or home. They keep for three or four days depending on how they're cooked and can make a great sweet snack! The recipe is quite easy when separated into two smaller jobs, as is the case with any cooking. I do recommend using caution when baking as hot stuff can hurt you. Though I use a KitchenAid mixer now, this recipe is easily done by hand, it just takes a little longer.
+
+A few general tips on cooking:
+     Follow all Mise en place (everything in place), it'll make your life easier in the long run. Mise en place is the action of doing small jobs before starting the main cooking process. For instance in this recipe, I sift the cake mix to remove lumps. This would be done before the main mixing to speed things along.
+     Stop to scrape the sides of the mixer or bowl to better incorporate all of the ingredients. This ensures all of the ingredients make it in, and that there is an even consistency. Homogeneous mixtures are a cooks friend.
+     When using a mixer, always keep hair up and towels away from the mixer. Never use a towel to cover the top of a mixer to prevent plumes of ingredients from dusting up. Always start from a slower speed and slowly speed up.
+
+For this recipe you will need:
+9x13 Pan, greased
+Mixer with a dough hook and whisk attachment. (Or just your hands and a good wooden spoon and whisk)
+Digital scale, or buy the pre-weighed box
+4 eggs
+8 ounce cream cheese
+1 stick of butter
+1 Butter cake mix (yellow may also be used, the more off brand the better the results)
+1 lb of 10x (Powdered) sugar
+Vanilla extract
+
+Mise en Place:
+Allow cream cheese and butter to reach room temperature, sift cake mix into the mixing bowl, using a spoon to break up clumps formed while packing. Preheat oven to 350 degrees F.
+Remove these adsRemove these ads by Signing Up
+Good tips. This sounds delicious!
+
+Get More Out of Instructables
+
+Already have an Account?
+
+
+PDF Downloads
+
+Upgrade to Pro today!</s> How to make beautiful "tumbled" mosaic tiles inexpensively...
+
+Picture of How to make beautiful
+This is my first instructable. :-)
+
+Are you remodeling a bathroom or a kitchen or anywhere you need mosaic tiles? Do you want accents in your tile design that don't exist?I am remodeling my guest bathroom and I wanted some mosaic pieces that matched the tile I was installing. However, there were no mosaic pieces in the tile I was using. There was an expensive "strip" of mosaics in a variety of colors in the style I was using, which was $10 for one strip. So, I decided to create my own.
+
+To do this you will need:
+
+Tile saw with an adjustable depth setting
+Rock tumbler and some coarse grit
+Tape Measure
+Framing square, a try square or a T-ruler
+China marker or permanent marker
+Flat blade screwdriver
+Moderate DIY skills
+
+This is what you are after, the finished mosaics are next to the kind of tile they were created from:
+Remove these adsRemove these ads by Signing Up
+
+Step 1: Create your "story stick".
+
+Picture of Create your
+The first thing to do is determine what size and shape of mosaic tiles you want. When you have determined that, mark the width of the mosaics you want onto a "story pole" or "story stick". Be sure to include the width of the cut of your tile saw on your stick.
+
+A good idea is to adjust the width of the layout so the entire tile is used and there is no waste.
+
+Step 2: Lay out your lines.
+
+Picture of Lay out your lines.
+Next transfer the lines from your story stick to two sides of the back of the tile. If your tile saw is true (square and aligned) then you only need make the marks on two sides of the tile.
+RonBot2 years ago
+I think you misunderstood my comment. I wasn't saying to cut your tiles in an open bin, so no dust all over your entertainment area. The tip I shared was from a mosaic site, where the woman was cutting plates and small tiles using hand nippers (not power saw!). She covered the top of the box with clear plastic and did something to the sides to kind of seal in the gloves. Or maybe the holes were just big enough that her arms created the seal. She said she could then sit and watch TV and get all her small pieces cut. It could work if you had a bunch of pre grooved tiles to snap. Kind of like shelling peas!
+DallasDeckard (author)  RonBot2 years ago
+Oh, I see. Sounds good to me. Seems like she is doing the tile work more for art or decorative work, rather than to tile a bathroom. For the project I did, a nipper wouldn't work, because I wanted that irregular edge and not the kind of straight edge you get from a nipper or a scoring tile cutter. However, if you didn't care about having an irregular edge, you can cut the tile any way you want. I tumbled the tiles because I wanted it to have a soft, professional, finished look and that would work with any small tiles pieces.
+Just sharing one more tip. Have you ever heard of anyone using an ice cream maker to tumble tile or glass? I read an instruction somewhere once but can't find it. I do remember something confusing about removing the dashers and using sand and water and tilting the thing at an angle. The no dasher part was confusing because what would tumble the pieces?
+DallasDeckard (author)  RonBot2 years ago
+No, I haven't seen anything like that. A tumbler is such a simple device, though. We're talking a small motor, a belt, a couple of rods with rubber tubing and a watertight tub. They can be purchased so cheaply (new for under $40 or used for much less) that it makes sense to just get a real one, or make it yourself. I purchased a nicer one, but even that was under $100.
+
+All you need is something that is watertight that turns slowly and reliably. Anything that fits that bill, works. Good luck.
+Irecreateit2 years ago
+What kind of tile did you use? Porcelain? Ceramic? Does it matter?
+Aquiline2 years ago
+This is great, but where are the shower corner shelves? I can't find them.
+DallasDeckard (author)  Aquiline2 years ago
+I never finished the instructable for those. However, here is a picture of the corner shelves before and after they were installed. You can also see the mosaic tiles I made (from this instructable) after they were installed in the bathroom.
+
+Shower Corner 1.jpgShower Corner 2.jpg5966317094_f674ea930f.jpg
+RonBot2 years ago
+I know it's been a while since the last comment but, hey, I found it! I was wondering if it would also work to cut from the face, going down almost all the way so the pieces stay together just like you did here? That would take care of the issue of 'lost' pieces in the water and floating around the cutting table. You could snap them apart inside a tote bin to avoid losing them.
+I saw a suggestion online, years ago where a woman used a clear organizer bin to cut tiles without making a mess (while watching TV!). She cut holes in the sides for gloves- put the tiles and tools inside and slid her hands into the gloves from outside- like the nuclear fuel handling table on the Siimpsons. She put clear plastic sheeting on top so she could see what she was doing. I thought the clear plastic lid might be good enough.
+DallasDeckard (author)  RonBot2 years ago
+That is certainly worth a try, but you should know that the tiles tend to break *much easier* when you cut in this way. I'm not sure why, perhaps the glazed area makes the face much harder and difficult to break. When I was cutting other pieces for a different project, I used the method you mentioned, and the tiles kept breaking apart just from the vibration of the saw. I solved it, somewhat, by cutting the lines more shallow, leaving more of the tile under the cut line. They still broke much easier than doing it the other way (leaving the top uncut) but they did break less often. I found myself cutting lots of smaller sections, because they had broken away from the rest of the tile. This caused problems because the broken area doesn't provide a very straight surface when butted against the cutting table guide. It's doable, but a pain.
+
+As far as the organizer cutting method, I'm not sure I'm ready to subject my entertainment area to micro-ceramic-dust. Perhaps if I had a TV in my garage, this would rock, but I can't trust that in my entertainment area. ;-) Also, I did this with a tile saw, which you can buy hoods for. They aren't leak proof enough to go cutting in your TV room, but they do cut down on the water spewing everywhere and lots of the ceramic dust. I did all my hand cutting on my bench in the garage, wearing a canister mask and a face shield, with the door open and a huge fan blowing out the dust. I just put on some tunes and cut away. I'm not sure that operating a tile saw, cutting on small pieces held with my hands is something I want to do while watching TV, but that's just me.
+
+I made two hoods for my saw out of heavy mil plastic and 1/8 wire that I brazed together with my acetylene torch. It worked very well and cost very little. You can see one of the hoods in step four of this instructable.
+pattiemelt2 years ago
+You could also use this process (tumbling) with irregular tile pieces for mosaics. Just break up the tile with a hammer instead of using the tile saw. Awesome -ible - gonna use it on my next tile project.
+DallasDeckard (author)  pattiemelt2 years ago
+That is certainly an option, but it would be difficult to use those for the purposes I had. However, if one were laying tile for a counter top, that would be great. I even thought about doing that in the outer bathroom, but we decided on granite instead. I needed regular sized pieces to create the starburst effects I laid around the faucet, soap dish and shower head and the border pieces. As you say, though, any pieces could be tumbled and it would make them look more "finished", which is what I wanted.
+Ninzerbean3 years ago
+The space that the saw takes up that disappears is called "kerf". I always thought that was a good name for a dog that was shy and disappeared a lot. Great 'ible.
+DallasDeckard (author)  Ninzerbean3 years ago
+Thank you. I tried to keep the jargon to a minimum so it would be accessible to more people. Kerf seems like the sound that the shy, disappearing dog would make if he had a head cold and barked. :-) I'm surprised I never met a carpenter with a dog named "Kerf" or "Plumb" or something like that.
+I know an electrician who had a dog named OSHA.
+I met a topographer who's dog was named Map.
+I had two cats, a black and white spotted one called Spot, and his brother, a smaller all black one called Speck.
+Yeah, I know, I have never heard it as a name and always thought it was a natural, maybe it's too short, maybe Kerf Bean would sound better. Adding "bean" to anything sounds better.
+DallasDeckard (author)  Ninzerbean3 years ago
+Yes and adding beans to any meal usually doesn't hurt, either!
+canida3 years ago
+Wow, nice job! Nice and clear.
+cory.smith3 years ago
+Great instructable, and very helpful. I have a question though.
+
+The finished mosaic tiles have a little 'lip' around the top. Obviously, it's because you cut the tile from the back, so I assume you could eliminate this and cut the face of the tile.
+
+Does this little 'lip' interfere with laying them in? Is there a particular reason you cut the back of the tile, and not the face?
+
+Curiosity won't let me leave this question alone...  =/
+
+DallasDeckard (author)  cory.smith3 years ago
+Thank you.
+
+I wanted the irregular edge, this is why I didn't cut all the way through. I cut from the back so that when i snapped the tiles free they would create the irregular line I was after on the face of the tile. If you don't want this edge, then you just cut all the way through, but I'd cut from the top to create a cleaner line. As I said in the Instructable, if you do so, be careful because those pieces can get in the saw blade and plop in the water below.
+
+As far as the lip interfering, I'm not sure how it would unless you try to put them right next to each other with no grout line. I'm am going with a 1/8" grout line where I'm using them as accents and 3/16ths where I'm using them as a border (the last tiles on the edge) which is plenty of room to keep them from touching. I'll add a photo of them as accents and as a border when it is finished.
+
+With these you'll grout right up to the edge of the lip, so someone can't see under it. If you don't want to do this and you don't care for the irregular edge, then just cut all the way through, tumble and glaze. I hope that answers your question.
+Uncle Kudzu3 years ago
+Yup, I agree, very nicely done! Makes me wish I owned the kind of tools you're using. Is there a practical way to saw the tiles by hand? What effect would the tumbler have on ceramic glazed tiles?
+DallasDeckard (author)  Uncle Kudzu3 years ago
+Thank you, and thanks for the good question.
+
+Funny you should ask that, because I began this by experimenting with an inexpensive snap tile cutter. I thought maybe if I scored it lightly I might get some irregular breaks, but it broke pretty straight and clean every time. Since I wanted that irregular edge, I decided on doing it this way. If you don't care about the irregular edge, then you could easily do this with an affordable snap tile cutter. You can grab them at any big hardware store for fifteen or twenty bucks. Anyone can make an inexpensive rock tumbler as well, out of parts from a hardware store or stuff you get off the Internet.
+
+As to the effect on ceramic, glazed tiles, I wrote in the instructable that if you only tumble for twenty-four hours it takes the sheen off, but not the entire glaze. You can brush on a sealer to get the sheen back, which is what I did. They come in a variety of finishes - glossy, semi-gloss and matte. I called a couple local ceramics shops - those places where you can pick out and paint greenware and then they fire it in a kiln for you - to ask if they would be willing to let me re-glaze these mosaics in their kiln. One place said no, because of the risk of my tiles "blowing up" and damaging their customers work and the other place never returned my call. That would be the best option if you have access to such tools or facilities.
+Dr. Pepper3 years ago
+cool good job!
+Nice job on your first Instructable! Great pics and instructions.
+DallasDeckard (author)  fungus amungus3 years ago
+Coming from you that is high praise indeed. Thank you.
+neilh3 years ago
+Nicely written and easy to follow. Well done.
+DallasDeckard (author)  neilh3 years ago
+Thank you, I appreciate that.
+
+Get More Out of Instructables
+
+Already have an Account?
+
+
+PDF Downloads
+
+Upgrade to Pro today!</s> The correct way to peel a banana
+
+ Often times people peel bananas from the stem down. This causes them to bruise and get mushy after a few attempts. Monkeys do not peel bananas like this. They peel them from the top down. 
+
+Here are some steps and images to explain the process. 
+
+Remove these adsRemove these ads by Signing Up
+
+Step 2: Pinching the top off
+
+ This  is where you will be starting to open up the banana without bruising or mashing it. Take your thumb nail and press it into the black part of the top. Use your pointer finger as a wall to pry it up. 
+
+Step 5: Enjoy!
+
+Picture of Enjoy!
+Now join your monkey brethren and eat your unbruised, un-mashed banana with joy!
+Spd4 years ago
+If you use the opener ("stem") on the other end of it, you can keep your nails clean ;)
+
+btw, great thing that *anything* can be found on the Internet :)
+aeray4 years ago
+After travelling extensively in Central America, I can confirm that this is indeed the way that monkeys peel bananas. Do you doubt the wisdom of the mono?
+KH0RSH1D (author)  aeray4 years ago
+ haha thanks for the confirmation!
+Focker4 years ago
+ It's just like picking off a scab, it works real nice.
+Ghostc44 years ago
+ This also makes it so you don't have the stringie things
+Jayefuu4 years ago
+Wrong end!
+truncat4 years ago
+If you've got thumbnails at all you can always dig your thumbnail in a little to the inner curved part of the stem right where it meets the banana. Once there's a cut there, it's easy to peel the stem back from it without mushiness. I can't see how this way is a lot better... maybe it's easier to take the black bottom part off if you have short thumbnails?
+ Meh. I prefer breaking the banana's neck. It looks more awesome.
+
+Get More Out of Instructables
+
+Already have an Account?
+
+
+PDF Downloads
+
+Upgrade to Pro today!</s> Did you think that when you stopped renting and started owning, you'd finally get your deposit back for good? Think again. When you buy a house with a down payment of less than 20%, your lender may require you to make a deposit on your homeowners insurance, private mortgage insurance, any required additional insurance (like flood insurance) and your property taxes. (Learn more about home insurance in Beginners' Guide To Homeowners Insurance.)
+
+How It Works
+An impound account (also called an escrow account, depending on where you live) is simply an account maintained by the mortgage company to collect insurance and tax payments that are necessary for you to keep your home, but are not technically part of the mortgage. The lender divides the annual cost of each type of insurance into a monthly amount and adds it to your mortgage payment.
+
+Required Mortgage Impounds
+Since low down payment borrowers are considered to be a higher risk due to their lower personal stake in the property, lenders want some level of assurance that the state will not seize the property because of non-payment of property taxes, and that borrowers won't be without homeowners insurance in the event that the property is damaged. An impound account ensures that the only person who will become owner of the house in case of default will be the lender.
+
+Optional Mortgage Impounds
+Even if an impound account is not required, one can be elected at the loan signing. But is that a good idea?
+
+Some consumers would rather set money aside in a high-interest savings account, and feel that impound accounts are a bad idea. Not all states require lenders to pay interest on the money held in impound accounts, and those that do may not pay as much as individuals could earn by investing the money on their own.
+
+Further, if the mortgage company does not pay bills - like property taxes and homeowners insurance - when they are due, the homeowner will still be on the hook. Therefore, homeowners should be aware of the due dates for these payments and monitor their impound accounts carefully. (Take a look at Five Tricks for Lowering Your Property Tax for ways to reduce your tax bill.)
+
+Although the impound account is designed to protect the lender, it can also be beneficial for the borrower. By paying for big-ticket housing expenses gradually throughout the year, borrowers avoid the sticker shock of paying large bills once or twice a year, and are assured that the money to pay those bills will be there when they need it.
+
+Monitoring Your Impound Account
+Your monthly mortgage statement will probably show the balance in your impound account, making it easy for you to keep a close eye on it. Federal regulations also help borrowers out in this area by requiring lenders to review borrowers' impound accounts annually to ensure that the correct amount of money is being collected. If too little is being collected, the lender will start asking you for more; if too much money is accumulating in the account, the excess funds are legally required to be refunded to the borrower.
+
+Additional Considerations
+The cash amount that fixed-rate borrowers think of as their monthly payment is still subject to change – this is one of the biggest issues with impound accounts. Since homeowners insurance and property taxes are subject to change, monthly payment amounts can fluctuate, affecting monthly cash flow with little warning. (Read Understanding the Mortgage Payment Structure for more information.)
+
+Required impound accounts also decrease the amount of money borrowers can place in an emergency fund. The lender keeps a little extra in your impound account, in order to ensure the extra cushion needed in order to keep making insurance and tax payments if you stop making your monthly mortgage payments. This cushion is collected when you acquire the loan. Thus, the startup costs associated with impound accounts can increase the amount of cash buyers need in order to purchase a house in the first place.
+
+Low down payment buyers don't need to maintain impound accounts forever, though. Once sufficient equity (often 20%) is achieved, lenders can often be convinced to ditch the impound account.
+
+For many homeowners, mortgage impounds are a necessary evil. Without them, lenders might not be willing to give mortgages to borrowers with low down payments. The best way to deal with impound accounts is to understand how they work, monitor them carefully and get rid of them when you can. (If you're interested, read The True Economics of Refinancing a Mortgage and Make Yourself a More Attractive Mortgage Candidate for related topics.)
+
+comments powered by Disqus
+Trading Center</s> 1. You are here:
+  2. Home
+  3. Staff
+
+Suzanne Hammond
+
+Photo of: Suzanne Hammond
+
+Suzanne is a Fellow and Examiner of the ISTD. She began dancing at the age of seven at her local school in Liverpool studying many dance genres.
+
+Having left school she went on to train professionally in dance and drama for three years. A career on the stage took her all round Europe, Asia, the Middle East, the Far East, 

@@ -1,0 +1,433 @@
+# Dataset: openwebmath
+# Split: train
+# Source file: openwebmath_train.bin
+# Start token index: 298,737,106
+# End token index: 298,747,106
+# Number of tokens: 10,000
+# Number of characters: 34,772
+============================================================
+
+$alternative; } } return (\@loses, \@wins); } sub reveal ($self, $scenario,$player_choice, $alternatives) { ... } package RandomMontyHall; use List::Util 'shuffle'; use parent -norequire => 'MontyHall'; sub reveal ($self, $scenario,$player_choice, $alternatives) { my$n_unchosen = $alternatives->@* - 1; my ($unchosen_loses, $unchosen_wins) =$self->unchosen($scenario,$player_choice, $alternatives); my @loses = shuffle($unchosen_loses->@*);
+
+# reveal exactly n-1 of the unchosen doors!
+my @revealed = splice @loses, 0, $n_unchosen - 1; my ($unrevealed) = (@loses, $unchosen_wins->@*); return(\@revealed,$unrevealed);
+}
+
+package OrderedMontyHall;
+use parent -norequire => 'MontyHall';
+sub reveal ($self,$scenario, $player_choice,$alternatives) {
+my $n_unchosen =$alternatives->@* - 1;
+my ($unchosen_loses,$unchosen_wins) =
+$self->unchosen($scenario, $player_choice,$alternatives);
+my @loses = $unchosen_loses->@*; # NO SHUFFLING HERE!!! # reveal exactly n-1 of the unchosen doors! my @revealed = splice @loses, 0,$n_unchosen - 1;
+my ($unrevealed) = (@loses,$unchosen_wins->@*);
+return(\@revealed, $unrevealed); }  This program implements different strategies on the player and on the host side. There are four players: • StubbornPlayer: they always stick to their initial choice; • MathsPlayer: they always switch; • RandomPlayer: they switch half of the times, randomly; • ABCPlayer: they adopt a strategy to switching. There are two hosts: • RandomMontyHall: if one of the two unchosen door contain a car, they reveal the other one; if they both contain a goat, they reveal either one randomly; • OrderedMontyHall: if one of the two unchosen doors contain a car, they reveal the other one; if the both contain a goat, they reveal the “first” one in door order. It’s easy to see, in the code, that the initial choice of the player is always out of three doors, so their odds of taking the car is 1:2 (1 in 3 chances). This does not change whatever the host that is chosen, because the array of unchosen alternatives is scanned to make sure that only goats are revealed. Hence, what remains at the end is the distillation of unchosen possibilities. Running the simulation with the stubborn and the maths inclined players and a truly random Monty Hall confirms our initial guess: switching is beneficial: $ ./monty-hall.pl StubbornPlayer RandomMontyHall
+...
+What a season! Players won 35.8% of times!
+
+$./monty-hall.pl MathsPlayer RandomMontyHall ... What a season! Players won 68.2% of times!  People that think that odds have gone down to 1:1 after the revelation are “rightish” in the sense that a random choice between the two doors yields a car half of the times: $ ./monty-hall.pl RandomPlayer RandomMontyHall
+...
+What a season! Players won 50.2% of times!
+
+
+This happens because at that point there are only two doors, one with a car and one with a goat (by construction), so a random 1:1 choice between them gives a car 1:1. I’d argue that this is throwing away all the information that we have that lead to how these two doors were actually selected to be closed at the end, which is a shame because this information can definitely give an edge.
+
+Last, it’s important that the choice of the door to open by the host when the player chose the car is random. If the host decides to always open the “first” one (whatever order can be given to the doors), then the player might use this information the their advantage and choose to switch whenever this reveals something:
+
+\$ ./monty-hall.pl ABCPlayer OrderedMontyHall
+...
+What a season! Players won 67.4% of times!
+
+
+Contrarily to the other case, in this case the player only switches in 1 out of 3 cases when they’re sure about the car position, and keeps in the other two so, in a sense, they’re more stubborn than inclined to change. BUT they know exactly when it’s best to change, shifting the odds in their favor by taking advantage of the deterministic way of choosing the door to open by the host.
+
+Well… this is my take on the Monty Hall problem, and I’ve expressed in code so there is no ambiguity as to what I mean about the actions of the different actors!</s> # Poisson distribution Question (1 Viewer)
+
+### Users Who Are Viewing This Thread (Users: 0, Guests: 1)
+
+#### Bob19
+
+Hello I'm Presented with the following Poisson distribution question
+
+$$P(X = x) = \frac{e^{-\lambda} \cdot \lambda^{x}}{x!}$$
+
+where $$x \in (1,2,3,\ldots)$$ and $$\lambda > 0$$
+
+Then I'm suppose to show that the above can be re-written if
+
+$$P(X \leq 1) = 1 - e^{- \lambda}$$
+
+Any idears on how I do that?
+
+I'm told $$\sum_{x=0} ^ {\infty} p(x) = \frac{e^{- \lambda} \cdot \lambda^{x}}{x!} = e^{- \lambda} \sum _{x=0} ^{\infty} \frac{\lambda ^{x}}{x!}$$
+
+if $$\lambda ^{x} = 1$$
+
+then $$p(x) = e^{- \lambda}$$
+
+This must give $$P(X \leq 1) = 1- e^{- \lambda}$$
+
+Can anybody please tell me if I'm on the right track here?
+
+Sincerley Bob
+
+Last edited:
+
+#### HallsofIvy
+
+Bob19 said:
+Hello I'm Presented with the following Poisson distribution question
+$$P(X = x) = \frac{e^{-\lambda} \cdot \lambda^{x}}{x!}$$
+where $$x \in (1,2,3,\ldots)$$ and $$\lambda > 0$$
+Then I'm suppose to show that the above can be re-written if
+$$P(X \leq 1) = 1 - e^{- \lambda}$$
+Any idears on how I do that?
+I'm told $$\frac{e^{- \lambda} \cdot \lambda^{x}}{x!} = e^{- \lambda} \sum _{x=0} ^{\infty} \frac{\lambda ^{x}}{x!} = e^{- \lambda} e^{\lambda} = 1$$
+Then if $$\lambda ^{x} = 1$$
+No, you are not told that! Obviously
+$$\frac{e^{- \lambda} \cdot \lambda^{x}}{x!}$$
+,for specific x, is not the same as sum for all x:
+$$e^{- \lambda} \sum _{x=0} ^{\infty} \frac{\lambda ^{x}}{x!}$$
+What you are told is that the sum for all x is equal to 1: so that this is a valid probability distribution.
+Since x can only take on positive integer values, $P(x \leq 1)$ is exactly the same as $P(x= 1)$ which is
+$$\frac{e^{-\lambda}\lambda^1}{1!}= \lambda e^{-\lambda}$$
+Assuming, as you say, that that is $1- e^{-\lambda}$, then you are not told that $e^{\lambda}= 1$. You are told, rather, that $e^{\lamba}= 1+ \lambda$ so that
+P(X= x) can be written as
+$$P(X= x)= \frac{e^{-\lamba}\lamba^x}{x!}= \frac{\lamba^x}{(1+\lambda)x!}$$
+
+Last edited by a moderator:
+
+#### Bob19
+
+Hello Hall and Thank You,
+
+x = 1
+
+then $$\frac{e^{-\lamba}\lamba^1}{1!}= \frac{\lamba^1}{(1+ 1)1!} = e^{- \lambda}$$
+
+Which is then $$P(x \geq 1) = 1- e^{- \lambda}$$
+
+Am I on the right track now ?
+
+Sincerely
+Bob
+
+Last edited:
+
+#### HallsofIvy
+
+I don't know why the Latex isn't showing properly. What I was trying to say was that IF P(X<= 1)= P(X= 1)= lambda e-lambda is equal to 1- e-lambda, then multiplying both sides of the equation by elamba we have lambda= elambda- 1 or elambda= lambda + 1.
+
+Now to "rewrite" P(x)= (lambdaxe-lambda/x!, just replace that e-lambda bu 1/(lambda+ 1), getting P(x)= lambdax/(x!(lambda+ 1)).
+
+### The Physics Forums Way
+
+We Value Quality
+• Topics based on mainstream science
+• Proper English grammar and spelling
+We Value Civility
+• Positive and compassionate attitudes
+• Patience while debating
+We Value Productivity
+• Disciplined to remain on-topic
+• Recognition of own weaknesses
+• Solo and co-op problem solving</s> # All Questions
+
+2 views
+
+### Fermat's Theorem on p = a^2 + b^2
+
+I have read that Fermat predicted that for an odd prime $p$, $p = a^2 + b^2$ iff $p = 1$ mod 4. I heard that such a criterion could be possible for a given integer $n$ like $p = a^2 + n b^2$ ...
+6 views
+
+### Constructing pointwise-or independent binary matrices
+
+Let $M$ be an $m \times n$ matrix such that every $M_{ij} \in \{0,1\}$. We say that $M$ is `$\lor$-irreducible' if (i) no row is a pointwise-or of other rows, and (ii) no column is a pointwise-or of ...</s> Competitions
+
+# The Great Revegetation (Bronze)
+
+A lengthy drought has left Farmer John's n pastures devoid of grass. However, with the rainy season arriving soon, the time has come to "revegetate".
+
+In Farmer John's shed, he has four buckets, each with a different type of grass seed. He wishes to sow each pasture with one of these types of seeds. Being a dairy farmer, Farmer John wants to make sure each of his cows has a varied diet. Each of his m cows has two favourite pastures, and he wants to be sure different types of grass are planted in each, so every cow can choose between two types of grass. Farmer John knows that no pasture is a favourite of more than 3 cows.
+
+Help Farmer John choose a grass type for each pasture so that the nutritional needs of all cows are satisfied.
+
+#### Input
+
+The first line contains numbers n (2n100) and m (1m150). Each of the next m lines contains two integers in the range 1..n, describing the pair of pastures that are the two favourites for one of Farmer John's cows.
+
+#### Output
+
+Output an n-digit number, with each digit in the range 1..4, describing the grass type to be planted in each field. The first digit corresponds to the grass type for field 1, the second digit to field 2, and so on. If there are multiple valid solutions, print only the n-digit number that is smallest among all of them.
+
+Time limit 1 second
+Memory limit 128 MiB
+Input example #1
+5 6
+4 1
+4 2
+4 3
+2 5
+1 2
+1 5
+
+Output example #1
+12133
+
+Source 2019 USACO February, Bronze</s> # Math Help - improper intergals
+
+1. ## improper intergals
+
+OK so i'm having trouble with two problems.
+
+first off
+
+$\int_{0}^{2} \frac{1}{\sqrt{l x-1 l}} dx$
+
+i know to split into two limits but i don't know what to do with the square root.
+
+second
+
+$\int_{0}^{1} \frac{1}{2 \sqrt{x}} dx$
+
+this one i don't really know where to start
+
+any help would be appreciated, Thanks
+
+2. Because $|x-1|=|1-x|$ is an 'even function' respect to 1 You need only to compute the first integral between 0 and 1 and then multiply by two. So it is...
+
+$\int_{0}^{2} \frac{dx}{\sqrt{|x-1|}} = 2\cdot \int_{0}^{1} \frac{dx}{\sqrt{1-x}} = 2\cdot |-2\cdot \sqrt{1-x}|_{0}^{1} = 2\cdot 2 = 4$
+
+The second integral is similar to the first but easier...
+
+$\frac{1}{2} \int_{0}^{1}\frac {dx}{\sqrt{x}} = \frac{1}{2} \cdot |2\cdot \sqrt{x}|_{0}^{1} = \frac{1}{2}\cdot 2 = 1$
+
+Kind regards
+
+$\chi$ $\sigma$</s> ## Learning with Instance-Dependent Label Noise: A Sample Sieve Approach
+
+### Hao Cheng · Zhaowei Zhu · Xingyu Li · Yifei Gong · Xing Sun · Yang Liu
+
+Keywords: [ deep neural networks. ] [ instance-based label noise ] [ Learning with noisy labels ]
+
+[ Abstract ] [ Paper ]
+[
+
+Abstract: Human-annotated labels are often prone to noise, and the presence of such noise will degrade the performance of the resulting deep neural network (DNN) models. Much of the literature (with several recent exceptions) of learning with noisy labels focuses on the case when the label noise is independent of features. Practically, annotations errors tend to be instance-dependent and often depend on the difficulty levels of recognizing a certain task. Applying existing results from instance-independent settings would require a significant amount of estimation of noise rates. Therefore, providing theoretically rigorous solutions for learning with instance-dependent label noise remains a challenge. In this paper, we propose CORES$^{2}$ (COnfidence REgularized Sample Sieve), which progressively sieves out corrupted examples. The implementation of CORES$^{2}$ does not require specifying noise rates and yet we are able to provide theoretical guarantees of CORES$^{2}$ in filtering out the corrupted examples. This high-quality sample sieve allows us to treat clean examples and the corrupted ones separately in training a DNN solution, and such a separation is shown to be advantageous in the instance-dependent noise setting. We demonstrate the performance of CORES$^{2}$ on CIFAR10 and CIFAR100 datasets with synthetic instance-dependent label noise and Clothing1M with real-world human noise. As of independent interests, our sample sieve provides a generic machinery for anatomizing noisy datasets and provides a flexible interface for various robust training techniques to further improve the performance. Code is available at https://github.com/UCSC-REAL/cores.</s> # Factor graphs
+
+For as the sufferings of dimensions abound in us, so our consolation aboundeth through localisation.
+
+Many statistical models are naturally treated as directed Bayesian networks — for example in causal inference I might naturally think about generating processes for my work as a graphical model. Factor graphs decompose the model differently than the balls-and-arrows DAGs. Specifically, the factor graph structures the graph with regard to how we would implement method-passing inference, rather than how we would statistically interpret the model. The result is harder to interpret intuitively but easier to apply practically. Also, it is more general than a DAG; factor graphs can also be applied to undirected graphical models.
+
+There are at least two different factor graph formalisms, and I will try to explain both. The first, “classic” factor graphs, are the ones that I first encountered in the literature, and the ones that I think are most commonly used. The second, “Forney-style” factor graphs, are even less intuitive and even more practical.
+
+Loeliger’s 2004 zoo of graphical models, including two flavours of factor graphs.
+
+## Classic factor graphs
+
+A long history, but in a recognisable form these appear in . This classic version is explained lots of places, but for various reasons I needed the FFG version first.
+
+The representation that we need to “make all the inference steps easy” ends up being a bipartite graph with two types of nodes: variables and factors. Given a factorization of a function $$g\left(X_1, X_2, \ldots, X_n\right)$$, $g\left(X_1, X_2, \ldots, X_n\right)=\prod_{j=1}^m f_j\left(S_j\right)$ where $$S_j \subseteq\left\{X_1, X_2, \ldots, X_n\right\}$$, the corresponding factor graph $$G=(X, F, E)$$ consists of variable vertices $$X=\left\{X_1, X_2, \ldots, X_n\right\}$$, factor vertices $$F=\left\{f_1, f_2, \ldots, f_m\right\}$$, and edges $$E$$. The edges depend on the factorization as follows: there is an undirected edge between factor vertex $$f_j$$ and variable vertex $$X_k$$ if $$X_k \in S_j$$.
+
+Quibble: We often assume the function to be factored is a probability density function; more generally we wish to factorise measures.
+
+Once the factor graph is written out (which is a slightly weird process) computations on the graph are essentially the same for every node. By contrast, in a classic I-graph DAG there are many different rules to remember for leaf nodes and branches, for colliders and forks etc.
+
+For now, a pretty good introduction is included in Ortiz, Evans and Davison’s tutorial on Gaussian belief propagation, or Minka’s Minka (2005).
+
+## Forney-style factor graphs (FFGs)
+
+A tweaked formalism. Citations tell me this was introduce in a recondite article which I did not remotely understand because it was way too far into coding theory for me. It is explained and exploited much better for someone of my background in subsequent articles and used in several computational toolkits .
+
+Relative to classic factor graphs, H.-A. Loeliger (2004) advocates for FFGs for the following advantages
+
+• suited for hierarchical modeling (“boxes within boxes”)
+• compatible with standard block diagrams
+• simplest formulation of the summary-product message update rule
+• natural setting for Forney’s results on Fourier transforms and duality.
+
+Mao and Kschischang (2005) argues:
+
+Forney graphs possess a strikingly elegant duality property: by a local dualization operation, a Forney graph for a linear code may be transformed into another graph, called the dual Forney graph, which represents the dual code
+
+The explanation in Cox, van de Laar, and de Vries (2019) gives the flavour of how Forney-style graphs work:
+
+Figure 1 from Cox, van de Laar, and de Vries (2019): In an FFG, edges correspond to variables and nodes represent factors that encode constraints among variables. A node connects to all edges that correspond to variables that occur in its factor function. For example, node $$f_{b}$$ connects to edges $$x_{1}$$ and $$x_{2}$$ since those variables occur in $$f_{b}\left(x_{1}, x_{2}\right)$$. Variables that occur in just one factor $$\left(x_{3}\right.$$ and $$x_{5}$$ in this case) are represented by half-edges. While an FFG is principally an undirected graph, we usually specify a direction for the (half-)edges to indicate the generative direction of the model and to anchor the direction of messages flowing on the graph.
+
+A Forney-style factor graph (FFG) offers a graphical representation of a factorized probabilistic model. In an FFG, edges represent variables and nodes specify relations between variables. As a simple example, consider a generative model (joint probability distribution) over variables $$x_{1}, \ldots, x_{5}$$ that factors as $f\left(x_{1}, \ldots, x_{5}\right)=f_{a}\left(x_{1}\right) f_{b}\left(x_{1}, x_{2}\right) f_{c}\left(x_{2}, x_{3}, x_{4}\right) f_{d}\left(x_{4}, x_{5}\right),$ where $$f_{\bullet}(\cdot)$$ denotes a probability density function. This factorized model can be represented graphically as an FFG, as shown in Fig. 1. Note that although an FFG is principally an undirected graph, in the case of generative models we specify a direction for the edges to indicate the “generative direction”. The edge direction simply anchors the direction of messages flowing on the graph (we speak of forward and backward messages that flow with or against the edge direction, respectively). In other words, the edge directionality is purely a notational issue and has no computational consequences.…
+
+Figure 2 from Cox, van de Laar, and de Vries (2019): Visualization of the message passing schedule corresponding with observed variable $$x_{5}=\hat{x}_{5}$$. The observation is indicated by terminating edge $$x_{5}$$ by a small solid node that technically represents the factor $$\delta\left(x_{5}-\hat{x}_{5}\right) .$$ Messages are represented by numbered arrows, and the message sequence is chosen such that there are only backward dependencies. Dashed boxes mark the parts of the graph that are covered by the respective messages coming out of those boxes. The marginal posterior distribution $$f\left(x_{2} \mid x_{5}=\hat{x}_{5}\right)$$ is obtained by taking the product of the messages that flow on edge $$x_{2}$$ and normalizing.
+
+The FFG representation of a probabilistic model helps to automate probabilistic inference tasks. As an example, consider we observe $$x_{5}=\hat{x}_{5}$$ and are interested in calculating the marginal posterior probability distribution of $$x_{2}$$ given this observation.
+
+In the FFG context, observing the realization of a variable leads to the introduction of an extra factor in the model which “clamps” the variable to its observed value. In our example where $$x_{5}$$ is observed at value $$\hat{x}_{5}$$, we extend the generative model to $$f\left(x_{1}, \ldots, x_{5}\right) \cdot \delta\left(x_{5}-\hat{x}_{5}\right).$$ Following the notation introduced in Reller (2013), we denote such “clamping” factors in the FFG by solid black nodes. The FFG of the extended model is illustrated in Fig. 2
+
+Clamping ends up being important in FFGs. Another place clamping arises is that, since a variable can only appear in two factors, if we want a variable to appear in more than two, we add extra factors in, each of which constrains the variables touching it to be equal to one another. This seems weird; but it seems to be what we would do in a classic factor graph anyway, in the sense that we would add an extra message passing step in for each extra factor, so this is not actually crazy.
+
+Computing the marginal posterior distribution of $$x_{2}$$ under the observation $$x_{5}=\hat{x}_{5}$$ involves integrating the extended model over all variables except $$x_{2},$$ and renormalizing: $f\left(x_{2} \mid x_{5}=\hat{x}_{5}\right) \propto \int \ldots \int f\left(x_{1}, \ldots, x_{5}\right) \cdot \delta\left(x_{5}-\hat{x}_{5}\right) \mathrm{d} x_{1} \mathrm{~d} x_{3} \mathrm{~d} x_{4} \mathrm{~d} x_{5}$ $=\overbrace{\int \underbrace{f_{a}\left(x_{1}\right)}_{1} f_{b}\left(x_{1}, x_{2}\right) \mathrm{d} x_{1}}^{2} \overbrace{\iint f_{c}\left(x_{2}, x_{3}, x_{4}\right) \underbrace{\left(\int f_{d}\left(x_{4}, x_{5}\right) \cdot \delta\left(x_{5}-\hat{x}_{5}\right) \mathrm{d} x_{5}\right)}_{3} \mathrm{~d} x_{3} \mathrm{~d} x_{4}}^{(4)} .$ The nested integrals result from substituting the [original] factorization and rearranging the integrals according to the distributive law. Rearranging large integrals of this type as a product of nested sub-integrals can be automated by exploiting the FFG representation of the corresponding model. The sub-integrals indicated by circled numbers correspond to integrals over parts of the model (indicated by dashed boxes in Fig. 2), and their solutions can be interpreted as messages flowing on the FFG. Therefore, this procedure is known as message passing (or summary propagation). The messages are ordered (“scheduled”) in such a way that there are only backward dependencies, i.e., each message can be calculated from preceding messages in the schedule. Crucially, these schedules can be generated automatically, for example by performing a depth-first search on the FFG.
+
+What local means here might not be intuitive. What we mean is that, in this high dimensional integral, only some dimensions are involved in each sub-step, thanks to the multiplicative factorisation of the overall function. This is nothing to do with locality over the extent of the functions.
+
+## Generic messages
+
+Question: These introductory texts discuss sum-product message passing, which is essentially about solving integrals. It might seem like I want to pass some other kind of update, e.g. maximum likelihood? Does this factor graph still help us? Yes, but I am not sure how wide is the class of things for which this holds true. TBD
+
+## Fourier transforms in
+
+What does it benefit to take a fourier transform of a graph?
+
+## In Bayesian brain models
+
+See de Vries and Friston (2017) and van de Laar et al. (2018) for a connection to predictive coding.
+
+## Causal inference in
+
+How does do-calculus work in factor graphs?
+
+## References
+
+Abbeel, Pieter, Daphne Koller, and Andrew Y. Ng. 2006. Journal of Machine Learning Research 7 (December): 1743–88.
+Akbayrak, Semih, Ivan Bocharov, and Bert de Vries. 2021. Entropy 23 (7): 815.
+Bickson, Danny. 2009. PhD.
+Cox, Marco, and Bert De Vries. 2018. In 2018 26th European Signal Processing Conference (EUSIPCO), 2583–87. Rome: IEEE.
+Cox, Marco, Thijs van de Laar, and Bert de Vries. 2019. International Journal of Approximate Reasoning 104 (January): 185–204.
+Dauwels, Justin. 2007. In 2007 IEEE International Symposium on Information Theory, 2546–50. Nice: IEEE.
+Dellaert, Frank, and Michael Kaess. 2017. Foundations and Trends® in Robotics 6 (1-2): 1–139.
+El-Kurdi, Yousef Malek. 2014. “Parallel Finite Element Processing Using Gaussian Belief Propagation Inference on Probabilistic Graphical Models.” PhD Thesis, McGill University.
+Forney, G.D. 2001. IEEE Transactions on Information Theory 47 (2): 520–48.
+Frey, Brendan J. 2003. In Proceedings of the Nineteenth Conference on Uncertainty in Artificial Intelligence, 257–64. UAI’03. San Francisco, CA, USA: Morgan Kaufmann Publishers Inc.
+Frey, Brendan J., Frank R. Kschischang, Hans-Andrea Loeliger, and Niclas Wiberg. 1997. “Factor Graphs and Algorithms.” In Proceedings of the Annual Allerton Conference on Communication Control and Computing, 35:666–80. Citeseer.
+Korl, Sascha. 2005. Application/pdf. Konstanz: ETH Zurich.
+Kschischang, Frank R, Brendan J Frey, and Hans-Andrea Loeliger. 2001. IEEE Transactions on Information Theory 47 (2): 498–519.
+Laar, Thijs van de, Marco Cox, Ismail Senoz, Ivan Bocharov, and Bert de Vries. 2018. In Conference on Complex Systems, 3.
+Loeliger, H.-A. 2004. IEEE Signal Processing Magazine 21 (1): 28–41.
+Loeliger, Hans-Andrea, Justin Dauwels, Junli Hu, Sascha Korl, Li Ping, and Frank R. Kschischang. 2007. Proceedings of the IEEE 95 (6): 1295–1322.
+Mao, Yongyi, and F.R. Kschischang. 2005. IEEE Transactions on Information Theory 51 (5): 1635–49.
+Mao, Yongyi, Frank R. Kschischang, and Brendan J. Frey. 2004. In Proceedings of the 20th Conference on Uncertainty in Artificial Intelligence, 374–81. UAI ’04. Arlington, Virginia, United States: AUAI Press.
+Minka, Tom P. 2005. Technical report, Microsoft Research.
+Reller, Christoph. 2013. Application/pdf. Konstanz: ETH Zurich.
+Vries, Bert de, and Karl J. Friston. 2017. Frontiers in Computational Neuroscience 11.
+Zhang, Zhen, Fan Wu, and Wee Sun Lee. n.d. “Factor Graph Neural Network,” 11.
+
+### No comments yet. Why not leave one?
+
+GitHub-flavored Markdown & a sane subset of HTML is supported.</s> Tag Info
+
+The R code is correct. You could also use the I() operator. You can look here on page 53. The code then would be lm(stock~market+I(market^2)+I(market^3), data=example) EDIT: going more into detail: Doing the above you define regressors $market^2$ and $market^3$. The coefficients will be calculated the usual way (covariance of response with the regressors ...</s> # Reading a context free grammar in c++?
+
+This topic is 2811 days old which is more than the 365 day threshold we allow for new replies. Please post a new topic.
+
+## Recommended Posts
+
+Hi, In c++, I'm reading language like data from text files, and I've decided to use a context free grammar to interpret the data to avoid doing a lot of ifs/elseifs code. I've implemented context free grammars before, using Scala, where the functional and pattern matching aspects made it really easy to do. But I'm at a loss at how to go about it in an imperative language like c++. Has anyone any experience in this? Thanks.
+
+##### Share on other sites
+Sure! ANTLR is a good solution. I'd advise steering clear of boost.spirit, which is too clever by half and too wordy by about 20x.
+
+##### Share on other sites
+Generally, you use a lexer and parser generator to create C or C++ code that you call from your own code. Use your favorite search engine with the terms "C++ parser generator" and "C++ lexer" to find tools.
+
+##### Share on other sites
+Quote:
+ Original post by SiCraneGenerally, you use a lexer and parser generator to create C or C++ code that you call from your own code. Use your favorite search engine with the terms "C++ parser generator" and "C++ lexer" to find tools.
+
+Oh okay, so it's not as simple as getting a library to do the lexical and syntactical analysis on it and then build a kind of 'source program tree' for me.
+
+Quote:
+ Original post by SneftelSure! ANTLR is a good solution. I'd advise steering clear of boost.spirit, which is too clever by half and too wordy by about 20x.
+
+So this seems to be an example of what SiCrane was talking about.
+
+I keep away from boost for now.
+
+Thanks!
+
+##### Share on other sites
+Actually, it would be really useful to have a library to which you give a grammar and a piece of text and it returns a tree. Of course, not knowing the grammar at compile time probably means that it won't be as fast as more traditional solutions, but I am sure there are many applications for which the speed would still be acceptable.
+
+I wonder how hard it would be to implement... Does anyone want to work with me in writing one?
+
+##### Share on other sites
+If your grammar isn't too large, boost::spirit is an option. I mean it's an option if your grammar is large as well, but in that case I don't recommend it.
+
+##### Share on other sites
+There's also boost::xpressive which lets you define grammars using recursive regular (but not) expressions.
+
+##### Share on other sites
+Quote:
+ Original post by alvaroActually, it would be really useful to have a library to which you give a grammar and a piece of text and it returns a tree. Of course, not knowing the grammar at compile time probably means that it won't be as fast as more traditional solutions, but I am sure there are many applications for which the speed would still be acceptable.I wonder how hard it would be to implement... Does anyone want to work with me in writing one?
+
+I wish this existed, would be useful for small things.
+
+It would be hard to do on top of spirit: easy to define a grammar for the grammar specification but then to dynamically generate spirit objects for the target parser from the AST would be hard to do. Spirit.classic used to have "dynamic parsers" which might be the right thing but I think they've been deprecated and I'm not sure it would fit this use case anyway.
+
+##### Share on other sites
+Quote:
+ Original post by alvaroActually, it would be really useful to have a library to which you give a grammar and a piece of text and it returns a tree.
+I'm not sure what that would be useful for. With no semantic backend, you wouldn't be able to go any further than the tree. Nevertheless, you can certainly do it.. just pass the output of yacc to tcc.
+
+##### Share on other sites
+Quote:
+Original post by jwezorek
+Quote:
+ Original post by alvaroActually, it would be really useful to have a library to which you give a grammar and a piece of text and it returns a tree. Of course, not knowing the grammar at compile time ...
+I wish this existed, would be useful for small things.
+Assuming I'm reading you correctly, then this is exactly what boost::xpressive does [smile]. Expressions can be mostly just regex-style strings, so grammars can be combined at run-time; then the result of a match can be returned as an iterable hierarchy of match groups. Don't think that you're limited to regular grammars though, expressions are allowed to be recursive so it's pretty simple to construct context-free grammars too.
+
+##### Share on other sites
+Quote:
+Original post by Sneftel
+Quote:
+ Original post by alvaroActually, it would be really useful to have a library to which you give a grammar and a piece of text and it returns a tree.
+I'm not sure what that would be useful for. With no semantic backend, you wouldn't be able to go any further than the tree. Nevertheless, you can certainly do it.. just pass the output of yacc to tcc.
+
+It could be templated on a factory and a treenode type. You pass it a factory so that it generates tree nodes with whatever semantics you want.
+
+##### Share on other sites
+I've used Lex and Yacc for this sort of thing before, but that's C only. The extremely similar C++ equivalents are Flex and Bison.
+
+##### Share on other sites
+Quote:
+ Original post by MalevolenceI've used Lex and Yacc for this sort of thing before, but that's C only. The extremely similar C++ equivalents are Flex and Bison.
+
+Actually, both flex and bison output C code (though I think bison can also do C++). The difference between lex and flex, and between yacc and bison, is that the former are POSIX standards for behavior (based on early actual implementations), whereas the latter are modern implementations of the standard (plus some add-on behavior).
+
+##### Share on other sites
+Flex will also output C++ code if you use the -+ command line option or "%option c++".
+
+##### Share on other sites
+Quote:
+ Original post by dmatterDon't think that you're limited to regular grammars though, expressions are allowed to be recursive so it's pretty simple to construct context-free grammars too.
+
+I didn't know this.
+
+Xpressive lets you create an expression that includes itself as a sub-expression? Or a grammar of n mutually recursive expressions?
+
+##### Share on other sites
+Quote:
+ Original post by jwezorekI didn't know this.Xpressive lets you create an expression that includes itself as a sub-expression? Or a grammar of n mutually recursive expressions?
+Certainly.
+It's essentially a hybrid between boost::spirit and boost::regex. You can build spirit-style static grammars with it, then mix and match those with the dynamic regex-style expressions. By embedding expressions in one another by-reference they can be made to be recursive, they give the classic example in the docs of matching nested brackets.
+
+##### Share on other sites
+Quote:
+ Original post by dmatterCertainly.If I remember correctly it's built on top of boost::spirit. You can definitely build spirit-style static grammars with it too, then mix and match dynamic and static expressions together into a complete grammar.
+
+Oh, if it's on top of spirit then it's going to have spirit's big problem: crazy compile times. That's what I was trying to get around.
+
+I guess what I want is something like spirit but that is a less extreme example of template metaprogramming.
+
+Like just have a banal polymorphic hierarchy of parser objects where each parser object has semantics like "parse a disjunction" or "parse a sequence". Have the whole thing templated on a pointer to an output tree node type. Have the output of each parser object be a pointer to the tree node type but have each parser object take a boost::function for creating the output tree node from the composition of the output from the parser object's child parsers. So for example, to instantiate a sequence parser object you'd need to supply it with a function that takes a vector of pointers to tree nodes and returns a new tree node pointer.
+
+##### Share on other sites
+I might get on board with a simpler Spirit type library. But I bet that at the beginning, Spirit was meant to be a simple, clean little library too, but to do the kind of stuff it does is just flat-out complicated. You'd have to have a rather cut-down feature list.
+
+Of course, the other benefit of that would be that it would be easier to use. None of this typedefing three levels of iterators, scanners and rules. Just the basics.
+
+Or maybe there should just be a simpler way of writing of plain recursive-descent grammars functional style. A couple support functions for pattern matching and tree generation, and let the user do the rest. Or we could combine them. Crap, idea overload...
+
+##### Share on other sites
+Quote:
+ Original post by theOcelotI might get on board with a simpler Spirit type library. But I bet that at the beginning, Spirit was meant to be a simple, clean little library too, but to do the kind of stuff it does is just flat-out complicated. You'd have to have a rather cut-down feature list.
+
+Yes, you're right ... In the sketch of a parser library that I tried to explain above, I am cutting down features. Namely, I'm saying that the output of each parser object -- where by "parser object" I mean the things that you compose together to construct your target grammar -- has to be a dynamically allocated instantiation of a class that derives from a base class that all of the parser objects take as a template parameter. You would be given a class hierarchy of parser object templates, would construct your grammar by composing instantiations of them, would provide a class hierarchy of output tree
