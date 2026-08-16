@@ -12,9 +12,7 @@ from pathlib import Path
 from typing import List
 
 import numpy as np
-import torch
 from transformers import AutoTokenizer
-from tqdm import tqdm
 
 
 def sample_and_decode(
@@ -57,6 +55,7 @@ def sample_and_decode(
         return []
 
     output_files = []
+    all_metrics = []
 
     for i in range(num_samples):
         # Choose random start point
@@ -77,6 +76,21 @@ def sample_and_decode(
             print(f"⚠️  Error decoding sample {i+1}: {e}")
             continue
 
+        # Spot-check metrics
+        eos_count = sum(1 for t in token_ids if t == tokenizer.eos_token_id)
+        unk_count = sum(1 for t in token_ids if t == tokenizer.unk_token_id)
+        oov_count = sum(1 for t in token_ids if t >= tokenizer.vocab_size)
+        replacement_chars = text.count('�')
+        chars_per_token = len(text) / len(token_ids)
+        metrics = {
+            'eos': eos_count,
+            'unk': unk_count,
+            'oov': oov_count,
+            'replacement_chars': replacement_chars,
+            'chars_per_token': chars_per_token,
+        }
+        all_metrics.append(metrics)
+
         # Create output filename
         dataset_name = bin_file.stem.replace('_train', '').replace('_val', '')
         split = 'train' if '_train' in bin_file.stem else 'val'
@@ -91,6 +105,11 @@ def sample_and_decode(
             f.write(f"# End token index: {end_idx:,}\n")
             f.write(f"# Number of tokens: {tokens_per_sample:,}\n")
             f.write(f"# Number of characters: {len(text):,}\n")
+            f.write(f"# Chars per token: {chars_per_token:.2f}\n")
+            f.write(f"# EOS tokens (doc boundaries): {eos_count}\n")
+            f.write(f"# UNK tokens: {unk_count}\n")
+            f.write(f"# Token ids >= vocab_size: {oov_count}\n")
+            f.write(f"# U+FFFD replacement chars: {replacement_chars}\n")
             f.write(f"{'='*60}\n\n")
             f.write(text)
 
@@ -101,6 +120,15 @@ def sample_and_decode(
             preview = text[:200].replace('\n', '\\n')
             print(f"\nSample 1 preview (first 200 chars):")
             print(f"  {preview}...")
+
+    if all_metrics:
+        n = len(all_metrics)
+        print(f"\n  Metrics (mean over {n} samples):")
+        print(f"    chars/token:        {sum(m['chars_per_token'] for m in all_metrics)/n:.2f}")
+        print(f"    EOS per 10K tokens: {sum(m['eos'] for m in all_metrics)/n:.1f}")
+        print(f"    UNK total:          {sum(m['unk'] for m in all_metrics)}")
+        print(f"    ids >= vocab_size:  {sum(m['oov'] for m in all_metrics)}")
+        print(f"    U+FFFD chars:       {sum(m['replacement_chars'] for m in all_metrics)}")
 
     print(f"\n✓ Generated {len(output_files)} samples")
     print(f"  Output directory: {output_dir}")
@@ -148,6 +176,12 @@ def main():
         help='Specific datasets to inspect (default: all)'
     )
     parser.add_argument(
+        '--split',
+        choices=['train', 'val', 'all'],
+        default='all',
+        help='Which splits to sample (default: all)'
+    )
+    parser.add_argument(
         '--seed',
         type=int,
         default=42,
@@ -178,12 +212,21 @@ def main():
     print(f"✓ Tokenizer loaded (vocab size: {tokenizer.vocab_size:,})")
 
     # Find all .bin files
+    if args.split == 'all':
+        patterns = ['_train', '_val']
+    else:
+        patterns = [f'_{args.split}']
+
     if args.datasets:
         bin_files = []
         for dataset in args.datasets:
-            bin_files.extend(list(input_dir.glob(f"{dataset}_*.bin")))
+            for p in patterns:
+                bin_files.extend(sorted(input_dir.glob(f"{dataset}{p}.bin")))
     else:
-        bin_files = sorted(input_dir.glob("*_train.bin"))
+        bin_files = []
+        for p in patterns:
+            bin_files.extend(sorted(input_dir.glob(f"*{p}.bin")))
+        bin_files.sort(key=lambda f: f.name)
 
     if not bin_files:
         print(f"\n✗ No .bin files found in {input_dir}")

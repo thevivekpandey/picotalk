@@ -7,7 +7,7 @@ Loads tokenized .bin files using memory-mapped arrays for efficiency.
 import numpy as np
 import torch
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 
 class TokenDataset:
@@ -34,9 +34,16 @@ class TokenDataset:
             self.cumulative_lengths.append(total_tokens)
 
         self.total_tokens = total_tokens
+        self.file_lengths = np.array([len(f) for f in self.data_files], dtype=np.int64)
         print(f"Loaded {len(bin_files)} files, {total_tokens:,} total tokens")
 
-    def get_batch(self, batch_size: int, block_size: int, device: str = 'cuda') -> Tuple[torch.Tensor, torch.Tensor]:
+    def get_batch(
+        self,
+        batch_size: int,
+        block_size: int,
+        device: str = 'cuda',
+        generator: Optional[torch.Generator] = None,
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
         """
         Get a random batch of data.
 
@@ -44,28 +51,38 @@ class TokenDataset:
             batch_size: number of sequences
             block_size: sequence length
             device: device to place tensors on
+            generator: optional RNG; pass one seeded per (rank, step) to make
+                the data stream reproducible and resumable
 
         Returns:
             x: (batch_size, block_size) input tokens
             y: (batch_size, block_size) target tokens
         """
-        # Sample random starting positions
-        ix = torch.randint(self.total_tokens - block_size, (batch_size,))
+        # A window needs block_size + 1 tokens (inputs plus the targets shifted
+        # by one), so per file the valid starts are 0 .. len - block_size - 1.
+        # Sampling within a file (rather than over the concatenated stream)
+        # keeps windows from straddling a file boundary and yielding short
+        # sequences, which would fail the torch.stack below.
+        valid_starts = np.maximum(self.file_lengths - block_size, 0)
+        total_valid = int(valid_starts.sum())
+
+        if total_valid == 0:
+            raise ValueError(
+                f"No file is long enough for block_size={block_size} "
+                f"(longest is {int(self.file_lengths.max()):,} tokens)"
+            )
+
+        # Weight each file by its valid-start count, so every window in the
+        # dataset remains equally likely.
+        cum_valid = np.cumsum(valid_starts)
+        offsets = torch.randint(total_valid, (batch_size,), generator=generator).numpy()
+        file_indices = np.searchsorted(cum_valid, offsets, side='right')
+        local_indices = offsets - (cum_valid[file_indices] - valid_starts[file_indices])
 
         x_list = []
         y_list = []
 
-        for i in ix:
-            # Find which file this index belongs to
-            file_idx = 0
-            for j, cum_len in enumerate(self.cumulative_lengths[1:]):
-                if i < cum_len:
-                    file_idx = j
-                    break
-
-            # Get local index within that file
-            local_idx = i - self.cumulative_lengths[file_idx]
-
+        for file_idx, local_idx in zip(file_indices, local_indices):
             # Extract sequence
             data_file = self.data_files[file_idx]
             x_seq = torch.from_numpy(data_file[local_idx:local_idx + block_size].astype(np.int64))

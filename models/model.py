@@ -9,7 +9,6 @@ Features:
 - No bias terms
 """
 
-import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -117,7 +116,6 @@ class Attention(nn.Module):
         self,
         x: torch.Tensor,
         freqs_cis: torch.Tensor,
-        mask: Optional[torch.Tensor] = None,
     ) -> torch.Tensor:
         batch, seqlen, _ = x.shape
 
@@ -138,20 +136,13 @@ class Attention(nn.Module):
         xk = xk.transpose(1, 2)
         xv = xv.transpose(1, 2)
 
-        # Attention scores
-        scores = torch.matmul(xq, xk.transpose(2, 3)) / math.sqrt(self.head_dim)
-
-        # Apply causal mask
-        if mask is not None:
-            scores = scores + mask
-
-        # Softmax and dropout
-        attn = F.softmax(scores.float(), dim=-1).type_as(xq)
-        if self.dropout > 0:
-            attn = F.dropout(attn, p=self.dropout, training=self.training)
-
-        # Combine with values
-        output = torch.matmul(attn, xv)  # (batch, n_head, seqlen, head_dim)
+        # Fused causal attention: never materializes the (batch, n_head, seqlen,
+        # seqlen) score matrix, so memory is O(seqlen) instead of O(seqlen^2).
+        output = F.scaled_dot_product_attention(
+            xq, xk, xv,
+            dropout_p=self.dropout if self.training else 0.0,
+            is_causal=True,
+        )  # (batch, n_head, seqlen, head_dim)
 
         # Reshape and project out
         output = output.transpose(1, 2).contiguous().view(batch, seqlen, -1)
@@ -196,10 +187,9 @@ class TransformerBlock(nn.Module):
         self,
         x: torch.Tensor,
         freqs_cis: torch.Tensor,
-        mask: Optional[torch.Tensor] = None,
     ) -> torch.Tensor:
         # Pre-norm attention with residual
-        h = x + self.attention(self.attention_norm(x), freqs_cis, mask)
+        h = x + self.attention(self.attention_norm(x), freqs_cis)
 
         # Pre-norm FFN with residual
         out = h + self.feed_forward(self.ffn_norm(h))
@@ -229,11 +219,18 @@ class Transformer(nn.Module):
         # Weight tying (share embeddings with output)
         self.output.weight = self.tok_embeddings.weight
 
-        # Precompute RoPE frequencies
-        self.freqs_cis = precompute_freqs_cis(
-            config.n_embd // config.n_head,
-            config.block_size,
-            config.rope_theta,
+        # Precompute RoPE frequencies. Registered as a non-persistent buffer so
+        # it follows the model onto the GPU (no per-forward host copy, which
+        # would force a graph break under torch.compile) while staying out of
+        # the checkpoint, since it is derived from the config.
+        self.register_buffer(
+            'freqs_cis',
+            precompute_freqs_cis(
+                config.n_embd // config.n_head,
+                config.block_size,
+                config.rope_theta,
+            ),
+            persistent=False,
         )
 
         # Initialize weights
@@ -263,22 +260,17 @@ class Transformer(nn.Module):
             loss: scalar loss if targets provided, else None
         """
         batch, seqlen = tokens.shape
-        device = tokens.device
 
         # Token embeddings
         h = self.tok_embeddings(tokens)
 
-        # Move freqs_cis to device
-        freqs_cis = self.freqs_cis[:seqlen].to(device)
+        freqs_cis = self.freqs_cis[:seqlen]
 
-        # Create causal mask
-        mask = torch.full((seqlen, seqlen), float("-inf"), device=device)
-        mask = torch.triu(mask, diagonal=1)
-        mask = mask[None, None, :, :]  # (1, 1, seqlen, seqlen)
+        # Causal masking is applied inside scaled_dot_product_attention.
 
         # Transformer blocks
         for layer in self.layers:
-            h = layer(h, freqs_cis, mask)
+            h = layer(h, freqs_cis)
 
         # Final norm and output projection
         h = self.norm(h)

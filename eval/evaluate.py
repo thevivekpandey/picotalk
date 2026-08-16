@@ -26,6 +26,17 @@ from models.model import Transformer
 from transformers import AutoTokenizer
 
 
+# Simple real-world prompts used for qualitative spot checks, both here and
+# during training (see train/train.py --sample-*).
+DEFAULT_PROMPTS = [
+    "Once upon a time",
+    "The meaning of life is",
+    "In Python, you can",
+    "The theory of relativity states that",
+    "def fibonacci(n):",
+]
+
+
 class Evaluator:
     """Model evaluation class."""
 
@@ -221,14 +232,7 @@ def main():
             with open(args.prompts, 'r') as f:
                 prompts = [line.strip() for line in f if line.strip()]
         else:
-            # Default prompts
-            prompts = [
-                "Once upon a time",
-                "The meaning of life is",
-                "In Python, you can",
-                "The theory of relativity states that",
-                "def fibonacci(n):",
-            ]
+            prompts = list(DEFAULT_PROMPTS)
 
         print("\nGenerating text samples:\n")
         for i, prompt in enumerate(prompts, 1):
