@@ -1,0 +1,47 @@
+# Picotalk 1B final pretraining run -- 4 x H100, ~250 GPU-hours (~60h wall-clock)
+#
+#   tokens/step = batch(8) x accum(16) x gpus(4) x block(2048) = 1,048,576
+#   45,000 steps                                               = 47.2B tokens
+#
+# Verify the header prints "Tokens/step: 1,048,576" and "Total token budget: 47.19B"
+# before letting it run. First step pauses 1-2 min while torch.compile runs.
+#
+# CRASH FIX (2026-08-16): the first attempt died at step ~265 from SIGHUP when the
+# SSH session dropped. `nohup` alone does NOT protect torchrun -- the elastic agent
+# re-registers its own SIGHUP handler over nohup's SIG_IGN. Two defences below:
+#   1. setsid          -- new session, no controlling terminal, so no SIGHUP is ever sent
+#   2. TORCHELASTIC_SIGNALS_TO_HANDLE -- SIGHUP dropped from torchrun's handler list
+# Neither protects against the instance itself being terminated (that sends SIGTERM).
+#
+# Checkpoints are ~12.1 GB each (4.05 GB fp32 weights + 8.1 GB Adam m/v) and are
+# never pruned automatically. save-interval 1000 -> 45 snapshots -> ~545 GB, which
+# does NOT fit in the 457 GB free. Delete old step_*.pt by hand as you go; at
+# ~750 steps/hr you get a snapshot every ~80 min and fill the disk around step
+# 36,000 (~48h in). Prune before then or the run dies late with ENOSPC.
+
+mkdir -p checkpoints/run_1b && \
+TORCHELASTIC_SIGNALS_TO_HANDLE=SIGTERM,SIGINT,SIGQUIT \
+PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
+setsid nohup torchrun --nproc_per_node=4 train/train.py \
+  --model 1b \
+  --ddp \
+  --batch-size 8 \
+  --grad-accum-steps 16 \
+  --max-steps 45000 \
+  --learning-rate 3e-4 \
+  --min-lr 3e-5 \
+  --warmup-steps 1000 \
+  --weight-decay 0.1 \
+  --grad-clip 1.0 \
+  --log-interval 20 \
+  --eval-interval 1000 \
+  --eval-steps 20 \
+  --save-interval 1000 \
+  --checkpoint-dir ./checkpoints/run_1b \
+  --wandb --wandb-project picotalk --run-name picotalk-1b-4xh100 \
+  > nohup_1b.out 2>&1 < /dev/null &
+
+# To resume after an interruption, add:
+#   --resume ./checkpoints/run_1b/step_<N>.pt
+# Optimizer, scaler, step, tokens_seen and best_val_loss are all restored, and the
+# data stream is a pure function of the step, so resume continues where it left off.

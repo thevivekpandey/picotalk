@@ -337,7 +337,7 @@ class Trainer:
             table = wandb.Table(columns=['step', 'prompt', 'completion'])
             for prompt, completion in rows:
                 table.add_data(self.step, prompt, completion)
-            wandb.log({'samples': table, 'step': self.step})
+            wandb.log({'samples': table}, step=self.step)
 
     def save_checkpoint(self, path: Path):
         """Save training checkpoint."""
@@ -445,13 +445,15 @@ class Trainer:
 
                 if self.use_wandb:
                     import wandb
+                    # step= pins wandb's internal counter to the optimizer step, so
+                    # the default x-axis is the real step and the eval/sample logs
+                    # below merge into this step's row instead of advancing it.
                     wandb.log({
                         'train/loss': loss,
                         'train/lr': lr,
                         'train/tokens_per_sec': tokens_per_sec,
                         'train/tokens_seen': self.tokens_seen,
-                        'step': self.step,
-                    })
+                    }, step=self.step)
 
                 start_time = time.time()
 
@@ -467,8 +469,7 @@ class Trainer:
                     wandb.log({
                         'val/loss': val_loss,
                         'val/perplexity': val_ppl,
-                        'step': self.step,
-                    })
+                    }, step=self.step)
 
                 self.log_samples()
 
