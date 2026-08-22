@@ -3,6 +3,8 @@ data/raw/*
 data/tokenized/*
 data/processed/*
 data/cache/*
+data/sft_raw/*
+data/sft_tokenized/*
 
 # Checkpoints and model weights
 checkpoints/
