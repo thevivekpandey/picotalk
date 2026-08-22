@@ -26,7 +26,7 @@ Two stages:
         meta.json              stats and provenance
 
 Usage:
-    # Full mix (~75K tokenized examples, the default)
+    # Full mix (~205K tokenized examples, the default)
     python3 data/prepare_sft_data.py
 
     # Quick local smoke test (still downloads the full raw datasets once)
@@ -97,7 +97,9 @@ def convert_slimorca(example):
     return _from_sharegpt(example["conversations"])
 
 
-def convert_tulu(example):
+def convert_messages(example):
+    """OpenAI-style: {"messages": [{"role": ..., "content": ...}, ...]}
+    Used by tulu, smoltalk, ultrachat, no_robots."""
     messages = []
     for msg in example["messages"]:
         role = msg.get("role")
@@ -106,6 +108,30 @@ def convert_tulu(example):
             return None
         messages.append({"role": role, "content": content})
     return messages
+
+
+def convert_magpie(example):
+    return _from_sharegpt(example["conversations"])
+
+
+def convert_capybara(example):
+    """Capybara: {"conversation": [{"input": ..., "output": ...}, ...]}"""
+    messages = []
+    for turn in example["conversation"]:
+        user = (turn.get("input") or "").strip()
+        assistant = (turn.get("output") or "").strip()
+        if not user or not assistant:
+            return None
+        messages.append({"role": "user", "content": user})
+        messages.append({"role": "assistant", "content": assistant})
+    return messages
+
+
+def convert_numinamath(example):
+    return [
+        {"role": "user", "content": example["problem"]},
+        {"role": "assistant", "content": example["solution"]},
+    ]
 
 
 def convert_metamath(example):
@@ -129,14 +155,27 @@ def convert_orca_math(example):
     ]
 
 
-# name -> (hf_repo, converter, default_count)
+# name -> (hf_repo, hf_config, split, converter, default_count)
 DATASETS = {
-    "openhermes": ("teknium/OpenHermes-2.5", convert_openhermes, 15_000),
-    "slimorca": ("Open-Orca/SlimOrca", convert_slimorca, 20_000),
-    "tulu": ("allenai/tulu-v2-sft-mixture", convert_tulu, 15_000),
-    "magicoder": ("ise-uiuc/Magicoder-OSS-Instruct-75K", convert_magicoder, 10_000),
-    "metamath": ("meta-math/MetaMathQA", convert_metamath, 10_000),
-    "orca_math": ("microsoft/orca-math-word-problems-200k", convert_orca_math, 5_000),
+    "openhermes": ("teknium/OpenHermes-2.5", None, "train", convert_openhermes, 15_000),
+    "slimorca": ("Open-Orca/SlimOrca", None, "train", convert_slimorca, 20_000),
+    "tulu": ("allenai/tulu-v2-sft-mixture", None, "train", convert_messages, 15_000),
+    "magicoder": ("ise-uiuc/Magicoder-OSS-Instruct-75K", None, "train", convert_magicoder, 10_000),
+    "metamath": ("meta-math/MetaMathQA", None, "train", convert_metamath, 10_000),
+    "orca_math": ("microsoft/orca-math-word-problems-200k", None, "train", convert_orca_math, 5_000),
+    # SmolLM2's SFT mix -- ablated specifically for 1-2B models; includes
+    # Magpie-Ultra, instruction-following, rewriting/summarization subsets
+    "smoltalk": ("HuggingFaceTB/smoltalk", "all", "train", convert_messages, 50_000),
+    # Magpie self-synthesized from Llama-3-70B, quality-filtered
+    "magpie": ("Magpie-Align/Magpie-Pro-300K-Filtered", None, "train", convert_magpie, 25_000),
+    # Multi-turn dialogue (Zephyr's SFT data)
+    "ultrachat": ("HuggingFaceH4/ultrachat_200k", None, "train_sft", convert_messages, 15_000),
+    # Human-written by professional annotators; small but highest quality
+    "no_robots": ("HuggingFaceH4/no_robots", None, "train", convert_messages, 10_000),
+    # Multi-turn, reasoning-dense conversations
+    "capybara": ("LDJnr/Capybara", None, "train", convert_capybara, 15_000),
+    # Competition-level math CoT (harder than metamath/orca_math)
+    "numinamath": ("AI-MO/NuminaMath-CoT", None, "train", convert_numinamath, 15_000),
 }
 
 
@@ -151,7 +190,7 @@ def is_valid(messages):
     return True
 
 
-def download_dataset(name, hf_repo, raw_dir):
+def download_dataset(name, hf_repo, hf_config, split, raw_dir):
     """Download the full dataset once and dump it as JSONL. Returns the path."""
     raw_file = raw_dir / f"{name}.jsonl"
     if raw_file.exists():
@@ -162,7 +201,10 @@ def download_dataset(name, hf_repo, raw_dir):
     from datasets import load_dataset
 
     print(f"\n[{name}] downloading full dataset from {hf_repo} ...")
-    ds = load_dataset(hf_repo, split="train")
+    if hf_config:
+        ds = load_dataset(hf_repo, hf_config, split=split)
+    else:
+        ds = load_dataset(hf_repo, split=split)
 
     # Write to a temp name first so an interrupted dump is not mistaken for a
     # complete file on the next run.
@@ -276,8 +318,8 @@ def main():
 
     raw_files = {}
     for name in selected:
-        hf_repo, _, _ = DATASETS[name]
-        raw_files[name] = download_dataset(name, hf_repo, raw_dir)
+        hf_repo, hf_config, split, _, _ = DATASETS[name]
+        raw_files[name] = download_dataset(name, hf_repo, hf_config, split, raw_dir)
 
     if args.download_only:
         print("\n--download-only set, stopping after download.")
@@ -291,7 +333,7 @@ def main():
     all_examples = []
     per_dataset_stats = {}
     for name in selected:
-        _, converter, default_count = DATASETS[name]
+        _, _, _, converter, default_count = DATASETS[name]
         count = args.limit or default_count
         examples = collect_dataset(name, raw_files[name], converter, count, tokenizer)
         per_dataset_stats[name] = len(examples)
