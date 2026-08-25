@@ -1,0 +1,3 @@
+For SFT
+python3 data/prepare_sft_data.py
+python3 train/sft_train.py --init-from checkpoints/run_1b/step_45000.pt --epochs 2 --batch-size 8 --grad-accum-steps 8  --wandb --run-name picotalk-1b-sft

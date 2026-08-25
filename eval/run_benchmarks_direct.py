@@ -13,6 +13,21 @@ Usage:
 
     # Specific benchmarks
     python eval/run_benchmarks_direct.py --checkpoint checkpoints/run_1b/step_45000.pt --tasks hellaswag,arc_easy
+
+    # SFT checkpoint, prompts wrapped in the [INST] format it was tuned on
+    python eval/run_benchmarks_direct.py --checkpoint checkpoints/sft_1b/best.pt \
+        --tasks full --chat-template
+
+Prompt formats
+--------------
+Without --chat-template every prompt is raw text, which is what a pretrained
+checkpoint saw. With it, prompts are wrapped as [INST] ... [/INST] and tokenized
+segment-by-segment exactly as data/chat_format.py did during SFT.
+
+Evaluating an SFT checkpoint WITHOUT the flag measures it out of distribution:
+it was trained so that answers follow [/INST], and feeding it bare text hides
+whatever the fine-tune installed. Compare base(raw) vs SFT(chat) -- and note the
+results filename carries a `raw`/`chat` tag so the two never overwrite.
 """
 
 import argparse
@@ -34,13 +49,18 @@ from transformers import AutoTokenizer
 class BenchmarkEvaluator:
     """Direct benchmark evaluation for Picotalk."""
 
-    def __init__(self, checkpoint_path: str, device: str = "cuda"):
+    def __init__(self, checkpoint_path: str, device: str = "cuda", chat_template: bool = False):
         """
         Args:
             checkpoint_path: Path to checkpoint file
             device: Device to use
+            chat_template: wrap every prompt in Mistral's [INST]...[/INST] format,
+                matching what data/chat_format.py fed the model during SFT. Off by
+                default: a pretrained checkpoint never saw [INST], so the base
+                numbers stay directly comparable to earlier runs.
         """
         self.device = device
+        self.chat_template = chat_template
 
         # Set dtype and autocast device based on hardware
         if device == "cuda":
@@ -88,7 +108,87 @@ class BenchmarkEvaluator:
 
         print(f"✓ Model loaded: {self.model.get_num_params()/1e6:.1f}M parameters")
         print(f"✓ Context length: {self.max_length}")
-        print(f"✓ Device: {device}, dtype: {self.dtype}\n")
+        print(f"✓ Device: {device}, dtype: {self.dtype}")
+        print(f"✓ Prompt format: {'[INST] chat template' if chat_template else 'raw text'}\n")
+
+    # ------------------------------------------------------------------
+    # Prompt construction
+    #
+    # Both paths return (tokens, context_len) where tokens[context_len:] is the
+    # span to score. The two differ in HOW they tokenize, and that difference is
+    # deliberate:
+    #
+    #   raw text  - encode(context + " " + choice) as one string, which is how a
+    #               pretrained model saw text. Kept byte-identical to the original
+    #               implementation so base-model numbers remain comparable.
+    #
+    #   chat      - build the id list segment-by-segment exactly as
+    #               data/chat_format.tokenize_conversation() did during SFT:
+    #                 [BOS] + encode("[INST] {ctx} [/INST]") + encode(choice)
+    #               Each segment is encoded with add_special_tokens=False, so
+    #               SentencePiece's leading "▁" supplies the space after [/INST] --
+    #               the same boundary the model was trained on. Building it
+    #               segment-wise also makes context_len exact rather than inferred
+    #               from a second encode() of the context alone.
+    # ------------------------------------------------------------------
+
+    def _encode_prompt(self, context: str) -> list:
+        """Token ids for the prompt, up to (not including) the answer span."""
+        if self.chat_template:
+            return [self.tokenizer.bos_token_id] + self.tokenizer.encode(
+                f"[INST] {context.strip()} [/INST]", add_special_tokens=False
+            )
+        return self.tokenizer.encode(context, add_special_tokens=True)
+
+    def _build_scored_ids(self, context: str, choice: str):
+        """Return (tokens, context_len) for likelihood-scoring `choice`."""
+        if self.chat_template:
+            prompt_ids = self._encode_prompt(context)
+            # The closing EOS is trained on but deliberately NOT scored here, so
+            # the scored span is the answer text in both modes.
+            choice_ids = self.tokenizer.encode(choice.strip(), add_special_tokens=False)
+            tokens = prompt_ids + choice_ids
+            context_len = len(prompt_ids)
+        else:
+            full_text = context + " " + choice
+            tokens = self.tokenizer.encode(full_text, add_special_tokens=True)
+            context_len = len(self.tokenizer.encode(context, add_special_tokens=True))
+
+        # Left-truncate over-long inputs, keeping the answer span intact.
+        if len(tokens) > self.max_length:
+            overflow = len(tokens) - self.max_length
+            tokens = tokens[overflow:]
+            context_len = max(1, context_len - overflow)
+
+        return tokens, context_len
+
+    @torch.no_grad()
+    def _generate_text(self, context: str, max_new_tokens: int, temperature: float) -> str:
+        """Generate a continuation and decode it, stopping at the first EOS.
+
+        Transformer.generate() has no stop-token support and always emits
+        max_new_tokens, so an SFT model that correctly ends its turn with </s>
+        would otherwise have whatever it rambled afterwards folded into the
+        answer (skip_special_tokens=True hides the </s> but keeps the rambling).
+        """
+        prompt_ids = self._encode_prompt(context)[: self.max_length]
+        input_ids = torch.tensor([prompt_ids], dtype=torch.long, device=self.device)
+
+        if self.use_autocast:
+            with torch.autocast(device_type=self.autocast_device, dtype=self.dtype):
+                output_ids = self.model.generate(
+                    input_ids, max_new_tokens=max_new_tokens, temperature=temperature
+                )
+        else:
+            output_ids = self.model.generate(
+                input_ids, max_new_tokens=max_new_tokens, temperature=temperature
+            )
+
+        new_ids = output_ids[0][len(prompt_ids):].tolist()
+        if self.tokenizer.eos_token_id in new_ids:
+            new_ids = new_ids[: new_ids.index(self.tokenizer.eos_token_id)]
+
+        return self.tokenizer.decode(new_ids, skip_special_tokens=True)
 
     @torch.no_grad()
     def evaluate_multiple_choice(self, context: str, choices: list, return_details: bool = False):
@@ -107,20 +207,8 @@ class BenchmarkEvaluator:
         full_texts = []
 
         for choice in choices:
-            # Combine context and choice
-            full_text = context + " " + choice
-            full_texts.append(full_text)
-
-            # Tokenize
-            tokens = self.tokenizer.encode(full_text, add_special_tokens=True)
-            context_tokens = self.tokenizer.encode(context, add_special_tokens=True)
-
-            # Truncate if needed
-            if len(tokens) > self.max_length:
-                tokens = tokens[-self.max_length:]
-                context_len = max(0, len(tokens) - (len(tokens) - len(context_tokens)))
-            else:
-                context_len = len(context_tokens)
+            tokens, context_len = self._build_scored_ids(context, choice)
+            full_texts.append(self.tokenizer.decode(tokens, skip_special_tokens=False))
 
             # Convert to tensor
             input_ids = torch.tensor([tokens], dtype=torch.long, device=self.device)
@@ -166,6 +254,22 @@ class BenchmarkEvaluator:
         else:
             return pred_idx
 
+    @staticmethod
+    def _hellaswag_clean(text: str) -> str:
+        """lm-eval's HellaSwag preprocess(), reproduced verbatim.
+
+        The wikiHow two-thirds of the set carries literal "[header]", "[title]",
+        "[step]", "[substeps]" markup in both contexts and endings. No model has
+        seen these in pretraining, so scoring them raw pushes that subset to
+        chance. Every published HellaSwag number strips them this way.
+        """
+        import re
+        text = text.strip()
+        text = text.replace(" [title]", ". ")
+        text = re.sub(r"\[.*?\]", "", text)
+        text = text.replace("  ", " ")
+        return text
+
     def evaluate_hellaswag(self, limit: int = None, save_examples: bool = False, examples_file: str = None):
         """Evaluate on HellaSwag benchmark."""
         from datasets import load_dataset
@@ -173,8 +277,12 @@ class BenchmarkEvaluator:
         print("Loading HellaSwag dataset...")
         dataset = load_dataset("Rowan/hellaswag", split="validation")
 
-        if limit:
-            dataset = dataset.select(range(min(limit, len(dataset))))
+        # The validation file is not shuffled: 3,243 ActivityNet rows first,
+        # then 6,799 wikiHow. Taking the head evaluates only the (easier,
+        # markup-free) ActivityNet half. Sample evenly across the set instead.
+        if limit and limit < len(dataset):
+            step = len(dataset) / limit
+            dataset = dataset.select([int(i * step) for i in range(limit)])
 
         correct = 0
         total = 0
@@ -183,11 +291,13 @@ class BenchmarkEvaluator:
         print(f"Evaluating on {len(dataset)} examples...")
 
         for example in tqdm(dataset, desc="HellaSwag"):
-            # Format context
-            context = example["ctx"]
+            # lm-eval's doc format: "{activity_label}: {ctx_a} {Ctx_b}", with
+            # ctx_b capitalized (it is a sentence-initial pronoun like "he").
+            ctx = example["ctx_a"] + " " + example["ctx_b"].capitalize()
+            context = self._hellaswag_clean(example["activity_label"] + ": " + ctx)
 
-            # Get choices
-            choices = example["endings"]
+            # Endings carry the same markup and are cleaned the same way
+            choices = [self._hellaswag_clean(e) for e in example["endings"]]
 
             # Get prediction (with details if saving examples)
             if save_examples:
@@ -332,9 +442,19 @@ class BenchmarkEvaluator:
             # For Winogrande, we evaluate the full sentence likelihood
             log_likelihoods = []
             for choice in choices:
-                tokens = self.tokenizer.encode(choice, add_special_tokens=True)
-                if len(tokens) > self.max_length:
-                    tokens = tokens[-self.max_length:]
+                if self.chat_template:
+                    # Present the blanked sentence as the instruction and score
+                    # the filled-in sentence as the assistant's reply.
+                    tokens, score_from = self._build_scored_ids(sentence, choice)
+                    denom = len(tokens) - score_from
+                else:
+                    tokens = self.tokenizer.encode(choice, add_special_tokens=True)
+                    if len(tokens) > self.max_length:
+                        tokens = tokens[-self.max_length:]
+                    # Score every token after BOS, normalised by the full length --
+                    # the original arithmetic, preserved so base numbers don't move.
+                    score_from = 1
+                    denom = len(tokens)
 
                 input_ids = torch.tensor([tokens], dtype=torch.long, device=self.device)
 
@@ -347,14 +467,13 @@ class BenchmarkEvaluator:
                 logits = logits[0]
                 log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
 
-                # Sum log probs for all tokens
+                # Sum log probs over the scored span (logits are shifted by 1)
                 total_log_prob = 0.0
-                for i in range(len(tokens) - 1):
-                    token_id = tokens[i + 1]
-                    total_log_prob += log_probs[i, token_id].item()
+                for i in range(score_from, len(tokens)):
+                    total_log_prob += log_probs[i - 1, tokens[i]].item()
 
                 # Normalize by length
-                normalized = total_log_prob / len(tokens)
+                normalized = total_log_prob / max(1, denom)
                 log_likelihoods.append(normalized)
 
             # Prediction
@@ -558,42 +677,35 @@ class BenchmarkEvaluator:
 
             correct_answer = match.group(1).replace(",", "")
 
-            # Format prompt for base model (not instruction-tuned)
-            # Just give context and see if model generates the right number
-            context = f"Q: {question}\nA: The answer is"
+            # The two modes need genuinely different handling, because the two
+            # models answer in different shapes:
+            #
+            #   raw  - a base model won't reason unprompted, so "A: The answer is"
+            #          forces it to emit a number immediately. 32 tokens is plenty
+            #          and the FIRST number is the answer.
+            #   chat - an SFT model writes a worked solution. The "The answer is"
+            #          cue is a base-model crutch and is dropped; it needs room to
+            #          finish, and the LAST number is the answer (first-number
+            #          extraction would grab an intermediate step and score ~0
+            #          no matter how good the reasoning was).
+            if self.chat_template:
+                context = question
+                generated_text = self._generate_text(context, max_new_tokens=256, temperature=0.1)
+                numbers = re.findall(r"-?\d+(?:,\d{3})*(?:\.\d+)?", generated_text)
+                pred_answer = numbers[-1].replace(",", "") if numbers else ""
+            else:
+                context = f"Q: {question}\nA: The answer is"
+                generated_text = self._generate_text(context, max_new_tokens=32, temperature=0.1)
+                match_pred = re.search(r"(-?\d+(?:,?\d+)*)", generated_text)
+                pred_answer = match_pred.group(1).replace(",", "") if match_pred else ""
 
-            # Generate completion
-            input_ids = self.tokenizer.encode(context, add_special_tokens=True)
-            input_ids = torch.tensor([input_ids[:self.model_config.block_size]]).to(self.device)
-
-            # Generate a short completion
-            with torch.no_grad():
-                if self.use_autocast:
-                    with torch.autocast(device_type=self.autocast_device, dtype=self.dtype):
-                        output_ids = self.model.generate(
-                            input_ids,
-                            max_new_tokens=32,  # Short generation for answer
-                            temperature=0.1,    # Low temperature for more deterministic
-                        )
-                else:
-                    output_ids = self.model.generate(
-                        input_ids,
-                        max_new_tokens=32,
-                        temperature=0.1,
-                    )
-
-            # Decode the generated text
-            generated_text = self.tokenizer.decode(output_ids[0][len(input_ids[0]):], skip_special_tokens=True)
-
-            # Extract number from generated text
-            pred_match = re.search(r"(-?\d+(?:,?\d+)*)", generated_text)
-
+            # Compare as numbers so "72" and "72.0" agree
             is_correct = False
-            pred_answer = ""
-
-            if pred_match:
-                pred_answer = pred_match.group(1).replace(",", "")
-                is_correct = pred_answer == correct_answer
+            if pred_answer:
+                try:
+                    is_correct = float(pred_answer) == float(correct_answer)
+                except ValueError:
+                    is_correct = pred_answer == correct_answer
 
             if is_correct:
                 correct += 1
@@ -644,27 +756,8 @@ class BenchmarkEvaluator:
             test = example["test"]
             entry_point = example["entry_point"]
 
-            # Generate code completion
-            input_ids = self.tokenizer.encode(prompt, add_special_tokens=True)
-            input_ids = torch.tensor([input_ids[:self.model_config.block_size]]).to(self.device)
-
-            with torch.no_grad():
-                if self.use_autocast:
-                    with torch.autocast(device_type=self.autocast_device, dtype=self.dtype):
-                        output_ids = self.model.generate(
-                            input_ids,
-                            max_new_tokens=256,  # Enough for function body
-                            temperature=0.2,
-                        )
-                else:
-                    output_ids = self.model.generate(
-                        input_ids,
-                        max_new_tokens=256,
-                        temperature=0.2,
-                    )
-
-            # Decode the generated code
-            generated_code = self.tokenizer.decode(output_ids[0][len(input_ids[0]):], skip_special_tokens=True)
+            # Generate code completion (max_new_tokens=256 fits a function body)
+            generated_code = self._generate_text(prompt, max_new_tokens=256, temperature=0.2)
 
             # Save example details if requested
             if save_examples:
@@ -728,6 +821,11 @@ def main():
         action="store_true",
         help="Save input/output examples to file",
     )
+    parser.add_argument(
+        "--chat-template",
+        action="store_true",
+        help="Wrap prompts in Mistral [INST]...[/INST] format (use for SFT checkpoints)",
+    )
 
     args = parser.parse_args()
 
@@ -740,23 +838,47 @@ def main():
         "instruction": ["mmlu", "gsm8k", "humaneval"],
     }
 
-    # Get task list
-    if args.tasks in task_suites:
-        tasks = task_suites[args.tasks]
-    else:
-        tasks = args.tasks.split(",")
+    known_tasks = task_suites["full"]
+
+    # Expand the comma list, resolving suite names wherever they appear so
+    # mixtures like "default,mmlu" work instead of being read as a task called
+    # "default". Order is preserved and duplicates dropped.
+    tasks = []
+    unknown = []
+    for piece in args.tasks.split(","):
+        piece = piece.strip()
+        if not piece:
+            continue
+        expanded = task_suites.get(piece, [piece])
+        for task in expanded:
+            if task not in known_tasks:
+                unknown.append(task)
+            elif task not in tasks:
+                tasks.append(task)
+
+    if unknown:
+        parser.error(
+            f"unknown task(s): {', '.join(unknown)}\n"
+            f"  tasks:  {', '.join(known_tasks)}\n"
+            f"  suites: {', '.join(task_suites)}"
+        )
+    if not tasks:
+        parser.error("no tasks selected")
 
     print(f"\n{'='*80}")
     print(f"Picotalk Benchmark Evaluation")
     print(f"{'='*80}\n")
     print(f"Checkpoint: {args.checkpoint}")
     print(f"Tasks: {tasks}")
+    print(f"Prompt format: {'[INST] chat template' if args.chat_template else 'raw text'}")
     if args.limit:
         print(f"Limit: {args.limit} examples per task")
     print()
 
     # Load evaluator
-    evaluator = BenchmarkEvaluator(args.checkpoint, device=args.device)
+    evaluator = BenchmarkEvaluator(
+        args.checkpoint, device=args.device, chat_template=args.chat_template
+    )
 
     # Create output directory
     output_dir = Path(args.output_dir)
@@ -766,10 +888,16 @@ def main():
     results = {}
     results["checkpoint"] = args.checkpoint
     results["timestamp"] = datetime.now().isoformat()
+    results["prompt_format"] = "chat" if args.chat_template else "raw"
     results["tasks"] = {}
 
-    # Prepare examples file path if saving
-    ckpt_name = Path(args.checkpoint).stem
+    # Prepare examples file path if saving. The prompt format goes in the name so
+    # a chat run never silently overwrites the raw run it is being compared with.
+    # Include the checkpoint's directory: run_1b/best.pt and sft_1b/best.pt
+    # both have the stem "best", so the stem alone cannot tell them apart.
+    _ckpt = Path(args.checkpoint)
+    ckpt_name = f"{_ckpt.parent.name}_{_ckpt.stem}" if _ckpt.parent.name else _ckpt.stem
+    fmt_tag = "chat" if args.chat_template else "raw"
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
     for task in tasks:
@@ -780,7 +908,7 @@ def main():
         # Set up examples file if requested
         examples_file = None
         if args.save_examples:
-            examples_file = output_dir / f"{ckpt_name}_{task}_examples_{timestamp}.json"
+            examples_file = output_dir / f"{ckpt_name}_{fmt_tag}_{task}_examples_{timestamp}.json"
 
         if task == "hellaswag":
             task_results = evaluator.evaluate_hellaswag(
@@ -833,8 +961,7 @@ def main():
                 examples_file=str(examples_file) if examples_file else None
             )
         else:
-            print(f"Unknown task: {task}")
-            continue
+            raise AssertionError(f"task {task!r} passed validation but has no handler")
 
         results["tasks"][task] = task_results
         print(f"\n{task.upper()} Results: {task_results['accuracy']:.2f}% ({task_results['correct']}/{task_results['total']})")
@@ -845,19 +972,23 @@ def main():
     print(f"{'='*80}\n")
 
     for task, task_results in results["tasks"].items():
-        print(f"{task:20s}: {task_results['accuracy']:6.2f}%  ({task_results['correct']:4d}/{task_results['total']:4d})")
+        note = "  (not scored)" if task_results.get("note") else ""
+        print(f"{task:20s}: {task_results['accuracy']:6.2f}%  "
+              f"({task_results['correct']:4d}/{task_results['total']:4d}){note}")
 
-    # Average
-    avg_acc = np.mean([r["accuracy"] for r in results["tasks"].values()])
-    print(f"\n{'Average':20s}: {avg_acc:6.2f}%")
+    # Average over MEASURED tasks only. humaneval reports a hardcoded 0.0 because
+    # it never executes the generated code, and folding that into the mean drags
+    # the headline number down by a task nobody actually scored.
+    measured = [r["accuracy"] for r in results["tasks"].values() if not r.get("note")]
+    if measured:
+        print(f"\n{'Average':20s}: {np.mean(measured):6.2f}%  "
+              f"(over {len(measured)} scored task(s))")
 
     # Save results
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    ckpt_name = Path(args.checkpoint).stem
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = output_dir / f"{ckpt_name}_{timestamp}.json"
+    output_file = output_dir / f"{ckpt_name}_{fmt_tag}_{timestamp}.json"
 
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2)
