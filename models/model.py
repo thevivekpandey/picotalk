@@ -266,6 +266,18 @@ class Transformer(nn.Module):
 
         freqs_cis = self.freqs_cis[:seqlen]
 
+        # nn.Module.to(dtype=...) converts complex buffers as well as float ones,
+        # which turns freqs_cis into a real tensor and silently deletes the RoPE
+        # rotation. The model still runs and still produces plausible-looking
+        # logits, so fail loudly here rather than let an eval score garbage.
+        if not torch.is_complex(freqs_cis):
+            raise RuntimeError(
+                f"freqs_cis is {freqs_cis.dtype}, not complex: the model was "
+                "converted with .to(dtype=...) / .half() / .bfloat16(), which "
+                "destroys RoPE. Keep parameters in fp32 and use torch.autocast "
+                "for mixed precision instead."
+            )
+
         # Causal masking is applied inside scaled_dot_product_attention.
 
         # Transformer blocks

@@ -69,3 +69,9 @@ htmlcov/
 *.tmp
 *.bak
 .cache/
+
+# HuggingFace exports of checkpoints, built by eval/run_benchmarks_direct.py for vLLM
+hf/
+
+# pass@k rollout dumps (eval/gsm8k_passk.py): 170 MB, over GitHub's file limit; summaries stay tracked
+eval/results/gsm8k_passk/*.jsonl

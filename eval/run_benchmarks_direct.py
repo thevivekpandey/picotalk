@@ -28,28 +28,47 @@ Evaluating an SFT checkpoint WITHOUT the flag measures it out of distribution:
 it was trained so that answers follow [/INST], and feeding it bare text hides
 whatever the fine-tune installed. Compare base(raw) vs SFT(chat) -- and note the
 results filename carries a `raw`/`chat` tag so the two never overwrite.
+
+Generation tasks (GSM8K, HumanEval)
+-----------------------------------
+Likelihood tasks run on the native model. Generation runs under vLLM: the
+checkpoint is exported once to a HuggingFace Llama directory under hf/
+(eval/export_hf.py; re-exported automatically when the checkpoint is newer)
+and vLLM serves it with a paged KV cache and continuous batching. Prompts are
+handed over as the same token ids the native path builds, so the two see
+identical inputs. Requires --device cuda.
 """
 
 import argparse
 import json
+import os
 import torch
 import numpy as np
 from pathlib import Path
 from datetime import datetime
-from tqdm import tqdm
 import sys
 
 # Add parent directory for imports
-sys.path.append(str(Path(__file__).parent.parent))
+REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.append(str(REPO_ROOT))
+sys.path.append(str(Path(__file__).resolve().parent))
 
 from models.model import Transformer
 from transformers import AutoTokenizer
+
+import export_hf
 
 
 class BenchmarkEvaluator:
     """Direct benchmark evaluation for Picotalk."""
 
-    def __init__(self, checkpoint_path: str, device: str = "cuda", chat_template: bool = False):
+    def __init__(
+        self,
+        checkpoint_path: str,
+        device: str = "cuda",
+        chat_template: bool = False,
+        gen_batch_size: int = 128,
+    ):
         """
         Args:
             checkpoint_path: Path to checkpoint file
@@ -58,9 +77,15 @@ class BenchmarkEvaluator:
                 matching what data/chat_format.py fed the model during SFT. Off by
                 default: a pretrained checkpoint never saw [INST], so the base
                 numbers stay directly comparable to earlier runs.
+            gen_batch_size: prompts handed to vLLM per call on the generation
+                tasks (GSM8K, HumanEval); results are scored and printed after
+                each call.
         """
+        self.checkpoint_path = checkpoint_path
         self.device = device
         self.chat_template = chat_template
+        self.gen_batch_size = gen_batch_size
+        self._vllm = None  # built on first generation task, see _llm()
 
         # Set dtype and autocast device based on hardware
         if device == "cuda":
@@ -98,7 +123,13 @@ class BenchmarkEvaluator:
         state_dict = {k.replace('module.', ''): v for k, v in state_dict.items()}
         self.model.load_state_dict(state_dict)
 
-        self.model = self.model.to(device=device, dtype=self.dtype)
+        # Keep the parameters in fp32 and let autocast run the matmuls in bf16,
+        # exactly as training did. Do NOT convert the module with .to(dtype=):
+        # that also converts the complex64 RoPE buffer (freqs_cis) to a REAL
+        # bf16 tensor, silently discarding the imaginary half and with it the
+        # rotation -- attention then sees every position as the same. Every
+        # result produced before 2026-08-25 came from a model in that state.
+        self.model = self.model.to(device=device)
         self.model.eval()
 
         # Load tokenizer
@@ -163,32 +194,130 @@ class BenchmarkEvaluator:
         return tokens, context_len
 
     @torch.no_grad()
-    def _generate_text(self, context: str, max_new_tokens: int, temperature: float) -> str:
-        """Generate a continuation and decode it, stopping at the first EOS.
-
-        Transformer.generate() has no stop-token support and always emits
-        max_new_tokens, so an SFT model that correctly ends its turn with </s>
-        would otherwise have whatever it rambled afterwards folded into the
-        answer (skip_special_tokens=True hides the </s> but keeps the rambling).
-        """
-        prompt_ids = self._encode_prompt(context)[: self.max_length]
-        input_ids = torch.tensor([prompt_ids], dtype=torch.long, device=self.device)
-
+    def _forward(self, input_ids: torch.Tensor) -> torch.Tensor:
+        """Logits for a (batch, seqlen) tensor, under autocast where enabled."""
         if self.use_autocast:
             with torch.autocast(device_type=self.autocast_device, dtype=self.dtype):
-                output_ids = self.model.generate(
-                    input_ids, max_new_tokens=max_new_tokens, temperature=temperature
-                )
+                logits, _ = self.model(input_ids)
         else:
-            output_ids = self.model.generate(
-                input_ids, max_new_tokens=max_new_tokens, temperature=temperature
-            )
+            logits, _ = self.model(input_ids)
+        return logits
 
-        new_ids = output_ids[0][len(prompt_ids):].tolist()
-        if self.tokenizer.eos_token_id in new_ids:
-            new_ids = new_ids[: new_ids.index(self.tokenizer.eos_token_id)]
+    @torch.no_grad()
+    def _score_spans(self, token_lists: list, starts: list) -> list:
+        """Sum of log p(token) over tokens[start:] for each sequence, in one forward.
 
-        return self.tokenizer.decode(new_ids, skip_special_tokens=True)
+        Sequences are right-padded into a single batch. Under causal attention
+        a position never sees anything after it, so the padding is invisible
+        to the scored tokens and each result equals a standalone forward.
+        """
+        batch = len(token_lists)
+        width = max(len(t) for t in token_lists)
+        input_ids = torch.zeros((batch, width), dtype=torch.long, device=self.device)
+        for i, tokens in enumerate(token_lists):
+            input_ids[i, : len(tokens)] = torch.tensor(tokens, dtype=torch.long)
+
+        logits = self._forward(input_ids)
+
+        scores = []
+        for i, (tokens, start) in enumerate(zip(token_lists, starts)):
+            start = max(start, 1)  # token 0 has no prediction (logits are shifted by 1)
+            if start >= len(tokens):
+                scores.append(0.0)
+                continue
+            rows = logits[i, start - 1 : len(tokens) - 1].float()
+            targets = torch.tensor(tokens[start:], dtype=torch.long, device=self.device)
+            log_probs = torch.log_softmax(rows, dim=-1)
+            scores.append(log_probs.gather(1, targets[:, None]).sum().item())
+        return scores
+
+    # ------------------------------------------------------------------
+    # Generation (GSM8K, HumanEval) runs under vLLM.
+    #
+    # Transformer.generate() has no KV cache, so every new token would cost a
+    # full forward over the whole sequence: ~2 h for GSM8K on an L4 even with
+    # batching. vLLM brings a paged KV cache and continuous batching without
+    # touching the training model. The checkpoint is exported to a HuggingFace
+    # Llama directory (eval/export_hf.py: a key rename plus the RoPE row
+    # permutation, verified there to reproduce the native logits) and vLLM
+    # loads that. The native model above still serves the likelihood tasks.
+    # ------------------------------------------------------------------
+
+    def _llm(self):
+        """The vLLM engine for this checkpoint, exporting to hf/ first if needed."""
+        if self._vllm is not None:
+            return self._vllm
+        if self.device != "cuda":
+            raise RuntimeError("generation tasks run under vLLM, which needs --device cuda")
+
+        ckpt = Path(self.checkpoint_path)
+        hf_dir = REPO_ROOT / "hf" / f"{ckpt.parent.name}_{ckpt.stem}"
+        marker = hf_dir / "picotalk_export.json"  # written last by export()
+        if marker.exists() and marker.stat().st_mtime >= ckpt.stat().st_mtime:
+            print(f"✓ Using HF export {hf_dir}")
+        else:
+            print(f"Exporting {ckpt} -> {hf_dir} for vLLM...")
+            export_hf.export(str(ckpt), str(hf_dir), torch.bfloat16)
+
+        # Run the engine in this process: CUDA is already initialised here by
+        # the native model, and offline batch generation gains nothing from a
+        # separate engine process.
+        os.environ.setdefault("VLLM_ENABLE_V1_MULTIPROCESSING", "0")
+        from vllm import LLM
+
+        torch.cuda.empty_cache()  # hand the likelihood tasks' cached activations back
+        self._vllm = LLM(
+            model=str(hf_dir),
+            dtype="bfloat16",
+            max_model_len=self.max_length,
+            # The native fp32 model stays resident for the likelihood tasks
+            # (~4 GB of weights plus activations); leave it its share.
+            gpu_memory_utilization=0.5,
+            seed=0,
+        )
+        return self._vllm
+
+    def _generate_texts(self, contexts: list, max_new_tokens: int, temperature: float) -> list:
+        """Generate a continuation for each context, decoded and cut at the first EOS.
+
+        An SFT model ends its turn with </s>; anything it might ramble
+        afterwards is not part of the answer.
+        """
+        from vllm import SamplingParams
+        from vllm.inputs import TokensPrompt
+
+        eos = self.tokenizer.eos_token_id
+        # Over-long prompts keep their tail so the answer always fits in context
+        # (at least one prompt token is always kept).
+        max_new_tokens = min(max_new_tokens, self.max_length - 1)
+        keep = self.max_length - max_new_tokens
+        prompts = [self._encode_prompt(c)[-keep:] for c in contexts]
+
+        outputs = self._llm().generate(
+            [TokensPrompt(prompt_token_ids=p) for p in prompts],
+            SamplingParams(max_tokens=max_new_tokens, temperature=temperature),
+            use_tqdm=False,
+        )
+
+        texts = []
+        for out in outputs:  # same order as the prompts
+            new_ids = list(out.outputs[0].token_ids)
+            if eos in new_ids:
+                new_ids = new_ids[: new_ids.index(eos)]
+            texts.append(self.tokenizer.decode(new_ids, skip_special_tokens=True))
+        return texts
+
+    def _batches(self, items: list):
+        for start in range(0, len(items), self.gen_batch_size):
+            yield items[start : start + self.gen_batch_size]
+
+    @staticmethod
+    def _report(task: str, n: int, is_correct: bool, correct: int):
+        """One line per scored example, with the running tally."""
+        verdict = "correct  " if is_correct else "incorrect"
+        now = datetime.now().strftime("%H:%M:%S")
+        print(f"{now} [{task}] #{n:<5d} {verdict}  {correct}/{n} = {correct / n * 100:.2f}%",
+              flush=True)
 
     @torch.no_grad()
     def evaluate_multiple_choice(self, context: str, choices: list, return_details: bool = False):
@@ -203,42 +332,21 @@ class BenchmarkEvaluator:
         Returns:
             Index of most likely choice (or dict with details if return_details=True)
         """
-        log_likelihoods = []
-        full_texts = []
-
+        token_lists, starts, full_texts = [], [], []
         for choice in choices:
             tokens, context_len = self._build_scored_ids(context, choice)
+            token_lists.append(tokens)
+            starts.append(context_len)
             full_texts.append(self.tokenizer.decode(tokens, skip_special_tokens=False))
 
-            # Convert to tensor
-            input_ids = torch.tensor([tokens], dtype=torch.long, device=self.device)
+        # All choices scored in one forward pass
+        sums = self._score_spans(token_lists, starts)
 
-            # Get logits
-            if self.use_autocast:
-                with torch.autocast(device_type=self.autocast_device, dtype=self.dtype):
-                    logits, _ = self.model(input_ids)
-            else:
-                logits, _ = self.model(input_ids)
-
-            # Calculate log probability for choice tokens
-            logits = logits[0]
-            log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
-
-            # Sum log probs for choice tokens (everything after context)
-            choice_log_prob = 0.0
-            for i in range(context_len, len(tokens)):
-                token_id = tokens[i]
-                if i - 1 >= 0:  # logits are shifted by 1
-                    choice_log_prob += log_probs[i - 1, token_id].item()
-
-            # Normalize by length (to avoid bias toward shorter choices)
-            choice_length = len(tokens) - context_len
-            if choice_length > 0:
-                normalized_log_prob = choice_log_prob / choice_length
-            else:
-                normalized_log_prob = choice_log_prob
-
-            log_likelihoods.append(normalized_log_prob)
+        # Normalize by length (to avoid bias toward shorter choices)
+        log_likelihoods = [
+            s / max(1, len(tokens) - start)
+            for s, tokens, start in zip(sums, token_lists, starts)
+        ]
 
         # Get prediction
         pred_idx = int(np.argmax(log_likelihoods))
@@ -290,7 +398,7 @@ class BenchmarkEvaluator:
 
         print(f"Evaluating on {len(dataset)} examples...")
 
-        for example in tqdm(dataset, desc="HellaSwag"):
+        for example in dataset:
             # lm-eval's doc format: "{activity_label}: {ctx_a} {Ctx_b}", with
             # ctx_b capitalized (it is a sentence-initial pronoun like "he").
             ctx = example["ctx_a"] + " " + example["ctx_b"].capitalize()
@@ -312,6 +420,7 @@ class BenchmarkEvaluator:
             if is_correct:
                 correct += 1
             total += 1
+            self._report("HellaSwag", total, is_correct, correct)
 
             # Save example details if requested
             if save_examples:
@@ -356,7 +465,7 @@ class BenchmarkEvaluator:
 
         print(f"Evaluating on {len(dataset)} examples...")
 
-        for example in tqdm(dataset, desc=dataset_name):
+        for example in dataset:
             # Format question
             question = example["question"]
 
@@ -382,6 +491,7 @@ class BenchmarkEvaluator:
             if is_correct:
                 correct += 1
             total += 1
+            self._report(dataset_name, total, is_correct, correct)
 
             # Save example details if requested
             if save_examples:
@@ -426,7 +536,7 @@ class BenchmarkEvaluator:
 
         print(f"Evaluating on {len(dataset)} examples...")
 
-        for example in tqdm(dataset, desc="Winogrande"):
+        for example in dataset:
             # Get sentence and options
             sentence = example["sentence"]
             option1 = example["option1"]
@@ -440,7 +550,7 @@ class BenchmarkEvaluator:
 
             # Evaluate which completion is more likely
             # For Winogrande, we evaluate the full sentence likelihood
-            log_likelihoods = []
+            token_lists, starts, denoms = [], [], []
             for choice in choices:
                 if self.chat_template:
                     # Present the blanked sentence as the instruction and score
@@ -455,26 +565,13 @@ class BenchmarkEvaluator:
                     # the original arithmetic, preserved so base numbers don't move.
                     score_from = 1
                     denom = len(tokens)
+                token_lists.append(tokens)
+                starts.append(score_from)
+                denoms.append(denom)
 
-                input_ids = torch.tensor([tokens], dtype=torch.long, device=self.device)
-
-                if self.use_autocast:
-                    with torch.autocast(device_type=self.autocast_device, dtype=self.dtype):
-                        logits, _ = self.model(input_ids)
-                else:
-                    logits, _ = self.model(input_ids)
-
-                logits = logits[0]
-                log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
-
-                # Sum log probs over the scored span (logits are shifted by 1)
-                total_log_prob = 0.0
-                for i in range(score_from, len(tokens)):
-                    total_log_prob += log_probs[i - 1, tokens[i]].item()
-
-                # Normalize by length
-                normalized = total_log_prob / max(1, denom)
-                log_likelihoods.append(normalized)
+            # Both completions scored in one forward pass, then length-normalised
+            sums = self._score_spans(token_lists, starts)
+            log_likelihoods = [s / max(1, d) for s, d in zip(sums, denoms)]
 
             # Prediction
             pred_idx = int(np.argmax(log_likelihoods)) + 1  # 1-indexed
@@ -485,6 +582,7 @@ class BenchmarkEvaluator:
             if is_correct:
                 correct += 1
             total += 1
+            self._report("Winogrande", total, is_correct, correct)
 
             # Save example details if requested
             if save_examples:
@@ -530,7 +628,7 @@ class BenchmarkEvaluator:
 
         print(f"Evaluating on {len(dataset)} examples...")
 
-        for example in tqdm(dataset, desc="PIQA"):
+        for example in dataset:
             # Get goal (question) and solutions
             goal = example["goal"]
             sol1 = example["sol1"]
@@ -553,6 +651,7 @@ class BenchmarkEvaluator:
             if is_correct:
                 correct += 1
             total += 1
+            self._report("PIQA", total, is_correct, correct)
 
             # Save example details if requested
             if save_examples:
@@ -599,7 +698,7 @@ class BenchmarkEvaluator:
 
         print(f"Evaluating on {len(dataset)} examples...")
 
-        for example in tqdm(dataset, desc="MMLU"):
+        for example in dataset:
             # MMLU format: question with 4 choices (A, B, C, D)
             question = example["question"]
             choices = example["choices"]
@@ -620,6 +719,7 @@ class BenchmarkEvaluator:
             if is_correct:
                 correct += 1
             total += 1
+            self._report("MMLU", total, is_correct, correct)
 
             # Save example details if requested
             if save_examples:
@@ -665,62 +765,63 @@ class BenchmarkEvaluator:
 
         print(f"Evaluating on {len(dataset)} examples...")
 
-        for example in tqdm(dataset, desc="GSM8K"):
-            question = example["question"]
-            answer = example["answer"]
+        # Extract numeric answer from each solution (GSM8K format: "#### 42")
+        items = []
+        for example in dataset:
+            match = re.search(r"####\s*(-?\d+(?:,?\d+)*)", example["answer"])
+            if match:
+                items.append((example["question"], match.group(1).replace(",", "")))
 
-            # Extract numeric answer from the solution
-            # GSM8K answers are in format "#### 42"
-            match = re.search(r"####\s*(-?\d+(?:,?\d+)*)", answer)
-            if not match:
-                continue
-
-            correct_answer = match.group(1).replace(",", "")
-
-            # The two modes need genuinely different handling, because the two
-            # models answer in different shapes:
-            #
-            #   raw  - a base model won't reason unprompted, so "A: The answer is"
-            #          forces it to emit a number immediately. 32 tokens is plenty
-            #          and the FIRST number is the answer.
-            #   chat - an SFT model writes a worked solution. The "The answer is"
-            #          cue is a base-model crutch and is dropped; it needs room to
-            #          finish, and the LAST number is the answer (first-number
-            #          extraction would grab an intermediate step and score ~0
-            #          no matter how good the reasoning was).
+        # The two modes need genuinely different handling, because the two
+        # models answer in different shapes:
+        #
+        #   raw  - a base model won't reason unprompted, so "A: The answer is"
+        #          forces it to emit a number immediately. 32 tokens is plenty
+        #          and the FIRST number is the answer.
+        #   chat - an SFT model writes a worked solution. The "The answer is"
+        #          cue is a base-model crutch and is dropped; it needs room to
+        #          finish, and the LAST number is the answer (first-number
+        #          extraction would grab an intermediate step and score ~0
+        #          no matter how good the reasoning was).
+        for batch in self._batches(items):
             if self.chat_template:
-                context = question
-                generated_text = self._generate_text(context, max_new_tokens=256, temperature=0.1)
-                numbers = re.findall(r"-?\d+(?:,\d{3})*(?:\.\d+)?", generated_text)
-                pred_answer = numbers[-1].replace(",", "") if numbers else ""
+                contexts = [question for question, _ in batch]
+                generations = self._generate_texts(contexts, max_new_tokens=256, temperature=0.1)
             else:
-                context = f"Q: {question}\nA: The answer is"
-                generated_text = self._generate_text(context, max_new_tokens=32, temperature=0.1)
-                match_pred = re.search(r"(-?\d+(?:,?\d+)*)", generated_text)
-                pred_answer = match_pred.group(1).replace(",", "") if match_pred else ""
+                contexts = [f"Q: {question}\nA: The answer is" for question, _ in batch]
+                generations = self._generate_texts(contexts, max_new_tokens=32, temperature=0.1)
 
-            # Compare as numbers so "72" and "72.0" agree
-            is_correct = False
-            if pred_answer:
-                try:
-                    is_correct = float(pred_answer) == float(correct_answer)
-                except ValueError:
-                    is_correct = pred_answer == correct_answer
+            for (question, correct_answer), generated_text in zip(batch, generations):
+                if self.chat_template:
+                    numbers = re.findall(r"-?\d+(?:,\d{3})*(?:\.\d+)?", generated_text)
+                    pred_answer = numbers[-1].replace(",", "") if numbers else ""
+                else:
+                    match_pred = re.search(r"(-?\d+(?:,?\d+)*)", generated_text)
+                    pred_answer = match_pred.group(1).replace(",", "") if match_pred else ""
 
-            if is_correct:
-                correct += 1
-            total += 1
+                # Compare as numbers so "72" and "72.0" agree
+                is_correct = False
+                if pred_answer:
+                    try:
+                        is_correct = float(pred_answer) == float(correct_answer)
+                    except ValueError:
+                        is_correct = pred_answer == correct_answer
 
-            # Save example details if requested
-            if save_examples:
-                examples_data.append({
-                    "example_id": total,
-                    "question": question,
-                    "correct_answer": correct_answer,
-                    "model_generation": generated_text,
-                    "model_answer": pred_answer,
-                    "is_correct": is_correct,
-                })
+                if is_correct:
+                    correct += 1
+                total += 1
+                self._report("GSM8K", total, is_correct, correct)
+
+                # Save example details if requested
+                if save_examples:
+                    examples_data.append({
+                        "example_id": total,
+                        "question": question,
+                        "correct_answer": correct_answer,
+                        "model_generation": generated_text,
+                        "model_answer": pred_answer,
+                        "is_correct": is_correct,
+                    })
 
         accuracy = correct / total * 100
 
@@ -750,24 +851,26 @@ class BenchmarkEvaluator:
 
         examples_data = []
 
-        for example in tqdm(dataset, desc="HumanEval"):
-            prompt = example["prompt"]
-            canonical_solution = example["canonical_solution"]
-            test = example["test"]
-            entry_point = example["entry_point"]
-
-            # Generate code completion (max_new_tokens=256 fits a function body)
-            generated_code = self._generate_text(prompt, max_new_tokens=256, temperature=0.2)
+        done = 0
+        for batch in self._batches(list(dataset)):
+            # Generate code completions (max_new_tokens=256 fits a function body)
+            generations = self._generate_texts(
+                [example["prompt"] for example in batch], max_new_tokens=256, temperature=0.2
+            )
+            done += len(batch)
+            now = datetime.now().strftime("%H:%M:%S")
+            print(f"{now} [HumanEval] {done}/{len(dataset)} generated", flush=True)
 
             # Save example details if requested
             if save_examples:
-                examples_data.append({
-                    "task_id": example["task_id"],
-                    "prompt": prompt,
-                    "canonical_solution": canonical_solution,
-                    "model_generation": generated_code,
-                    "entry_point": entry_point,
-                })
+                for example, generated_code in zip(batch, generations):
+                    examples_data.append({
+                        "task_id": example["task_id"],
+                        "prompt": example["prompt"],
+                        "canonical_solution": example["canonical_solution"],
+                        "model_generation": generated_code,
+                        "entry_point": example["entry_point"],
+                    })
 
         # For now, we can't properly evaluate without execution
         # Return 0% but save the generations for manual inspection
@@ -826,6 +929,12 @@ def main():
         action="store_true",
         help="Wrap prompts in Mistral [INST]...[/INST] format (use for SFT checkpoints)",
     )
+    parser.add_argument(
+        "--gen-batch-size",
+        type=int,
+        default=128,
+        help="Prompts per vLLM call on GSM8K/HumanEval; results print after each call (default: 128)",
+    )
 
     args = parser.parse_args()
 
@@ -877,7 +986,10 @@ def main():
 
     # Load evaluator
     evaluator = BenchmarkEvaluator(
-        args.checkpoint, device=args.device, chat_template=args.chat_template
+        args.checkpoint,
+        device=args.device,
+        chat_template=args.chat_template,
+        gen_batch_size=args.gen_batch_size,
     )
 
     # Create output directory

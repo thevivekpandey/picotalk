@@ -1,0 +1,32 @@
+{
+  "checkpoint": "checkpoints/sft_1b/final.pt",
+  "split": "train",
+  "temperature": 1.0,
+  "top_p": 1.0,
+  "max_new_tokens": 384,
+  "truncated_samples": 1,
+  "problems": 8,
+  "samples_per_problem": 4,
+  "pass_at_k": {
+    "pass@1": 0.0,
+    "pass@2": 0.0,
+    "pass@4": 0.0
+  },
+  "pass_at_k_legacy_grader": {
+    "pass@1": 0.0,
+    "pass@2": 0.0,
+    "pass@4": 0.0
+  },
+  "solve_count_buckets": {
+    "0": 8
+  },
+  "solve_count_histogram": {
+    "0": 8
+  },
+  "grader": {
+    "samples": 32,
+    "uses_hash_pct": 34.375,
+    "correct_fixed_only": 0,
+    "correct_legacy_only": 0
+  }
+}

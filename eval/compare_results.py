@@ -49,17 +49,25 @@ def main():
         sys.exit(f"no comparable results in {results_dir}"
                  f"{f' ({skipped} pre-chat-template file(s) ignored)' if skipped else ''}")
 
-    cols = sorted(runs, key=lambda k: (k[0], k[1] != "raw"))
-    labels = [f"{Path(c).parent.name}/{f}" for c, f in cols]
-    width = max(14, max(len(l) for l in labels) + 2)
+    # One row per (checkpoint, format): pretraining before SFT, steps ascending,
+    # then best and final, raw before chat.
+    def order(key):
+        path, fmt = key
+        stem = Path(path).stem
+        step = int(stem.split("_")[1]) if stem.startswith("step_") and stem[5:].isdigit() else 0
+        return ("sft" in Path(path).parent.name, {"best": 1, "final": 2}.get(stem, 0), step, fmt != "raw")
 
-    print(f"\n{'task':<16}" + "".join(f"{l:>{width}}" for l in labels) + f"{'chance':>9}")
-    print("-" * (16 + width * len(cols) + 9))
+    rows = sorted(runs, key=order)
+    labels = {k: f"{Path(k[0]).parent.name}/{Path(k[0]).stem} {k[1]}" for k in rows}
+    width = max(len(l) for l in labels.values()) + 2
 
-    tasks = [t for t in TASK_ORDER if any(t in runs[k]["tasks"] for k in cols)]
-    for task in tasks:
-        row = f"{task:<16}"
-        for key in cols:
+    tasks = [t for t in TASK_ORDER if any(t in runs[k]["tasks"] for k in rows)]
+    cols = {t: max(8, len(t) + 2) for t in tasks}
+    print(f"\n{'checkpoint':<{width}}" + "".join(f"{t:>{cols[t]}}" for t in tasks))
+    print("-" * (width + sum(cols.values())))
+    for key in rows:
+        line = f"{labels[key]:<{width}}"
+        for task in tasks:
             entry = runs[key]["tasks"].get(task)
             if entry is None:
                 cell = "-"
@@ -67,18 +75,21 @@ def main():
                 cell = "n/s"
             else:
                 cell = f"{entry['accuracy']:.2f}"
-            row += f"{cell:>{width}}"
-        print(row + f"{CHANCE.get(task, 0.0):>8.0f}%")
+            line += f"{cell:>{cols[task]}}"
+        print(line)
+    print(f"{'chance':<{width}}" + "".join(f"{CHANCE.get(t, 0.0):>{cols[t]}.0f}" for t in tasks))
 
     print("\n  n/s = not scored (humaneval never executes the generated code)")
     if skipped:
         print(f"  {skipped} result file(s) from before --chat-template ignored")
 
-    # The comparison that answers "did SFT do anything on these benchmarks"
-    base = next((k for k in cols if "sft" not in Path(k[0]).parent.name and k[1] == "raw"), None)
-    sft = next((k for k in cols if "sft" in Path(k[0]).parent.name and k[1] == "chat"), None)
+    # The comparison that answers "did SFT do anything on these benchmarks":
+    # the last pretraining/raw row against the last sft/chat row (final.pt
+    # when present, given the ordering above).
+    base = next((k for k in reversed(rows) if "sft" not in Path(k[0]).parent.name and k[1] == "raw"), None)
+    sft = next((k for k in reversed(rows) if "sft" in Path(k[0]).parent.name and k[1] == "chat"), None)
     if base and sft:
-        print(f"\n  {'delta (sft/chat - base/raw)':<30}")
+        print(f"\n  delta: {labels[sft]}  minus  {labels[base]}")
         for task in tasks:
             b, s = runs[base]["tasks"].get(task), runs[sft]["tasks"].get(task)
             if not b or not s or b.get("note") or s.get("note"):

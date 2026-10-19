@@ -1,0 +1,13 @@
+mkdir -p checkpoints/smoke_500m_v2 && PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True nohup python3 -u train/train.py \
+  --model 500m \
+  --batch-size 4 \
+  --grad-accum-steps 4 \
+  --max-steps 1200 \
+  --learning-rate 3e-4 \
+  --log-interval 10 \
+  --eval-interval 150 \
+  --eval-steps 20 \
+  --save-interval 1200 \
+  --checkpoint-dir ./checkpoints/smoke_500m_v2 \
+  --wandb --wandb-project picotalk --run-name smoke-500m-l4-v2 \
+  > nohup_smoke_500m_v2.out 2>&1 &

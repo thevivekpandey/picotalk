@@ -48,8 +48,10 @@ class PicotalkLM:
         state_dict = {k.replace('module.', ''): v for k, v in state_dict.items()}
         self.model.load_state_dict(state_dict)
 
-        # Move to device and set dtype
-        self.model = self.model.to(device=device, dtype=dtype)
+        # Move to device; parameters stay fp32 and `dtype` is used only for
+        # autocast. Converting the module with .to(dtype=) would also convert
+        # the complex64 RoPE buffer to a real tensor and destroy the rotation.
+        self.model = self.model.to(device=device)
         self.model.eval()
 
         # Load tokenizer
